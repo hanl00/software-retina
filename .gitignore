@@ -1,0 +1,9 @@
+*.pyd
+*.txt
+*.prof
+*.exp
+*.lib
+*.obj
+*.pyc
+*.c
+*.pkl
