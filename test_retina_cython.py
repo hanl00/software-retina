@@ -104,8 +104,8 @@ def testLoadPickle():
     return coeff[0][2]
 
 def compareRetinaSample():
-    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=2)
-    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=2)
+    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=5)
+    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=5)
 
     print(cy, py)
     print('Cython is {}x faster'.format(py/cy))
