@@ -31,9 +31,26 @@ cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding, bint nans):
         out = np.full(size, np.nan)
     else:
         out = np.zeros(size, dtype = np.float64)
+
     out[padding:-padding, padding:-padding] = img
     
     return out
+
+   
+
+@cython.wraparound(False)
+@cython.boundscheck(False)
+cpdef float sum2d(double[:, :] arr):
+    cdef size_t i, j, I, J
+    cdef float total = 0
+    I = arr.shape[0]
+    J = arr.shape[1]
+
+    for i in range(I):
+        for j in range(J):
+                total += arr[i, j]
+    return total
+
 
 #Project the source image onto the target image at the given location
 # def project(source, target, location, v=False):

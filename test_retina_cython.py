@@ -3,38 +3,19 @@ import numpy as np
 from os.path import dirname, join
 import sys
 import cProfile, pstats, io
-import pyximport
 
-pyximport.install()
-datadir = join(dirname(dirname(__file__)), "cython_test")
-
-sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision_cython')
-import retina_sample
-import retina_utils
 sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision')
 import retinavision
+
 sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision_cython\\memory view')
-from memoryView import *
+from memoryView import sum3d
+
+sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision_cython\\retina')
+import retina_sample
+import retina_utils
 
 
-def profile(fnc):
-    
-    """A decorator that uses cProfile to profile a function"""
-    
-    def inner(*args, **kwargs):
-        
-        pr = cProfile.Profile()
-        pr.enable()
-        retval = fnc(*args, **kwargs)
-        pr.disable()
-        s = io.StringIO()
-        sortby = 'cumulative'
-        ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
-        ps.print_stats()
-        print(s.getvalue())
-        return retval
-
-    return inner
+datadir = join(dirname(dirname(__file__)), "cython_test")
 
 # generate a random 2 dimensional array
 input_img =  np.random.randint(256, size=(720, 1280), dtype=np.uint8)
@@ -61,7 +42,6 @@ def originalRetinaSample():
     v = R.sample(input_img, fixation)
     return v
 
-# @profile
 def cythonRetinaSample():
     R = retina_sample.Retina()
     retina_sample.loadCoeff()
@@ -104,8 +84,8 @@ def testLoadPickle():
     return coeff[0][2]
 
 def compareRetinaSample():
-    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=5)
-    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=5)
+    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=10)
+    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=10)
 
     print(cy, py)
     print('Cython is {}x faster'.format(py/cy))
@@ -125,14 +105,16 @@ def cythonRetinaProfile():
     image = input_img.astype(np.float64)
     cProfile.runctx("R.sample(image, fixation)", globals(), locals(), "Profile.prof")
     s = pstats.Stats("Profile.prof")
-    s.strip_dirs().sort_stats("time").print_stats()
+    s.strip_dirs().sort_stats("cumtime").print_stats()
 
 def testOutput():
-    list1= originalRetinaSample()
-    list2= cythonRetinaSample()
+    original = originalRetinaSample()
+    cythonised = cythonRetinaSample()
 
-    for index, (first, second) in enumerate(zip(list1, list2)):
+    print(original)
+    print(cythonised)
+    for index, (first, second) in enumerate(zip(original, cythonised)):
         if first != second:
             print(index, first, second)
 
-compareRetinaSample()
+cythonRetinaProfile()

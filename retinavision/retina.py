@@ -168,11 +168,12 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
             else: f = 1.0/np.sum(m*kernel)
             
             extract = np.nan_to_num(extract)
+
             if rgb: V[i] = np.sum(extract*kernel, axis=(0,1)) * f
             else: V[i] = np.sum(extract*kernel) * f
        
         self._V = V
-        return m
+        return V
     
     def backproject_last(self, n = True):
         return self.backproject(self._V, self._imsize, self._fixation, normalize=n)

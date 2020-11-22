@@ -744,7 +744,8 @@ struct __pyx_ctuple_int__and_int {
     __pyx_t_12.data = NULL;
   }
   __pyx_L13:;
-</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">34</span>:     <span class="n">out</span><span class="p">[</span><span class="n">padding</span><span class="p">:</span><span class="o">-</span><span class="n">padding</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span><span class="o">-</span><span class="n">padding</span><span class="p">]</span> <span class="o">=</span> <span class="n">img</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">34</span>: </pre>
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">35</span>:     <span class="n">out</span><span class="p">[</span><span class="n">padding</span><span class="p">:</span><span class="o">-</span><span class="n">padding</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span><span class="o">-</span><span class="n">padding</span><span class="p">]</span> <span class="o">=</span> <span class="n">img</span></pre>
 <pre class='cython code score-0 '>  __pyx_t_12.data = __pyx_v_out.data;
   __pyx_t_12.memview = __pyx_v_out.memview;
   __PYX_INC_MEMVIEW(&amp;__pyx_t_12, 0);
@@ -763,7 +764,7 @@ struct __pyx_ctuple_int__and_int {
     0,
     1) &lt; 0))
 {
-    <span class='error_goto'>__PYX_ERR(0, 34, __pyx_L1_error)</span>
+    <span class='error_goto'>__PYX_ERR(0, 35, __pyx_L1_error)</span>
 }
 
 if (unlikely(__pyx_memoryview_slice_memviewslice(
@@ -780,51 +781,151 @@ if (unlikely(__pyx_memoryview_slice_memviewslice(
     0,
     1) &lt; 0))
 {
-    <span class='error_goto'>__PYX_ERR(0, 34, __pyx_L1_error)</span>
+    <span class='error_goto'>__PYX_ERR(0, 35, __pyx_L1_error)</span>
 }
 
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_img, __pyx_t_12, 2, 2, 0) &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 34, __pyx_L1_error)</span>
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_img, __pyx_t_12, 2, 2, 0) &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 35, __pyx_L1_error)</span>
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_12, 1);
   __pyx_t_12.memview = NULL;
   __pyx_t_12.data = NULL;
-</pre><pre class="cython line score-0">&#xA0;<span class="">35</span>: </pre>
-<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">36</span>:     <span class="k">return</span> <span class="n">out</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">36</span>: </pre>
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">37</span>:     <span class="k">return</span> <span class="n">out</span></pre>
 <pre class='cython code score-0 '>  __PYX_INC_MEMVIEW(&amp;__pyx_v_out, 0);
   __pyx_r = __pyx_v_out;
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">37</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">38</span>: <span class="c">#Project the source image onto the target image at the given location</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">39</span>: <span class="c"># def project(source, target, location, v=False):</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">40</span>: <span class="c">#     sh, sw = source.shape[:2]</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">41</span>: <span class="c">#     th, tw = target.shape[:2]</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">42</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">43</span>: <span class="c">#     #target frame</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">44</span>: <span class="c">#     y1 = max(0, ir(location[0] - sh/2.0))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">45</span>: <span class="c">#     y2 = min(th, ir(location[0] + sh/2.0))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">46</span>: <span class="c">#     x1 = max(0, ir(location[1] - sw/2.0))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">47</span>: <span class="c">#     x2 = min(tw, ir(location[1] + sw/2.0))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">48</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">49</span>: <span class="c">#     #source frame</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">50</span>: <span class="c">#     s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">51</span>: <span class="c">#     s_y2 = s_y1 + (y2 - y1)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">52</span>: <span class="c">#     s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">53</span>: <span class="c">#     s_x2 = s_x1 + (x2 - x1)</span></pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">38</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">39</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">40</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">41</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">wraparound</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">42</span>: <span class="nd">@cython</span><span class="o">.</span><span class="n">boundscheck</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></pre>
+<pre class="cython line score-15" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">43</span>: <span class="k">cpdef</span> <span class="kt">float</span> <span class="nf">sum2d</span><span class="p">(</span><span class="n">double</span><span class="p">[:,</span> <span class="p">:]</span> <span class="n">arr</span><span class="p">):</span></pre>
+<pre class='cython code score-15 '>static PyObject *__pyx_pw_12retina_utils_3sum2d(PyObject *__pyx_self, PyObject *__pyx_arg_arr); /*proto*/
+static float __pyx_f_12retina_utils_sum2d(__Pyx_memviewslice __pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
+  size_t __pyx_v_i;
+  size_t __pyx_v_j;
+  size_t __pyx_v_I;
+  size_t __pyx_v_J;
+  float __pyx_v_total;
+  float __pyx_r;
+  <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("sum2d", 0);
+/* … */
+  /* function exit code */
+  __pyx_L0:;
+  <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_12retina_utils_3sum2d(PyObject *__pyx_self, PyObject *__pyx_arg_arr); /*proto*/
+static PyObject *__pyx_pw_12retina_utils_3sum2d(PyObject *__pyx_self, PyObject *__pyx_arg_arr) {
+  __Pyx_memviewslice __pyx_v_arr = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyObject *__pyx_r = 0;
+  <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("sum2d (wrapper)", 0);
+  assert(__pyx_arg_arr); {
+    __pyx_v_arr = <span class='pyx_c_api'>__Pyx_PyObject_to_MemoryviewSlice_dsds_double</span>(__pyx_arg_arr, PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_v_arr.memview)) __PYX_ERR(0, 43, __pyx_L3_error)</span>
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_utils.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_12retina_utils_2sum2d(__pyx_self, __pyx_v_arr);
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+
+  /* function exit code */
+  <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_12retina_utils_2sum2d(CYTHON_UNUSED PyObject *__pyx_self, __Pyx_memviewslice __pyx_v_arr) {
+  PyObject *__pyx_r = NULL;
+  <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("sum2d", 0);
+  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
+  if (unlikely(!__pyx_v_arr.memview)) { <span class='pyx_c_api'>__Pyx_RaiseUnboundLocalError</span>("arr"); <span class='error_goto'>__PYX_ERR(0, 43, __pyx_L1_error)</span> }
+  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_f_12retina_utils_sum2d(__pyx_v_arr, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)</span>
+  <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_utils.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __PYX_XDEC_MEMVIEW(&amp;__pyx_v_arr, 1);
+  <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
+  <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
+  return __pyx_r;
+}
+</pre><pre class="cython line score-0">&#xA0;<span class="">44</span>:     <span class="k">cdef</span> <span class="kt">size_t</span> <span class="nf">i</span><span class="p">,</span> <span class="nf">j</span><span class="p">,</span> <span class="nf">I</span><span class="p">,</span> <span class="nf">J</span></pre>
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">45</span>:     <span class="k">cdef</span> <span class="kt">float</span> <span class="nf">total</span> <span class="o">=</span> <span class="mf">0</span></pre>
+<pre class='cython code score-0 '>  __pyx_v_total = 0.0;
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">46</span>:     <span class="n">I</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span></pre>
+<pre class='cython code score-0 '>  __pyx_v_I = (__pyx_v_arr.shape[0]);
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">47</span>:     <span class="n">J</span> <span class="o">=</span> <span class="n">arr</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mf">1</span><span class="p">]</span></pre>
+<pre class='cython code score-0 '>  __pyx_v_J = (__pyx_v_arr.shape[1]);
+</pre><pre class="cython line score-0">&#xA0;<span class="">48</span>: </pre>
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">49</span>:     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">I</span><span class="p">):</span></pre>
+<pre class='cython code score-0 '>  __pyx_t_1 = __pyx_v_I;
+  __pyx_t_2 = __pyx_t_1;
+  for (__pyx_t_3 = 0; __pyx_t_3 &lt; __pyx_t_2; __pyx_t_3+=1) {
+    __pyx_v_i = __pyx_t_3;
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">50</span>:         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">J</span><span class="p">):</span></pre>
+<pre class='cython code score-0 '>    __pyx_t_4 = __pyx_v_J;
+    __pyx_t_5 = __pyx_t_4;
+    for (__pyx_t_6 = 0; __pyx_t_6 &lt; __pyx_t_5; __pyx_t_6+=1) {
+      __pyx_v_j = __pyx_t_6;
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">51</span>:                 <span class="n">total</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span></pre>
+<pre class='cython code score-0 '>      __pyx_t_7 = __pyx_v_i;
+      __pyx_t_8 = __pyx_v_j;
+      __pyx_v_total = (__pyx_v_total + (*((double *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_arr.data + __pyx_t_7 * __pyx_v_arr.strides[0]) ) + __pyx_t_8 * __pyx_v_arr.strides[1]) ))));
+    }
+  }
+</pre><pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">52</span>:     <span class="k">return</span> <span class="n">total</span></pre>
+<pre class='cython code score-0 '>  __pyx_r = __pyx_v_total;
+  goto __pyx_L0;
+</pre><pre class="cython line score-0">&#xA0;<span class="">53</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">54</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">55</span>: <span class="c">#     try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">56</span>: <span class="c">#     except Exception as E:</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">57</span>: <span class="c">#         print(y1, y2, x1, x2)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">58</span>: <span class="c">#         print(s_y1, s_y2, s_x1, s_x2)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">59</span>: <span class="c">#         print(source.shape)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">60</span>: <span class="c">#         print(target.shape)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">61</span>: <span class="c">#         print(location)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">62</span>: <span class="c">#         raise E</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">63</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">64</span>: <span class="c">#     if v:</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">65</span>: <span class="c">#         print(y1, y2, x1, x2)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">66</span>: <span class="c">#         print(s_y1, s_y2, s_x1, s_x2)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">67</span>: <span class="c">#         print(source.shape)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">68</span>: <span class="c">#         print(target.shape)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">69</span>: <span class="c">#         print(location)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">70</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">71</span>: <span class="c">#     return target</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">55</span>: <span class="c">#Project the source image onto the target image at the given location</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">56</span>: <span class="c"># def project(source, target, location, v=False):</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">57</span>: <span class="c">#     sh, sw = source.shape[:2]</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">58</span>: <span class="c">#     th, tw = target.shape[:2]</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">59</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">60</span>: <span class="c">#     #target frame</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">61</span>: <span class="c">#     y1 = max(0, ir(location[0] - sh/2.0))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">62</span>: <span class="c">#     y2 = min(th, ir(location[0] + sh/2.0))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">63</span>: <span class="c">#     x1 = max(0, ir(location[1] - sw/2.0))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">64</span>: <span class="c">#     x2 = min(tw, ir(location[1] + sw/2.0))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">65</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">66</span>: <span class="c">#     #source frame</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">67</span>: <span class="c">#     s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">68</span>: <span class="c">#     s_y2 = s_y1 + (y2 - y1)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">69</span>: <span class="c">#     s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">70</span>: <span class="c">#     s_x2 = s_x1 + (x2 - x1)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">71</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">72</span>: <span class="c">#     try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">73</span>: <span class="c">#     except Exception as E:</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">74</span>: <span class="c">#         print(y1, y2, x1, x2)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">75</span>: <span class="c">#         print(s_y1, s_y2, s_x1, s_x2)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">76</span>: <span class="c">#         print(source.shape)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">77</span>: <span class="c">#         print(target.shape)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">78</span>: <span class="c">#         print(location)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">79</span>: <span class="c">#         raise E</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">80</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">81</span>: <span class="c">#     if v:</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">82</span>: <span class="c">#         print(y1, y2, x1, x2)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">83</span>: <span class="c">#         print(s_y1, s_y2, s_x1, s_x2)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">84</span>: <span class="c">#         print(source.shape)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">85</span>: <span class="c">#         print(target.shape)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">86</span>: <span class="c">#         print(location)</span></pre>
+<pre class="cython line score-0">&#xA0;<span class="">87</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">88</span>: <span class="c">#     return target</span></pre>
 </div></body></html>

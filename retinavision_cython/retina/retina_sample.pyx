@@ -2,11 +2,11 @@
 
 import numpy as np
 cimport numpy as cnp # Import for NumPY C-API
-from retina_utils import pad
+# from retina_utils import pad, sum2d
 import sys
 import itertools
 from libc.math cimport isnan
-# from cython.parallel import prange
+from cython.parallel import prange
 
 py = sys.version_info.major
 
@@ -42,7 +42,68 @@ def loadLoc():
 
 def getLoc():
        global loc
-       return loc 
+       return loc
+
+# @cython.wraparound(False)
+# @cython.boundscheck(False)  
+cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding, bint nans):
+   
+    cdef int firstDimension = img.shape[0]
+    cdef int firstAccumulator = 0
+    cdef int secondDimension = img.shape[1]
+    cdef int secondAccumulator = 0
+    cdef int paddingPower = 2*padding
+    cdef cnp.float64_t[:, :] out
+    cdef (int, int) size = (0, 0)
+    cdef Py_ssize_t i
+    cdef int imgDimension = img.ndim
+
+    for i in prange(imgDimension, nogil = True):
+        if i == 1: 
+            firstAccumulator += firstDimension + paddingPower
+        else:
+            secondAccumulator += secondDimension + paddingPower
+        # add for third dimension
+    
+    size = (firstAccumulator, secondAccumulator)
+    
+    if nans: 
+        out = np.full(size, np.nan)
+    else:
+        out = np.zeros(size, dtype = np.float64)
+
+    out[padding:-padding, padding:-padding] = img
+    
+    return out
+
+   
+
+# @cython.wraparound(False)
+# @cython.boundscheck(False)
+cpdef float sum2d(double[:, :] arr):
+    cdef size_t i, j, I, J
+    cdef float total = 0
+    I = arr.shape[0]
+    J = arr.shape[1]
+
+    for i in range(I):
+        for j in range(J):
+                total += arr[i, j]
+    return total
+
+cpdef cnp.float64_t[:, :] cython_nan_to_num (cnp.float64_t[:, :] arr):
+
+    cdef size_t i, j, I, J
+
+    I = arr.shape[0]
+    J = arr.shape[1]
+
+    for i in range(I):
+        for j in range(J):
+            if isnan(arr[i][j]):
+                arr[i][j] = 0.0
+
+    return arr
 
 cdef class Retina:
     
@@ -83,7 +144,7 @@ cdef class Retina:
     #         self._normTight()
 
     # image is a numpy ndarray dtype uint8 dimension is 2 (3 if rgb) and fixation is a tuple
-    cpdef sample (self, cnp.ndarray[cnp.float64_t, ndim=2] image, (int, int) fixation):
+    cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample (self, cnp.ndarray[cnp.float64_t, ndim=2] image, (int, int) fixation):
         """Sample an image"""
         cdef cnp.float64_t[:, :] imageMemoryView = image
         cdef int fixation_y = fixation[0]
@@ -101,6 +162,7 @@ cdef class Retina:
         cdef int y2
         cdef int x2
         cdef cnp.float64_t[:, :] extract
+        cdef cnp.float64_t[:, :] nan_to_num_retval
         cdef cnp.ndarray[cnp.float64_t, ndim=2] c
         cdef cnp.ndarray[cnp.float64_t, ndim=2] kernel
         cdef cnp.ndarray[cnp.float64_t, ndim=2] m
@@ -138,21 +200,27 @@ cdef class Retina:
             x2 = int(X[i] + w/2+0.5)
 
             extract = pic[y1:y2,x1:x2]
-            m = np.where(np.isnan(extract), 0, 1.0)
-            extract = np.nan_to_num(extract)
-
             #np.unravel_index(np.where(data.ravel()==10),data.shape)
-
             c = coeff[0, i]
             
             if rgb: 
                 kernel = np.dstack((c,c,c))
-                f = 1.0/np.sum(m*kernel, axis = (0,1))
-                V[i] = np.sum(extract*kernel, axis=(0,1)) * f
             else: 
                 kernel = c
-                f = 1.0/np.sum(m*kernel)
-                V[i] = np.sum(extract*kernel) * f
+
+            m = np.where(np.isnan(extract), 0, 1.0)
+
+            if rgb: 
+                f = 1.0/np.sum(m*kernel, axis = (0,1))
+            else: 
+                f = 1.0/sum2d(m*kernel)
+
+            nan_to_num_retval = cython_nan_to_num(extract)
+            
+            if rgb: 
+                V[i] = np.sum(nan_to_num_retval*kernel, axis=(0,1)) * f
+            else: 
+                V[i] = sum2d(nan_to_num_retval*kernel) * f
        
         self._V = V
         
