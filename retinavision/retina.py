@@ -136,7 +136,7 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
 
         rgb = len(image.shape) == 3 and image.shape[-1] == 3
         p = self.width
-        pic = pad(image, p, True)
+        pic = pad(image, p, False)
         
         X = self.loc[:,0] + fix[1] + p
         Y = self.loc[:,1] + fix[0] + p
@@ -159,19 +159,16 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
             else: 
                 kernel = c
 
-            
             m = np.where(np.isnan(extract), 0, 1.0) #mask
-
-            
             
             if rgb: f = 1.0/np.sum(m*kernel, axis = (0,1)) #TODO fix invalid value warnings
             else: f = 1.0/np.sum(m*kernel)
             
             extract = np.nan_to_num(extract)
-
+            
             if rgb: V[i] = np.sum(extract*kernel, axis=(0,1)) * f
             else: V[i] = np.sum(extract*kernel) * f
-       
+
         self._V = V
         return V
     

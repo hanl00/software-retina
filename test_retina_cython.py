@@ -117,4 +117,17 @@ def testOutput():
         if first != second:
             print(index, first, second)
 
+# originalRetinaSample()
+# print("------------------------------------")
+# cythonRetinaSample()
+
+# compareRetinaSample()
+# # originalRetinaSample()
 cythonRetinaProfile()
+# testOutput()
+
+# nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])
+
+# m = retina_sample.mask_where_isnan(nan_array)
+
+# print(m)

@@ -6,7 +6,7 @@ from cython.parallel import prange
 
 @cython.wraparound(False)
 @cython.boundscheck(False)  
-cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding, bint nans):
+cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding):
    
     cdef int firstDimension = img.shape[0]
     cdef int firstAccumulator = 0
@@ -27,10 +27,7 @@ cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding, bint nans):
     
     size = (firstAccumulator, secondAccumulator)
     
-    if nans: 
-        out = np.full(size, np.nan)
-    else:
-        out = np.zeros(size, dtype = np.float64)
+    out = np.zeros(size, dtype = np.float64)
 
     out[padding:-padding, padding:-padding] = img
     
