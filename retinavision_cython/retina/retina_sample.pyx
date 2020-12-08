@@ -199,17 +199,10 @@ cdef class Retina:
             x1 = int(X[i] - w/2+0.5)
             x2 = int(X[i] + w/2+0.5)
             extract = pic[y1:y2,x1:x2]
-            copied_array = np.copy(extract)
 
-            m =  mask_where_isnan(copied_array) #mask
+            kernel = coeff[0, i]
 
-            c = coeff[0, i]
-            
-            kernel = c
-    
-            f = 1.0/sum2d(m*kernel)    
-
-            V[i] = sum2d(extract*kernel) * f
+            V[i] = sum2d(extract*kernel) 
 
            
 

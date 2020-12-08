@@ -502,20 +502,20 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px
 </pre><pre class="cython line score-0">&#xA0;<span class="">022</span>: </pre>
 <pre class="cython line score-21" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">023</span>: <span class="k">def</span> <span class="nf">loadPickle</span><span class="p">(</span><span class="n">path</span><span class="p">):</span></pre>
 <pre class='cython code score-21 '>/* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_1loadPickle(PyObject *__pyx_self, PyObject *__pyx_v_path); /*proto*/
-static PyMethodDef __pyx_mdef_19retinavision_cython_6retina_13retina_sample_1loadPickle = {"loadPickle", (PyCFunction)__pyx_pw_19retinavision_cython_6retina_13retina_sample_1loadPickle, METH_O, 0};
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_1loadPickle(PyObject *__pyx_self, PyObject *__pyx_v_path) {
+static PyObject *__pyx_pw_13retina_sample_1loadPickle(PyObject *__pyx_self, PyObject *__pyx_v_path); /*proto*/
+static PyMethodDef __pyx_mdef_13retina_sample_1loadPickle = {"loadPickle", (PyCFunction)__pyx_pw_13retina_sample_1loadPickle, METH_O, 0};
+static PyObject *__pyx_pw_13retina_sample_1loadPickle(PyObject *__pyx_self, PyObject *__pyx_v_path) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("loadPickle (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPickle(__pyx_self, ((PyObject *)__pyx_v_path));
+  __pyx_r = __pyx_pf_13retina_sample_loadPickle(__pyx_self, ((PyObject *)__pyx_v_path));
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPickle(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_path) {
+static PyObject *__pyx_pf_13retina_sample_loadPickle(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_path) {
   PyObject *__pyx_v_handle = NULL;
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
@@ -532,7 +532,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPick
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.loadPickle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.loadPickle", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_handle);
@@ -546,11 +546,11 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPick
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__42);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__42);
 /* … */
-  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_19retinavision_cython_6retina_13retina_sample_1loadPickle, NULL, __pyx_n_s_retinavision_cython_retina_retin);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)</span>
+  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_13retina_sample_1loadPickle, NULL, __pyx_n_s_retina_sample);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 23, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_loadPickle, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 23, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_codeobj_ = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retina_sample_pyx, __pyx_n_s_loadPickle, 23, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 23, __pyx_L1_error)</span>
+  __pyx_codeobj_ = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retinavision_cython_retina_retin, __pyx_n_s_loadPickle, 23, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj_)) __PYX_ERR(0, 23, __pyx_L1_error)</span>
 </pre><pre class="cython line score-78" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">024</span>:         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span></pre>
 <pre class='cython code score-78 '>  /*with:*/ {
     __pyx_t_1 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)</span>
@@ -599,7 +599,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPick
         <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
         <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
         /*except:*/ {
-          <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.loadPickle", __pyx_clineno, __pyx_lineno, __pyx_filename);
+          <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.loadPickle", __pyx_clineno, __pyx_lineno, __pyx_filename);
           if (<span class='pyx_c_api'>__Pyx_GetException</span>(&amp;__pyx_t_5, &amp;__pyx_t_2, &amp;__pyx_t_1) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 24, __pyx_L9_except_error)</span>
           <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
           <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
@@ -751,20 +751,20 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_loadPick
 </pre><pre class="cython line score-0">&#xA0;<span class="">031</span>: </pre>
 <pre class="cython line score-18" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">032</span>: <span class="k">def</span> <span class="nf">loadCoeff</span><span class="p">():</span></pre>
 <pre class='cython code score-18 '>/* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_3loadCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_19retinavision_cython_6retina_13retina_sample_3loadCoeff = {"loadCoeff", (PyCFunction)__pyx_pw_19retinavision_cython_6retina_13retina_sample_3loadCoeff, METH_NOARGS, 0};
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_3loadCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13retina_sample_3loadCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_13retina_sample_3loadCoeff = {"loadCoeff", (PyCFunction)__pyx_pw_13retina_sample_3loadCoeff, METH_NOARGS, 0};
+static PyObject *__pyx_pw_13retina_sample_3loadCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("loadCoeff (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_2loadCoeff(__pyx_self);
+  __pyx_r = __pyx_pf_13retina_sample_2loadCoeff(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_2loadCoeff(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_13retina_sample_2loadCoeff(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='trace'>__Pyx_TraceFrameInit</span>(__pyx_codeobj__3)
@@ -783,7 +783,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_2loadCoe
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_8);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.loadCoeff", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.loadCoeff", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -792,12 +792,12 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_2loadCoe
   return __pyx_r;
 }
 /* … */
-  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_19retinavision_cython_6retina_13retina_sample_3loadCoeff, NULL, __pyx_n_s_retinavision_cython_retina_retin);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)</span>
+  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_13retina_sample_3loadCoeff, NULL, __pyx_n_s_retina_sample);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_loadCoeff, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 32, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 /* … */
-  __pyx_codeobj__3 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retina_sample_pyx, __pyx_n_s_loadCoeff, 32, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 32, __pyx_L1_error)</span>
+  __pyx_codeobj__3 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retinavision_cython_retina_retin, __pyx_n_s_loadCoeff, 32, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 32, __pyx_L1_error)</span>
 </pre><pre class="cython line score-0">&#xA0;<span class="">033</span>:         <span class="k">global</span> <span class="n">coeff</span></pre>
 <pre class="cython line score-71" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">034</span>:         <span class="n">coeff</span> <span class="o">=</span> <span class="n">loadPickle</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">datadir</span><span class="p">,</span> <span class="s">&quot;retinavision_cython&quot;</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">,</span> <span class="s">&quot;retinas&quot;</span><span class="p">,</span> <span class="s">&quot;ret50k_coeff.pkl&quot;</span><span class="p">))</span></pre>
 <pre class='cython code score-71 '>  <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_2, __pyx_n_s_loadPickle);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 34, __pyx_L1_error)</span>
@@ -883,20 +883,20 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_2loadCoe
 </pre><pre class="cython line score-0">&#xA0;<span class="">035</span>: </pre>
 <pre class="cython line score-11" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">036</span>: <span class="k">def</span> <span class="nf">getCoeff</span><span class="p">():</span></pre>
 <pre class='cython code score-11 '>/* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_5getCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_19retinavision_cython_6retina_13retina_sample_5getCoeff = {"getCoeff", (PyCFunction)__pyx_pw_19retinavision_cython_6retina_13retina_sample_5getCoeff, METH_NOARGS, 0};
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_5getCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13retina_sample_5getCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_13retina_sample_5getCoeff = {"getCoeff", (PyCFunction)__pyx_pw_13retina_sample_5getCoeff, METH_NOARGS, 0};
+static PyObject *__pyx_pw_13retina_sample_5getCoeff(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("getCoeff (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_4getCoeff(__pyx_self);
+  __pyx_r = __pyx_pf_13retina_sample_4getCoeff(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_4getCoeff(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_13retina_sample_4getCoeff(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='trace'>__Pyx_TraceFrameInit</span>(__pyx_codeobj__4)
@@ -907,7 +907,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_4getCoef
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.getCoeff", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.getCoeff", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -916,12 +916,12 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_4getCoef
   return __pyx_r;
 }
 /* … */
-  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_19retinavision_cython_6retina_13retina_sample_5getCoeff, NULL, __pyx_n_s_retinavision_cython_retina_retin);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)</span>
+  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_13retina_sample_5getCoeff, NULL, __pyx_n_s_retina_sample);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 36, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_getCoeff, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 36, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 /* … */
-  __pyx_codeobj__4 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retina_sample_pyx, __pyx_n_s_getCoeff, 36, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 36, __pyx_L1_error)</span>
+  __pyx_codeobj__4 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retinavision_cython_retina_retin, __pyx_n_s_getCoeff, 36, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 36, __pyx_L1_error)</span>
 </pre><pre class="cython line score-0">&#xA0;<span class="">037</span>:        <span class="k">global</span> <span class="n">coeff</span></pre>
 <pre class="cython line score-3" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">038</span>:        <span class="k">return</span> <span class="n">coeff</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
@@ -933,20 +933,20 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_4getCoef
 </pre><pre class="cython line score-0">&#xA0;<span class="">039</span>: </pre>
 <pre class="cython line score-18" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">040</span>: <span class="k">def</span> <span class="nf">loadLoc</span><span class="p">():</span></pre>
 <pre class='cython code score-18 '>/* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_7loadLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_19retinavision_cython_6retina_13retina_sample_7loadLoc = {"loadLoc", (PyCFunction)__pyx_pw_19retinavision_cython_6retina_13retina_sample_7loadLoc, METH_NOARGS, 0};
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_7loadLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13retina_sample_7loadLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_13retina_sample_7loadLoc = {"loadLoc", (PyCFunction)__pyx_pw_13retina_sample_7loadLoc, METH_NOARGS, 0};
+static PyObject *__pyx_pw_13retina_sample_7loadLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("loadLoc (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_6loadLoc(__pyx_self);
+  __pyx_r = __pyx_pf_13retina_sample_6loadLoc(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6loadLoc(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_13retina_sample_6loadLoc(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='trace'>__Pyx_TraceFrameInit</span>(__pyx_codeobj__5)
@@ -965,7 +965,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6loadLoc
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_8);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.loadLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.loadLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -974,12 +974,12 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6loadLoc
   return __pyx_r;
 }
 /* … */
-  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_19retinavision_cython_6retina_13retina_sample_7loadLoc, NULL, __pyx_n_s_retinavision_cython_retina_retin);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)</span>
+  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_13retina_sample_7loadLoc, NULL, __pyx_n_s_retina_sample);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 40, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_loadLoc, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 40, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 /* … */
-  __pyx_codeobj__5 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retina_sample_pyx, __pyx_n_s_loadLoc, 40, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 40, __pyx_L1_error)</span>
+  __pyx_codeobj__5 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retinavision_cython_retina_retin, __pyx_n_s_loadLoc, 40, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 40, __pyx_L1_error)</span>
 </pre><pre class="cython line score-0">&#xA0;<span class="">041</span>:         <span class="k">global</span> <span class="n">loc</span></pre>
 <pre class="cython line score-71" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">042</span>:         <span class="n">loc</span> <span class="o">=</span> <span class="n">loadPickle</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">datadir</span><span class="p">,</span> <span class="s">&quot;retinavision_cython&quot;</span><span class="p">,</span> <span class="s">&quot;data&quot;</span><span class="p">,</span> <span class="s">&quot;retinas&quot;</span><span class="p">,</span> <span class="s">&quot;ret50k_loc.pkl&quot;</span><span class="p">))</span></pre>
 <pre class='cython code score-71 '>  <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_2, __pyx_n_s_loadPickle);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)</span>
@@ -1068,20 +1068,20 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6loadLoc
 <pre class="cython line score-0">&#xA0;<span class="">046</span>: </pre>
 <pre class="cython line score-11" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">047</span>: <span class="k">def</span> <span class="nf">getLoc</span><span class="p">():</span></pre>
 <pre class='cython code score-11 '>/* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_9getLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_19retinavision_cython_6retina_13retina_sample_9getLoc = {"getLoc", (PyCFunction)__pyx_pw_19retinavision_cython_6retina_13retina_sample_9getLoc, METH_NOARGS, 0};
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_9getLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13retina_sample_9getLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_13retina_sample_9getLoc = {"getLoc", (PyCFunction)__pyx_pw_13retina_sample_9getLoc, METH_NOARGS, 0};
+static PyObject *__pyx_pw_13retina_sample_9getLoc(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("getLoc (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_8getLoc(__pyx_self);
+  __pyx_r = __pyx_pf_13retina_sample_8getLoc(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_8getLoc(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_13retina_sample_8getLoc(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='trace'>__Pyx_TraceFrameInit</span>(__pyx_codeobj__6)
@@ -1092,7 +1092,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_8getLoc(
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.getLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.getLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -1101,12 +1101,12 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_8getLoc(
   return __pyx_r;
 }
 /* … */
-  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_19retinavision_cython_6retina_13retina_sample_9getLoc, NULL, __pyx_n_s_retinavision_cython_retina_retin);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 47, __pyx_L1_error)</span>
+  __pyx_t_5 = PyCFunction_NewEx(&amp;__pyx_mdef_13retina_sample_9getLoc, NULL, __pyx_n_s_retina_sample);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 47, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_getLoc, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 47, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 /* … */
-  __pyx_codeobj__6 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retina_sample_pyx, __pyx_n_s_getLoc, 47, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 47, __pyx_L1_error)</span>
+  __pyx_codeobj__6 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_retinavision_cython_retina_retin, __pyx_n_s_getLoc, 47, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__6)) __PYX_ERR(0, 47, __pyx_L1_error)</span>
 </pre><pre class="cython line score-0">&#xA0;<span class="">048</span>:        <span class="k">global</span> <span class="n">loc</span></pre>
 <pre class="cython line score-3" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">049</span>:        <span class="k">return</span> <span class="n">loc</span></pre>
 <pre class='cython code score-3 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
@@ -1118,8 +1118,8 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_8getLoc(
 </pre><pre class="cython line score-0">&#xA0;<span class="">050</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">051</span>: </pre>
 <pre class="cython line score-69" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">052</span>: <span class="k">cpdef</span> <span class="kt">cnp</span>.<span class="kt">ndarray</span>[<span class="kt">cnp</span>.<span class="nf">float64_t</span><span class="p">,</span> <span class="nf">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">pad</span> <span class="p">(</span><span class="n">cnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">cnp</span><span class="o">.</span><span class="n">float64_t</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">img</span><span class="p">,</span> <span class="nb">int</span> <span class="n">padding</span><span class="p">):</span></pre>
-<pre class='cython code score-69 '>static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_pad(PyArrayObject *__pyx_v_img, int __pyx_v_padding, CYTHON_UNUSED int __pyx_skip_dispatch) {
+<pre class='cython code score-69 '>static PyObject *__pyx_pw_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_13retina_sample_pad(PyArrayObject *__pyx_v_img, int __pyx_v_padding, CYTHON_UNUSED int __pyx_skip_dispatch) {
   int __pyx_v_firstDimension;
   int __pyx_v_firstAccumulator;
   int __pyx_v_secondDimension;
@@ -1166,7 +1166,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_pad(
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_img.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_out.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1181,8 +1181,8 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_pad(
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_13retina_sample_11pad(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_img = 0;
   int __pyx_v_padding;
   PyObject *__pyx_r = 0;
@@ -1230,12 +1230,12 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_11pad(Py
   __pyx_L5_argtuple_error:;
   <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("pad", 1, 2, 2, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 52, __pyx_L3_error)</span>
   __pyx_L3_error:;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!<span class='pyx_c_api'>__Pyx_ArgTypeTest</span>(((PyObject *)__pyx_v_img), __pyx_ptype_5numpy_ndarray, 1, "img", 0))) <span class='error_goto'>__PYX_ERR(0, 52, __pyx_L1_error)</span>
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_10pad(__pyx_self, __pyx_v_img, __pyx_v_padding);
+  __pyx_r = __pyx_pf_13retina_sample_10pad(__pyx_self, __pyx_v_img, __pyx_v_padding);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1249,7 +1249,7 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_11pad(Py
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_10pad(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_img, int __pyx_v_padding) {
+static PyObject *__pyx_pf_13retina_sample_10pad(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_img, int __pyx_v_padding) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_img;
   __Pyx_Buffer __pyx_pybuffer_img;
   PyObject *__pyx_r = NULL;
@@ -1267,7 +1267,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_10pad(CY
   }
   __pyx_pybuffernd_img.diminfo[0].strides = __pyx_pybuffernd_img.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_img.diminfo[0].shape = __pyx_pybuffernd_img.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_img.diminfo[1].strides = __pyx_pybuffernd_img.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_img.diminfo[1].shape = __pyx_pybuffernd_img.rcbuffer-&gt;pybuffer.shape[1];
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_19retinavision_cython_6retina_13retina_sample_pad(__pyx_v_img, __pyx_v_padding, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
+  __pyx_t_1 = ((PyObject *)__pyx_f_13retina_sample_pad(__pyx_v_img, __pyx_v_padding, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1282,7 +1282,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_10pad(CY
     <span class='pyx_c_api'>__Pyx_ErrFetch</span>(&amp;__pyx_type, &amp;__pyx_value, &amp;__pyx_tb);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_img.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.pad", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1427,8 +1427,8 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_10pad(CY
 </pre><pre class="cython line score-0">&#xA0;<span class="">078</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">079</span>: </pre>
 <pre class="cython line score-33" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">080</span>: <span class="k">cpdef</span> <span class="kt">float</span> <span class="nf">sum2d</span><span class="p">(</span><span class="n">cnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">cnp</span><span class="o">.</span><span class="n">float64_t</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">arr</span><span class="p">):</span></pre>
-<pre class='cython code score-33 '>static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
-static float __pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(PyArrayObject *__pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
+<pre class='cython code score-33 '>static PyObject *__pyx_pw_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static float __pyx_f_13retina_sample_sum2d(PyArrayObject *__pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
   size_t __pyx_v_i;
   size_t __pyx_v_j;
   size_t __pyx_v_I;
@@ -1459,7 +1459,7 @@ static float __pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(PyArray
     <span class='pyx_c_api'>__Pyx_ErrFetch</span>(&amp;__pyx_type, &amp;__pyx_value, &amp;__pyx_tb);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_WriteUnraisable</span>("retinavision_cython.retina.retina_sample.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  <span class='pyx_c_api'>__Pyx_WriteUnraisable</span>("retina_sample.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1471,13 +1471,13 @@ static float __pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(PyArray
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr) {
+static PyObject *__pyx_pw_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static PyObject *__pyx_pw_13retina_sample_13sum2d(PyObject *__pyx_self, PyObject *__pyx_v_arr) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("sum2d (wrapper)", 0);
   if (unlikely(!<span class='pyx_c_api'>__Pyx_ArgTypeTest</span>(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) <span class='error_goto'>__PYX_ERR(0, 80, __pyx_L1_error)</span>
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_12sum2d(__pyx_self, ((PyArrayObject *)__pyx_v_arr));
+  __pyx_r = __pyx_pf_13retina_sample_12sum2d(__pyx_self, ((PyArrayObject *)__pyx_v_arr));
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1491,7 +1491,7 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_13sum2d(
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_12sum2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr) {
+static PyObject *__pyx_pf_13retina_sample_12sum2d(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   PyObject *__pyx_r = NULL;
@@ -1509,7 +1509,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_12sum2d(
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.shape[1];
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(__pyx_v_arr, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='py_c_api'>PyFloat_FromDouble</span>(__pyx_f_13retina_sample_sum2d(__pyx_v_arr, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1524,7 +1524,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_12sum2d(
     <span class='pyx_c_api'>__Pyx_ErrFetch</span>(&amp;__pyx_type, &amp;__pyx_value, &amp;__pyx_tb);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.sum2d", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1564,8 +1564,8 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_12sum2d(
   goto __pyx_L0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">090</span>: </pre>
 <pre class="cython line score-33" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">091</span>: <span class="k">cpdef</span> <span class="kt">cnp</span>.<span class="kt">ndarray</span>[<span class="kt">cnp</span>.<span class="nf">float64_t</span><span class="p">,</span> <span class="nf">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">mask_where_isnan</span> <span class="p">(</span><span class="n">cnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">cnp</span><span class="o">.</span><span class="n">float64_t</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">arr</span><span class="p">):</span></pre>
-<pre class='cython code score-33 '>static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
-static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_mask_where_isnan(PyArrayObject *__pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
+<pre class='cython code score-33 '>static PyObject *__pyx_pw_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static PyArrayObject *__pyx_f_13retina_sample_mask_where_isnan(PyArrayObject *__pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
   size_t __pyx_v_i;
   size_t __pyx_v_j;
   size_t __pyx_v_I;
@@ -1603,7 +1603,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_mask
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_output.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.mask_where_isnan", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.mask_where_isnan", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1618,13 +1618,13 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_mask
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr) {
+static PyObject *__pyx_pw_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static PyObject *__pyx_pw_13retina_sample_15mask_where_isnan(PyObject *__pyx_self, PyObject *__pyx_v_arr) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("mask_where_isnan (wrapper)", 0);
   if (unlikely(!<span class='pyx_c_api'>__Pyx_ArgTypeTest</span>(((PyObject *)__pyx_v_arr), __pyx_ptype_5numpy_ndarray, 1, "arr", 0))) <span class='error_goto'>__PYX_ERR(0, 91, __pyx_L1_error)</span>
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_where_isnan(__pyx_self, ((PyArrayObject *)__pyx_v_arr));
+  __pyx_r = __pyx_pf_13retina_sample_14mask_where_isnan(__pyx_self, ((PyArrayObject *)__pyx_v_arr));
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1638,7 +1638,7 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_15mask_w
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_where_isnan(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr) {
+static PyObject *__pyx_pf_13retina_sample_14mask_where_isnan(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_arr) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_arr;
   __Pyx_Buffer __pyx_pybuffer_arr;
   PyObject *__pyx_r = NULL;
@@ -1656,7 +1656,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_w
   }
   __pyx_pybuffernd_arr.diminfo[0].strides = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_arr.diminfo[0].shape = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_arr.diminfo[1].strides = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_arr.diminfo[1].shape = __pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer.shape[1];
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_19retinavision_cython_6retina_13retina_sample_mask_where_isnan(__pyx_v_arr, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)</span>
+  __pyx_t_1 = ((PyObject *)__pyx_f_13retina_sample_mask_where_isnan(__pyx_v_arr, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1671,7 +1671,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_w
     <span class='pyx_c_api'>__Pyx_ErrFetch</span>(&amp;__pyx_type, &amp;__pyx_value, &amp;__pyx_tb);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_arr.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.mask_where_isnan", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.mask_where_isnan", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -1741,9 +1741,9 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_w
   goto __pyx_L0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">107</span>: </pre>
 <pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">108</span>: <span class="k">cdef</span> <span class="k">class</span> <span class="nf">Retina</span><span class="p">:</span></pre>
-<pre class='cython code score-0 '>struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina {
+<pre class='cython code score-0 '>struct __pyx_obj_13retina_sample_Retina {
   PyObject_HEAD
-  struct __pyx_vtabstruct_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_vtab;
+  struct __pyx_vtabstruct_13retina_sample_Retina *__pyx_vtab;
   __Pyx_memviewslice _gaussNorm;
   __Pyx_memviewslice _gaussNormTight;
   __Pyx_memviewslice _V;
@@ -1754,11 +1754,11 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_14mask_w
   __pyx_ctuple_int__and_int _normFixation;
 };
 /* … */
-struct __pyx_vtabstruct_19retinavision_cython_6retina_13retina_sample_Retina {
-  PyObject *(*updateLoc)(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *, int __pyx_skip_dispatch);
-  PyArrayObject *(*sample)(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch);
+struct __pyx_vtabstruct_13retina_sample_Retina {
+  PyObject *(*updateLoc)(struct __pyx_obj_13retina_sample_Retina *, int __pyx_skip_dispatch);
+  PyArrayObject *(*sample)(struct __pyx_obj_13retina_sample_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch);
 };
-static struct __pyx_vtabstruct_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_vtabptr_19retinavision_cython_6retina_13retina_sample_Retina;
+static struct __pyx_vtabstruct_13retina_sample_Retina *__pyx_vtabptr_13retina_sample_Retina;
 
 </pre><pre class="cython line score-0">&#xA0;<span class="">109</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">110</span>:     <span class="k">cdef</span> <span class="kt">cnp</span>.<span class="kt">float64_t</span>[<span class="p">:,</span> <span class="p">:]</span> <span class="n">_gaussNorm</span></pre>
@@ -1775,22 +1775,22 @@ static struct __pyx_vtabstruct_19retinavision_cython_6retina_13retina_sample_Ret
 <pre class="cython line score-0">&#xA0;<span class="">117</span>: </pre>
 <pre class="cython line score-16" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">118</span>:     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
 <pre class='cython code score-16 '>/* Python wrapper */
-static int __pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_13retina_sample_6Retina_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_13retina_sample_6Retina_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   int __pyx_r;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("__init__ (wrapper)", 0);
   if (unlikely(<span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args) &gt; 0)) {
     <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("__init__", 1, 0, 0, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); return -1;}
   if (unlikely(__pyx_kwds) &amp;&amp; unlikely(<span class='py_c_api'>PyDict_Size</span>(__pyx_kwds) &gt; 0) &amp;&amp; unlikely(!<span class='pyx_c_api'>__Pyx_CheckKeywordStrings</span>(__pyx_kwds, "__init__", 0))) return -1;
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina___init__(((struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13retina_sample_6Retina___init__(((struct __pyx_obj_13retina_sample_Retina *)__pyx_v_self));
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static int __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina___init__(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_v_self) {
+static int __pyx_pf_13retina_sample_6Retina___init__(struct __pyx_obj_13retina_sample_Retina *__pyx_v_self) {
   int __pyx_r;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -1806,7 +1806,7 @@ static int __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina___init
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_5, 1);
   __PYX_XDEC_MEMVIEW(&amp;__pyx_t_6, 1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   <span class='trace'>__Pyx_TraceReturn</span>(Py_None, 0);
@@ -1910,8 +1910,8 @@ static int __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina___init
 <pre class="cython line score-0">&#xA0;<span class="">130</span>:         <span class="c"># self._backprojTight = 0 not used first</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">131</span>: </pre>
 <pre class="cython line score-34" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">132</span>:     <span class="k">cpdef</span> <span class="nf">updateLoc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></pre>
-<pre class='cython code score-34 '>static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_updateLoc(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_v_self, int __pyx_skip_dispatch) {
+<pre class='cython code score-34 '>static PyObject *__pyx_pw_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_f_13retina_sample_6Retina_updateLoc(struct __pyx_obj_13retina_sample_Retina *__pyx_v_self, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
@@ -1928,7 +1928,7 @@ static PyObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_u
       #endif
       __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_updateLoc);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_3updateLoc)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_13retina_sample_6Retina_3updateLoc)) {
         <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
         <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_1);
         __pyx_t_3 = __pyx_t_1; __pyx_t_4 = NULL;
@@ -1973,7 +1973,7 @@ static PyObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_u
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.updateLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.updateLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -1983,26 +1983,26 @@ static PyObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_u
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_13retina_sample_6Retina_3updateLoc(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("updateLoc (wrapper)", 0);
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_2updateLoc(((struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *)__pyx_v_self));
+  __pyx_r = __pyx_pf_13retina_sample_6Retina_2updateLoc(((struct __pyx_obj_13retina_sample_Retina *)__pyx_v_self));
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_2updateLoc(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_v_self) {
+static PyObject *__pyx_pf_13retina_sample_6Retina_2updateLoc(struct __pyx_obj_13retina_sample_Retina *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   <span class='trace'>__Pyx_TraceDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("updateLoc", 0);
   <span class='trace'>__Pyx_TraceCall</span>("updateLoc (wrapper)", __pyx_f[0], 132, 0, <span class='error_goto'>__PYX_ERR(0, 132, __pyx_L1_error)</span>);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = __pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_updateLoc(__pyx_v_self, 1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
+  __pyx_t_1 = __pyx_f_13retina_sample_6Retina_updateLoc(__pyx_v_self, 1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 132, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2011,7 +2011,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.updateLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.updateLoc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -2134,9 +2134,9 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
 <pre class="cython line score-0">&#xA0;<span class="">144</span>:     <span class="c">#         self._normTight()</span></pre>
 <pre class="cython line score-0">&#xA0;<span class="">145</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">146</span>:     <span class="c"># image is a numpy ndarray dtype uint8 dimension is 2 (3 if rgb) and fixation is a tuple</span></pre>
-<pre class="cython line score-158" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">147</span>:     <span class="k">cpdef</span> <span class="kt">cnp</span>.<span class="kt">ndarray</span>[<span class="kt">cnp</span>.<span class="nf">float64_t</span><span class="p">,</span> <span class="nf">ndim</span><span class="o">=</span><span class="mf">1</span><span class="p">]</span> <span class="n">sample</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">cnp</span><span class="o">.</span><span class="n">float64_t</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="n">fixation</span><span class="p">):</span></pre>
-<pre class='cython code score-158 '>static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_sample(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation, int __pyx_skip_dispatch) {
+<pre class="cython line score-143" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">147</span>:     <span class="k">cpdef</span> <span class="kt">cnp</span>.<span class="kt">ndarray</span>[<span class="kt">cnp</span>.<span class="nf">float64_t</span><span class="p">,</span> <span class="nf">ndim</span><span class="o">=</span><span class="mf">1</span><span class="p">]</span> <span class="n">sample</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cnp</span><span class="o">.</span><span class="n">ndarray</span><span class="p">[</span><span class="n">cnp</span><span class="o">.</span><span class="n">float64_t</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mf">2</span><span class="p">]</span> <span class="n">image</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="n">fixation</span><span class="p">):</span></pre>
+<pre class='cython code score-143 '>static PyObject *__pyx_pw_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_13retina_sample_6Retina_sample(struct __pyx_obj_13retina_sample_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation, int __pyx_skip_dispatch) {
   PyArrayObject *__pyx_v_imageMemoryView = 0;
   int __pyx_v_fixation_y;
   int __pyx_v_fixation_x;
@@ -2153,11 +2153,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   int __pyx_v_y2;
   int __pyx_v_x2;
   PyArrayObject *__pyx_v_extract = 0;
-  PyArrayObject *__pyx_v_c = 0;
   PyArrayObject *__pyx_v_kernel = 0;
-  PyArrayObject *__pyx_v_m = 0;
-  PyArrayObject *__pyx_v_copied_array = 0;
-  __pyx_t_5numpy_float64_t __pyx_v_f;
   Py_ssize_t __pyx_v_i;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_V;
   __Pyx_Buffer __pyx_pybuffer_V;
@@ -2165,10 +2161,6 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   __Pyx_Buffer __pyx_pybuffer_X;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_Y;
   __Pyx_Buffer __pyx_pybuffer_Y;
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_c;
-  __Pyx_Buffer __pyx_pybuffer_c;
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_copied_array;
-  __Pyx_Buffer __pyx_pybuffer_copied_array;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_extract;
   __Pyx_Buffer __pyx_pybuffer_extract;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
@@ -2177,8 +2169,6 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   __Pyx_Buffer __pyx_pybuffer_imageMemoryView;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_kernel;
   __Pyx_Buffer __pyx_pybuffer_kernel;
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_m;
-  __Pyx_Buffer __pyx_pybuffer_m;
   __Pyx_LocalBuf_ND __pyx_pybuffernd_pic;
   __Pyx_Buffer __pyx_pybuffer_pic;
   PyArrayObject *__pyx_r = NULL;
@@ -2210,22 +2200,10 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   __pyx_pybuffer_extract.refcount = 0;
   __pyx_pybuffernd_extract.data = NULL;
   __pyx_pybuffernd_extract.rcbuffer = &amp;__pyx_pybuffer_extract;
-  __pyx_pybuffer_c.pybuffer.buf = NULL;
-  __pyx_pybuffer_c.refcount = 0;
-  __pyx_pybuffernd_c.data = NULL;
-  __pyx_pybuffernd_c.rcbuffer = &amp;__pyx_pybuffer_c;
   __pyx_pybuffer_kernel.pybuffer.buf = NULL;
   __pyx_pybuffer_kernel.refcount = 0;
   __pyx_pybuffernd_kernel.data = NULL;
   __pyx_pybuffernd_kernel.rcbuffer = &amp;__pyx_pybuffer_kernel;
-  __pyx_pybuffer_m.pybuffer.buf = NULL;
-  __pyx_pybuffer_m.refcount = 0;
-  __pyx_pybuffernd_m.data = NULL;
-  __pyx_pybuffernd_m.rcbuffer = &amp;__pyx_pybuffer_m;
-  __pyx_pybuffer_copied_array.pybuffer.buf = NULL;
-  __pyx_pybuffer_copied_array.refcount = 0;
-  __pyx_pybuffernd_copied_array.data = NULL;
-  __pyx_pybuffernd_copied_array.rcbuffer = &amp;__pyx_pybuffer_copied_array;
   __pyx_pybuffer_image.pybuffer.buf = NULL;
   __pyx_pybuffer_image.refcount = 0;
   __pyx_pybuffernd_image.data = NULL;
@@ -2246,7 +2224,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
       #endif
       __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(((PyObject *)__pyx_v_self), __pyx_n_s_sample);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_5sample)) {
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_13retina_sample_6Retina_5sample)) {
         <span class='pyx_macro_api'>__Pyx_XDECREF</span>(((PyObject *)__pyx_r));
         __pyx_t_3 = <span class='pyx_c_api'>__pyx_convert__to_py___pyx_ctuple_int__and_int</span>(__pyx_v_fixation);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 147, __pyx_L1_error)</span>
         <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
@@ -2325,7 +2303,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
-  __PYX_XDEC_MEMVIEW(&amp;__pyx_t_26, 1);
+  __PYX_XDEC_MEMVIEW(&amp;__pyx_t_24, 1);
   { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
     __Pyx_PyThreadState_declare
     __Pyx_PyThreadState_assign
@@ -2333,29 +2311,23 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_V.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_X.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_Y.rcbuffer-&gt;pybuffer);
-    <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_c.rcbuffer-&gt;pybuffer);
-    <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_extract.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_image.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_imageMemoryView.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer);
-    <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_m.rcbuffer-&gt;pybuffer);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_pic.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_V.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_X.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_Y.rcbuffer-&gt;pybuffer);
-  <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_c.rcbuffer-&gt;pybuffer);
-  <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_extract.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_image.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_imageMemoryView.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer);
-  <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_m.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_pic.rcbuffer-&gt;pybuffer);
   __pyx_L2:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_imageMemoryView);
@@ -2364,10 +2336,7 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_Y);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_V);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_extract);
-  <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_c);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_kernel);
-  <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_m);
-  <span class='pyx_macro_api'>__Pyx_XDECREF</span>((PyObject *)__pyx_v_copied_array);
   <span class='refnanny'>__Pyx_XGIVEREF</span>((PyObject *)__pyx_r);
   <span class='trace'>__Pyx_TraceReturn</span>(__pyx_r, 0);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
@@ -2375,9 +2344,9 @@ static PyArrayObject *__pyx_f_19retinavision_cython_6retina_13retina_sample_6Ret
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_19retinavision_cython_6retina_13retina_sample_6Retina_4sample[] = "Sample an image";
-static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_13retina_sample_6Retina_4sample[] = "Sample an image";
+static PyObject *__pyx_pw_13retina_sample_6Retina_5sample(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyArrayObject *__pyx_v_image = 0;
   __pyx_ctuple_int__and_int __pyx_v_fixation;
   PyObject *__pyx_r = 0;
@@ -2425,12 +2394,12 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_
   __pyx_L5_argtuple_error:;
   <span class='pyx_c_api'>__Pyx_RaiseArgtupleInvalid</span>("sample", 1, 2, 2, <span class='py_macro_api'>PyTuple_GET_SIZE</span>(__pyx_args)); <span class='error_goto'>__PYX_ERR(0, 147, __pyx_L3_error)</span>
   __pyx_L3_error:;
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!<span class='pyx_c_api'>__Pyx_ArgTypeTest</span>(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) <span class='error_goto'>__PYX_ERR(0, 147, __pyx_L1_error)</span>
-  __pyx_r = __pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_4sample(((struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
+  __pyx_r = __pyx_pf_13retina_sample_6Retina_4sample(((struct __pyx_obj_13retina_sample_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2444,7 +2413,7 @@ static PyObject *__pyx_pw_19retinavision_cython_6retina_13retina_sample_6Retina_
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_4sample(struct __pyx_obj_19retinavision_cython_6retina_13retina_sample_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation) {
+static PyObject *__pyx_pf_13retina_sample_6Retina_4sample(struct __pyx_obj_13retina_sample_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation) {
   __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
   __Pyx_Buffer __pyx_pybuffer_image;
   PyObject *__pyx_r = NULL;
@@ -2462,7 +2431,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
   }
   __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer-&gt;pybuffer.shape[1];
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_19retinavision_cython_6retina_13retina_sample_6Retina_sample(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)</span>
+  __pyx_t_1 = ((PyObject *)__pyx_f_13retina_sample_6Retina_sample(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -2477,7 +2446,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
     <span class='pyx_c_api'>__Pyx_ErrFetch</span>(&amp;__pyx_type, &amp;__pyx_value, &amp;__pyx_tb);
     <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_image.rcbuffer-&gt;pybuffer);
   <span class='pyx_c_api'>__Pyx_ErrRestore</span>(__pyx_type, __pyx_value, __pyx_tb);}
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retinavision_cython.retina.retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("retina_sample.Retina.sample", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
@@ -2554,7 +2523,7 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
   __pyx_v_p = __pyx_t_6;
 </pre><pre class="cython line score-0">&#xA0;<span class="">184</span>: </pre>
 <pre class="cython line score-18" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">185</span>:         <span class="n">pic</span> <span class="o">=</span> <span class="n">pad</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span></pre>
-<pre class='cython code score-18 '>  __pyx_t_1 = ((PyObject *)__pyx_f_19retinavision_cython_6retina_13retina_sample_pad(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)</span>
+<pre class='cython code score-18 '>  __pyx_t_1 = ((PyObject *)__pyx_f_13retina_sample_pad(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -2911,105 +2880,33 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
     __pyx_t_21 = 0;
     <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_extract, ((PyArrayObject *)__pyx_t_3));
     __pyx_t_3 = 0;
-</pre><pre class="cython line score-40" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">202</span>:             <span class="n">copied_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">extract</span><span class="p">)</span></pre>
-<pre class='cython code score-40 '>    <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_7, __pyx_n_s_np);<span class='error_goto'> if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 202, __pyx_L1_error)</span>
+</pre><pre class="cython line score-0">&#xA0;<span class="">202</span>: </pre>
+<pre class="cython line score-40" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">203</span>:             <span class="n">kernel</span> <span class="o">=</span> <span class="n">coeff</span><span class="p">[</span><span class="mf">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span></pre>
+<pre class='cython code score-40 '>    <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_3, __pyx_n_s_coeff);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
+    __pyx_t_7 = <span class='py_c_api'>PyInt_FromSsize_t</span>(__pyx_v_i);<span class='error_goto'> if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 203, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_7);
-    __pyx_t_5 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_7, __pyx_n_s_copy);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 202, __pyx_L1_error)</span>
+    __pyx_t_5 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 203, __pyx_L1_error)</span>
     <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = NULL;
-    if (CYTHON_UNPACK_METHODS &amp;&amp; unlikely(<span class='py_c_api'>PyMethod_Check</span>(__pyx_t_5))) {
-      __pyx_t_7 = <span class='py_macro_api'>PyMethod_GET_SELF</span>(__pyx_t_5);
-      if (likely(__pyx_t_7)) {
-        PyObject* function = <span class='py_macro_api'>PyMethod_GET_FUNCTION</span>(__pyx_t_5);
-        <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_t_7);
-        <span class='pyx_macro_api'>__Pyx_INCREF</span>(function);
-        <span class='pyx_macro_api'>__Pyx_DECREF_SET</span>(__pyx_t_5, function);
-      }
-    }
-    __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, ((PyObject *)__pyx_v_extract)) : <span class='pyx_c_api'>__Pyx_PyObject_CallOneArg</span>(__pyx_t_5, ((PyObject *)__pyx_v_extract));
-    <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_3)) <span class='error_goto'>__PYX_ERR(0, 202, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
-    if (!(likely(((__pyx_t_3) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 202, __pyx_L1_error)</span>
-    __pyx_t_23 = ((PyArrayObject *)__pyx_t_3);
-    {
-      __Pyx_BufFmt_StackElem __pyx_stack[1];
-      <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer);
-      __pyx_t_22 = <span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_t_23, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack);
-      if (unlikely(__pyx_t_22 &lt; 0)) {
-        <span class='py_c_api'>PyErr_Fetch</span>(&amp;__pyx_t_11, &amp;__pyx_t_12, &amp;__pyx_t_13);
-        if (unlikely(<span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_v_copied_array, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) {
-          Py_XDECREF(__pyx_t_11); Py_XDECREF(__pyx_t_12); Py_XDECREF(__pyx_t_13);
-          <span class='pyx_c_api'>__Pyx_RaiseBufferFallbackError</span>();
-        } else {
-          <span class='py_c_api'>PyErr_Restore</span>(__pyx_t_11, __pyx_t_12, __pyx_t_13);
-        }
-        __pyx_t_11 = __pyx_t_12 = __pyx_t_13 = 0;
-      }
-      __pyx_pybuffernd_copied_array.diminfo[0].strides = __pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_copied_array.diminfo[0].shape = __pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_copied_array.diminfo[1].strides = __pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_copied_array.diminfo[1].shape = __pyx_pybuffernd_copied_array.rcbuffer-&gt;pybuffer.shape[1];
-      if (unlikely(__pyx_t_22 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 202, __pyx_L1_error)</span>
-    }
-    __pyx_t_23 = 0;
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_copied_array, ((PyArrayObject *)__pyx_t_3));
-    __pyx_t_3 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">203</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">204</span>:             <span class="c"># print(&quot;Initial extract&quot;)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">205</span>:             <span class="c"># print(extract)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">206</span>:             <span class="c"># print(&quot;Initial extract for mask&quot;)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">207</span>:             <span class="c"># print(copied_array)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">208</span>: </pre>
-<pre class="cython line score-19" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">209</span>:             <span class="n">m</span> <span class="o">=</span>  <span class="n">mask_where_isnan</span><span class="p">(</span><span class="n">copied_array</span><span class="p">)</span> <span class="c">#mask</span></pre>
-<pre class='cython code score-19 '>    __pyx_t_3 = ((PyObject *)__pyx_f_19retinavision_cython_6retina_13retina_sample_mask_where_isnan(((PyArrayObject *)__pyx_v_copied_array), 0));<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 209, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-    {
-      __Pyx_BufFmt_StackElem __pyx_stack[1];
-      <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_m.rcbuffer-&gt;pybuffer);
-      __pyx_t_22 = <span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_m.rcbuffer-&gt;pybuffer, (PyObject*)((PyArrayObject *)__pyx_t_3), &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack);
-      if (unlikely(__pyx_t_22 &lt; 0)) {
-        <span class='py_c_api'>PyErr_Fetch</span>(&amp;__pyx_t_13, &amp;__pyx_t_12, &amp;__pyx_t_11);
-        if (unlikely(<span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_m.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_v_m, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) {
-          Py_XDECREF(__pyx_t_13); Py_XDECREF(__pyx_t_12); Py_XDECREF(__pyx_t_11);
-          <span class='pyx_c_api'>__Pyx_RaiseBufferFallbackError</span>();
-        } else {
-          <span class='py_c_api'>PyErr_Restore</span>(__pyx_t_13, __pyx_t_12, __pyx_t_11);
-        }
-        __pyx_t_13 = __pyx_t_12 = __pyx_t_11 = 0;
-      }
-      __pyx_pybuffernd_m.diminfo[0].strides = __pyx_pybuffernd_m.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_m.diminfo[0].shape = __pyx_pybuffernd_m.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_m.diminfo[1].strides = __pyx_pybuffernd_m.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_m.diminfo[1].shape = __pyx_pybuffernd_m.rcbuffer-&gt;pybuffer.shape[1];
-      if (unlikely(__pyx_t_22 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 209, __pyx_L1_error)</span>
-    }
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_m, ((PyArrayObject *)__pyx_t_3));
-    __pyx_t_3 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">210</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">211</span>:             <span class="c"># print(m)</span></pre>
-<pre class="cython line score-40" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">212</span>:             <span class="n">c</span> <span class="o">=</span> <span class="n">coeff</span><span class="p">[</span><span class="mf">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span></pre>
-<pre class='cython code score-40 '>    <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_3, __pyx_n_s_coeff);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 212, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-    __pyx_t_5 = <span class='py_c_api'>PyInt_FromSsize_t</span>(__pyx_v_i);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 212, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
-    __pyx_t_7 = <span class='py_c_api'>PyTuple_New</span>(2);<span class='error_goto'> if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 212, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_7);
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_int_0);
     <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_int_0);
-    <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_7, 0, __pyx_int_0);
-    <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_5);
-    <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_7, 1, __pyx_t_5);
-    __pyx_t_5 = 0;
-    __pyx_t_5 = <span class='pyx_c_api'>__Pyx_PyObject_GetItem</span>(__pyx_t_3, __pyx_t_7);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 212, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
+    <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_5, 0, __pyx_int_0);
+    <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_7);
+    <span class='py_macro_api'>PyTuple_SET_ITEM</span>(__pyx_t_5, 1, __pyx_t_7);
+    __pyx_t_7 = 0;
+    __pyx_t_7 = <span class='pyx_c_api'>__Pyx_PyObject_GetItem</span>(__pyx_t_3, __pyx_t_5);<span class='error_goto'> if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 203, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_7);
     <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_7); __pyx_t_7 = 0;
-    if (!(likely(((__pyx_t_5) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 212, __pyx_L1_error)</span>
-    __pyx_t_24 = ((PyArrayObject *)__pyx_t_5);
+    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
+    if (!(likely(((__pyx_t_7) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 203, __pyx_L1_error)</span>
+    __pyx_t_23 = ((PyArrayObject *)__pyx_t_7);
     {
       __Pyx_BufFmt_StackElem __pyx_stack[1];
-      <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_c.rcbuffer-&gt;pybuffer);
-      __pyx_t_22 = <span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_c.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_t_24, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack);
+      <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer);
+      __pyx_t_22 = <span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_t_23, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack);
       if (unlikely(__pyx_t_22 &lt; 0)) {
         <span class='py_c_api'>PyErr_Fetch</span>(&amp;__pyx_t_11, &amp;__pyx_t_12, &amp;__pyx_t_13);
-        if (unlikely(<span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_c.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_v_c, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) {
+        if (unlikely(<span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_v_kernel, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) {
           Py_XDECREF(__pyx_t_11); Py_XDECREF(__pyx_t_12); Py_XDECREF(__pyx_t_13);
           <span class='pyx_c_api'>__Pyx_RaiseBufferFallbackError</span>();
         } else {
@@ -3017,76 +2914,36 @@ static PyObject *__pyx_pf_19retinavision_cython_6retina_13retina_sample_6Retina_
         }
         __pyx_t_11 = __pyx_t_12 = __pyx_t_13 = 0;
       }
-      __pyx_pybuffernd_c.diminfo[0].strides = __pyx_pybuffernd_c.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_c.diminfo[0].shape = __pyx_pybuffernd_c.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_c.diminfo[1].strides = __pyx_pybuffernd_c.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_c.diminfo[1].shape = __pyx_pybuffernd_c.rcbuffer-&gt;pybuffer.shape[1];
-      if (unlikely(__pyx_t_22 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 212, __pyx_L1_error)</span>
-    }
-    __pyx_t_24 = 0;
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_c, ((PyArrayObject *)__pyx_t_5));
-    __pyx_t_5 = 0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">213</span>: </pre>
-<pre class="cython line score-20" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">214</span>:             <span class="n">kernel</span> <span class="o">=</span> <span class="n">c</span></pre>
-<pre class='cython code score-20 '>    {
-      __Pyx_BufFmt_StackElem __pyx_stack[1];
-      <span class='pyx_c_api'>__Pyx_SafeReleaseBuffer</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer);
-      __pyx_t_22 = <span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer, (PyObject*)((PyArrayObject *)__pyx_v_c), &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack);
-      if (unlikely(__pyx_t_22 &lt; 0)) {
-        <span class='py_c_api'>PyErr_Fetch</span>(&amp;__pyx_t_13, &amp;__pyx_t_12, &amp;__pyx_t_11);
-        if (unlikely(<span class='pyx_c_api'>__Pyx_GetBufferAndValidate</span>(&amp;__pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer, (PyObject*)__pyx_v_kernel, &amp;__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) {
-          Py_XDECREF(__pyx_t_13); Py_XDECREF(__pyx_t_12); Py_XDECREF(__pyx_t_11);
-          <span class='pyx_c_api'>__Pyx_RaiseBufferFallbackError</span>();
-        } else {
-          <span class='py_c_api'>PyErr_Restore</span>(__pyx_t_13, __pyx_t_12, __pyx_t_11);
-        }
-        __pyx_t_13 = __pyx_t_12 = __pyx_t_11 = 0;
-      }
       __pyx_pybuffernd_kernel.diminfo[0].strides = __pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer.strides[0]; __pyx_pybuffernd_kernel.diminfo[0].shape = __pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer.shape[0]; __pyx_pybuffernd_kernel.diminfo[1].strides = __pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer.strides[1]; __pyx_pybuffernd_kernel.diminfo[1].shape = __pyx_pybuffernd_kernel.rcbuffer-&gt;pybuffer.shape[1];
-      if (unlikely(__pyx_t_22 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 214, __pyx_L1_error)</span>
+      if (unlikely(__pyx_t_22 &lt; 0)) <span class='error_goto'>__PYX_ERR(0, 203, __pyx_L1_error)</span>
     }
-    <span class='pyx_macro_api'>__Pyx_INCREF</span>(((PyObject *)__pyx_v_c));
-    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_kernel, ((PyArrayObject *)__pyx_v_c));
-</pre><pre class="cython line score-0">&#xA0;<span class="">215</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">216</span>:             <span class="c"># m[m != 0] = 1.0  </span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">217</span>: </pre>
-<pre class="cython line score-13" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">218</span>:             <span class="n">f</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">sum2d</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">kernel</span><span class="p">)</span></pre>
-<pre class='cython code score-13 '>    __pyx_t_5 = <span class='py_c_api'>PyNumber_Multiply</span>(((PyObject *)__pyx_v_m), ((PyObject *)__pyx_v_kernel));<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 218, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
-    if (!(likely(((__pyx_t_5) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 218, __pyx_L1_error)</span>
-    __pyx_t_25 = __pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(((PyArrayObject *)__pyx_t_5), 0);
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(__pyx_t_25 == 0)) {
-      <span class='py_c_api'>PyErr_SetString</span>(PyExc_ZeroDivisionError, "float division");
-      <span class='error_goto'>__PYX_ERR(0, 218, __pyx_L1_error)</span>
-    }
-    __pyx_v_f = (1.0 / __pyx_t_25);
-</pre><pre class="cython line score-0">&#xA0;<span class="">219</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">220</span>:             <span class="c"># print(&quot;---------------------------------&quot;)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">221</span>:             <span class="c"># print(&quot;FInal extract&quot;)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">222</span>:             <span class="c"># print(extract)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">223</span>:             <span class="c"># print(&quot;Final extract for mask&quot;)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">224</span>:             <span class="c"># print(copied_array)</span></pre>
-<pre class="cython line score-0">&#xA0;<span class="">225</span>: </pre>
-<pre class="cython line score-8" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">226</span>:             <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum2d</span><span class="p">(</span><span class="n">extract</span><span class="o">*</span><span class="n">kernel</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span></pre>
-<pre class='cython code score-8 '>    __pyx_t_5 = <span class='py_c_api'>PyNumber_Multiply</span>(((PyObject *)__pyx_v_extract), ((PyObject *)__pyx_v_kernel));<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 226, __pyx_L1_error)</span>
-    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
-    if (!(likely(((__pyx_t_5) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_5, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 226, __pyx_L1_error)</span>
+    __pyx_t_23 = 0;
+    <span class='pyx_macro_api'>__Pyx_XDECREF_SET</span>(__pyx_v_kernel, ((PyArrayObject *)__pyx_t_7));
+    __pyx_t_7 = 0;
+</pre><pre class="cython line score-0">&#xA0;<span class="">204</span>: </pre>
+<pre class="cython line score-8" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">205</span>:             <span class="n">V</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">sum2d</span><span class="p">(</span><span class="n">extract</span><span class="o">*</span><span class="n">kernel</span><span class="p">)</span></pre>
+<pre class='cython code score-8 '>    __pyx_t_7 = <span class='py_c_api'>PyNumber_Multiply</span>(((PyObject *)__pyx_v_extract), ((PyObject *)__pyx_v_kernel));<span class='error_goto'> if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 205, __pyx_L1_error)</span>
+    <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_7);
+    if (!(likely(((__pyx_t_7) == Py_None) || likely(<span class='pyx_c_api'>__Pyx_TypeTest</span>(__pyx_t_7, __pyx_ptype_5numpy_ndarray))))) <span class='error_goto'>__PYX_ERR(0, 205, __pyx_L1_error)</span>
     __pyx_t_20 = __pyx_v_i;
-    *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_V.rcbuffer-&gt;pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_V.diminfo[0].strides) = (__pyx_f_19retinavision_cython_6retina_13retina_sample_sum2d(((PyArrayObject *)__pyx_t_5), 0) * __pyx_v_f);
-    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
+    *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_V.rcbuffer-&gt;pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_V.diminfo[0].strides) = __pyx_f_13retina_sample_sum2d(((PyArrayObject *)__pyx_t_7), 0);
+    <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_7); __pyx_t_7 = 0;
   }
-</pre><pre class="cython line score-0">&#xA0;<span class="">227</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">228</span>: </pre>
-<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">229</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">_V</span> <span class="o">=</span> <span class="n">V</span></pre>
-<pre class='cython code score-0 '>  __pyx_t_26 = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_5numpy_float64_t(((PyObject *)__pyx_v_V), PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_t_26.memview)) __PYX_ERR(0, 229, __pyx_L1_error)</span>
+</pre><pre class="cython line score-0">&#xA0;<span class="">206</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">207</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">208</span>: </pre>
+<pre class="cython line score-0" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">209</span>:         <span class="bp">self</span><span class="o">.</span><span class="n">_V</span> <span class="o">=</span> <span class="n">V</span></pre>
+<pre class='cython code score-0 '>  __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_ds_nn___pyx_t_5numpy_float64_t(((PyObject *)__pyx_v_V), PyBUF_WRITABLE);<span class='error_goto'> if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 209, __pyx_L1_error)</span>
   __PYX_XDEC_MEMVIEW(&amp;__pyx_v_self-&gt;_V, 0);
-  __pyx_v_self-&gt;_V = __pyx_t_26;
-  __pyx_t_26.memview = NULL;
-  __pyx_t_26.data = NULL;
-</pre><pre class="cython line score-0">&#xA0;<span class="">230</span>: </pre>
-<pre class="cython line score-2" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">231</span>:         <span class="k">return</span> <span class="n">V</span></pre>
+  __pyx_v_self-&gt;_V = __pyx_t_24;
+  __pyx_t_24.memview = NULL;
+  __pyx_t_24.data = NULL;
+</pre><pre class="cython line score-0">&#xA0;<span class="">210</span>: </pre>
+<pre class="cython line score-2" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">211</span>:         <span class="k">return</span> <span class="n">V</span></pre>
 <pre class='cython code score-2 '>  <span class='pyx_macro_api'>__Pyx_XDECREF</span>(((PyObject *)__pyx_r));
   <span class='pyx_macro_api'>__Pyx_INCREF</span>(((PyObject *)__pyx_v_V));
   __pyx_r = ((PyArrayObject *)__pyx_v_V);
   goto __pyx_L0;
-</pre><pre class="cython line score-0">&#xA0;<span class="">232</span>: </pre>
-<pre class="cython line score-0">&#xA0;<span class="">233</span>: </pre>
+</pre><pre class="cython line score-0">&#xA0;<span class="">212</span>: </pre>
+<pre class="cython line score-0">&#xA0;<span class="">213</span>: </pre>
 </div></body></html>
