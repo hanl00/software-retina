@@ -76,16 +76,27 @@ cpdef cnp.ndarray[cnp.float64_t, ndim=2] pad (cnp.ndarray[cnp.float64_t, ndim=2]
     
     return out
 
+# cpdef cnp.ndarray[cnp.float64_t, ndim=2] multiply2array (cnp.ndarray[cnp.float64_t, ndim=2] array1, cnp.ndarray[cnp.float64_t, ndim=2] array2):
+    
+#     cdef size_t i, j, I, J
+#     I = array1.shape[0]
+#     J = array1.shape[1]
+
+#     for i in range(I):
+#         for j in range(J):
+#                 array1[i, j] = array1[i, j]*array2[i, j]
+#     return array1
    
-cpdef float sum2d(cnp.ndarray[cnp.float64_t, ndim=2] arr):
+cpdef float sum2d(cnp.ndarray[cnp.float64_t, ndim=2] array1, cnp.ndarray[cnp.float64_t, ndim=2] array2):
     cdef size_t i, j, I, J
     cdef float total = 0
-    I = arr.shape[0]
-    J = arr.shape[1]
+    I = array1.shape[0]
+    J = array1.shape[1]
 
     for i in range(I):
         for j in range(J):
-                total += arr[i, j]
+            total += array1[i, j]*array2[i, j]
+
     return total
 
 cpdef cnp.ndarray[cnp.float64_t, ndim=2] mask_where_isnan (cnp.ndarray[cnp.float64_t, ndim=2] arr):
@@ -162,10 +173,7 @@ cdef class Retina:
         cdef int y2
         cdef int x2
         cdef cnp.ndarray[cnp.float64_t, ndim=2] extract
-        cdef cnp.ndarray[cnp.float64_t, ndim=2] c
         cdef cnp.ndarray[cnp.float64_t, ndim=2] kernel
-        cdef cnp.ndarray[cnp.float64_t, ndim=2] m
-        cdef cnp.ndarray[cnp.float64_t, ndim=2] copied_array
         cdef cnp.float64_t f
         cdef Py_ssize_t i
 
@@ -202,7 +210,7 @@ cdef class Retina:
 
             kernel = coeff[0, i]
 
-            V[i] = sum2d(extract*kernel) 
+            V[i] = sum2d(extract, kernel) 
 
            
 

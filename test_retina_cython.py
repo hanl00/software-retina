@@ -121,9 +121,9 @@ def testOutput():
 # print("------------------------------------")
 # cythonRetinaSample()
 
-# compareRetinaSample()
+compareRetinaSample()
 # # originalRetinaSample()
-cythonRetinaProfile()
+# cythonRetinaProfile()
 # testOutput()
 
 # nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])
