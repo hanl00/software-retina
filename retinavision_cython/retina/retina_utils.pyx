@@ -2,6 +2,7 @@ import numpy as np
 cimport numpy as cnp # Import for NumPY C-API
 cimport cython
 from cython.parallel import prange
+import cv2
 
 
 @cython.wraparound(False)
@@ -48,6 +49,25 @@ cpdef float sum2d(double[:, :] arr):
                 total += arr[i, j]
     return total
 
+"""Camera and visualisation functions""" 
+def camopen():
+    cap = 0
+    camid = 0
+    cap = cv2.VideoCapture(camid)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1080)
+    
+    while not cap.isOpened():
+        print(str(camid) + ' failed, retrying\n')
+        cv2.VideoCapture(camid).release()
+        cap = cv2.VideoCapture(camid)
+        camid += 1  
+    return cap
+
+#Run this if cam stops working. Does not work in py3 (cam never closes?)
+def camclose(cap):
+    cap.release()
+    cv2.destroyAllWindows()
 
 #Project the source image onto the target image at the given location
 # def project(source, target, location, v=False):

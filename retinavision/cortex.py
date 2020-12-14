@@ -14,7 +14,7 @@ from .utils import loadPickle, project
 #TODO: overlapping hemifields?
 
 class Cortex:
-    def __init__(self, gpu=False):
+    def __init__(self, gpu=True):
         self.hemishape = 0 #matrix size of one cortical half (hemisphere)
         self.N = 0
         self.Rloc = 0

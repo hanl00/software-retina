@@ -47,7 +47,7 @@ def cythonRetinaSample():
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    img = input_img.astype(np.int16)
+    img = input_img.astype(np.float64)
     v = R.sample(img, fixation)
     return v
 
@@ -111,7 +111,7 @@ def cythonRetinaProfile():
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    img = input_img.astype(np.int16)
+    img = input_img.astype(np.float64)
     cProfile.runctx("R.sample(img, fixation)", globals(), locals(), "Profile.prof")
     s = pstats.Stats("Profile.prof")
     s.strip_dirs().sort_stats("cumtime").print_stats()
@@ -133,9 +133,9 @@ def testOutput():
 # print("------------------------------------")
 # print(cythonRetinaSample())
 
-compareRetinaSample()
-# cythonRetinaProfile()
-# originalRetinaProfile()
+# compareRetinaSample()
+originalRetinaProfile()
+cythonRetinaProfile()
 # testOutput()
 
 # nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])

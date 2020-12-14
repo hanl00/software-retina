@@ -49,14 +49,14 @@ def getLoc():
        return loc
 
 
-cpdef cnp.ndarray[cnp.int16_t, ndim=2] pad (cnp.ndarray[cnp.int16_t, ndim=2] img, int padding):
+cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int padding):
    
     cdef int firstDimension = img.shape[0]
     cdef int firstAccumulator = 0
     cdef int secondDimension = img.shape[1]
     cdef int secondAccumulator = 0
     cdef int paddingPower = 2*padding
-    cdef cnp.ndarray[cnp.int16_t, ndim=2] out
+    cdef cnp.float64_t[:,:] out
     cdef (int, int) size = (0, 0)
     cdef Py_ssize_t i
     cdef int imgDimension = img.ndim
@@ -69,58 +69,76 @@ cpdef cnp.ndarray[cnp.int16_t, ndim=2] pad (cnp.ndarray[cnp.int16_t, ndim=2] img
         # add for third dimension
     
     size = (firstAccumulator, secondAccumulator)
-    
-    out = np.zeros(size, dtype = np.int16)
-
+    out = np.zeros(size, dtype = np.float64)
     out[padding:-padding, padding:-padding] = img
     
     return out
 
-# cpdef cnp.ndarray[cnp.float64_t, ndim=2] multiply2array (cnp.ndarray[cnp.float64_t, ndim=2] array1, cnp.ndarray[cnp.float64_t, ndim=2] array2):
-    
-#     cdef size_t i, j, I, J
-#     I = array1.shape[0]
-#     J = array1.shape[1]
-
-#     for i in range(I):
-#         for j in range(J):
-#                 array1[i, j] = array1[i, j]*array2[i, j]
-#     return array1
    
-cpdef int sum2d(cnp.ndarray[cnp.int16_t, ndim=2] array1, cnp.ndarray[cnp.float64_t, ndim=2] array2):
+cpdef float sum2d(cnp.ndarray[cnp.float64_t, ndim=2] array1, cnp.ndarray[cnp.float64_t, ndim=2] array2):
     cdef size_t i, j, I, J
-    cdef int total = 0
+    cdef float total = 0
     I = array1.shape[0]
     J = array1.shape[1]
 
     for i in range(I):
         for j in range(J):
-            total += int(round(array1[i, j]*array2[i, j]))
+            total += array1[i, j]*array2[i, j]
 
     return total
 
-# cpdef cnp.ndarray[cnp.float64_t, ndim=2] mask_where_isnan (cnp.ndarray[cnp.float64_t, ndim=2] arr):
+#OH BOY PYTHON 3 SURELY HURTS
+def normal_round(n):
+    if n - np.floor(np.abs(n)) < 0.5:
+        return np.floor(n)
+    return np.ceil(n)
 
-#     cdef size_t i, j, I, J
-#     cdef cnp.ndarray[cnp.float64_t, ndim=2] output = arr
+#i = int, r = round.
+def ir(val):
+    return int(normal_round(val))
 
-#     I = arr.shape[0]
-#     J = arr.shape[1]
+#Project the source image onto the target image at the given location
+def project(source, target, location, v=False):
+    sh, sw = source.shape[:2]
+    th, tw = target.shape[:2]
+    
+    #target frame
+    y1 = max(0, ir(location[0] - sh/2.0))
+    y2 = min(th, ir(location[0] + sh/2.0))
+    x1 = max(0, ir(location[1] - sw/2.0))
+    x2 = min(tw, ir(location[1] + sw/2.0))
+    
+    #source frame
+    s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))
+    s_y2 = s_y1 + (y2 - y1)
+    s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))
+    s_x2 = s_x1 + (x2 - x1)
+    
+    try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]
+    except Exception as E:
+        print(y1, y2, x1, x2)
+        print(s_y1, s_y2, s_x1, s_x2)
+        print(source.shape)
+        print(target.shape)
+        print(location)
+        raise E
+    
+    if v:
+        print(y1, y2, x1, x2)
+        print(s_y1, s_y2, s_x1, s_x2)
+        print(source.shape)
+        print(target.shape)
+        print(location)
+    
+    return target
 
-#     for i in range(I):
-#         for j in range(J):
-#             if isnan(arr[i, j]):
-#                 output[i, j] = 0
-#             else:
-#                 output[i, j] = 1.0
-
-#     return output
 
 cdef class Retina:
     
     cdef cnp.float64_t[:, :] _gaussNorm
     cdef cnp.float64_t[:, :] _gaussNormTight
-    cdef cnp.int16_t[:] _V
+    cdef cnp.float64_t[:] _V
+    cdef cnp.uint8_t[:, :] _backprojTight
     cdef int N, width
     cdef (int, int) _fixation
     cdef (int, int) _imsize
@@ -134,11 +152,11 @@ cdef class Retina:
         self._fixation = (0,0)
         self._imsize = (1080, 1920)
         self._gaussNorm = np.empty((1080, 1920), dtype=float)
-        self._gaussNormTight = np.empty((926, 926), dtype=float)
+        self._gaussNormTight = np.zeros((926, 926), dtype=float)
         self._normFixation = (0,0)
-        self._V = np.zeros((1), dtype=np.int16)
+        self._V = np.zeros((1), dtype=np.float64)
         # self._backproj = 0 not used first
-        # self._backprojTight = 0 not used first
+        self._backprojTight = np.zeros((926, 926), dtype=np.uint8)
 
     cpdef updateLoc(self):
         global loc
@@ -146,79 +164,131 @@ cdef class Retina:
         self.N = len(loc)
         self.width = 2*int(np.abs(loc[:,:2]).max() + loc[:,6].max()/2.0)
 
-    # cpdef validate(self):
-    #     global loc
-    #     global coeff
+    def validate(self):
+        global loc
+        global coeff
 
-    #     assert(len(loc) == len(coeff[0]))
-    #     if self._gaussNormTight is 0: 
-    #         self._normTight()
+        assert(len(loc) == len(coeff[0]))
+        _gaussNormTight = np.asarray(self._gaussNormTight)
+        if np.all(_gaussNormTight==0): 
+            self._normTight()
+
+    def _normTight(self): 
+        """Produce a tight-fitted Gaussian normalization image (width x width)"""
+        global loc
+        global coeff
+
+        GI = np.zeros((self.width, self.width))         
+        r = self.width/2.0
+        for i in range(self.N - 1, -1, -1): 
+            GI = project(coeff[0,i], GI, loc[i,:2][::-1] + r)
+        
+        self._gaussNormTight = GI
+
+    def prepare(self, shape, fix):
+        """Pre-compute fixation specific Gaussian normalization image """
+        fix = (int(fix[0]), int(fix[1]))
+        self.validate()
+        self._normFixation = fix
+        
+        GI = np.zeros(shape[:2])
+        _gaussNormTight = np.asarray(self._gaussNormTight)
+        GI = project(_gaussNormTight, GI, fix)
+        self._gaussNorm = GI
 
     # image is a numpy ndarray dtype int16 dimension is 2 (3 if rgb) and fixation is a tuple
-    cpdef cnp.ndarray[cnp.int16_t, ndim=1] sample (self, cnp.ndarray[cnp.int16_t, ndim=2] image, (int, int) fixation):
+    cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample (self, cnp.ndarray[cnp.float64_t, ndim=2] image, (int, int) fixation):
         """Sample an image"""
         global loc
         global coeff
         
-        cdef cnp.ndarray[cnp.int16_t, ndim=2] imageMemoryView = image
+        cdef cnp.ndarray[:, :] loc_memory_view = loc
+        cdef cnp.ndarray[:, :] coeff_memory_view = coeff
+        cdef cnp.ndarray[cnp.float64_t, ndim=2] imageMemoryView = image
         cdef int fixation_y = fixation[0]
         cdef int fixation_x = fixation[1]
         cdef (int, int) fix = (fixation_y, fixation_x)
         cdef int p
-        cdef cnp.ndarray[cnp.int16_t, ndim=2] pic
-        cdef cnp.ndarray[cnp.int16_t, ndim=1] X
-        cdef cnp.ndarray[cnp.int16_t, ndim=1] Y
-        cdef cnp.ndarray[cnp.int16_t, ndim=1] V
-        cdef cnp.ndarray[cnp.int16_t, ndim=1] x_temp
-        cdef cnp.ndarray[cnp.int16_t, ndim=1] y_temp
+        cdef cnp.ndarray[cnp.float64_t, ndim=2] pic
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] X
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] Y
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] V
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] x_temp
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] y_temp
         cdef int w
         cdef int y1
         cdef int x1
         cdef int y2
         cdef int x2
-        cdef cnp.ndarray[cnp.int16_t, ndim=2] extract
+        cdef cnp.ndarray[cnp.float64_t, ndim=2] extract
         cdef cnp.ndarray[cnp.float64_t, ndim=2] kernel
         cdef Py_ssize_t i
 
-
-
-        # self.validate() to add later
+        # self.validate()
         self._fixation = fixation
 
         # This will reset the image size only when it was changed.
         # if self._imsize != image.shape[:2]:
         #     self._imsize = image.shape
-        rgb = imageMemoryView.ndim == 3 and imageMemoryView.shape[-1] == 3
         p = self.width
 
         pic = pad(image, p)
 
-        x_temp = np.asarray(loc[:,0] + fixation_x + p, dtype=np.int16)
-        y_temp = np.asarray(loc[:,1] + fixation_y + p, dtype=np.int16)
+        X = loc[:,0] +  np.asarray(fixation_x, dtype=np.float64) + p
+        Y = loc[:,1] + np.asarray(fixation_y, dtype=np.float64) + p
 
-        X = x_temp 
-        Y = y_temp
-
-        V = np.zeros((self.N), dtype=np.int16)
+        V = np.zeros((self.N))
 
         for i in range(self.N):
-            w = loc[i,6]
-            y1 = int(round(Y[i] - w/(2 + 0.5)))
-            y2 = int(round(Y[i] + w/(2 + 0.5)))
-            x1 = int(round(X[i] - w/(2 + 0.5)))
-            x2 = int(round(X[i] + w/(2 + 0.5)))
-            
-            extract = pic[y1:y2,x1:x2]
-            
-
+            w = loc_memory_view[i,6]
+            y1 = int(Y[i] - w/2+0.5)
+            y2 = int(Y[i] + w/2+0.5)
+            x1 = int(X[i] - w/2+0.5)
+            x2 = int(X[i] + w/2+0.5)
+            extract = pic[y1:y2,x1:x2]          
             kernel = coeff[0, i]
-
             V[i] = sum2d(extract, kernel) 
-
-           
 
         self._V = V
         
         return V
+
+    def backproject_tight_last(self, n=True, norm=None):
+        return self.backproject_tight(self._V, self._imsize, self._fixation, normalize=n, norm=norm)
+    
+    def backproject_tight(self, V, shape, fix, normalize=True, norm=None):
+        """Produce a tight-fitted backprojection (width x width, lens only)"""
+        global loc
+        global coeff
+
+        fix = (int(fix[0]), int(fix[1]))
+        #TODO: look at the weird artifacts at edges when the lens is too big for the frame. CPU version
+        
+        self.validate()
+
+        if fix != self._normFixation or shape[:2] != self._gaussNorm.shape: 
+            self.prepare(shape, fix)
+            
+        rgb = len(shape) == 3 and shape[-1] == 3
+        m = self.width
+        r = m/2.0    
+             
+        if rgb: I1 = np.zeros((m, m, 3))
+        else: I1 = np.zeros((m, m))
+        
+        for i in range(self.N - 1,-1,-1):
+            c = coeff[0, i]
+            if rgb: c = np.dstack((c,c,c))
+            
+            I1 = project(c*V[i], I1, loc[i,:2][::-1] + r)
+    
+        GI = self._gaussNormTight
+        if rgb: GI = np.dstack((GI,GI,GI)) #TODO: fix invalid value warnings
+        if normalize: 
+            I1 = np.uint8(np.true_divide(I1,GI)) 
+            self._backprojTight = I1
+        return I1
+    
+    #TODO: add the crop function. Tightly crop original image using retinal lens
     
     
