@@ -1,11 +1,11 @@
-|Commit Name   	|Changes  	|Cython X   	|Loop   	|Issues     |Notes     |
+|Commit Name   	|Changes  	|Cython X   	|Loop   	|Issues     |Notes/Profile     |
 |---	|---	|---	|---	|---    |---    |
 |First commit	|Profiling, changed to memoryviews	|Cython is 1.5790419971055114x faster	|5	| None  |       |
 |Replaced numpy functions  	|Reverted if checks to original, fixed imports, replaced numpy functions with owncode    	|Cython is 4.112961885739843x faster   	|10  	|Prange/nogil performance worse off, incorrect output values    |       |
 |Remove nan occurences   	|Replaced some numpy calls to self defined functions, fixed output values   	|Cython is 4.2557936634626365x faster   	|10   	|None       |Profile :  400015 function calls in 0.691 seconds      |
 |Removed masking   	|Deleted masking and calculation of F value (always about 1 rounded to the nearest integer)   	|Cython is 9.335271184466762x faster   	|10   	| None      |50015 function calls in 0.245 seconds       |
 |Replaced native python multiply "*"      |Self defined python function to multiply and sum 2 arrays       |Cython is 10.69720190850668x faster       |10       | None      | 50015 function calls in 0.180 seconds       |
-|       |       |       |       |       |       |
+|Set datatype to int_16     |Changed  datatype to int_16, uint8 (too small and negative coefficients), changed input size from 1280 x 720 to 1920 x 1080     |Cython is 6.292198792209533x faster       |10       |Incorrect output on certain values (unrelated to removal of masking)       |50015 function calls in 0.437 seconds       |
 |       |       |       |       |       |       |
 |       |       |       |       |       |       |
 |       |       |       |       |       |       |

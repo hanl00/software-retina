@@ -18,7 +18,7 @@ import retina_utils
 datadir = join(dirname(dirname(__file__)), "cython_test")
 
 # generate a random 2 dimensional array
-input_img =  np.random.randint(256, size=(720, 1280), dtype=np.uint8)
+input_img =  np.random.randint(256, size=(1080, 1920), dtype=np.uint8)
 padding = 1
 fixation = (640.0, 360.0)
 campicShape = (720, 1280, 3)
@@ -47,8 +47,8 @@ def cythonRetinaSample():
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    image = input_img.astype(np.float64)
-    v = R.sample(image, fixation)
+    img = input_img.astype(np.int16)
+    v = R.sample(img, fixation)
     return v
 
 def testCython():
@@ -97,13 +97,22 @@ def compareRetinaPad():
     print(cy, py)
     print('Cython is {}x faster'.format(py/cy))
 
+def originalRetinaProfile():
+    R = retinavision.Retina()
+    R.loadLoc(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_loc.pkl"))
+    R.loadCoeff(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_coeff.pkl"))
+    cProfile.runctx("R.sample(input_img, fixation)", globals(), locals(), "Profile.prof")
+    s = pstats.Stats("Profile.prof")
+    s.strip_dirs().sort_stats("cumtime").print_stats()
+
+
 def cythonRetinaProfile():
     R = retina_sample.Retina()
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    image = input_img.astype(np.float64)
-    cProfile.runctx("R.sample(image, fixation)", globals(), locals(), "Profile.prof")
+    img = input_img.astype(np.int16)
+    cProfile.runctx("R.sample(img, fixation)", globals(), locals(), "Profile.prof")
     s = pstats.Stats("Profile.prof")
     s.strip_dirs().sort_stats("cumtime").print_stats()
 
@@ -111,19 +120,22 @@ def testOutput():
     original = originalRetinaSample()
     cythonised = cythonRetinaSample()
 
-    print(original)
-    print(cythonised)
+    # result = (original == cythonised).all(axis=1)
+
+    # print((True in result) == True )
+    # # print(original)
+    # # print(cythonised)
     for index, (first, second) in enumerate(zip(original, cythonised)):
         if first != second:
             print(index, first, second)
 
-# originalRetinaSample()
+# print(originalRetinaSample())
 # print("------------------------------------")
-# cythonRetinaSample()
+# print(cythonRetinaSample())
 
 compareRetinaSample()
-# # originalRetinaSample()
 # cythonRetinaProfile()
+# originalRetinaProfile()
 # testOutput()
 
 # nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])

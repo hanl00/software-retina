@@ -9,6 +9,7 @@ PhD retina. Object model and code cleanup.
 """
 
 import numpy as np
+from .cuda_objects import CudaRetina
 from utils import pad, loadPickle, project, loadPickleNonbin
 
 #TODO: do something about coeff being (1,X) in shape instead of (X)...
@@ -137,10 +138,10 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
         rgb = len(image.shape) == 3 and image.shape[-1] == 3
         p = self.width
         pic = pad(image, p, False)
-        
+
         X = self.loc[:,0] + fix[1] + p
         Y = self.loc[:,1] + fix[0] + p
-        
+
         if rgb: V = np.zeros((self.N,3))
         else: 
             V = np.zeros((self.N))
@@ -163,9 +164,8 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
             
             if rgb: f = 1.0/np.sum(m*kernel, axis = (0,1)) #TODO fix invalid value warnings
             else: f = 1.0/np.sum(m*kernel)
-            
+
             extract = np.nan_to_num(extract)
-            
             if rgb: V[i] = np.sum(extract*kernel, axis=(0,1)) * f
             else: V[i] = np.sum(extract*kernel) * f
 
