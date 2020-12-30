@@ -6,7 +6,7 @@
 |Removed masking   	|Deleted masking and calculation of F value (always about 1 rounded to the nearest integer)   	|Cython is 9.335271184466762x faster   	|10   	| None      |50015 function calls in 0.245 seconds       |
 |Replaced native python multiply "*"      |Self defined python function to multiply and sum 2 arrays       |Cython is 10.69720190850668x faster       |10       | None      | 50015 function calls in 0.180 seconds       |
 |Set datatype to int_16     |Changed  datatype to int_16, uint8 (too small and negative coefficients), changed input size from 1280 x 720 to 1920 x 1080     |Cython is 6.292198792209533x faster       |10       |Incorrect output on certain values (unrelated to removal of masking)       |50015 function calls in 0.437 seconds       |
-|       |       |       |       |       |       |
+|Prange with gil inside loop       |Implemented prange but couldnt remove python object calls (tried restructuring to 1d memory view)       |Cython is 13.734205595247653x faster       |10      |None       |250031 function calls in 0.153 seconds       |
 |       |       |       |       |       |       |
 |       |       |       |       |       |       |
 |       |       |       |       |       |       |

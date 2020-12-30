@@ -133,9 +133,9 @@ def testOutput():
 # print("------------------------------------")
 # print(cythonRetinaSample())
 
-# compareRetinaSample()
-originalRetinaProfile()
-cythonRetinaProfile()
+compareRetinaSample()
+# originalRetinaProfile()
+# cythonRetinaProfile()
 # testOutput()
 
 # nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])
@@ -143,3 +143,6 @@ cythonRetinaProfile()
 # m = retina_sample.mask_where_isnan(nan_array)
 
 # print(m)
+
+# coeff = retina_sample.loadCoeff()
+# print(coeff[0])

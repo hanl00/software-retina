@@ -118,7 +118,7 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
     def sample(self, image, fix):
         """Sample an image"""
         fix = (int(fix[0]), int(fix[1]))
-        self.validate()
+        # self.validate()
         self._fixation = fix
         # This will reset the image size only when it was changed.
         if self._imsize != image.shape[:2]:
