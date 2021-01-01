@@ -11,6 +11,7 @@ from libc.math cimport isnan, round
 # from libc.stdlib import malloc, free
 cimport cython
 from cython.parallel import parallel, prange
+from cython cimport view
 
 py = sys.version_info.major
 
@@ -35,24 +36,31 @@ loc = 0
 def loadCoeff():
         global coeff
         coeff = loadPickle(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_coeff.pkl"))
-        coeff = coeff.squeeze()
-        # output_list_of_lists = []
+        output_list = []
 
-        # for x in coeff[0]:
-        #     one_d = x.ravel()
-        #     output_list_of_lists.append(one_d)
+        #get the largest size
+        desired_rows, desired_columns = 0, 0
 
-        # output_list = [item for sublist in output_list_of_lists for item in sublist]
-        # coeff = np.array(output_list)
+        for item in coeff[0]:
+            if item.shape > (desired_rows, desired_columns):
+                desired_rows, desired_columns = item.shape
+    
+        for x in coeff[0]:
+            if x.shape != (desired_rows, desired_columns):
+                b = np.pad(x, ((0, desired_rows-x.shape[0]), (0, desired_columns-x.shape[1])), 'constant', constant_values=0)
+                output_list.append(b)
+            else:
+                output_list.append(x)
+
+        coeff = np.stack(output_list) 
 
 
 def loadLoc():
         global loc
         loc = loadPickle(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_loc.pkl"))
 
-
-
-
+@cython.wraparound(False)
+@cython.boundscheck(False) 
 cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int padding):
    
     cdef cnp.float64_t[:, :] image_mem_view = img
@@ -126,8 +134,9 @@ def project(source, target, location, v=False):
     return target
 
 
-
-cpdef float multiply2d(cnp.float64_t[:, :] extract_image, cnp.float64_t[:, :] coeff_mem_view):
+@cython.wraparound(False)
+@cython.boundscheck(False) 
+cdef float multiply_sum2d(cnp.float64_t[:, :] extract_image, double[:,:] coeff_mem_view) nogil:
     cdef size_t i, I, j, J
     cdef float total = 0
     I = extract_image.shape[0]
@@ -138,16 +147,6 @@ cpdef float multiply2d(cnp.float64_t[:, :] extract_image, cnp.float64_t[:, :] co
             total += extract_image[i, j]*coeff_mem_view[i, j]
 
     return total
-
-# cpdef float multiply2d(cnp.float64_t[:, :] extracted_image, cnp.float64_t[:] coeff):
-#     cdef size_t i, I, j, J
-#     cdef float total = 0
-#     cdef cnp.ndarray[cnp.float64_t, ndim=1] array_view = np.asarray(extracted_image).ravel()
-#     J = array_view.shape[0]
-#     for i in range(J):
-#         total += array_view[i] + coeff[i]
-
-#     return total
 
 cdef class Retina:
     
@@ -213,15 +212,13 @@ cdef class Retina:
         self._gaussNorm = GI
 
     # image is a numpy ndarray dtype int16 dimension is 2 (3 if rgb) and fixation is a tuple
-    # cnp.ndarray[cnp.float64_t, ndim=1]
     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample (self, cnp.ndarray[cnp.float64_t, ndim=2] image, (int, int) fixation):
         """Sample an image"""
         global loc
         global coeff
 
         cdef double [:,:] loc_memory_view = loc
-        cdef object [:] coeff_memory_view = coeff
-        cdef cnp.ndarray[cnp.float64_t, ndim=2] imageMemoryView = image
+        cdef double [:,:,:] coeff_memory_view = coeff 
         cdef int fixation_y = fixation[0]
         cdef int fixation_x = fixation[1]
         cdef (int, int) fix = (fixation_y, fixation_x)
@@ -230,17 +227,12 @@ cdef class Retina:
         cdef cnp.ndarray[cnp.float64_t, ndim=1] X
         cdef cnp.ndarray[cnp.float64_t, ndim=1] Y
         cdef cnp.ndarray[cnp.float64_t, ndim=1] V
-        cdef cnp.float64_t [:] extract_1d_memory_view
         cdef float w
         cdef int y1
         cdef int x1
         cdef int y2
         cdef int x2
-        cdef int total_size_counter = 0
-        cdef cnp.float64_t[:, :] extract
-
-        cdef cnp.float64_t[:, :] kernel
-        cdef Py_ssize_t i, j ,k
+        cdef Py_ssize_t i
         cdef int total = 0
 
         # self.validate()
@@ -257,7 +249,7 @@ cdef class Retina:
         Y = loc[:,1] + np.asarray(fixation_y, dtype=np.float64) + p
 
         V = np.zeros((self.N))
-
+        
         with nogil, parallel():
             for i in prange(self.N):
                 w = loc_memory_view[i, 6]
@@ -265,18 +257,14 @@ cdef class Retina:
                 y2 = int(Y[i] + w/2+0.5)
                 x1 = int(X[i] - w/2+0.5)
                 x2 = int(X[i] + w/2+0.5)
-                # extract = pic[y1:y2,x1:x2]
-                # kernel = coeff_memory_view[i]
-                with gil:
-                    # print(coeff_memory_view[i], pic[y1:y2,x1:x2])
-                    V[i] = multiply2d(pic[y1:y2,x1:x2], coeff_memory_view[i])
-                # total_size_counter = total_size_counter + len(pic[y1:y2,x1:x2])
-                # V[i] = coeff_memory_view[i]
+                V[i] = multiply_sum2d(pic[y1:y2,x1:x2], coeff_memory_view[i,:,:])
 
         self._V = V
        
         return V
 
+
+    # for testing, no need to cythonise
     def backproject_tight_last(self, n=True, norm=None):
         return self.backproject_tight(self._V, self._imsize, self._fixation, normalize=n, norm=norm)
     

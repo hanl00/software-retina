@@ -8,11 +8,11 @@ ext_modules = [
         ["retinavision_cython/retina/retina_sample.pyx"],
         extra_compile_args=['-fopenmp'],
         extra_link_args=['-fopenmp'],
-    ),
-    Extension(
-        "retina_utils", 
-        ["retinavision_cython/retina/retina_utils.pyx"], 
     )
+    # Extension(
+    #     "retina_utils", 
+    #     ["retinavision_cython/retina/retina_utils.pyx"], 
+    # )
 ]
 
 setup(

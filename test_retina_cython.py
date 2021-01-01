@@ -3,6 +3,7 @@ import numpy as np
 from os.path import dirname, join
 import sys
 import cProfile, pstats, io
+import time
 
 sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision')
 import retinavision
@@ -65,37 +66,49 @@ def testMemoryView():
     print(cy, py)
     print('Memory View is {}x faster'.format(py/cy))
 
-def testMemoryExampleCode():
-    py = timeit.timeit('''old_sum3d(arr)''',setup="from __main__ import old_sum3d",number=100)
-    cy = timeit.timeit('''sum3d(arr)''',setup="from __main__ import sum3d", number=100)
-
-    print(cy, py)
-    print('Memory View is {}x faster'.format(py/cy))
-
-def testRetinaSample():
-    py = timeit.timeit('''old_sum3d()''',setup="from __main__ import old_sum3d",number=100)
-    cy = timeit.timeit('''sum3d()''',setup="from __main__ import sum3d", number=100)
-
-    print(cy, py)
-    print('Memory View is {}x faster'.format(py/cy))
-
-def testLoadPickle():
-    coeff = loadpickle.loadCoeff(join(datadir, "retinas", "ret50k_coeff.pkl"))
-    return coeff[0][2]
-
-def compareRetinaSample():
-    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=10)
-    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=10)
-
-    print(cy, py)
-    print('Cython is {}x faster'.format(py/cy))
-
 def compareRetinaPad():
     py = timeit.timeit('''runOriginalPad()''',setup="from __main__ import runOriginalPad",number=10)
     cy = timeit.timeit('''runCythonPad()''',setup="from __main__ import runCythonPad", number=10)
 
     print(cy, py)
     print('Cython is {}x faster'.format(py/cy))
+
+def compareRetinaSampleOld():  #old one takes account of Retina initialisation and loading
+    py = timeit.timeit('''originalRetinaSample()''',setup="from __main__ import originalRetinaSample",number=10)
+    cy = timeit.timeit('''cythonRetinaSample()''',setup="from __main__ import cythonRetinaSample", number=10)
+
+    print(cy, py)
+    print('Cython is {}x faster'.format(py/cy))
+
+def compareRetinaSample():
+    OR = retinavision.Retina()
+    OR.loadLoc(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_loc.pkl"))
+    OR.loadCoeff(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_coeff.pkl"))
+    OR.prepare(campicShape, fixation)
+    original_start_time = time.time()
+    OR.sample(input_img, fixation)
+    original_sample_time = time.time() - original_start_time
+
+    CR = retina_sample.Retina()
+    retina_sample.loadCoeff()
+    retina_sample.loadLoc()
+    CR.updateLoc()
+    img = input_img.astype(np.float64)
+    cython_start_time = time.time()
+    CR.sample(img, fixation)
+    cython_sample_time = time.time() - cython_start_time
+
+    return original_sample_time, cython_sample_time
+
+def compareWithLoops(x):
+    original_total, cython_total = 0, 0
+    for count in range(x):
+        original_sample_time, cython_sample_time = compareRetinaSample()
+        original_total += original_sample_time
+        cython_total += cython_sample_time
+
+    print(original_total, cython_total)
+    print('Cython is {}x faster'.format(original_total/cython_total))
 
 def originalRetinaProfile():
     R = retinavision.Retina()
@@ -116,33 +129,19 @@ def cythonRetinaProfile():
     s = pstats.Stats("Profile.prof")
     s.strip_dirs().sort_stats("cumtime").print_stats()
 
+
 def testOutput():
     original = originalRetinaSample()
     cythonised = cythonRetinaSample()
 
-    # result = (original == cythonised).all(axis=1)
-
-    # print((True in result) == True )
-    # # print(original)
-    # # print(cythonised)
     for index, (first, second) in enumerate(zip(original, cythonised)):
-        if first != second:
+        if abs(first-second) > 0.05:
             print(index, first, second)
+        if index == 49999:
+             print(index, first, second)
 
-# print(originalRetinaSample())
-# print("------------------------------------")
-# print(cythonRetinaSample())
-
-compareRetinaSample()
+# print(compareRetinaSample())
+# compareWithLoops(10)
 # originalRetinaProfile()
-# cythonRetinaProfile()
-# testOutput()
-
-# nan_array = np.array([[0, np.nan, 1.0], [np.nan, 3434, 1.0], [343, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, np.nan, 1.0], [np.nan, 345345, 1.0]])
-
-# m = retina_sample.mask_where_isnan(nan_array)
-
-# print(m)
-
-# coeff = retina_sample.loadCoeff()
-# print(coeff[0])
+cythonRetinaProfile()
+testOutput()
