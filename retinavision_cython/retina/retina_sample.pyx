@@ -22,7 +22,7 @@ elif py == 3:
 
 from os.path import dirname, join
 
-datadir = join(dirname(dirname(__file__)), "cython_test")
+datadir = join(dirname(dirname(__file__)), "cythonised_retina")
 
 def loadPickle(path):
         with open(path, 'rb') as handle:
@@ -68,7 +68,7 @@ cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int paddin
     cdef int firstAccumulator = 0
     cdef int secondDimension = img.shape[1]
     cdef int secondAccumulator = 0
-    cdef int paddingPower = 2*padding
+    cdef int padding_twice = 2*padding
     cdef cnp.float64_t[:,:] out
     cdef (int, int) size = (0, 0)
     cdef Py_ssize_t i
@@ -76,9 +76,9 @@ cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int paddin
 
     for i in range(imgDimension):
         if i == 1: 
-            firstAccumulator += firstDimension + paddingPower
+            firstAccumulator += firstDimension + padding_twice
         else:
-            secondAccumulator += secondDimension + paddingPower
+            secondAccumulator += secondDimension + padding_twice
         # add for third dimension
     
     size = (firstAccumulator, secondAccumulator)
@@ -179,11 +179,11 @@ cdef class Retina:
         self.N = len(loc)
         self.width = 2*int(np.abs(loc[:,:2]).max() + loc[:,6].max()/2.0)
 
-    def validate(self):
+    cpdef validate(self):
         global loc
         global coeff
 
-        assert(len(loc) == len(coeff))
+        assert(len(loc) == len(coeff[0]))
         _gaussNormTight = np.asarray(self._gaussNormTight)
         if np.all(_gaussNormTight==0): 
             self._normTight()
@@ -233,7 +233,6 @@ cdef class Retina:
         cdef int y2
         cdef int x2
         cdef Py_ssize_t i
-        cdef int total = 0
 
         # self.validate()
         self._fixation = fixation

@@ -15,7 +15,7 @@ from os.path import join
 import sys
 import time
 
-sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cython_test\\retinavision_cython\\retina')
+sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cythonised_retina\\retinavision_cython\\retina')
 import retina_sample
 import retina_utils
 

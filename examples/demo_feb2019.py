@@ -18,6 +18,7 @@ from os.path import join
 #Open webcam
 cap = utils.camopen() #cap is the capture object (global)
 ret, campic = cap.read()
+datadir = join(dirname(dirname(__file__)), "cythonised_retina")
 
 #Create and load retina
 R = Retina()
