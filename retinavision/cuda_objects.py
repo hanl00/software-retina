@@ -16,7 +16,7 @@ elif sys.platform.startswith('win'):
     dll_loc = path.join(path.dirname(path.dirname(__file__)),'bin\\Windows')
     # Changing the directory to the dll's location is needed to find dependent dlls
     chdir(dll_loc)
-    lib = ctypes.cdll.LoadLibrary('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cythonised_retina\\bin\\Windows\\RetinaCUDA.dll')
+    lib = ctypes.cdll.LoadLibrary(path.abspath('RetinaCUDA.dll'))
     # Switch back
     chdir(curr_loc)
 

@@ -64,42 +64,55 @@ def camopen():
         camid += 1  
     return cap
 
+
 #Run this if cam stops working. Does not work in py3 (cam never closes?)
 def camclose(cap):
     cap.release()
     cv2.destroyAllWindows()
 
+#OH BOY PYTHON 3 SURELY HURTS
+def normal_round(n):
+    if n - np.floor(np.abs(n)) < 0.5:
+        return np.floor(n)
+    return np.ceil(n)
+
+
+#i = int, r = round.
+def ir(val):
+    return int(normal_round(val))
+
+
 #Project the source image onto the target image at the given location
-# def project(source, target, location, v=False):
-#     sh, sw = source.shape[:2]
-#     th, tw = target.shape[:2]
+def project(source, target, location, v=False):
+    sh, sw = source.shape[:2]
+    th, tw = target.shape[:2]
     
-#     #target frame
-#     y1 = max(0, ir(location[0] - sh/2.0))
-#     y2 = min(th, ir(location[0] + sh/2.0))
-#     x1 = max(0, ir(location[1] - sw/2.0))
-#     x2 = min(tw, ir(location[1] + sw/2.0))
+    #target frame
+    y1 = max(0, ir(location[0] - sh/2.0))
+    y2 = min(th, ir(location[0] + sh/2.0))
+    x1 = max(0, ir(location[1] - sw/2.0))
+    x2 = min(tw, ir(location[1] + sw/2.0))
     
-#     #source frame
-#     s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))
-#     s_y2 = s_y1 + (y2 - y1)
-#     s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))
-#     s_x2 = s_x1 + (x2 - x1)
+    #source frame
+    s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))
+    s_y2 = s_y1 + (y2 - y1)
+    s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))
+    s_x2 = s_x1 + (x2 - x1)
     
-#     try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]
-#     except Exception as E:
-#         print(y1, y2, x1, x2)
-#         print(s_y1, s_y2, s_x1, s_x2)
-#         print(source.shape)
-#         print(target.shape)
-#         print(location)
-#         raise E
+    try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]
+    except Exception as E:
+        print(y1, y2, x1, x2)
+        print(s_y1, s_y2, s_x1, s_x2)
+        print(source.shape)
+        print(target.shape)
+        print(location)
+        raise E
     
-#     if v:
-#         print(y1, y2, x1, x2)
-#         print(s_y1, s_y2, s_x1, s_x2)
-#         print(source.shape)
-#         print(target.shape)
-#         print(location)
+    if v:
+        print(y1, y2, x1, x2)
+        print(s_y1, s_y2, s_x1, s_x2)
+        print(source.shape)
+        print(target.shape)
+        print(location)
     
-#     return target
+    return target

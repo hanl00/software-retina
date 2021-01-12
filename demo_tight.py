@@ -9,7 +9,6 @@ Tight retina image demo trial
 import cv2
 import numpy as np
 import sys
-sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cythonised_retina\\retinavision')
 import retinavision
 from os.path import dirname, join
 
@@ -47,7 +46,6 @@ while True:
         print('fixation')
         print(fixation)
         V = R.sample(img, fixation)
-        #tight = R.backproject_tight_last()
         tight = R.backproject_tight_last()
         
         cv2.namedWindow("inverted", cv2.WINDOW_AUTOSIZE)

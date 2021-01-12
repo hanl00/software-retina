@@ -14,10 +14,7 @@ import numpy as np
 from os.path import join
 import sys
 import time
-
-sys.path.append('C:\\Users\\Nicholas\\Documents\\University @ Glasgow\\Year 5\\cythonised_retina\\retinavision_cython\\retina')
-import retina_sample
-import retina_utils
+from retinavision_cython.retina import *
 
 #Open webcam
 cap = retina_utils.camopen() #cap is the capture object (global)

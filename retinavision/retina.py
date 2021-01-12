@@ -10,7 +10,7 @@ PhD retina. Object model and code cleanup.
 
 import numpy as np
 from .cuda_objects import CudaRetina
-from utils import pad, loadPickle, project, loadPickleNonbin
+from .utils import pad, loadPickle, project, loadPickleNonbin
 
 #TODO: do something about coeff being (1,X) in shape instead of (X)...
 #TODO: a check in utils for whether CUDA is installed, print warnings if it isnt
@@ -118,7 +118,7 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
     def sample(self, image, fix):
         """Sample an image"""
         fix = (int(fix[0]), int(fix[1]))
-        # self.validate()
+        self.validate()
         self._fixation = fix
         # This will reset the image size only when it was changed.
         if self._imsize != image.shape[:2]:

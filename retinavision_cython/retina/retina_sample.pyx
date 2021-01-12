@@ -4,14 +4,14 @@
 # cython: wraparound=False
 
 import numpy as np
-cimport numpy as cnp # Import for NumPY C-API
 import sys
 import itertools
-from libc.math cimport isnan, round
-# from libc.stdlib import malloc, free
+
 cimport cython
+cimport numpy as cnp 
+
 from cython.parallel import parallel, prange
-from cython cimport view
+from os.path import dirname, join
 
 py = sys.version_info.major
 
@@ -19,8 +19,6 @@ if py == 2: import cPickle as pickle
 elif py == 3: 
     import torch
     import pickle
-
-from os.path import dirname, join
 
 datadir = join(dirname(dirname(__file__)), "cythonised_retina")
 
@@ -52,24 +50,24 @@ def loadCoeff():
             else:
                 output_list.append(x)
 
-        coeff = np.stack(output_list) 
-
+        coeff = (np.stack(output_list) * 10000).astype(int)
 
 def loadLoc():
         global loc
         loc = loadPickle(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_loc.pkl"))
 
 @cython.wraparound(False)
-@cython.boundscheck(False) 
-cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int padding):
+@cython.boundscheck(False)
+@cython.profile(True)
+cpdef cnp.int32_t[:,:] pad (cnp.ndarray[cnp.int32_t, ndim=2] img, int padding):
    
-    cdef cnp.float64_t[:, :] image_mem_view = img
+    cdef cnp.int32_t[:, :] image_mem_view = img
     cdef int firstDimension = img.shape[0]
     cdef int firstAccumulator = 0
     cdef int secondDimension = img.shape[1]
     cdef int secondAccumulator = 0
     cdef int padding_twice = 2*padding
-    cdef cnp.float64_t[:,:] out
+    cdef cnp.int32_t[:,:] out
     cdef (int, int) size = (0, 0)
     cdef Py_ssize_t i
     cdef int imgDimension = img.ndim
@@ -79,81 +77,39 @@ cpdef cnp.float64_t[:,:] pad (cnp.ndarray[cnp.float64_t, ndim=2] img, int paddin
             firstAccumulator += firstDimension + padding_twice
         else:
             secondAccumulator += secondDimension + padding_twice
-        # add for third dimension
     
     size = (firstAccumulator, secondAccumulator)
-    out = np.zeros(size, dtype = np.float64)
+    out = np.zeros(size, dtype = np.int32)
 
     out[padding:-padding, padding:-padding] = image_mem_view
     
     return out
 
-#OH BOY PYTHON 3 SURELY HURTS
-def normal_round(n):
-    if n - np.floor(np.abs(n)) < 0.5:
-        return np.floor(n)
-    return np.ceil(n)
-
-#i = int, r = round.
-def ir(val):
-    return int(normal_round(val))
-
-#Project the source image onto the target image at the given location
-def project(source, target, location, v=False):
-    sh, sw = source.shape[:2]
-    th, tw = target.shape[:2]
-    
-    #target frame
-    y1 = max(0, ir(location[0] - sh/2.0))
-    y2 = min(th, ir(location[0] + sh/2.0))
-    x1 = max(0, ir(location[1] - sw/2.0))
-    x2 = min(tw, ir(location[1] + sw/2.0))
-    
-    #source frame
-    s_y1 = - ir(min(0, location[0] - sh/2.0 + 0.5))
-    s_y2 = s_y1 + (y2 - y1)
-    s_x1 = - ir(min(0, location[1] - sw/2.0 + 0.5))
-    s_x2 = s_x1 + (x2 - x1)
-    
-    try: target[y1:y2, x1:x2] += source[s_y1:s_y2, s_x1:s_x2]
-    except Exception as E:
-        print(y1, y2, x1, x2)
-        print(s_y1, s_y2, s_x1, s_x2)
-        print(source.shape)
-        print(target.shape)
-        print(location)
-        raise E
-    
-    if v:
-        print(y1, y2, x1, x2)
-        print(s_y1, s_y2, s_x1, s_x2)
-        print(source.shape)
-        print(target.shape)
-        print(location)
-    
-    return target
-
-
 @cython.wraparound(False)
-@cython.boundscheck(False) 
-cdef float multiply_sum2d(cnp.float64_t[:, :] extract_image, double[:,:] coeff_mem_view) nogil:
+@cython.boundscheck(False)
+@cython.cdivision(True)
+@cython.profile(True)
+cdef double multiply_sum2d(cnp.int32_t[:, :] extract_image, int[:,:] coeff_mem_view) nogil:
     cdef size_t i, I, j, J
-    cdef float total = 0
+    cdef double total = 0
+    cdef int current = 0
     I = extract_image.shape[0]
     J = extract_image.shape[1]
     
     for i in range(I):
-        for j in range(J):  
-            total += extract_image[i, j]*coeff_mem_view[i, j]
+        for j in range(J):
+            current = extract_image[i, j]*coeff_mem_view[i, j]
+            total += current/10000
 
     return total
 
 cdef class Retina:
-    
-    cdef cnp.float64_t[:, :] _gaussNorm
-    cdef cnp.float64_t[:, :] _gaussNormTight
-    cdef cnp.float64_t[:] _V
-    cdef cnp.uint8_t[:, :] _backprojTight
+    #to-do: tidy up
+
+    cdef cnp.float64_t[:, :] _gaussNorm #can remove
+    cdef cnp.float64_t[:, :] _gaussNormTight #can remove
+    # cdef cnp.int32_t[:] _V
+    cdef cnp.uint8_t[:, :] _backprojTight #can remove
     cdef int N, width
     cdef (int, int) _fixation
     cdef (int, int) _imsize
@@ -169,7 +125,7 @@ cdef class Retina:
         self._gaussNorm = np.empty((1080, 1920), dtype=float)
         self._gaussNormTight = np.zeros((926, 926), dtype=float) #can be further optimised using memory view initalisation
         self._normFixation = (0,0)
-        self._V = np.zeros((1), dtype=np.float64)
+        # self._V = np.zeros((1), dtype=np.int32)
         # self._backproj = 0 not used first
         self._backprojTight = np.zeros((926, 926), dtype=np.uint8)
 
@@ -179,11 +135,65 @@ cdef class Retina:
         self.N = len(loc)
         self.width = 2*int(np.abs(loc[:,:2]).max() + loc[:,6].max()/2.0)
 
+    # image is a numpy ndarray dtype int16 dimension is 2 (3 if rgb) and fixation is a tuple
+    cpdef cnp.ndarray[cnp.float32_t, ndim=1] sample (self, cnp.ndarray[cnp.int32_t, ndim=2] image, (int, int) fixation):
+        """Sample an image"""
+        global loc
+        global coeff
+
+        cdef double [:,:] loc_memory_view = loc
+        cdef int [:,:,:] coeff_memory_view = coeff 
+        cdef int fixation_y = fixation[0]
+        cdef int fixation_x = fixation[1]
+        cdef (int, int) fix = (fixation_y, fixation_x)
+        cdef int p
+        cdef cnp.int32_t[:, :] pic
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] X
+        cdef cnp.ndarray[cnp.float64_t, ndim=1] Y
+        cdef cnp.ndarray[cnp.float32_t, ndim=1] V
+        cdef float w
+        cdef int y1
+        cdef int x1
+        cdef int y2
+        cdef int x2
+        cdef Py_ssize_t i
+
+        # self.validate()
+        self._fixation = fixation
+
+        # This will reset the image size only when it was changed.
+        # if self._imsize != image.shape[:2]:
+        #     self._imsize = image.shape
+        p = self.width
+
+        pic = pad(image, p)
+
+        X = loc[:,0] +  np.asarray(fixation_x, dtype=np.float64) + p
+        Y = loc[:,1] + np.asarray(fixation_y, dtype=np.float64) + p
+
+        V = np.zeros((self.N), dtype=np.float32)
+        
+        with nogil, parallel():
+            for i in prange(self.N):
+                w = loc_memory_view[i, 6]
+                y1 = int(Y[i] - w/2+0.5)
+                y2 = int(Y[i] + w/2+0.5)
+                x1 = int(X[i] - w/2+0.5)
+                x2 = int(X[i] + w/2+0.5)
+                V[i] = multiply_sum2d(pic[y1:y2,x1:x2], coeff_memory_view[i,:,:])
+
+        # self._V = V
+       
+        return V
+
+
+    ###############################################################################
+
     cpdef validate(self):
         global loc
         global coeff
 
-        assert(len(loc) == len(coeff[0]))
+        assert(len(loc) == len(coeff))
         _gaussNormTight = np.asarray(self._gaussNormTight)
         if np.all(_gaussNormTight==0): 
             self._normTight()
@@ -210,58 +220,6 @@ cdef class Retina:
         _gaussNormTight = np.asarray(self._gaussNormTight)
         GI = project(_gaussNormTight, GI, fix)
         self._gaussNorm = GI
-
-    # image is a numpy ndarray dtype int16 dimension is 2 (3 if rgb) and fixation is a tuple
-    cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample (self, cnp.ndarray[cnp.float64_t, ndim=2] image, (int, int) fixation):
-        """Sample an image"""
-        global loc
-        global coeff
-
-        cdef double [:,:] loc_memory_view = loc
-        cdef double [:,:,:] coeff_memory_view = coeff 
-        cdef int fixation_y = fixation[0]
-        cdef int fixation_x = fixation[1]
-        cdef (int, int) fix = (fixation_y, fixation_x)
-        cdef int p
-        cdef cnp.float64_t[:, :] pic
-        cdef cnp.ndarray[cnp.float64_t, ndim=1] X
-        cdef cnp.ndarray[cnp.float64_t, ndim=1] Y
-        cdef cnp.ndarray[cnp.float64_t, ndim=1] V
-        cdef float w
-        cdef int y1
-        cdef int x1
-        cdef int y2
-        cdef int x2
-        cdef Py_ssize_t i
-
-        # self.validate()
-        self._fixation = fixation
-
-        # This will reset the image size only when it was changed.
-        # if self._imsize != image.shape[:2]:
-        #     self._imsize = image.shape
-        p = self.width
-
-        pic = pad(image, p)
-
-        X = loc[:,0] +  np.asarray(fixation_x, dtype=np.float64) + p
-        Y = loc[:,1] + np.asarray(fixation_y, dtype=np.float64) + p
-
-        V = np.zeros((self.N))
-        
-        with nogil, parallel():
-            for i in prange(self.N):
-                w = loc_memory_view[i, 6]
-                y1 = int(Y[i] - w/2+0.5)
-                y2 = int(Y[i] + w/2+0.5)
-                x1 = int(X[i] - w/2+0.5)
-                x2 = int(X[i] + w/2+0.5)
-                V[i] = multiply_sum2d(pic[y1:y2,x1:x2], coeff_memory_view[i,:,:])
-
-        self._V = V
-       
-        return V
-
 
     # for testing, no need to cythonise
     def backproject_tight_last(self, n=True, norm=None):
