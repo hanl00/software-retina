@@ -14,6 +14,7 @@
 * generated files (.pyd and .c) from compiling .pyx files have been added into gitignore
 * .html and .cpp files have been added to gitignore and older versions in the repository are no longer tracked
 * .pkl files have been removed from gitignore
+* repository visibility is now public
 
 ### Compiling .pyx code
 
