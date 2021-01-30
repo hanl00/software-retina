@@ -6,11 +6,14 @@ import cProfile, pstats, io
 import time
 from retinavision import *
 from retinavision_cython.retina import *
+from decimal import *
+import skimage.io
+import cv2
 
 datadir = join(dirname(dirname(__file__)), "cythonised_retina")
 
-# uint8 input
-baseline_image = np.loadtxt('data.csv', delimiter=',')
+baseline_image = skimage.io.imread('dock.jpg')
+baseline_gray = cv2.cvtColor(baseline_image, cv2.COLOR_RGB2GRAY)
 
 # generate a random 2 dimensional array 
 input_img =  np.random.randint(256, size=(1080, 1920), dtype=np.uint8)
@@ -26,7 +29,7 @@ fixation = (360.0, 640.0)
 
 # campicshape has to match input img shape for original retina
 # campicShape = (720, 1280, 3) #old
-campicShape = (1080, 1920, 3)
+campicShape = (baseline_image.shape[0], baseline_image.shape[1], 3)
 
 
 def runOriginalPad():
@@ -48,11 +51,15 @@ def originalRetinaSample():
 
 def cythonRetinaSample():
     R = retina_sample.Retina()
-    retina_sample.loadCoeff()
+    coeff, coeff_padded, coeff_colored = retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    img = baseline_image.astype(np.int32)
-    v = R.sample(img, fixation)
+    img = baseline_image.astype(np.uint8)
+    if len(img.shape) == 3 and img.shape[-1] == 3:
+        v = R.sample_colored(img, fixation)
+    else:
+        v = R.sample_grayscale(img, fixation)
+    
     return v
 
 
@@ -134,11 +141,21 @@ def timeCythonRetinaSample(x):
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     CR.updateLoc()
-    img = baseline_image.astype(np.int32)
+    img = baseline_image.astype(np.uint8)
+
+    # R = retina_sample.Retina()
+    # coeff, coeff_padded, coeff_colored = retina_sample.loadCoeff()
+    # retina_sample.loadLoc()
+    # R.updateLoc()
+    # img = baseline_image.astype(np.uint8)
+    # if len(img.shape) == 3 and img.shape[-1] == 3:
+    #     v = R.sample_colored(img, fixation)
+    # else:
+    #     v = R.sample_grayscale(img, fixation)
 
     for i in range(x):
         cython_start_time = time.time()
-        CR.sample(img, fixation)
+        CR.sample_colored(img, fixation)
         cython_sample_time = time.time() - cython_start_time
         total_time += cython_sample_time
 
@@ -179,8 +196,8 @@ def cythonRetinaProfile():
     retina_sample.loadCoeff()
     retina_sample.loadLoc()
     R.updateLoc()
-    img = baseline_image.astype(np.int32)
-    cProfile.runctx("R.sample(img, fixation)", globals(), locals(), "Profile.prof")
+    img = baseline_image.astype(np.uint8)
+    cProfile.runctx("R.sample_colored(img, fixation)", globals(), locals(), "Profile.prof")
     s = pstats.Stats("Profile.prof")
     s.strip_dirs().sort_stats("cumtime").print_stats()
 
@@ -194,17 +211,39 @@ def testOutput():
     original = originalRetinaSample()
     cythonised = cythonRetinaSample()
 
+
     for index, (first, second) in enumerate(zip(original, cythonised)):
-        if abs(first-second) > 0.05:
-            print(index, first, second)
+        for index_2, element in enumerate(first):
+            if abs (element - second[index_2]) > 0.05:
+                print (first, second)
+        
+        # for index_2, (row_first, row_second) in enumerate(first, second):
+        #     if abs(row_first - row_second) > 0.05:
+        #         print(index, first, second)
         if index == 49999:
             print(index, first, second)
 
+
+##################################
+def test_function():
+    normal, gray, colored = retina_sample.loadCoeff()
+    print(gray.ndim)
+    print(colored.ndim)
+    print(gray[0][0])
+    print(colored[0][0])
+
 # print(originalRetinaSample())
-compareWithLoops(2, compareRetinaSample)
+# print("--------------")
+# print(cythonRetinaSample())
+# compareWithLoops(2, compareRetinaSample)
 # compareWithLoops(10, compareRetinaSample10)
-# testOutput()
+testOutput()
 # originalRetinaProfile()
 # cythonRetinaProfile()
-# timeCythonRetinaSample(100)
+# timeCythonRetinaSample(1)
+# test_function()
+# originalRetinaSample()
 # timeOriginalRetinaSample(10)
+# testOutput()
+# coefficientTest()
+# cythonRetinaSample()

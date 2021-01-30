@@ -10,7 +10,7 @@
 |Prange nogil       |Remove gil requirements by converting to 3d memory view, added new testing method (previous method took account of retina initialisation with loading coefficients etc)      |         |Cython is 27.724704600059322x faster       |10       | None     |31 function calls in 0.049 seconds       |
 |Test updates       |Reworked performance testing, comparisions vs original/original+GPU, added Killick's retina generator, updated gitignore     | 0.04177126884460449       |Cython is 50.73988588305842x faster   |10       |Incorrect output values vs origianl+GPU code    |No changes to the Cython code, unsure souce of performance improvements from 27x to 56x, profiling moved to 3rd column       |
 |Changed datatype from float to int32       |Datatype changes, added readme, tidied up imports for collaborators, removed unnecessary files       |0.026208043098449707       |Cython is 79.60323600241914x faster       |10       |Todo: Fix int type output deviation by normalising kernels and code tidy up      |Performance increase mentioned above likely from changing input dimensions 1280 x 720 to 1920 x 1080       |
-|       |       |       |       |       |       |       |
+|Fixed inaccurate output values, working for colored images and started cyflann      |2d grayscale intensity output fixed, support for colored images added, initial file for cyflann       |-       |-       |-       |Float32/64 datatype was used once       |       |
 |       |       |       |       |       |       |       |
 |       |       |       |       |       |       |       |
 |       |       |       |       |       |       |       |

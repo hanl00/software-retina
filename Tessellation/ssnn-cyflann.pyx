@@ -1,7 +1,8 @@
 
 import time
 import numpy as np
-from pyflann import *
+# from pyflann import *
+from cyflann import *
 from scipy.spatial.distance import cdist
 
 from utils import *
@@ -29,7 +30,7 @@ class SSNN:
         self.fovea = fovea
         self.weights = SSNN.__init_weights(n_nodes)
         self.method = method
-        self.flann = FLANN()
+        self.flann = FLANNIndex()
                       
     
     def fit(self, num_iters=20000, initial_alpha=0.1, final_alpha=0.0005, verbose=True):

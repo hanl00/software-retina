@@ -1,4 +1,5 @@
 import numpy as np
+from .ssnn import SSNN
 from .utils import *
 
 # Author: George Killick
@@ -38,7 +39,7 @@ def fibonacci_sunflower(n_nodes):
 	# return points in standard format
 	return np.array([x,y]).T
 
-def fibonacci_retina(n_nodes, fovea, fovea_density):
+def fibonacci_retina(n_nodes, fovea, foveal_density):
 
 	""" Generates points using the fibonacci sunflower
 		and dilates them with the dilate function found in utils.
@@ -54,10 +55,48 @@ def fibonacci_retina(n_nodes, fovea, fovea_density):
 		Return: numpy array of points
 
 	"""
-	retina = fibonacci_sunflower(n_nodes)
+	x = fibonacci_sunflower(n_nodes)
 
-	# Returns the dilated sunflower tessellation.
-	return dilate(retina, fovea, fovea_density)
+	x = normalize(x)
+	x = cart2pol(x)
+	x[:,1] *= (1/(fovea + ((2*np.pi*fovea)/foveal_density)) ** x[:,1] ** foveal_density)
+	x = pol2cart(x)
+
+	return normalize(x)
+
+def hybrid(n_nodes, fovea, foveal_density, verbose=True):
+	
+	""" A hybrid approach to generating retina tessellations;
+		uses the fibnacci retina with a sierpinski node generation
+		applied as an initialization for the SSNN.
+
+		Parameters
+		----------
+		n_nodes:
+		fovea:
+		foveal_density:
+
+		Return: retina tessallation.
+	"""
+
+	retina = fibonacci_retina(n_nodes//4, fovea, foveal_density)
+
+	# small randomization and barycentre generation to help 
+	# promote pseudo uniform tessellation
+	shake = retina
+	shake = randomize(shake, 0.23)
+	shake = point_gen(shake, mode='sierpinski', concatenate=True)
+	shake = randomize(shake, 0.23)
+
+	# annealling the points
+	frying = SSNN(100, 0.1)
+	frying.set_weights(shake)
+
+	frying.fit(3000, 0.033, 0.0005, verbose)
+
+	weights = frying.weights
+
+	return normalize(weights)
 	
 
 

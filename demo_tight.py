@@ -31,28 +31,23 @@ R.loadCoeff(join(datadir, "retinavision_cython", "data", "retinas", "ret50k_coef
 x = campic.shape[1]/2
 y = campic.shape[0]/2
 fixation = (y,x)
-print('campic.shape')
-print(campic.shape)
-print('fixation')
-print(fixation)
 R.prepare(campic.shape, fixation)
 
 while True:
     ret, img = cap.read()
     if ret is True:
         img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        print('img.shape')
-        print(img.shape)
-        print('fixation')
-        print(fixation)
-        V = R.sample(img, fixation)
+        img_ones = np.ones(img.shape)
+        V = R.sample(img_ones, fixation)
         tight = R.backproject_tight_last()
         
-        cv2.namedWindow("inverted", cv2.WINDOW_AUTOSIZE)
-        cv2.imshow("inverted", tight) 
+        print(V)
+        print(tight)
+        # cv2.namedWindow("inverted", cv2.WINDOW_AUTOSIZE)
+        # cv2.imshow("inverted", tight) 
         
-        cv2.namedWindow("input", cv2.WINDOW_AUTOSIZE)
-        cv2.imshow("input", img) 
+        # cv2.namedWindow("input", cv2.WINDOW_AUTOSIZE)
+        # cv2.imshow("input", img) 
         
         key = cv2.waitKey(10)
         

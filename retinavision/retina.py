@@ -153,22 +153,28 @@ REMEMBER2: coeff is redundantly wrapped in another matrix for backwards compatib
             x1 = int(X[i] - w/2+0.5)
             x2 = int(X[i] + w/2+0.5)
             extract = pic[y1:y2,x1:x2]
-            
             c = self.coeff[0, i]
             
             if rgb: kernel = np.dstack((c,c,c))
             else: 
                 kernel = c
-
             m = np.where(np.isnan(extract), 0, 1.0) #mask
             
             if rgb: f = 1.0/np.sum(m*kernel, axis = (0,1)) #TODO fix invalid value warnings
             else: f = 1.0/np.sum(m*kernel)
 
             extract = np.nan_to_num(extract)
-            if rgb: V[i] = np.sum(extract*kernel, axis=(0,1)) * f
-            else: V[i] = np.sum(extract*kernel) * f
+            if rgb: 
+                # print(extract)
+                # print(kernel)
+                V[i] = np.sum(extract*kernel, axis=(0,1)) * f
+            else: 
+                V[i] = np.sum(extract*kernel) * f
 
+            # print(extract)
+            # print(kernel)
+            # print(extract*kernel)
+            # print(np.sum(extract*kernel, axis=(0,1)))
         self._V = V
         return V
     

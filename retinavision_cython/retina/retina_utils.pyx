@@ -4,7 +4,6 @@ cimport cython
 from cython.parallel import prange
 import cv2
 
-
 @cython.wraparound(False)
 @cython.boundscheck(False)  
 cpdef cnp.float64_t[:, :] pad (cnp.float64_t[:, :] img, int padding):
