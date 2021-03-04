@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.spatial import KDTree, Delaunay, Voronoi
 
-# Author: George Killick
+# Original code provided by George Killick 
 
 def cart2pol(coords):
 

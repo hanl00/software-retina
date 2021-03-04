@@ -2,7 +2,7 @@ import numpy as np
 from .ssnn import SSNN
 from .utils import *
 
-# Author: George Killick
+# Original code provided by George Killick 
 
 def fibonacci_sunflower(n_nodes):
 	""" Generates points using the golden ratio

@@ -3,10 +3,11 @@ import time
 import numpy as np
 from pyflann import *
 from scipy.spatial.distance import cdist
+import pynanoflann
 
-from utils import *
+from .utils import *
 
-# Authors: George Killick 
+# Original code provided by George Killick 
 
 
 class SSNN:
@@ -29,7 +30,7 @@ class SSNN:
         self.fovea = fovea
         self.weights = SSNN.__init_weights(n_nodes)
         self.method = method
-        self.flann = FLANN()
+        self.nanoflann = pynanoflann.KDTree(n_neighbors=1, metric='L2', radius=1)
                       
     
     def fit(self, num_iters=20000, initial_alpha=0.1, final_alpha=0.0005, verbose=True):
@@ -101,59 +102,6 @@ class SSNN:
             print("\nFinished.")
             print("Time taken: " + str(time.time()-start))
 
-    def generative_fit(self, steps, num_iters=20000, initial_alpha=0.1, final_alpha=0.0005, verbose=True):
-
-        """ Uses a point generation method based on delaunay triangulation
-            to decrease training times. See README for more info.
-
-            Parameters
-            ----------
-            steps: Number of iterations for generating points.
-
-            -- remaining parameters same as normal fit function.
-
-            Return: None
-
-        """
-        
-        start = time.time()
-
-        # Calculates the required starting node size for number of
-        # generative iterations. 
-        # Node count x 4 for Sierpinski. (approx)
-        # Node count x 3 for Barycentre. (approx)
-
-        self.n_nodes = self.n_nodes // (4 ** steps)
-        self.weights = SSNN.__init_weights(self.n_nodes)
-
-        SSNN.fit(self, num_iters, initial_alpha, final_alpha, verbose)
-        
-        # Number of training iterations after point generation
-        g_iters = 3000
-
-        # Calculates a new initial alpha
-        g_alpha = ((g_iters/(num_iters * 0.75)) * initial_alpha) + final_alpha
-
-        for i in range(steps):
-
-            print("\nAnnealing new points...")
-            self.weights = randomize(self.weights)
-            self.weights = point_gen(self.weights, 'sierpinski') #point_gen method from utils.py
-            self.weights = randomize(self.weights)
-            self.n_nodes = self.weights.shape[0]
-
-            if(i == steps-1):
-                # Slightly increase number of iterations on final run,
-                # almost like polishing everything up.
-                g_iters += 2000
-
-            self.fit(g_iters,0.033, 0.0005, verbose)
-        
-        if(verbose):
-            print("\nFinal node count: " + str(self.weights.shape[0]))
-            print("\nTotal time taken: " + str(time.time()-start))
-        
-        return 
 
     def set_weights(self, X):
         self.n_nodes = X.shape[0]
@@ -169,7 +117,7 @@ class SSNN:
 
             method:
                 - 'default': Uses a Scipy brute force search
-                - 'flann': Uses FLANN
+                - 'nanoflann': Uses nanoflann
                 - 'auto': Selects best backend based on number
                 of nodes and available hardware.
 
@@ -181,9 +129,9 @@ class SSNN:
             print("Using Scipy.")
             return self.__bf_neighbours
 
-        elif(method == 'flann'):
-            print("Using FLANN.")
-            return self.__flann_neighbours
+        elif(method == 'nanoflann'):
+            print("Using nanoflann.")
+            return self.__pynanoflann_neighbours
 
         elif(method == 'auto'):
             if(self.n_nodes <= 256):
@@ -191,8 +139,8 @@ class SSNN:
                 return self.__bf_neighbours
 
             else:
-                print("Using FLANN.")
-                return self.__flann_neighbours
+                print("Using nanoflann.")
+                return self.__pynanoflann_neighbours
         else:
         	print("Unknown method, using FLANN backend.")
 
@@ -214,21 +162,22 @@ class SSNN:
         indeces = np.argmin(dists, axis=1)
         return indeces
 
-    def __flann_neighbours(self, X, Y):
+    def __pynanoflann_neighbours(self, X, Y):
 
-        """ Canonical wrapper for FLANN nearest neighbour 
+        """ Canonical wrapper for nanoflann nearest neighbour 
             search.
             
             Parameters
             ----------
-            X: update vectors
+            X: update vectors 
             Y: network weights
 
             Return: index of nearest neighbour for each
             update vector.
         """
-        indeces, dists = self.flann.nn(Y, X, 1, algorithm="kdtree", branching=16, iterations=5, checks=16) 
-        return indeces
+        self.nanoflann.fit(Y)
+        distances, indices = self.nanoflann.kneighbors(X)
+        return indices.flatten()
 
     @staticmethod
     def __init_weights(n_nodes):

@@ -20,3 +20,7 @@
 
 * Cython version 0.29.21
 * navigate to base directory, $python setup.py build_ext --inplace
+
+
+* https://github.com/georgeKillick90/Retina
+* https://github.com/Pozimek/RetinaVision
