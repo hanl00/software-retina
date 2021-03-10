@@ -1,10 +1,9 @@
 
 import time
 import numpy as np
-from pyflann import *
 from scipy.spatial.distance import cdist
 import pynanoflann
-
+import sys
 from .utils import *
 
 # Original code provided by George Killick 
@@ -126,7 +125,7 @@ class SSNN:
         """
 
         if (method == 'default'):
-            print("Using Scipy.")
+            print("Using bruteforce.")
             return self.__bf_neighbours
 
         elif(method == 'nanoflann'):
@@ -135,14 +134,14 @@ class SSNN:
 
         elif(method == 'auto'):
             if(self.n_nodes <= 256):
-                print("Using Scipy.")
+                print("Using bruteforce.")
                 return self.__bf_neighbours
 
             else:
                 print("Using nanoflann.")
                 return self.__pynanoflann_neighbours
         else:
-        	print("Unknown method, using FLANN backend.")
+        	print("Unknown method, using nanoflann backend.")
 
     def __bf_neighbours(self, X, Y): 
 
