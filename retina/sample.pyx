@@ -9,6 +9,8 @@ from cython.parallel import parallel
 from cython.parallel import prange
 from os.path import dirname
 from os.path import join
+import errno
+import os
 
 cimport cython
 cimport numpy as cnp
@@ -47,21 +49,53 @@ cdef class Retina:
         self._V_colored = np.zeros((1, 1), dtype=np.float64)
 
 
-    def load_loc_from_path(self, input):
-        if isinstance(input, str):
-            self.loc = np.load(path, allow_pickle=True)
+    def load_loc(self, input):
+        if isinstance(input, np.ndarray):
+            if not input.ndim == 2:
+                raise ValueError("Must be 2d array")
+            else:
+                self.loc = input
         else:
-            raise ValueError("Only accepting string path of a pickled file")
+            print("Only accept 2d numpy array")
+    
+        self.N = len(self.loc)
+        self.width = 2*int(np.abs(self.loc[:,:2]).max() + np.asarray(self.loc[:,6]).max()/2.0)
+    
+
+    def load_loc_from_path(self, filename):
+        if isinstance(filename, str):
+            if not os.path.isfile(filename):
+                raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), filename)
+            
+            else:
+                self.loc = np.load(filename, allow_pickle=True)
+
+        else:
+            raise ValueError("Only accept string path of a pickled file")
+
         self.N = len(self.loc)
         self.width = 2*int(np.abs(self.loc[:,:2]).max() + np.asarray(self.loc[:,6]).max()/2.0)
 
     def load_coeff(self, input):
-        if isinstance(input, str):
-            self.coeff = loadPickle(input)
-        elif isinstance(input, np.ndarray):
-            self.coeff = input
+        if isinstance(input, np.ndarray):
+            if not input.ndim == 3:
+                raise ValueError("Must be 3d array")
+            else:
+                self.coeff = input
         else:
-            print("Only accepting pickled/ normal arrays")
+            print("Only accept 3d numpy array")
+
+
+    def load_coeff_from_path(self, filename):
+        if isinstance(filename, str):
+            if not os.path.isfile(filename):
+                raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), filename)
+            
+            else:
+                self.loc = np.load(filename, allow_pickle=True)
+
+        else:
+            raise ValueError("Only accept string path of a pickled file")
             
     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale (self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):
         """Sample an image"""
