@@ -29,8 +29,9 @@ def rf_ozimek(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
         rf_coeff - an array of gaussian receptive field kernels (variable size)
 
     """
+
     rf_loc = np.zeros((len(tessellation), 7))
-    rf_coeff = np.ndarray((1, len(tessellation)), dtype='object')
+    rf_coeff_unpadded = np.ndarray((1, len(tessellation)), dtype='object')
 
     row_length = 0
     column_length = 0
@@ -78,25 +79,22 @@ def rf_ozimek(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
 
         rf_loc[i, 0] = cx
         rf_loc[i, 1] = cy
-        rf_coeff[0, i] = gausskernel_cython(k_width, loc, rf_loc[i, 5])
-        rf_coeff[0, i] /= np.sum(rf_coeff[0, i])
+        rf_coeff_unpadded[0, i] = gausskernel_cython(k_width, loc,
+                                                     rf_loc[i, 5])
+        rf_coeff_unpadded[0, i] /= np.sum(rf_coeff_unpadded[0, i])
 
-        if rf_coeff[0, i].shape > (row_length, column_length):
-            row_length, column_length = rf_coeff[0, i].shape
+        if rf_coeff_unpadded[0, i].shape > (row_length, column_length):
+            row_length, column_length = rf_coeff_unpadded[0, i].shape
 
     print("Padding kernels now")
 
-    for x in rf_coeff[0]:
-        if x.shape != (row_length, column_length):
-            b = np.pad(x, ((0, row_length - x.shape[0]),
-                       (0, column_length - x.shape[1])),
-                       'constant', constant_values=0)
-            output_list.append(b)
+    rf_coeff = np.zeros((len(tessellation), row_length, row_length))
 
-        else:
-            output_list.append(x)
+    for i in range(len(tessellation)):
+        x, y = rf_coeff_unpadded[0][i].shape
+        rf_coeff[i, :x, :y] = rf_coeff_unpadded[0][i]
 
-        rf_coeff = (np.stack(output_list) * 100000000).astype(np.int32)
+    rf_coeff = (rf_coeff*100000000).astype(np.int32)
 
     return rf_loc, rf_coeff, fov_dist_5
 
@@ -110,7 +108,10 @@ cpdef cnp.float64_t gauss_cython(cnp.float64_t sigma, cnp.float64_t x,
     return exp(-(d-mean)**2 / (2*sigma**2)) / sqrt(2*pi*sigma**2)
 
 
-cpdef cnp.ndarray[cnp.float64_t, ndim=2] gausskernel_cython(cnp.int_t width, cnp.ndarray[cnp.float64_t, ndim=1] loc, cnp.float64_t sigma):  # noqa: E225, E501
+cpdef cnp.ndarray[cnp.float64_t, ndim=2] gausskernel_cython(  # noqa: E225
+        cnp.int_t width,
+        cnp.ndarray[cnp.float64_t, ndim=1] loc,
+        cnp.float64_t sigma):
     cdef cnp.ndarray[cnp.float64_t, ndim=2] k  # noqa: E225
     cdef double w, shift, dx, dy
     cdef int x, y

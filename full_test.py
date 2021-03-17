@@ -6,6 +6,7 @@ from os.path import dirname, join
 import os
 import pickle
 import time
+import scipy.io
 
 from tessellation.ssnn import *
 from rf_generation import *
@@ -24,24 +25,24 @@ def loadPickle(path):
 # GENERATING 5K TESSELLATION
 ########################################################
 
-# nanoflann_retina = SSNN(n_nodes = 5000, fovea = 0.1, method = "nanoflann")
-# nanoflann_retina.fit()
-# nanoflann_tessellation = nanoflann_retina.weights
-# pickle.dump( nanoflann_tessellation, open( "data/5k/nanoflann_5k_tessellation.pkl", "wb" ) )
+nanoflann_retina = SSNN(n_nodes = 100000, fovea = 0.1, method = "nanoflann")
+nanoflann_retina.fit()
+nanoflann_tessellation = nanoflann_retina.weights
+pickle.dump(nanoflann_tessellation, open("data/100k/nanoflann_100k_tessellation.pkl", "wb"))
 
 
 ########################################################
 # GENERATING KERNELS AND NODE ATTRIBUTES (LOC)
 ########################################################
 
-# nanoflann_tessellation = np.load('data/5k/nanoflann_5k_tessellation.pkl', allow_pickle=True)
-# now = time.time()
-# rf_loc, rf_coeff, fov_dist_5 = rf_ozimek(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, mean_rf = 1)
-# print("time taken " )
-# print(time.time() - now)
-# pickle.dump( rf_loc, open( "data/5k/nanoflann_5k_rf_loc.pkl", "wb" ) )
-# pickle.dump( rf_coeff, open( "data/5k/nanoflann_5k_rf_coeff.pkl", "wb" ) )
-# pickle.dump( fov_dist_5, open( "data/5k/nanoflann_5k_fov_dist_5.pkl", "wb" ) )
+nanoflann_tessellation = np.load('data/100k/nanoflann_100k_tessellation.pkl', allow_pickle=True)
+now = time.time()
+rf_loc, rf_coeff, fov_dist_5 = rf_ozimek(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+print("time taken " )
+print(time.time() - now)
+pickle.dump(rf_loc, open("data/100k/100k_rf_loc.pkl", "wb"))
+pickle.dump(rf_coeff, open("data/100k/100k_rf_coeff.pkl", "wb"))
+pickle.dump(fov_dist_5, open("data/100k/100k_fov_dist_5.pkl", "wb"))
 
 
 ########################################################
@@ -73,7 +74,7 @@ def loadPickle(path):
 
 # # R.prepare(campic.shape, fixation)
 
-baseline_image = skimage.io.imread('dock.jpg')
+# baseline_image = skimage.io.imread('dock.jpg')
 
 # baseline_image = cv2.cvtColor(baseline_image, cv2.COLOR_BGR2GRAY)
 
@@ -114,7 +115,7 @@ baseline_image = skimage.io.imread('dock.jpg')
 # pickle.dump( x, open( "pad_V2_color.pkl", "wb" ) )
 
 # pad = np.load('pad.pkl', allow_pickle=True)
-pad2 = np.load('pad_V2_color.pkl', allow_pickle=True)
-pad_original = np.load('pad_original_color.pkl', allow_pickle=True)
+# pad2 = np.load('pad_V2_color.pkl', allow_pickle=True)
+# pad_original = np.load('pad_original_color.pkl', allow_pickle=True)
 
-print((pad_original==pad2).all())
+# print((pad_original==pad2).all())

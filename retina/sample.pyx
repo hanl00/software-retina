@@ -41,19 +41,19 @@ cdef class Retina:
 
         self.N = 0
         self.width = 0
-        self.loc = np.zeros((1, 1), dtype=np.float64)
-        self.coeff = np.zeros((1, 1, 1), dtype=np.int32)
+        self.loc = np.load('../data/50k/50k_rf_loc.pkl', allow_pickle=True)
+        self.coeff =  np.load('../data/50k/50k_rf_coeff.pkl', allow_pickle=True)
         self._V_gray = np.zeros((1), dtype=np.float64)
         self._V_colored = np.zeros((1, 1), dtype=np.float64)
 
 
-    def load_loc(self, input): #only accept path or array
+    def load_loc_from_path(self, input):
         if isinstance(input, str):
-            self.loc = loadPickle(input)
+            self.loc = np.load(path, allow_pickle=True)
         else:
-            self.loc = input
+            raise ValueError("Only accepting string path of a pickled file")
         self.N = len(self.loc)
-        self.width = 2*int(np.abs(self.loc[:,:2]).max() + np.asarray(self.loc[:,6]).max()/2.0) ##issue here
+        self.width = 2*int(np.abs(self.loc[:,:2]).max() + np.asarray(self.loc[:,6]).max()/2.0)
 
     def load_coeff(self, input):
         if isinstance(input, str):
