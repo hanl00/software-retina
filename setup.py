@@ -6,22 +6,22 @@ import numpy
 ext_modules = [
     Extension(
         "utils", 
-        ["retina/utils.pyx"], 
+        ["software_retina/utils.pyx"], 
     ),
     Extension(
-        "sample",
-        ["retina/sample.pyx"],
+        "retina",
+        ["software_retina/retina.pyx"],
         extra_compile_args=['-fopenmp'],
         extra_link_args=['-fopenmp'],
     ),
     Extension(
         "rf_generation",
-        ["retina/rf_generation.pyx"],
+        ["software_retina/rf_generation.pyx"],
     ),
 ]
 
 setup(
-    name="fast_retina",
+    name="software_retina",
     ext_modules=cythonize(ext_modules),
     include_dirs=[numpy.get_include()]
 )

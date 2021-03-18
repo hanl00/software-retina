@@ -29,8 +29,8 @@ cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
 
     return out
 
-cpdef cnp.int32_t[:, :, ::1] pad_colored(cnp.ndarray[cnp.uint8_t, ndim=3] img,
-                                         int padding):
+cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
+                                          int padding):
     cdef cnp.int32_t[:, :, ::1] image_mem_view = img.astype(dtype=np.int32)
     cdef int first_dimension = img.shape[0]
     cdef int first_accumulator = 0
