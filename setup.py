@@ -5,18 +5,21 @@ import numpy
 
 ext_modules = [
     Extension(
-        "utils", 
-        ["software_retina/utils.pyx"], 
-    ),
-    Extension(
-        "retina",
-        ["software_retina/retina.pyx"],
+        "src.software_retina.utils", 
+        ["src/software_retina/utils.pyx"],
         extra_compile_args=['-fopenmp'],
         extra_link_args=['-fopenmp'],
     ),
     Extension(
-        "rf_generation",
-        ["software_retina/rf_generation.pyx"],
+        "src.software_retina.retina",
+        ["src/software_retina/retina.pyx"],
+        extra_compile_args=['-fopenmp'],
+        extra_link_args=['-fopenmp'],
+        include_dirs=['pxd'],
+    ),
+    Extension(
+        "src.software_retina.rf_generation",
+        ["src/software_retina/rf_generation.pyx"],
     ),
 ]
 

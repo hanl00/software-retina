@@ -5,6 +5,8 @@
 *.lib
 *.obj
 *.pyc
-*.c
 *.html
 *.cpp
+validation testing
+data/50k/50k_rf_coefficients.pkl
+data/100k/100k_rf_coefficients.pkl
