@@ -2,7 +2,7 @@
 
 ## What is a software retina?
 
-A software retina is made up of n-number of nodes that follows the density distribution of photoreceptor cells (rods and cones)found in the human retina. 
+A software retina is made up of n-number of nodes that follows the density distribution of photoreceptor cells (rods and cones) found in the human retina. 
 
 <p float="left">
   <img src="https://raw.github.com/hanl00/software-retina/main/data/readme_pics/8k.png" height="480" width="480">
