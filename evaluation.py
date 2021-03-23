@@ -8,7 +8,7 @@ import pickle
 import time
 import scipy.io
 
-from src.software_retina_generation.ssnn import *
+from src.software_retina_generation.SelfSimilarNeuralNetwork import *
 from src.software_retina.rf_generation import *
 from src.software_retina.retina import *
 
@@ -24,7 +24,7 @@ def loadPickle(path):
 # GENERATING 10K TESSELLATION
 ########################################################
 
-# nanoflann_retina = SSNN(n_nodes = 10000, fovea = 0.1, method = "nanoflann")
+# nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 10000, foveal_region_size = 0.1, nearest_neighbour_method = "nanoflann")
 # nanoflann_retina.fit()
 # nanoflann_tessellation = nanoflann_retina.weights
 # pickle.dump(nanoflann_tessellation, open("data/10k/nanoflann_10k_tessellation.pkl", "wb"))
@@ -127,7 +127,7 @@ pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 ########################################################
 
 # original_gray = np.load('validation testing/nanoflann_50k_rf_loc.pkl', allow_pickle=True)
-# gray = np.load('data/50k/nanoflann method/50k_rf_loc.pkl', allow_pickle=True)
+# gray = np.load('data/50k/nanoflann nearest_neighbour_method/50k_rf_loc.pkl', allow_pickle=True)
 
 # for index, (first, second) in enumerate(zip(original_gray, gray)): 
 #     if abs(first-second) > 0.0005:
@@ -138,7 +138,7 @@ pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 ########################################################
 
 # original_gray = np.load('validation testing/nanoflann_50k_rf_coeff_original.pkl', allow_pickle=True)
-# gray = np.load('data/50k/nanoflann method/50k_rf_coeff.pkl', allow_pickle=True)
+# gray = np.load('data/50k/nanoflann nearest_neighbour_method/50k_rf_coeff.pkl', allow_pickle=True)
 
 # gray = gray.astype(np.float64)
 

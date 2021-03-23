@@ -5,24 +5,20 @@ from scipy.spatial import KDTree, Delaunay
 # Original code provided by George Killick
 
 
-def cart2pol(coords):
+def cartesian_to_polar(coordinates):
 
-    # Cartesian coordinates to polar.
-
-    x = coords[:, 0]
-    y = coords[:, 1]
+    x = coordinates[:, 0]
+    y = coordinates[:, 1]
     rho = np.sqrt(x**2 + y**2)
     theta = np.arctan2(y, x)
 
     return np.stack([theta, rho], 1)
 
 
-def pol2cart(coords):
+def polar_to_cartesian(coordinates):
 
-    # Polar coordinates to cartesian.
-
-    theta = coords[:, 0]
-    rho = coords[:, 1]
+    theta = coordinates[:, 0]
+    rho = coordinates[:, 1]
     x = rho*np.cos(theta)
     y = rho*np.sin(theta)
 
@@ -30,8 +26,6 @@ def pol2cart(coords):
 
 
 def display_tessellation(points, figsize=(15, 15), s=1):
-
-    # Displays 2D points as a scatter graph
 
     plt.figure(figsize=figsize)
     plt.scatter(points[:, 0], points[:, 1], s=s, c='black')
@@ -41,9 +35,6 @@ def display_tessellation(points, figsize=(15, 15), s=1):
 
 
 def display_stats(points, figsize=(15, 8), k=7):
-
-    # Shows how node density varies with eccentricity
-    # in a retina tessellation.
 
     nbs = KDTree(points)
 
@@ -66,20 +57,14 @@ def display_stats(points, figsize=(15, 8), k=7):
 
 def normalize(points):
 
-    # Constrains the retina tessellation to a unit circle
-
-    points = cart2pol(points)
+    points = cartesian_to_polar(points)
     points[:, 1] /= np.max(points[:, 1])
-    points = pol2cart(points)
+    points = polar_to_cartesian(points)
 
     return points
 
 
 def randomize(points, alpha=0.25):
-
-    # randomly shifts the position of all points in the
-    # retina tessellation to a maximum distance of the
-    # average distance to their nearest neighbours.
 
     x = np.copy(points)
     nbs = KDTree(x)
@@ -98,7 +83,7 @@ def randomize(points, alpha=0.25):
     return normalize(x)
 
 
-def point_gen(points, mode='sierpinski', concatenate=True):
+def point_generation(points, mode='sierpinski', concatenate=True):
 
     # Generates points using delaunay triangulation
     # and barycentre or sierpinski methods for generating
