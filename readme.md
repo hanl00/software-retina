@@ -4,8 +4,10 @@
 
 A software retina is made up of n-number of nodes that follows the density distribution of photoreceptor cells (rods and cones)found in the human retina. 
 
-![A software retina consisting of 8000 nodes](https://raw.github.com/hanl00/software-retina/main/data/readme_pics/8k.png)
-![Photoreceptor cell distribution](data/readme_pics/rods_cones.png)
+<p float="left">
+  <img src="https://raw.github.com/hanl00/software-retina/main/data/readme_pics/8k.png" height="480" width="480">
+  <img src="https://raw.github.com/hanl00/software-retina/main/data/readme_pics/rods_cones.png">
+</p>
 
 ## Why use a software retina?
 
@@ -23,9 +25,11 @@ The software retina generation allows users to generate software retinas of vary
 
 ## How to install?
 
-Software retina can be installed using ::
+Software retina can be installed using:
 
-pip install software-retina
+
+    pip install software-retina
+
 
 ## References and sources
 <a id="1">[1]</a> 
