@@ -4,8 +4,8 @@
 
 A software retina is made up of n-number of nodes that follows the density distribution of photoreceptor cells (rods and cones)found in the human retina. 
 
-![A software retina consisting of 8000 nodes](https://raw.github.com/hanl00/software-retina/main/data/readme pics/8k.png)
-![Photoreceptor cell distribution](data/readme pics/rods_cones.png)
+![A software retina consisting of 8000 nodes](https://raw.github.com/hanl00/software-retina/main/data/readme_pics/8k.png)
+![Photoreceptor cell distribution](data/readme_pics/rods_cones.png)
 
 ## Why use a software retina?
 
