@@ -3,14 +3,8 @@
 # cython: wraparound=False
 
 import numpy as np
-import sys
-import itertools
 from cython.parallel import parallel
 from cython.parallel import prange
-from os.path import dirname
-from os.path import join
-import errno
-import os
 
 cimport cython
 cimport numpy as cnp
@@ -23,11 +17,6 @@ cimport numpy as cnp
 # Original code provided by Piotr Ozimek
 
 
-default_node_attributes_datadir = join(dirname(dirname(__file__)), "..",
-                           'data', '5k', '5k_rf_node_attributes.pkl')
-default_coefficients_datadir = join(dirname(dirname(__file__)), "..",
-                             "data", "5k", "5k_rf_coefficients.pkl")
-
 cdef class Retina:
     cdef int N, width
     cdef cnp.float64_t[:, ::1] node_attributes
@@ -35,29 +24,15 @@ cdef class Retina:
     cdef cnp.float64_t[::1] _V_gray
     cdef cnp.float64_t[:, ::1] _V_coloured
 
-    def __init__(self):
+    def __init__(self, input_node_attributes, input_coefficients):
 
-        self.N = 5000
-        self.width = 206
-        self.node_attributes = np.load(default_node_attributes_datadir, allow_pickle=True)
-        self.coefficients = np.load(default_coefficients_datadir, allow_pickle=True)  # np.load(default_node_attributes_datadir, allow_pickle=True)
-        self._V_gray = np.zeros((1))
-        self._V_coloured = np.zeros((1, 1))
-
-    def load_node_attributes(self, input):
-        if isinstance(input, np.ndarray):
-            if not (input.ndim == 2 and input.shape[1] == 7):
-                raise ValueError('Must be a 2 dimensional array with each row'
-                                 ' b having 7 columns of node attributes')
-
-            else:
-                self.node_attributes = input
-                self.N = len(self.node_attributes)
-                self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
-                                   np.asarray(self.node_attributes[:, 6]).max()/2.0)
-
-        else:
-            raise TypeError('This function only accepts numpy array')
+        self.node_attributes = input_node_attributes
+        self.coefficients = input_coefficients
+        self.N = len(input_node_attributes) 
+        self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
+                           input_node_attributes[:, 6].max()/2.0)
+        self.grayscaled_intensity = np.zeros((1))
+        self.coloured_intensity = np.zeros((1, 1))
 
     def load_node_attributes_from_path(self, filename):
         if isinstance(filename, str):
@@ -75,16 +50,6 @@ cdef class Retina:
         else:
             raise TypeError('This function only accepts string path'
                             ' of a pickled file')
-
-    def load_coefficients(self, input):
-        if isinstance(input, np.ndarray):
-            if not input.ndim == 3:
-                raise ValueError('Must be 3 dimensional array')
-
-            else:
-                self.coefficients = input
-        else:
-            raise TypeError('This function only accepts numpy array')
 
     def load_coefficients_from_path(self, filename):
         if isinstance(filename, str):
