@@ -17,6 +17,7 @@ class SelfSimilarNeuralNetwork:
 
     def __init__(self, node_count, foveal_region_size,
                  nearest_neighbour_method='auto'):
+
         self.node_count = node_count
         self.foveal_region_size = foveal_region_size
         self.weights = SelfSimilarNeuralNetwork.__init_weights(node_count)
@@ -26,6 +27,7 @@ class SelfSimilarNeuralNetwork:
 
     def fit(self, num_iters=20000, initial_learning_rate=0.1,
             final_learning_rate=0.0005, verbose=True):
+
         learning_rate = SelfSimilarNeuralNetwork.__alpha_schedule(
             initial_learning_rate, final_learning_rate,
             num_iters, num_iters//4)
@@ -69,10 +71,12 @@ class SelfSimilarNeuralNetwork:
             print("Time taken: " + str(time.time()-start))
 
     def set_weights(self, X):
+
         self.node_count = X.shape[0]
         self.weights = X
 
     def __select_nearest_neighbour_method(self, nearest_neighbour_method):
+
         if (nearest_neighbour_method == 'brute_force'):
             print("Using bruteforce.")
             return self.__brute_force_neighbours
