@@ -33,7 +33,7 @@ Software retina can be installed using:
 
 ### References and sources
 <a id="1">[1]</a> 
-Samagaio Á.M., Siebert J.P. (2020) An Investigation of Deep Visual Architectures Based on Preprocess Using the Retinal Transform. In: Bartoli A., Fusiello A. (eds) Computer Vision – ECCV 2020 Workshops. ECCV 2020. Lecture Notes in Computer Science, vol 12535. Springer, Cham. <br />
+Samagaio A.M., Siebert J.P. (2020) An Investigation of Deep Visual Architectures Based on Preprocess Using the Retinal Transform. In: Bartoli A., Fusiello A. (eds) Computer Vision – ECCV 2020 Workshops. ECCV 2020. Lecture Notes in Computer Science, vol 12535. Springer, Cham. <br />
 <a id="http://eprints.gla.ac.uk/148797/7/148797.pdf">[2]</a> 
 Ozimek P., Siebert J.P. (2017) Integrating a Non-Uniformly Sampled Software Retina with a Deep CNN Model
 * https://github.com/georgeKillick90/Retina

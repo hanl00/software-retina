@@ -28,7 +28,7 @@ ext_modules = [
 
 setup(
     name='software-retina',
-    version='0.0.4',
+    version='0.0.5',
     author='Han M. Loo',
     author_email='nloo33755@gmail.com',
     packages=['src', 'src.software_retina', 'src.software_retina_generation'],
