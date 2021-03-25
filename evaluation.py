@@ -8,7 +8,7 @@ import pickle
 import time
 import scipy.io
 
-from src.software_retina_generation.SelfSimilarNeuralNetwork import *
+from src.software_retina_generation.ssnn import *
 from src.software_retina.rf_generation import *
 from src.software_retina.retina import *
 
@@ -17,6 +17,119 @@ def loadPickle(path):
             if py == 3: 
                 return pickle.load(handle, encoding='latin1')
             return pickle.load(handle)
+
+########################################################
+# Testing nanoflann multiprocessing
+########################################################
+
+print("5000")
+
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 5000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann")
+nanoflann_retina.fit()
+
+nanoflann_retina_4 = SelfSimilarNeuralNetwork(node_count = 5000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_4")
+nanoflann_retina_4.fit()
+
+nanoflann_retina_8 = SelfSimilarNeuralNetwork(node_count = 5000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_8")
+nanoflann_retina_8.fit()
+
+########################################################
+# Testing nanoflann multiprocessing
+########################################################
+
+print("10000")
+
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 10000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann")
+nanoflann_retina.fit()
+
+nanoflann_retina_4 = SelfSimilarNeuralNetwork(node_count = 10000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_4")
+nanoflann_retina_4.fit()
+
+nanoflann_retina_8 = SelfSimilarNeuralNetwork(node_count = 10000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_8")
+nanoflann_retina_8.fit()
+
+
+########################################################
+# Testing nanoflann multiprocessing
+########################################################
+
+print("20000")
+
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 20000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann")
+nanoflann_retina.fit()
+
+
+nanoflann_retina_4 = SelfSimilarNeuralNetwork(node_count = 20000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_4")
+nanoflann_retina_4.fit()
+
+nanoflann_retina_8 = SelfSimilarNeuralNetwork(node_count = 20000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_8")
+nanoflann_retina_8.fit()
+
+
+########################################################
+# Testing nanoflann multiprocessing
+########################################################
+
+print("50000")
+
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 50000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann")
+nanoflann_retina.fit()
+
+
+nanoflann_retina_4 = SelfSimilarNeuralNetwork(node_count = 50000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_4")
+nanoflann_retina_4.fit()
+
+nanoflann_retina_8 = SelfSimilarNeuralNetwork(node_count = 50000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_8")
+nanoflann_retina_8.fit()
+
+########################################################
+# Testing nanoflann multiprocessing
+########################################################
+
+print("100000")
+
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 100000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann")
+nanoflann_retina.fit()
+
+
+nanoflann_retina_4 = SelfSimilarNeuralNetwork(node_count = 100000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_4")
+nanoflann_retina_4.fit()
+
+nanoflann_retina_8 = SelfSimilarNeuralNetwork(node_count = 100000,
+                                            foveal_region_size = 0.1,
+                                            nearest_neighbour_method = "nanoflann_multi_8")
+nanoflann_retina_8.fit()
+
+
+
 
 # datadir = join(dirname(dirname(__file__)), "tessellation")
 
@@ -33,11 +146,11 @@ def loadPickle(path):
 # GENERATING KERNELS AND NODE ATTRIBUTES (LOC)
 ########################################################
 
-nanoflann_tessellation = np.load('data/10k/nanoflann_10k_tessellation.pkl', allow_pickle=True)
-rf_loc, rf_coeff, fov_dist_5 = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
-pickle.dump(rf_loc, open("data/10k/10k_rf_node_attributes.pkl", "wb"))
-pickle.dump(rf_coeff, open("data/10k/10k_rf_coefficients.pkl", "wb"))
-pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
+# nanoflann_tessellation = np.load('data/10k/nanoflann_10k_tessellation.pkl', allow_pickle=True)
+# rf_loc, rf_coeff, fov_dist_5 = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+# pickle.dump(rf_loc, open("data/10k/10k_rf_node_attributes.pkl", "wb"))
+# pickle.dump(rf_coeff, open("data/10k/10k_rf_coefficients.pkl", "wb"))
+# pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 
 ########################################################
 # KERNEL GENERATION - VALIDATION (RF_COEFF IS PADDED THEREFORE WILL RETURN FALSE)
