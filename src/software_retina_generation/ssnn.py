@@ -1,4 +1,3 @@
-import multiprocessing
 import time
 import sys
 
@@ -13,6 +12,7 @@ from .utils import normalize, cartesian_to_polar, polar_to_cartesian
 
 # set seed for evaluation
 rng = np.random.default_rng(seed=12345)
+
 
 class SelfSimilarNeuralNetwork:
 
@@ -86,12 +86,9 @@ class SelfSimilarNeuralNetwork:
             print("Using nanoflann method with " + str(rng.bit_generator))
             return self.__pynanoflann_neighbours
 
-        elif(nearest_neighbour_method == 'nanoflann_multi_4'):
-            print("Using nanoflann method with 4 jobs and " + str(rng.bit_generator))
-            return self.__pynanoflann_multi_neighbours_4
-        
-        elif(nearest_neighbour_method == 'nanoflann_multi_8'):
-            print("Using nanoflann method with 8 jobs" + str(rng.bit_generator))
+        elif(nearest_neighbour_method == 'nanoflann_multi_jobs'):
+            print("Using nanoflann method with 8 jobs " +
+                  str(rng.bit_generator))
             return self.__pynanoflann_multi_neighbours_8
 
         elif(nearest_neighbour_method == 'auto'):
@@ -99,13 +96,16 @@ class SelfSimilarNeuralNetwork:
                 print("Using bruteforce.")
                 return self.__brute_force_neighbours
 
-            else:
-                print("Using nanoflann method with " + str(n) + " cores.")
+            elif(self.node_count <= 14999):
+                print("Using nanoflann method.")
                 return self.__pynanoflann_neighbours
 
+            else:
+                print("Using nanoflann method with 8 jobs.")
+                return self.__pynanoflann_multi_neighbours_8
+
         else:
-            print("Unknown nearest_neighbour_method, using nanoflann "
-                  "method with " + str(n) + " cores.")
+            print("Unknown nearest_neighbour_method, using nanoflann.")
 
     def __brute_force_neighbours(self, update_vectors, network_weight):
 
@@ -118,14 +118,6 @@ class SelfSimilarNeuralNetwork:
 
         self.nanoflann.fit(network_weight)
         distances, indices = self.nanoflann.kneighbors(update_vectors)
-
-        return indices.flatten()
-
-    def __pynanoflann_multi_neighbours_4(self, update_vectors, network_weight):
-
-        self.nanoflann.fit(network_weight)
-        distances, indices = self.nanoflann.kneighbors(update_vectors,
-                                                       n_jobs=4)
 
         return indices.flatten()
 
