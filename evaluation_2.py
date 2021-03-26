@@ -1,30 +1,10 @@
-import timeit
-import numpy as np
-import skimage.io
-import cv2
-from os.path import dirname, join
-import os
-import pickle
-import time
-import scipy.io
-
-from src.software_retina_generation.ssnn import *
-from src.software_retina.rf_generation import *
-from src.software_retina.retina import *
-
-def loadPickle(path):
-        with open(path, 'rb') as handle:
-            if py == 3: 
-                return pickle.load(handle, encoding='latin1')
-            return pickle.load(handle)
-
 # datadir = join(dirname(dirname(__file__)), "tessellation")
 
 ########################################################
 # GENERATING 10K TESSELLATION
 ########################################################
 
-# nanoflann_retina = SSNN(n_nodes = 10000, fovea = 0.1, method = "nanoflann")
+# nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 10000, foveal_region_size = 0.1, nearest_neighbour_method = "nanoflann")
 # nanoflann_retina.fit()
 # nanoflann_tessellation = nanoflann_retina.weights
 # pickle.dump(nanoflann_tessellation, open("data/10k/nanoflann_10k_tessellation.pkl", "wb"))
@@ -33,11 +13,11 @@ def loadPickle(path):
 # GENERATING KERNELS AND NODE ATTRIBUTES (LOC)
 ########################################################
 
-nanoflann_tessellation = np.load('data/10k/nanoflann_10k_tessellation.pkl', allow_pickle=True)
-rf_loc, rf_coeff, fov_dist_5 = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
-pickle.dump(rf_loc, open("data/10k/10k_rf_node_attributes.pkl", "wb"))
-pickle.dump(rf_coeff, open("data/10k/10k_rf_coefficients.pkl", "wb"))
-pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
+# nanoflann_tessellation = np.load('data/10k/nanoflann_10k_tessellation.pkl', allow_pickle=True)
+# rf_loc, rf_coeff, fov_dist_5 = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+# pickle.dump(rf_loc, open("data/10k/10k_rf_node_attributes.pkl", "wb"))
+# pickle.dump(rf_coeff, open("data/10k/10k_rf_coefficients.pkl", "wb"))
+# pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 
 ########################################################
 # KERNEL GENERATION - VALIDATION (RF_COEFF IS PADDED THEREFORE WILL RETURN FALSE)
@@ -127,7 +107,7 @@ pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 ########################################################
 
 # original_gray = np.load('validation testing/nanoflann_50k_rf_loc.pkl', allow_pickle=True)
-# gray = np.load('data/50k/nanoflann method/50k_rf_loc.pkl', allow_pickle=True)
+# gray = np.load('data/50k/nanoflann nearest_neighbour_method/50k_rf_loc.pkl', allow_pickle=True)
 
 # for index, (first, second) in enumerate(zip(original_gray, gray)): 
 #     if abs(first-second) > 0.0005:
@@ -138,7 +118,7 @@ pickle.dump(fov_dist_5, open("data/10k/10k_fov_dist_5.pkl", "wb"))
 ########################################################
 
 # original_gray = np.load('validation testing/nanoflann_50k_rf_coeff_original.pkl', allow_pickle=True)
-# gray = np.load('data/50k/nanoflann method/50k_rf_coeff.pkl', allow_pickle=True)
+# gray = np.load('data/50k/nanoflann nearest_neighbour_method/50k_rf_coeff.pkl', allow_pickle=True)
 
 # gray = gray.astype(np.float64)
 

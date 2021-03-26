@@ -1,8 +1,9 @@
-from ssnn import SSNN
-from fibonacci import fibonacci_retina
+from src.software_retina_generation.ssnn import SelfSimilarNeuralNetwork
+from src.software_retina_generation.fibonacci import fibonacci_retina
+
 
 # Generating a software retina tessellation with 10000 nodes using nanoflann library
-nanoflann_retina = SSNN(n_nodes = 10000, fovea = 0.1, method = "nanoflann")
+nanoflann_retina = SelfSimilarNeuralNetwork(node_count = 20000, foveal_region_size = 0.1, nearest_neighbour_method = "nanoflann")
 nanoflann_retina.fit()
 nanoflann_tessellation = nanoflann_retina.weights
 
