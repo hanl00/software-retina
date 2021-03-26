@@ -11,13 +11,14 @@
             "C:\\Users\\Nicholas\\anaconda3\\lib\\site-packages\\numpy\\core\\include\\numpy\\ufuncobject.h"
         ],
         "extra_compile_args": [
-            "-fopenmp"
+            "/openmp"
         ],
         "extra_link_args": [
-            "-fopenmp"
+            "/openmp"
         ],
         "include_dirs": [
-            "C:\\Users\\Nicholas\\anaconda3\\lib\\site-packages\\numpy\\core\\include"
+            "C:\\Users\\Nicholas\\anaconda3\\lib\\site-packages\\numpy\\core\\include",
+            "pxd"
         ],
         "name": "src.software_retina.retina",
         "sources": [
@@ -1248,11 +1249,19 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":101
  *             self,
  *             cnp.ndarray[cnp.uint8_t, ndim=2] image,
  *             (int, int) fixation):             # <<<<<<<<<<<<<<
  *         """Sample an image"""
+=======
+/* "src/software_retina/retina.pyx":71
+ *                             ' of a pickled file')
+ * 
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
+ * 
+>>>>>>> Stashed changes
  *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
  */
 struct __pyx_ctuple_int__and_int {
@@ -1260,12 +1269,17 @@ struct __pyx_ctuple_int__and_int {
   int f1;
 };
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":25
  * # Original code provided by Piotr Ozimek
+=======
+/* "src/software_retina/retina.pyx":20
+ * 
+>>>>>>> Stashed changes
  * 
  * cdef class Retina:             # <<<<<<<<<<<<<<
+ * 
  *     cdef int N, width
- *     cdef cnp.float64_t[:, ::1] node_attributes
  */
 struct __pyx_obj_3src_15software_retina_6retina_Retina {
   PyObject_HEAD
@@ -1274,8 +1288,8 @@ struct __pyx_obj_3src_15software_retina_6retina_Retina {
   int width;
   __Pyx_memviewslice node_attributes;
   __Pyx_memviewslice coefficients;
-  __Pyx_memviewslice _V_gray;
-  __Pyx_memviewslice _V_coloured;
+  __Pyx_memviewslice grayscale_intensity;
+  __Pyx_memviewslice colour_intensity;
 };
 
 
@@ -1357,12 +1371,17 @@ struct __pyx_memoryviewslice_obj {
 
 
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":25
  * # Original code provided by Piotr Ozimek
+=======
+/* "src/software_retina/retina.pyx":20
+ * 
+>>>>>>> Stashed changes
  * 
  * cdef class Retina:             # <<<<<<<<<<<<<<
+ * 
  *     cdef int N, width
- *     cdef cnp.float64_t[:, ::1] node_attributes
  */
 
 struct __pyx_vtabstruct_3src_15software_retina_6retina_Retina {
@@ -2020,10 +2039,16 @@ static CYTHON_INLINE PyObject *__pyx_capsule_create(void *p, const char *sig);
 
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
+<<<<<<< Updated upstream
+=======
+
+/* CIntToPy.proto */
+static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value);
+>>>>>>> Stashed changes
 
 /* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_float64_t(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_float64_t(const char *itemp, PyObject *obj);
+static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_int32_t(const char *itemp);
+static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_int32_t(const char *itemp, PyObject *obj);
 
 /* TypeInfoCompare.proto */
 static int __pyx_typeinfo_cmp(__Pyx_TypeInfo *a, __Pyx_TypeInfo *b);
@@ -2040,20 +2065,20 @@ static int __Pyx_ValidateAndInit_memviewslice(
                 PyObject *original_obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyObject *, int writable_flag);
-
-/* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *, int writable_flag);
 
 /* CIntToPy.proto */
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value);
 
 /* MemviewDtypeToObject.proto */
-static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_int32_t(const char *itemp);
-static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_int32_t(const char *itemp, PyObject *obj);
+static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_float64_t(const char *itemp);
+static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_float64_t(const char *itemp, PyObject *obj);
 
 /* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *, int writable_flag);
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyObject *, int writable_flag);
+
+/* ObjectToMemviewSlice.proto */
+static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyObject *, int writable_flag);
 
 /* FromPyCTupleUtility.proto */
 static __pyx_ctuple_int__and_int __pyx_convert__from_py___pyx_ctuple_int__and_int(PyObject *);
@@ -2185,20 +2210,23 @@ static CYTHON_INLINE npy_int32 __Pyx_PyInt_As_npy_int32(PyObject *);
 /* CIntFromPy.proto */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
 
+<<<<<<< Updated upstream
 /* CIntFromPy.proto */
 static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *);
 
 /* PrintOne.proto */
 static int __Pyx_PrintOne(PyObject* stream, PyObject *o);
 
+=======
+>>>>>>> Stashed changes
 /* CIntFromPy.proto */
 static CYTHON_INLINE char __Pyx_PyInt_As_char(PyObject *);
 
-/* ObjectToMemviewSlice.proto */
-static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *, int writable_flag);
-
 /* CheckBinaryVersion.proto */
 static int __Pyx_check_binary_version(void);
+
+/* FunctionImport.proto */
+static int __Pyx_ImportFunction(PyObject *module, const char *funcname, void (**f)(void), const char *sig);
 
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
@@ -2258,6 +2286,12 @@ static PyTypeObject *__pyx_ptype_5numpy_flexible = 0;
 static PyTypeObject *__pyx_ptype_5numpy_character = 0;
 static PyTypeObject *__pyx_ptype_5numpy_ufunc = 0;
 
+/* Module declarations from 'src.software_retina.utils' */
+static __Pyx_memviewslice (*__pyx_f_3src_15software_retina_5utils_pad_grayscaled)(PyArrayObject *, int, int __pyx_skip_dispatch); /*proto*/
+static __Pyx_memviewslice (*__pyx_f_3src_15software_retina_5utils_pad_coloured)(PyArrayObject *, int, int __pyx_skip_dispatch); /*proto*/
+static double (*__pyx_f_3src_15software_retina_5utils_multiply_and_sum2d)(__Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
+static __Pyx_memviewslice (*__pyx_f_3src_15software_retina_5utils_multiply_and_sum3d)(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
+
 /* Module declarations from 'src.software_retina.retina' */
 static PyTypeObject *__pyx_ptype_3src_15software_retina_6retina_Retina = 0;
 static PyTypeObject *__pyx_array_type = 0;
@@ -2271,10 +2305,6 @@ static PyObject *contiguous = 0;
 static PyObject *indirect_contiguous = 0;
 static int __pyx_memoryview_thread_locks_used;
 static PyThread_type_lock __pyx_memoryview_thread_locks[8];
-static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_pad_grayscaled(PyArrayObject *, int, int __pyx_skip_dispatch); /*proto*/
-static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_pad_coloured(PyArrayObject *, int, int __pyx_skip_dispatch); /*proto*/
-static double __pyx_f_3src_15software_retina_6retina_multiply_and_sum2d(__Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
-static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_sum3d(__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice); /*proto*/
 static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__set_state(struct __pyx_obj_3src_15software_retina_6retina_Retina *, PyObject *); /*proto*/
 static struct __pyx_array_obj *__pyx_array_new(PyObject *, Py_ssize_t, char *, char *, char *); /*proto*/
 static void *__pyx_align_pointer(void *, size_t); /*proto*/
@@ -2319,10 +2349,10 @@ int __pyx_module_is_main_src__software_retina__retina = 0;
 /* Implementation of 'src.software_retina.retina' */
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_TypeError;
-static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ImportError;
 static PyObject *__pyx_builtin_MemoryError;
 static PyObject *__pyx_builtin_enumerate;
+static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_Ellipsis;
 static PyObject *__pyx_builtin_id;
 static PyObject *__pyx_builtin_IndexError;
@@ -2330,18 +2360,24 @@ static const char __pyx_k_O[] = "O";
 static const char __pyx_k_c[] = "c";
 static const char __pyx_k_id[] = "id";
 static const char __pyx_k_np[] = "np";
+<<<<<<< Updated upstream
 static const char __pyx_k_os[] = "os";
 static const char __pyx_k_abs[] = "abs";
 static const char __pyx_k_end[] = "end";
 static const char __pyx_k_img[] = "img";
+=======
+static const char __pyx_k_abs[] = "abs";
+>>>>>>> Stashed changes
 static const char __pyx_k_max[] = "max";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_obj[] = "obj";
-static const char __pyx_k_sys[] = "sys";
 static const char __pyx_k_base[] = "base";
 static const char __pyx_k_dict[] = "__dict__";
+<<<<<<< Updated upstream
 static const char __pyx_k_file[] = "file";
 static const char __pyx_k_join[] = "join";
+=======
+>>>>>>> Stashed changes
 static const char __pyx_k_load[] = "load";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_mode[] = "mode";
@@ -2356,11 +2392,9 @@ static const char __pyx_k_ASCII[] = "ASCII";
 static const char __pyx_k_class[] = "__class__";
 static const char __pyx_k_dtype[] = "dtype";
 static const char __pyx_k_empty[] = "empty";
-static const char __pyx_k_errno[] = "errno";
 static const char __pyx_k_error[] = "error";
 static const char __pyx_k_flags[] = "flags";
 static const char __pyx_k_image[] = "image";
-static const char __pyx_k_int32[] = "int32";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
@@ -2368,7 +2402,6 @@ static const char __pyx_k_shape[] = "shape";
 static const char __pyx_k_start[] = "start";
 static const char __pyx_k_zeros[] = "zeros";
 static const char __pyx_k_Retina[] = "Retina";
-static const char __pyx_k_astype[] = "astype";
 static const char __pyx_k_encode[] = "encode";
 static const char __pyx_k_format[] = "format";
 static const char __pyx_k_import[] = "__import__";
@@ -2379,13 +2412,9 @@ static const char __pyx_k_struct[] = "struct";
 static const char __pyx_k_unpack[] = "unpack";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_asarray[] = "asarray";
-static const char __pyx_k_dirname[] = "dirname";
 static const char __pyx_k_float64[] = "float64";
 static const char __pyx_k_fortran[] = "fortran";
 static const char __pyx_k_memview[] = "memview";
-static const char __pyx_k_ndarray[] = "ndarray";
-static const char __pyx_k_os_path[] = "os.path";
-static const char __pyx_k_padding[] = "padding";
 static const char __pyx_k_Ellipsis[] = "Ellipsis";
 static const char __pyx_k_fixation[] = "fixation";
 static const char __pyx_k_getstate[] = "__getstate__";
@@ -2394,7 +2423,6 @@ static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_TypeError[] = "TypeError";
 static const char __pyx_k_enumerate[] = "enumerate";
-static const char __pyx_k_itertools[] = "itertools";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_IndexError[] = "IndexError";
@@ -2431,7 +2459,6 @@ static const char __pyx_k_contiguous_and_indirect[] = "<contiguous and indirect>
 static const char __pyx_k_Cannot_index_with_type_s[] = "Cannot index with type '%s'";
 static const char __pyx_k_Invalid_shape_in_axis_d_d[] = "Invalid shape in axis %d: %d.";
 static const char __pyx_k_src_software_retina_retina[] = "src.software_retina.retina";
-static const char __pyx_k_Must_be_3_dimensional_array[] = "Must be 3 dimensional array";
 static const char __pyx_k_itemsize_0_for_cython_array[] = "itemsize <= 0 for cython.array";
 static const char __pyx_k_unable_to_allocate_array_data[] = "unable to allocate array data.";
 static const char __pyx_k_strided_and_direct_or_indirect[] = "<strided and direct or indirect>";
@@ -2443,19 +2470,21 @@ static const char __pyx_k_Cannot_assign_to_read_only_memor[] = "Cannot assign to
 static const char __pyx_k_Cannot_create_writable_memory_vi[] = "Cannot create writable memory view from read-only memoryview";
 static const char __pyx_k_Empty_shape_tuple_for_cython_arr[] = "Empty shape tuple for cython.array";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xb0[] = "Incompatible checksums (%s vs 0xb068931 = (name))";
-static const char __pyx_k_Incompatible_checksums_s_vs_0xbb[] = "Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0xd3[] = "Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))";
 static const char __pyx_k_Indirect_dimensions_not_supporte[] = "Indirect dimensions not supported";
 static const char __pyx_k_Invalid_mode_expected_c_or_fortr[] = "Invalid mode, expected 'c' or 'fortran', got %s";
-static const char __pyx_k_Must_be_a_2_dimensional_array_wi[] = "Must be a 2 dimensional array with each row b having 7 columns of node attributes";
+static const char __pyx_k_Must_be_a_2_dimensional_array_wi[] = "Must be a 2 dimensional array with each row having 7 columns of node attributes";
 static const char __pyx_k_Out_of_bounds_on_buffer_access_a[] = "Out of bounds on buffer access (axis %d)";
-static const char __pyx_k_This_function_only_accepts_numpy[] = "This function only accepts numpy array";
 static const char __pyx_k_This_function_only_accepts_strin[] = "This function only accepts string path of a pickled file";
 static const char __pyx_k_Unable_to_convert_item_to_object[] = "Unable to convert item to object";
 static const char __pyx_k_got_differing_extents_in_dimensi[] = "got differing extents in dimension %d (got %d and %d)";
 static const char __pyx_k_no_default___reduce___due_to_non[] = "no default __reduce__ due to non-trivial __cinit__";
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
 static const char __pyx_k_unable_to_allocate_shape_and_str[] = "unable to allocate shape and strides.";
+<<<<<<< Updated upstream
 static const char __pyx_k_Must_be_a_2_dimensional_array_wi_2[] = "Must be a 2 dimensional array with each row having 7 columns of node attributes";
+=======
+>>>>>>> Stashed changes
 static PyObject *__pyx_n_s_ASCII;
 static PyObject *__pyx_kp_s_Buffer_view_does_not_expose_stri;
 static PyObject *__pyx_kp_s_Can_only_create_a_buffer_that_is;
@@ -2466,7 +2495,7 @@ static PyObject *__pyx_n_s_Ellipsis;
 static PyObject *__pyx_kp_s_Empty_shape_tuple_for_cython_arr;
 static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xb0;
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xbb;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xd3;
 static PyObject *__pyx_n_s_IndexError;
 static PyObject *__pyx_kp_s_Indirect_dimensions_not_supporte;
 static PyObject *__pyx_kp_s_Invalid_mode_expected_c_or_fortr;
@@ -2474,16 +2503,17 @@ static PyObject *__pyx_kp_s_Invalid_shape_in_axis_d_d;
 static PyObject *__pyx_n_s_MemoryError;
 static PyObject *__pyx_kp_s_MemoryView_of_r_at_0x_x;
 static PyObject *__pyx_kp_s_MemoryView_of_r_object;
-static PyObject *__pyx_kp_s_Must_be_3_dimensional_array;
 static PyObject *__pyx_kp_s_Must_be_a_2_dimensional_array_wi;
-static PyObject *__pyx_kp_s_Must_be_a_2_dimensional_array_wi_2;
 static PyObject *__pyx_kp_s_Must_be_a_3_dimensional_array_n;
 static PyObject *__pyx_n_b_O;
 static PyObject *__pyx_kp_s_Out_of_bounds_on_buffer_access_a;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_Retina;
+<<<<<<< Updated upstream
 static PyObject *__pyx_kp_s_Size_of_retina;
 static PyObject *__pyx_kp_s_This_function_only_accepts_numpy;
+=======
+>>>>>>> Stashed changes
 static PyObject *__pyx_kp_s_This_function_only_accepts_strin;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_kp_s_Unable_to_convert_item_to_object;
@@ -2493,7 +2523,6 @@ static PyObject *__pyx_n_s_abs;
 static PyObject *__pyx_n_s_allocate_buffer;
 static PyObject *__pyx_n_s_allow_pickle;
 static PyObject *__pyx_n_s_asarray;
-static PyObject *__pyx_n_s_astype;
 static PyObject *__pyx_n_s_base;
 static PyObject *__pyx_n_s_c;
 static PyObject *__pyx_n_u_c;
@@ -2502,16 +2531,13 @@ static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_kp_s_contiguous_and_direct;
 static PyObject *__pyx_kp_s_contiguous_and_indirect;
 static PyObject *__pyx_n_s_dict;
-static PyObject *__pyx_n_s_dirname;
 static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_dtype_is_object;
 static PyObject *__pyx_n_s_empty;
 static PyObject *__pyx_n_s_encode;
 static PyObject *__pyx_n_s_end;
 static PyObject *__pyx_n_s_enumerate;
-static PyObject *__pyx_n_s_errno;
 static PyObject *__pyx_n_s_error;
-static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_fixation;
 static PyObject *__pyx_n_s_flags;
 static PyObject *__pyx_n_s_float64;
@@ -2522,15 +2548,15 @@ static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_kp_s_got_differing_extents_in_dimensi;
 static PyObject *__pyx_n_s_id;
 static PyObject *__pyx_n_s_image;
-static PyObject *__pyx_n_s_img;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_input_coefficients;
 static PyObject *__pyx_n_s_input_node_attributes;
+<<<<<<< Updated upstream
 static PyObject *__pyx_n_s_int32;
+=======
+>>>>>>> Stashed changes
 static PyObject *__pyx_n_s_itemsize;
 static PyObject *__pyx_kp_s_itemsize_0_for_cython_array;
-static PyObject *__pyx_n_s_itertools;
-static PyObject *__pyx_n_s_join;
 static PyObject *__pyx_n_s_load;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_max;
@@ -2538,7 +2564,6 @@ static PyObject *__pyx_n_s_memview;
 static PyObject *__pyx_n_s_mode;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_name_2;
-static PyObject *__pyx_n_s_ndarray;
 static PyObject *__pyx_n_s_ndim;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_kp_s_no_default___reduce___due_to_non;
@@ -2547,10 +2572,7 @@ static PyObject *__pyx_n_s_numpy;
 static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
 static PyObject *__pyx_n_s_obj;
-static PyObject *__pyx_n_s_os;
-static PyObject *__pyx_n_s_os_path;
 static PyObject *__pyx_n_s_pack;
-static PyObject *__pyx_n_s_padding;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_pyx_PickleError;
@@ -2581,7 +2603,6 @@ static PyObject *__pyx_kp_s_strided_and_direct_or_indirect;
 static PyObject *__pyx_kp_s_strided_and_indirect;
 static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_struct;
-static PyObject *__pyx_n_s_sys;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_kp_s_unable_to_allocate_array_data;
 static PyObject *__pyx_kp_s_unable_to_allocate_shape_and_str;
@@ -2589,6 +2610,7 @@ static PyObject *__pyx_n_s_unpack;
 static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_zeros;
 static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_input_node_attributes, PyObject *__pyx_v_input_coefficients); /* proto */
+<<<<<<< Updated upstream
 static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_input); /* proto */
 static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attributes_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
 static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficients(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_input); /* proto */
@@ -2600,6 +2622,15 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_16__setstate_cy
 static PyObject *__pyx_pf_3src_15software_retina_6retina_pad_grayscaled(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_img, int __pyx_v_padding); /* proto */
 static PyObject *__pyx_pf_3src_15software_retina_6retina_2pad_coloured(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_img, int __pyx_v_padding); /* proto */
 static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+=======
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficients_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6sample_grayscale(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8sample_coloured(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_10__reduce_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_12__setstate_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_3src_15software_retina_6retina___pyx_unpickle_Retina(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+>>>>>>> Stashed changes
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __pyx_array_obj *__pyx_v_self, PyObject *__pyx_v_shape, Py_ssize_t __pyx_v_itemsize, PyObject *__pyx_v_format, PyObject *__pyx_v_mode, int __pyx_v_allocate_buffer); /* proto */
 static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(struct __pyx_array_obj *__pyx_v_self, Py_buffer *__pyx_v_info, int __pyx_v_flags); /* proto */
 static void __pyx_array___pyx_pf_15View_dot_MemoryView_5array_4__dealloc__(struct __pyx_array_obj *__pyx_v_self); /* proto */
@@ -2655,7 +2686,7 @@ static PyObject *__pyx_int_3;
 static PyObject *__pyx_int_6;
 static PyObject *__pyx_int_7;
 static PyObject *__pyx_int_184977713;
-static PyObject *__pyx_int_196310513;
+static PyObject *__pyx_int_221980009;
 static PyObject *__pyx_int_neg_1;
 static PyObject *__pyx_slice_;
 static PyObject *__pyx_slice__2;
@@ -2685,12 +2716,16 @@ static PyObject *__pyx_tuple__25;
 static PyObject *__pyx_tuple__26;
 static PyObject *__pyx_tuple__27;
 static PyObject *__pyx_tuple__28;
+<<<<<<< Updated upstream
 static PyObject *__pyx_tuple__29;
+=======
+>>>>>>> Stashed changes
 static PyObject *__pyx_tuple__30;
 static PyObject *__pyx_tuple__31;
 static PyObject *__pyx_tuple__33;
 static PyObject *__pyx_tuple__34;
 static PyObject *__pyx_tuple__35;
+<<<<<<< Updated upstream
 static PyObject *__pyx_tuple__36;
 static PyObject *__pyx_tuple__37;
 static PyObject *__pyx_tuple__38;
@@ -2700,6 +2735,14 @@ static PyObject *__pyx_codeobj__39;
 
 /* "src/software_retina/retina.pyx":32
  *     cdef cnp.float64_t[:, ::1] _V_coloured
+=======
+static PyObject *__pyx_codeobj__29;
+static PyObject *__pyx_codeobj__36;
+/* Late includes */
+
+/* "src/software_retina/retina.pyx":28
+ *     cdef cnp.float64_t[:, ::1] colour_intensity
+>>>>>>> Stashed changes
  * 
  *     def __init__(self, input_node_attributes, input_coefficients):             # <<<<<<<<<<<<<<
  * 
@@ -2740,11 +2783,19 @@ static int __pyx_pw_3src_15software_retina_6retina_6Retina_1__init__(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_input_coefficients)) != 0)) kw_args--;
         else {
+<<<<<<< Updated upstream
           __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 32, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 32, __pyx_L3_error)
+=======
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 28, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
+>>>>>>> Stashed changes
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2757,7 +2808,11 @@ static int __pyx_pw_3src_15software_retina_6retina_6Retina_1__init__(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
+<<<<<<< Updated upstream
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 32, __pyx_L3_error)
+=======
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 28, __pyx_L3_error)
+>>>>>>> Stashed changes
   __pyx_L3_error:;
   __Pyx_AddTraceback("src.software_retina.retina.Retina.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2788,38 +2843,59 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":34
+=======
+  /* "src/software_retina/retina.pyx":30
+>>>>>>> Stashed changes
  *     def __init__(self, input_node_attributes, input_coefficients):
  * 
  *         self.node_attributes = input_node_attributes             # <<<<<<<<<<<<<<
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input_node_attributes, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 34, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input_node_attributes, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 30, __pyx_L1_error)
+>>>>>>> Stashed changes
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
   __pyx_v_self->node_attributes = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":35
+=======
+  /* "src/software_retina/retina.pyx":31
+>>>>>>> Stashed changes
  * 
  *         self.node_attributes = input_node_attributes
  *         self.coefficients = input_coefficients             # <<<<<<<<<<<<<<
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  */
+<<<<<<< Updated upstream
   __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input_coefficients, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 35, __pyx_L1_error)
+=======
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input_coefficients, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 31, __pyx_L1_error)
+>>>>>>> Stashed changes
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
   __pyx_v_self->coefficients = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":36
+=======
+  /* "src/software_retina/retina.pyx":32
+>>>>>>> Stashed changes
  *         self.node_attributes = input_node_attributes
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)             # <<<<<<<<<<<<<<
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  *                            input_node_attributes[:, 6].max()/2.0)
+<<<<<<< Updated upstream
  */
   __pyx_t_3 = PyObject_Length(__pyx_v_input_node_attributes); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 36, __pyx_L1_error)
   __pyx_v_self->N = __pyx_t_3;
@@ -2963,9 +3039,121 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self._V_gray = np.zeros((1))
  *         self._V_coloured = np.zeros((1, 1))             # <<<<<<<<<<<<<<
- * 
- *     def load_node_attributes(self, input):
+=======
  */
+  __pyx_t_3 = PyObject_Length(__pyx_v_input_node_attributes); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_v_self->N = __pyx_t_3;
+
+  /* "src/software_retina/retina.pyx":33
+ *         self.coefficients = input_coefficients
+ *         self.N = len(input_node_attributes)
+ *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                            input_node_attributes[:, 6].max()/2.0)
+ *         self.grayscale_intensity = np.zeros((1))
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_abs); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_8 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_8)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+      __Pyx_INCREF(__pyx_t_8);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_7, function);
+    }
+  }
+  __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_5)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_7, function);
+    }
+  }
+  __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "src/software_retina/retina.pyx":34
+ *         self.N = len(input_node_attributes)
+ *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
+ *                            input_node_attributes[:, 6].max()/2.0)             # <<<<<<<<<<<<<<
+ *         self.grayscale_intensity = np.zeros((1))
+ *         self.colour_intensity = np.zeros((1, 1))
+ */
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = NULL;
+  if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_6);
+    if (likely(__pyx_t_5)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_5);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_6, function);
+    }
+  }
+  __pyx_t_7 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = __Pyx_PyFloat_DivideObjC(__pyx_t_7, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+
+  /* "src/software_retina/retina.pyx":33
+ *         self.coefficients = input_coefficients
+ *         self.N = len(input_node_attributes)
+ *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                            input_node_attributes[:, 6].max()/2.0)
+ *         self.grayscale_intensity = np.zeros((1))
+ */
+  __pyx_t_7 = PyNumber_Add(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = PyNumber_Multiply(__pyx_int_2, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_v_self->width = __pyx_t_9;
+
+  /* "src/software_retina/retina.pyx":35
+ *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
+ *                            input_node_attributes[:, 6].max()/2.0)
+ *         self.grayscale_intensity = np.zeros((1))             # <<<<<<<<<<<<<<
+ *         self.colour_intensity = np.zeros((1, 1))
+>>>>>>> Stashed changes
+ * 
+ */
+<<<<<<< Updated upstream
   __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 40, __pyx_L1_error)
@@ -2977,10 +3165,24 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
     if (likely(__pyx_t_4)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
       __Pyx_INCREF(__pyx_t_4);
+=======
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_6 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_6)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_6);
+>>>>>>> Stashed changes
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_6, function);
     }
   }
+<<<<<<< Updated upstream
   __pyx_t_7 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_tuple__5) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_tuple__5);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 40, __pyx_L1_error)
@@ -2995,6 +3197,56 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
 
   /* "src/software_retina/retina.pyx":32
  *     cdef cnp.float64_t[:, ::1] _V_coloured
+=======
+  __pyx_t_7 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_int_1);
+  __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_self->grayscale_intensity, 0);
+  __pyx_v_self->grayscale_intensity = __pyx_t_10;
+  __pyx_t_10.memview = NULL;
+  __pyx_t_10.data = NULL;
+
+  /* "src/software_retina/retina.pyx":36
+ *                            input_node_attributes[:, 6].max()/2.0)
+ *         self.grayscale_intensity = np.zeros((1))
+ *         self.colour_intensity = np.zeros((1, 1))             # <<<<<<<<<<<<<<
+ * 
+ *     def load_node_attributes_from_path(self, filename):
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_6);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_6);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_6, function);
+    }
+  }
+  __pyx_t_7 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_tuple__5) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_tuple__5);
+  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_self->colour_intensity, 0);
+  __pyx_v_self->colour_intensity = __pyx_t_1;
+  __pyx_t_1.memview = NULL;
+  __pyx_t_1.data = NULL;
+
+  /* "src/software_retina/retina.pyx":28
+ *     cdef cnp.float64_t[:, ::1] colour_intensity
+>>>>>>> Stashed changes
  * 
  *     def __init__(self, input_node_attributes, input_coefficients):             # <<<<<<<<<<<<<<
  * 
@@ -3020,390 +3272,33 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   return __pyx_r;
 }
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":42
  *         self._V_coloured = np.zeros((1, 1))
- * 
- *     def load_node_attributes(self, input):             # <<<<<<<<<<<<<<
- *         if isinstance(input, np.ndarray):
- *             if not (input.ndim == 2 and input.shape[1] == 7):
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes(PyObject *__pyx_v_self, PyObject *__pyx_v_input); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes(PyObject *__pyx_v_self, PyObject *__pyx_v_input) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("load_node_attributes (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_input));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_input) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
-  int __pyx_t_4;
-  __Pyx_memviewslice __pyx_t_5 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  size_t __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
-  PyObject *__pyx_t_8 = NULL;
-  int __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  __Pyx_memviewslice __pyx_t_11 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  PyObject *__pyx_t_12 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("load_node_attributes", 0);
-
-  /* "src/software_retina/retina.pyx":43
- * 
- *     def load_node_attributes(self, input):
- *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
- *             if not (input.ndim == 2 and input.shape[1] == 7):
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 43, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = (__pyx_t_3 != 0);
-  if (likely(__pyx_t_4)) {
-
-    /* "src/software_retina/retina.pyx":44
- *     def load_node_attributes(self, input):
- *         if isinstance(input, np.ndarray):
- *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- *                                  ' b having 7 columns of node attributes')
- */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (__pyx_t_3) {
-    } else {
-      __pyx_t_4 = __pyx_t_3;
-      goto __pyx_L5_bool_binop_done;
-    }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_4 = __pyx_t_3;
-    __pyx_L5_bool_binop_done:;
-    __pyx_t_3 = ((!__pyx_t_4) != 0);
-    if (unlikely(__pyx_t_3)) {
-
-      /* "src/software_retina/retina.pyx":45
- *         if isinstance(input, np.ndarray):
- *             if not (input.ndim == 2 and input.shape[1] == 7):
- *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
- *                                  ' b having 7 columns of node attributes')
- * 
- */
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_Raise(__pyx_t_1, 0, 0, 0);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 45, __pyx_L1_error)
-
-      /* "src/software_retina/retina.pyx":44
- *     def load_node_attributes(self, input):
- *         if isinstance(input, np.ndarray):
- *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- *                                  ' b having 7 columns of node attributes')
- */
-    }
-
-    /* "src/software_retina/retina.pyx":49
- * 
- *             else:
- *                 self.node_attributes = input             # <<<<<<<<<<<<<<
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
- */
-    /*else*/ {
-      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 49, __pyx_L1_error)
-      __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
-      __pyx_v_self->node_attributes = __pyx_t_5;
-      __pyx_t_5.memview = NULL;
-      __pyx_t_5.data = NULL;
-
-      /* "src/software_retina/retina.pyx":50
- *             else:
- *                 self.node_attributes = input
- *                 self.N = len(self.node_attributes)             # <<<<<<<<<<<<<<
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
- */
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 50, __pyx_L1_error)}
-      __pyx_t_6 = __Pyx_MemoryView_Len(__pyx_v_self->node_attributes); 
-      __pyx_v_self->N = __pyx_t_6;
-
-      /* "src/software_retina/retina.pyx":51
- *                 self.node_attributes = input
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
- * 
- */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_abs); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 51, __pyx_L1_error)}
-      __pyx_t_5.data = __pyx_v_self->node_attributes.data;
-      __pyx_t_5.memview = __pyx_v_self->node_attributes.memview;
-      __PYX_INC_MEMVIEW(&__pyx_t_5, 0);
-      __pyx_t_5.shape[0] = __pyx_v_self->node_attributes.shape[0];
-__pyx_t_5.strides[0] = __pyx_v_self->node_attributes.strides[0];
-    __pyx_t_5.suboffsets[0] = -1;
-
-__pyx_t_9 = -1;
-      if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_5,
-    __pyx_v_self->node_attributes.shape[1], __pyx_v_self->node_attributes.strides[1], __pyx_v_self->node_attributes.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_9,
-    0,
-    2,
-    0,
-    0,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 51, __pyx_L1_error)
-}
-
-__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-      __pyx_t_5.memview = NULL;
-      __pyx_t_5.data = NULL;
-      __pyx_t_10 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_8);
-        if (likely(__pyx_t_10)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
-          __Pyx_INCREF(__pyx_t_10);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_8, function);
-        }
-      }
-      __pyx_t_2 = (__pyx_t_10) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_10, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
-        __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_8);
-        if (likely(__pyx_t_2)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
-          __Pyx_INCREF(__pyx_t_2);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_8, function);
-        }
-      }
-      __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
-      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-      /* "src/software_retina/retina.pyx":52
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)             # <<<<<<<<<<<<<<
- * 
- *         else:
- */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 52, __pyx_L1_error)}
-      __pyx_t_11.data = __pyx_v_self->node_attributes.data;
-      __pyx_t_11.memview = __pyx_v_self->node_attributes.memview;
-      __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
-      __pyx_t_11.shape[0] = __pyx_v_self->node_attributes.shape[0];
-__pyx_t_11.strides[0] = __pyx_v_self->node_attributes.strides[0];
-    __pyx_t_11.suboffsets[0] = -1;
-
-{
-    Py_ssize_t __pyx_tmp_idx = 6;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_self->node_attributes.strides[1];
-        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
-}
-
-__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_7);
-      __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
-      __pyx_t_11.memview = NULL;
-      __pyx_t_11.data = NULL;
-      __pyx_t_12 = NULL;
-      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_10))) {
-        __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_10);
-        if (likely(__pyx_t_12)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-          __Pyx_INCREF(__pyx_t_12);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_10, function);
-        }
-      }
-      __pyx_t_2 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_12, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_7);
-      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_2);
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = NULL;
-      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
-        __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_10);
-        if (likely(__pyx_t_2)) {
-          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
-          __Pyx_INCREF(__pyx_t_2);
-          __Pyx_INCREF(function);
-          __Pyx_DECREF_SET(__pyx_t_10, function);
-        }
-      }
-      __pyx_t_8 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_10);
-      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyFloat_DivideObjC(__pyx_t_8, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-
-      /* "src/software_retina/retina.pyx":51
- *                 self.node_attributes = input
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
- * 
- */
-      __pyx_t_8 = PyNumber_Add(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_10);
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_8);
-      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_v_self->width = __pyx_t_9;
-    }
-
-    /* "src/software_retina/retina.pyx":43
- * 
- *     def load_node_attributes(self, input):
- *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
- *             if not (input.ndim == 2 and input.shape[1] == 7):
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- */
-    goto __pyx_L3;
-  }
-
-  /* "src/software_retina/retina.pyx":55
- * 
- *         else:
- *             raise TypeError('This function only accepts numpy array')             # <<<<<<<<<<<<<<
- * 
- *     def load_node_attributes_from_path(self, filename):
- */
-  /*else*/ {
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 55, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_8);
-    __Pyx_Raise(__pyx_t_8, 0, 0, 0);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __PYX_ERR(0, 55, __pyx_L1_error)
-  }
-  __pyx_L3:;
-
-  /* "src/software_retina/retina.pyx":42
- *         self._V_coloured = np.zeros((1, 1))
- * 
- *     def load_node_attributes(self, input):             # <<<<<<<<<<<<<<
- *         if isinstance(input, np.ndarray):
- *             if not (input.ndim == 2 and input.shape[1] == 7):
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_10);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
-  __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.load_node_attributes", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "src/software_retina/retina.pyx":57
- *             raise TypeError('This function only accepts numpy array')
+=======
+/* "src/software_retina/retina.pyx":38
+ *         self.colour_intensity = np.zeros((1, 1))
  * 
  *     def load_node_attributes_from_path(self, filename):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ * 
  *         if isinstance(filename, str):
- *             x = np.load(filename, allow_pickle=True)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_5load_node_attributes_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_5load_node_attributes_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("load_node_attributes_from_path (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attributes_from_path(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes_from_path(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attributes_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename) {
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attributes_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename) {
   PyObject *__pyx_v_x = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -3424,9 +3319,9 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_node_attributes_from_path", 0);
 
-  /* "src/software_retina/retina.pyx":58
- * 
+  /* "src/software_retina/retina.pyx":40
  *     def load_node_attributes_from_path(self, filename):
+ * 
  *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
  *             x = np.load(filename, allow_pickle=True)
  *             if not (x.ndim == 2 and x.shape[1] == 7):
@@ -3435,12 +3330,619 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (likely(__pyx_t_2)) {
 
-    /* "src/software_retina/retina.pyx":59
- *     def load_node_attributes_from_path(self, filename):
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":43
+=======
+    /* "src/software_retina/retina.pyx":41
+>>>>>>> Stashed changes
+ * 
  *         if isinstance(filename, str):
  *             x = np.load(filename, allow_pickle=True)             # <<<<<<<<<<<<<<
  *             if not (x.ndim == 2 and x.shape[1] == 7):
  *                 raise ValueError('Must be a 2 dimensional array with each row'
+ */
+<<<<<<< Updated upstream
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = (__pyx_t_3 != 0);
+  if (likely(__pyx_t_4)) {
+
+    /* "src/software_retina/retina.pyx":44
+ *     def load_node_attributes(self, input):
+ *         if isinstance(input, np.ndarray):
+ *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
+=======
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_load); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_INCREF(__pyx_v_filename);
+    __Pyx_GIVEREF(__pyx_v_filename);
+    PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_filename);
+    __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_allow_pickle, Py_True) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 41, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_v_x = __pyx_t_6;
+    __pyx_t_6 = 0;
+
+    /* "src/software_retina/retina.pyx":42
+ *         if isinstance(filename, str):
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 2 and x.shape[1] == 7):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ *                 raise ValueError('Must be a 2 dimensional array with each row'
+ *                                  ' having 7 columns of node attributes')
+ */
+<<<<<<< Updated upstream
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (__pyx_t_3) {
+=======
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_n_s_ndim); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    if (__pyx_t_1) {
+>>>>>>> Stashed changes
+    } else {
+      __pyx_t_2 = __pyx_t_1;
+      goto __pyx_L5_bool_binop_done;
+    }
+<<<<<<< Updated upstream
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 44, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_4 = __pyx_t_3;
+=======
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_n_s_shape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_6 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 42, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_2 = __pyx_t_1;
+>>>>>>> Stashed changes
+    __pyx_L5_bool_binop_done:;
+    __pyx_t_1 = ((!__pyx_t_2) != 0);
+    if (unlikely(__pyx_t_1)) {
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":45
+ *         if isinstance(input, np.ndarray):
+ *             if not (input.ndim == 2 and input.shape[1] == 7):
+=======
+      /* "src/software_retina/retina.pyx":43
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 2 and x.shape[1] == 7):
+>>>>>>> Stashed changes
+ *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
+ *                                  ' having 7 columns of node attributes')
+ * 
+ */
+<<<<<<< Updated upstream
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __PYX_ERR(0, 45, __pyx_L1_error)
+
+      /* "src/software_retina/retina.pyx":44
+ *     def load_node_attributes(self, input):
+ *         if isinstance(input, np.ndarray):
+ *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
+=======
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_Raise(__pyx_t_5, 0, 0, 0);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __PYX_ERR(0, 43, __pyx_L1_error)
+
+      /* "src/software_retina/retina.pyx":42
+ *         if isinstance(filename, str):
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 2 and x.shape[1] == 7):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ *                 raise ValueError('Must be a 2 dimensional array with each row'
+ *                                  ' having 7 columns of node attributes')
+ */
+    }
+
+<<<<<<< Updated upstream
+    /* "src/software_retina/retina.pyx":49
+=======
+    /* "src/software_retina/retina.pyx":47
+>>>>>>> Stashed changes
+ * 
+ *             else:
+ *                 self.node_attributes = x             # <<<<<<<<<<<<<<
+ *                 self.N = len(self.node_attributes)
+ *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+ */
+    /*else*/ {
+<<<<<<< Updated upstream
+      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 49, __pyx_L1_error)
+=======
+      __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_x, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 47, __pyx_L1_error)
+>>>>>>> Stashed changes
+      __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
+      __pyx_v_self->node_attributes = __pyx_t_7;
+      __pyx_t_7.memview = NULL;
+      __pyx_t_7.data = NULL;
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":50
+=======
+      /* "src/software_retina/retina.pyx":48
+>>>>>>> Stashed changes
+ *             else:
+ *                 self.node_attributes = x
+ *                 self.N = len(self.node_attributes)             # <<<<<<<<<<<<<<
+ *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+ *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ */
+<<<<<<< Updated upstream
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 50, __pyx_L1_error)}
+      __pyx_t_6 = __Pyx_MemoryView_Len(__pyx_v_self->node_attributes); 
+      __pyx_v_self->N = __pyx_t_6;
+
+      /* "src/software_retina/retina.pyx":51
+ *                 self.node_attributes = input
+=======
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 48, __pyx_L1_error)}
+      __pyx_t_8 = __Pyx_MemoryView_Len(__pyx_v_self->node_attributes); 
+      __pyx_v_self->N = __pyx_t_8;
+
+      /* "src/software_retina/retina.pyx":49
+ *                 self.node_attributes = x
+>>>>>>> Stashed changes
+ *                 self.N = len(self.node_attributes)
+ *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ * 
+ */
+<<<<<<< Updated upstream
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_abs); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 51, __pyx_L1_error)}
+      __pyx_t_5.data = __pyx_v_self->node_attributes.data;
+      __pyx_t_5.memview = __pyx_v_self->node_attributes.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_5, 0);
+      __pyx_t_5.shape[0] = __pyx_v_self->node_attributes.shape[0];
+__pyx_t_5.strides[0] = __pyx_v_self->node_attributes.strides[0];
+    __pyx_t_5.suboffsets[0] = -1;
+
+__pyx_t_9 = -1;
+      if (unlikely(__pyx_memoryview_slice_memviewslice(
+    &__pyx_t_5,
+=======
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_abs); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 49, __pyx_L1_error)}
+      __pyx_t_7.data = __pyx_v_self->node_attributes.data;
+      __pyx_t_7.memview = __pyx_v_self->node_attributes.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_7, 0);
+      __pyx_t_7.shape[0] = __pyx_v_self->node_attributes.shape[0];
+__pyx_t_7.strides[0] = __pyx_v_self->node_attributes.strides[0];
+    __pyx_t_7.suboffsets[0] = -1;
+
+__pyx_t_9 = -1;
+      if (unlikely(__pyx_memoryview_slice_memviewslice(
+    &__pyx_t_7,
+>>>>>>> Stashed changes
+    __pyx_v_self->node_attributes.shape[1], __pyx_v_self->node_attributes.strides[1], __pyx_v_self->node_attributes.suboffsets[1],
+    1,
+    1,
+    &__pyx_t_9,
+    0,
+    2,
+    0,
+    0,
+    1,
+    0,
+    1) < 0))
+{
+<<<<<<< Updated upstream
+    __PYX_ERR(0, 51, __pyx_L1_error)
+}
+
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
+      __pyx_t_5.memview = NULL;
+      __pyx_t_5.data = NULL;
+=======
+    __PYX_ERR(0, 49, __pyx_L1_error)
+}
+
+__pyx_t_3 = __pyx_memoryview_fromslice(__pyx_t_7, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
+      __pyx_t_7.memview = NULL;
+      __pyx_t_7.data = NULL;
+>>>>>>> Stashed changes
+      __pyx_t_10 = NULL;
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_10 = PyMethod_GET_SELF(__pyx_t_4);
+        if (likely(__pyx_t_10)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+          __Pyx_INCREF(__pyx_t_10);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
+        }
+      }
+      __pyx_t_6 = (__pyx_t_10) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_10, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3);
+      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+<<<<<<< Updated upstream
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+      __pyx_t_2 = NULL;
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
+        __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_8);
+        if (likely(__pyx_t_2)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_8);
+          __Pyx_INCREF(__pyx_t_2);
+=======
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_max); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = NULL;
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
+        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_4);
+        if (likely(__pyx_t_6)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+          __Pyx_INCREF(__pyx_t_6);
+>>>>>>> Stashed changes
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_4, function);
+        }
+      }
+<<<<<<< Updated upstream
+      __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+
+      /* "src/software_retina/retina.pyx":52
+=======
+      __pyx_t_5 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_5);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+      /* "src/software_retina/retina.pyx":50
+>>>>>>> Stashed changes
+ *                 self.N = len(self.node_attributes)
+ *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+ *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)             # <<<<<<<<<<<<<<
+ * 
+ *         else:
+ */
+<<<<<<< Updated upstream
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 52, __pyx_L1_error)}
+=======
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 50, __pyx_L1_error)}
+>>>>>>> Stashed changes
+      __pyx_t_11.data = __pyx_v_self->node_attributes.data;
+      __pyx_t_11.memview = __pyx_v_self->node_attributes.memview;
+      __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
+      __pyx_t_11.shape[0] = __pyx_v_self->node_attributes.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_self->node_attributes.strides[0];
+    __pyx_t_11.suboffsets[0] = -1;
+
+{
+    Py_ssize_t __pyx_tmp_idx = 6;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_self->node_attributes.strides[1];
+        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+<<<<<<< Updated upstream
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_7);
+=======
+__pyx_t_3 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+>>>>>>> Stashed changes
+      __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+      __pyx_t_11.memview = NULL;
+      __pyx_t_11.data = NULL;
+      __pyx_t_12 = NULL;
+      if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_10))) {
+        __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_10);
+        if (likely(__pyx_t_12)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
+          __Pyx_INCREF(__pyx_t_12);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_10, function);
+        }
+      }
+      __pyx_t_6 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_12, __pyx_t_3) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_3);
+      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
+<<<<<<< Updated upstream
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
+=======
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_6);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_max); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 50, __pyx_L1_error)
+>>>>>>> Stashed changes
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+      __pyx_t_6 = NULL;
+      if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
+        __pyx_t_6 = PyMethod_GET_SELF(__pyx_t_10);
+        if (likely(__pyx_t_6)) {
+          PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_10);
+          __Pyx_INCREF(__pyx_t_6);
+          __Pyx_INCREF(function);
+          __Pyx_DECREF_SET(__pyx_t_10, function);
+        }
+      }
+<<<<<<< Updated upstream
+      __pyx_t_8 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_10);
+      __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+      if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyFloat_DivideObjC(__pyx_t_8, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 52, __pyx_L1_error)
+=======
+      __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_6) : __Pyx_PyObject_CallNoArg(__pyx_t_10);
+      __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyFloat_DivideObjC(__pyx_t_4, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 50, __pyx_L1_error)
+>>>>>>> Stashed changes
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":51
+ *                 self.node_attributes = input
+=======
+      /* "src/software_retina/retina.pyx":49
+ *                 self.node_attributes = x
+>>>>>>> Stashed changes
+ *                 self.N = len(self.node_attributes)
+ *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ * 
+ */
+<<<<<<< Updated upstream
+      __pyx_t_8 = PyNumber_Add(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_8);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+      __pyx_v_self->width = __pyx_t_9;
+    }
+
+    /* "src/software_retina/retina.pyx":43
+=======
+      __pyx_t_4 = PyNumber_Add(__pyx_t_5, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_10);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyNumber_Multiply(__pyx_int_2, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+      __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_4); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_v_self->width = __pyx_t_9;
+    }
+
+    /* "src/software_retina/retina.pyx":40
+ *     def load_node_attributes_from_path(self, filename):
+>>>>>>> Stashed changes
+ * 
+ *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 2 and x.shape[1] == 7):
+ */
+    goto __pyx_L3;
+  }
+
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":55
+=======
+  /* "src/software_retina/retina.pyx":53
+>>>>>>> Stashed changes
+ * 
+ *         else:
+ *             raise TypeError('This function only accepts string path'             # <<<<<<<<<<<<<<
+ *                             ' of a pickled file')
+ * 
+ */
+  /*else*/ {
+<<<<<<< Updated upstream
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 55, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_8);
+    __Pyx_Raise(__pyx_t_8, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    __PYX_ERR(0, 55, __pyx_L1_error)
+  }
+  __pyx_L3:;
+
+  /* "src/software_retina/retina.pyx":42
+ *         self._V_coloured = np.zeros((1, 1))
+=======
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
+    __Pyx_Raise(__pyx_t_4, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __PYX_ERR(0, 53, __pyx_L1_error)
+  }
+  __pyx_L3:;
+
+  /* "src/software_retina/retina.pyx":38
+ *         self.colour_intensity = np.zeros((1, 1))
+ * 
+ *     def load_node_attributes_from_path(self, filename):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ * 
+ *         if isinstance(filename, str):
+ */
+
+  /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
+  __Pyx_XDECREF(__pyx_t_10);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __Pyx_XDECREF(__pyx_t_12);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.load_node_attributes_from_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_x);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+<<<<<<< Updated upstream
+/* "src/software_retina/retina.pyx":57
+ *             raise TypeError('This function only accepts numpy array')
+=======
+/* "src/software_retina/retina.pyx":56
+ *                             ' of a pickled file')
+ * 
+ *     def load_coefficients_from_path(self, filename):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ * 
+ *         if isinstance(filename, str):
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_5load_coefficients_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_5load_coefficients_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("load_coefficients_from_path (wrapper)", 0);
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficients_from_path(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficients_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename) {
+  PyObject *__pyx_v_x = NULL;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  __Pyx_memviewslice __pyx_t_7 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("load_coefficients_from_path", 0);
+
+  /* "src/software_retina/retina.pyx":58
+<<<<<<< Updated upstream
+=======
+ *     def load_coefficients_from_path(self, filename):
+>>>>>>> Stashed changes
+ * 
+ *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
+ */
+  __pyx_t_1 = PyString_Check(__pyx_v_filename); 
+  __pyx_t_2 = (__pyx_t_1 != 0);
+  if (likely(__pyx_t_2)) {
+
+    /* "src/software_retina/retina.pyx":59
+<<<<<<< Updated upstream
+ *     def load_node_attributes_from_path(self, filename):
+=======
+ * 
+>>>>>>> Stashed changes
+ *         if isinstance(filename, str):
+ *             x = np.load(filename, allow_pickle=True)             # <<<<<<<<<<<<<<
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
+ *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'
  */
     __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
@@ -3466,13 +3968,17 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
     /* "src/software_retina/retina.pyx":60
  *         if isinstance(filename, str):
  *             x = np.load(filename, allow_pickle=True)
- *             if not (x.ndim == 2 and x.shape[1] == 7):             # <<<<<<<<<<<<<<
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- *                                  ' having 7 columns of node attributes')
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):             # <<<<<<<<<<<<<<
+ *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'
+ *                                  ' n number of k*k sized kernels')
  */
     __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_n_s_ndim); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
+<<<<<<< Updated upstream
     __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
+=======
+    __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 60, __pyx_L1_error)
@@ -3487,9 +3993,21 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
     __pyx_t_6 = __Pyx_GetItemInt(__pyx_t_5, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+<<<<<<< Updated upstream
     __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_6, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
+=======
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_x, __pyx_n_s_shape); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_3 = __Pyx_GetItemInt(__pyx_t_5, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 60, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_6, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+<<<<<<< Updated upstream
+=======
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+>>>>>>> Stashed changes
     __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 60, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_2 = __pyx_t_1;
@@ -3499,9 +4017,9 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
 
       /* "src/software_retina/retina.pyx":61
  *             x = np.load(filename, allow_pickle=True)
- *             if not (x.ndim == 2 and x.shape[1] == 7):
- *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
- *                                  ' having 7 columns of node attributes')
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
+ *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'             # <<<<<<<<<<<<<<
+ *                                  ' n number of k*k sized kernels')
  * 
  */
       __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 61, __pyx_L1_error)
@@ -3513,26 +4031,34 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_node_attr
       /* "src/software_retina/retina.pyx":60
  *         if isinstance(filename, str):
  *             x = np.load(filename, allow_pickle=True)
- *             if not (x.ndim == 2 and x.shape[1] == 7):             # <<<<<<<<<<<<<<
- *                 raise ValueError('Must be a 2 dimensional array with each row'
- *                                  ' having 7 columns of node attributes')
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):             # <<<<<<<<<<<<<<
+ *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'
+ *                                  ' n number of k*k sized kernels')
  */
     }
 
     /* "src/software_retina/retina.pyx":65
  * 
  *             else:
- *                 self.node_attributes = x             # <<<<<<<<<<<<<<
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+ *                 self.coefficients = x             # <<<<<<<<<<<<<<
+ * 
+ *         else:
  */
     /*else*/ {
+<<<<<<< Updated upstream
       __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_x, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 65, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
       __pyx_v_self->node_attributes = __pyx_t_7;
+=======
+      __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_x, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 65, __pyx_L1_error)
+      __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
+      __pyx_v_self->coefficients = __pyx_t_7;
+>>>>>>> Stashed changes
       __pyx_t_7.memview = NULL;
       __pyx_t_7.data = NULL;
+    }
 
+<<<<<<< Updated upstream
       /* "src/software_retina/retina.pyx":66
  *             else:
  *                 self.node_attributes = x
@@ -3770,36 +4296,123 @@ __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
 
 /* "src/software_retina/retina.pyx":74
  *                             ' of a pickled file')
+=======
+    /* "src/software_retina/retina.pyx":58
+ *     def load_coefficients_from_path(self, filename):
  * 
- *     def load_coefficients(self, input):             # <<<<<<<<<<<<<<
- *         if isinstance(input, np.ndarray):
- *             if not input.ndim == 3:
+ *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
+ *             x = np.load(filename, allow_pickle=True)
+ *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
+ */
+    goto __pyx_L3;
+  }
+
+  /* "src/software_retina/retina.pyx":68
+ * 
+ *         else:
+ *             raise TypeError('This function only accepts string path'             # <<<<<<<<<<<<<<
+ *                             ' of a pickled file')
+ * 
+ */
+  /*else*/ {
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_Raise(__pyx_t_5, 0, 0, 0);
+    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+    __PYX_ERR(0, 68, __pyx_L1_error)
+  }
+  __pyx_L3:;
+
+  /* "src/software_retina/retina.pyx":56
+ *                             ' of a pickled file')
+ * 
+ *     def load_coefficients_from_path(self, filename):             # <<<<<<<<<<<<<<
+ * 
+ *         if isinstance(filename, str):
  */
 
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7load_coefficients(PyObject *__pyx_v_self, PyObject *__pyx_v_input); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7load_coefficients(PyObject *__pyx_v_self, PyObject *__pyx_v_input) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("load_coefficients (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficients(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_input));
-
   /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_7, 1);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.load_coefficients_from_path", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_x);
+  __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficients(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_input) {
-  PyObject *__pyx_r = NULL;
+/* "src/software_retina/retina.pyx":71
+ *                             ' of a pickled file')
+ * 
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ * 
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ */
+
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation, int __pyx_skip_dispatch) {
+  __Pyx_memviewslice __pyx_v_node_attributes_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_coefficients_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_fixation_y;
+  int __pyx_v_fixation_x;
+  int __pyx_v_p;
+  int __pyx_v_y1;
+  int __pyx_v_y2;
+  int __pyx_v_x1;
+  int __pyx_v_x2;
+  __Pyx_memviewslice __pyx_v_pic = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyArrayObject *__pyx_v_X = 0;
+  PyArrayObject *__pyx_v_Y = 0;
+  PyArrayObject *__pyx_v_V = 0;
+  Py_ssize_t __pyx_v_i;
+  float __pyx_v_w;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_V;
+  __Pyx_Buffer __pyx_pybuffer_V;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_X;
+  __Pyx_Buffer __pyx_pybuffer_X;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_Y;
+  __Pyx_Buffer __pyx_pybuffer_Y;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
+  __Pyx_Buffer __pyx_pybuffer_image;
+  PyArrayObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
-  int __pyx_t_3;
-  int __pyx_t_4;
-  __Pyx_memviewslice __pyx_t_5 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  __Pyx_memviewslice __pyx_t_8 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_9 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_10 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_11 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyArrayObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
+  PyArrayObject *__pyx_t_16 = NULL;
+  PyArrayObject *__pyx_t_17 = NULL;
+  Py_ssize_t __pyx_t_18;
+  Py_ssize_t __pyx_t_19;
+  Py_ssize_t __pyx_t_20;
+  Py_ssize_t __pyx_t_21;
+  int __pyx_t_22;
+  __Pyx_memviewslice __pyx_t_23 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_24 = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
+<<<<<<< Updated upstream
   __Pyx_RefNannySetupContext("load_coefficients", 0);
 
   /* "src/software_retina/retina.pyx":75
@@ -3844,9 +4457,108 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficie
  *             else:
  */
       __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+=======
+  __Pyx_RefNannySetupContext("sample_grayscale", 0);
+  __pyx_pybuffer_X.pybuffer.buf = NULL;
+  __pyx_pybuffer_X.refcount = 0;
+  __pyx_pybuffernd_X.data = NULL;
+  __pyx_pybuffernd_X.rcbuffer = &__pyx_pybuffer_X;
+  __pyx_pybuffer_Y.pybuffer.buf = NULL;
+  __pyx_pybuffer_Y.refcount = 0;
+  __pyx_pybuffernd_Y.data = NULL;
+  __pyx_pybuffernd_Y.rcbuffer = &__pyx_pybuffer_Y;
+  __pyx_pybuffer_V.pybuffer.buf = NULL;
+  __pyx_pybuffer_V.refcount = 0;
+  __pyx_pybuffernd_V.data = NULL;
+  __pyx_pybuffernd_V.rcbuffer = &__pyx_pybuffer_V;
+  __pyx_pybuffer_image.pybuffer.buf = NULL;
+  __pyx_pybuffer_image.refcount = 0;
+  __pyx_pybuffernd_image.data = NULL;
+  __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 71, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1];
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_grayscale); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_1);
-      __Pyx_Raise(__pyx_t_1, 0, 0, 0);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale)) {
+        __Pyx_XDECREF(((PyObject *)__pyx_r));
+        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 71, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
+        __pyx_t_6 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_5)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+            __pyx_t_6 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 71, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          if (__pyx_t_5) {
+            __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
+          }
+          __Pyx_INCREF(((PyObject *)__pyx_v_image));
+          __Pyx_GIVEREF(((PyObject *)__pyx_v_image));
+          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_6, ((PyObject *)__pyx_v_image));
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
+          __pyx_t_3 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 71, __pyx_L1_error)
+        __pyx_r = ((PyArrayObject *)__pyx_t_2);
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+<<<<<<< Updated upstream
       __PYX_ERR(0, 77, __pyx_L1_error)
 
       /* "src/software_retina/retina.pyx":76
@@ -3854,17 +4566,39 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficie
  *         if isinstance(input, np.ndarray):
  *             if not input.ndim == 3:             # <<<<<<<<<<<<<<
  *                 raise ValueError('Must be 3 dimensional array')
- * 
- */
+=======
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
     }
+    #endif
+  }
 
-    /* "src/software_retina/retina.pyx":80
+  /* "src/software_retina/retina.pyx":73
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):
+>>>>>>> Stashed changes
  * 
- *             else:
- *                 self.coefficients = input             # <<<<<<<<<<<<<<
- *         else:
- *             raise TypeError('This function only accepts numpy array')
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove             # <<<<<<<<<<<<<<
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+ *         cdef int fixation_y = fixation[0]
  */
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 73, __pyx_L1_error)}
+  __pyx_t_8 = __pyx_v_self->node_attributes;
+  __PYX_INC_MEMVIEW(&__pyx_t_8, 1);
+  __pyx_v_node_attributes_memory_view = __pyx_t_8;
+  __pyx_t_8.memview = NULL;
+  __pyx_t_8.data = NULL;
+
+<<<<<<< Updated upstream
+    /* "src/software_retina/retina.pyx":80
+=======
+  /* "src/software_retina/retina.pyx":74
+>>>>>>> Stashed changes
+ * 
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove             # <<<<<<<<<<<<<<
+ *         cdef int fixation_y = fixation[0]
+ *         cdef int fixation_x = fixation[1]
+ */
+<<<<<<< Updated upstream
     /*else*/ {
       __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 80, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
@@ -3879,10 +4613,25 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficie
  *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
  *             if not input.ndim == 3:
  *                 raise ValueError('Must be 3 dimensional array')
- */
-    goto __pyx_L3;
-  }
+=======
+  if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 74, __pyx_L1_error)}
+  __pyx_t_9 = __pyx_v_self->coefficients;
+  __PYX_INC_MEMVIEW(&__pyx_t_9, 1);
+  __pyx_v_coefficients_memory_view = __pyx_t_9;
+  __pyx_t_9.memview = NULL;
+  __pyx_t_9.data = NULL;
 
+  /* "src/software_retina/retina.pyx":75
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+ *         cdef int fixation_y = fixation[0]             # <<<<<<<<<<<<<<
+ *         cdef int fixation_x = fixation[1]
+ *         cdef int p, y1, y2, x1, x2
+>>>>>>> Stashed changes
+ */
+  __pyx_v_fixation_y = __pyx_v_fixation.f0;
+
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":82
  *                 self.coefficients = input
  *         else:
@@ -3901,12 +4650,28 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficie
 
   /* "src/software_retina/retina.pyx":74
  *                             ' of a pickled file')
- * 
- *     def load_coefficients(self, input):             # <<<<<<<<<<<<<<
- *         if isinstance(input, np.ndarray):
- *             if not input.ndim == 3:
+=======
+  /* "src/software_retina/retina.pyx":76
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+ *         cdef int fixation_y = fixation[0]
+ *         cdef int fixation_x = fixation[1]             # <<<<<<<<<<<<<<
+ *         cdef int p, y1, y2, x1, x2
+ *         cdef cnp.int32_t[:, ::1] pic
  */
+  __pyx_v_fixation_x = __pyx_v_fixation.f1;
 
+  /* "src/software_retina/retina.pyx":85
+ *         cdef float w
+>>>>>>> Stashed changes
+ * 
+ *         p = self.width             # <<<<<<<<<<<<<<
+ *         pic = pad_grayscaled(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ */
+  __pyx_t_6 = __pyx_v_self->width;
+  __pyx_v_p = __pyx_t_6;
+
+<<<<<<< Updated upstream
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
@@ -3924,52 +4689,125 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6load_coefficie
 
 /* "src/software_retina/retina.pyx":84
  *             raise TypeError('This function only accepts numpy array')
+=======
+  /* "src/software_retina/retina.pyx":86
+>>>>>>> Stashed changes
  * 
- *     def load_coefficients_from_path(self, filename):             # <<<<<<<<<<<<<<
- *         if isinstance(filename, str):
- *             x = np.load(filename, allow_pickle=True)
+ *         p = self.width
+ *         pic = pad_grayscaled(image, p)             # <<<<<<<<<<<<<<
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
  */
+  __pyx_t_10 = __pyx_f_3src_15software_retina_5utils_pad_grayscaled(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_v_pic = __pyx_t_10;
+  __pyx_t_10.memview = NULL;
+  __pyx_t_10.data = NULL;
 
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9load_coefficients_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9load_coefficients_from_path(PyObject *__pyx_v_self, PyObject *__pyx_v_filename) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("load_coefficients_from_path (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficients_from_path(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v_filename));
+  /* "src/software_retina/retina.pyx":87
+ *         p = self.width
+ *         pic = pad_grayscaled(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p             # <<<<<<<<<<<<<<
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ *         V = np.empty((self.N), dtype=np.float64)
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
+  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
+  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+    __pyx_t_11.suboffsets[0] = -1;
 
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
+{
+    Py_ssize_t __pyx_tmp_idx = 0;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficients_from_path(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v_filename) {
-  PyObject *__pyx_v_x = NULL;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  int __pyx_t_2;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  __Pyx_memviewslice __pyx_t_7 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("load_coefficients_from_path", 0);
+__pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __pyx_t_11.memview = NULL;
+  __pyx_t_11.data = NULL;
+  __pyx_t_7 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_7)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_7);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 87, __pyx_L1_error)
+  __pyx_t_12 = ((PyArrayObject *)__pyx_t_1);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+    __pyx_t_6 = __Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_t_12, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack);
+    if (unlikely(__pyx_t_6 < 0)) {
+      PyErr_Fetch(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
+      if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
+        Py_XDECREF(__pyx_t_13); Py_XDECREF(__pyx_t_14); Py_XDECREF(__pyx_t_15);
+        __Pyx_RaiseBufferFallbackError();
+      } else {
+        PyErr_Restore(__pyx_t_13, __pyx_t_14, __pyx_t_15);
+      }
+      __pyx_t_13 = __pyx_t_14 = __pyx_t_15 = 0;
+    }
+    __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0];
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 87, __pyx_L1_error)
+  }
+  __pyx_t_12 = 0;
+  __pyx_v_X = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":85
+=======
+  /* "src/software_retina/retina.pyx":88
+ *         pic = pad_grayscaled(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p             # <<<<<<<<<<<<<<
+ *         V = np.empty((self.N), dtype=np.float64)
+>>>>>>> Stashed changes
  * 
- *     def load_coefficients_from_path(self, filename):
- *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
- *             x = np.load(filename, allow_pickle=True)
- *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
  */
-  __pyx_t_1 = PyString_Check(__pyx_v_filename); 
-  __pyx_t_2 = (__pyx_t_1 != 0);
-  if (likely(__pyx_t_2)) {
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
+  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
+  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+    __pyx_t_11.suboffsets[0] = -1;
 
+<<<<<<< Updated upstream
     /* "src/software_retina/retina.pyx":86
  *     def load_coefficients_from_path(self, filename):
  *         if isinstance(filename, str):
@@ -4042,8 +4880,78 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficie
  *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
  *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'             # <<<<<<<<<<<<<<
  *                                  ' n number of k*k sized kernels')
+=======
+{
+    Py_ssize_t __pyx_tmp_idx = 1;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __pyx_t_11.memview = NULL;
+  __pyx_t_11.data = NULL;
+  __pyx_t_7 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_7)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_7);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_16 = ((PyArrayObject *)__pyx_t_1);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+    __pyx_t_6 = __Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Y.rcbuffer->pybuffer, (PyObject*)__pyx_t_16, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack);
+    if (unlikely(__pyx_t_6 < 0)) {
+      PyErr_Fetch(&__pyx_t_15, &__pyx_t_14, &__pyx_t_13);
+      if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Y.rcbuffer->pybuffer, (PyObject*)__pyx_v_Y, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
+        Py_XDECREF(__pyx_t_15); Py_XDECREF(__pyx_t_14); Py_XDECREF(__pyx_t_13);
+        __Pyx_RaiseBufferFallbackError();
+      } else {
+        PyErr_Restore(__pyx_t_15, __pyx_t_14, __pyx_t_13);
+      }
+      __pyx_t_15 = __pyx_t_14 = __pyx_t_13 = 0;
+    }
+    __pyx_pybuffernd_Y.diminfo[0].strides = __pyx_pybuffernd_Y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Y.diminfo[0].shape = __pyx_pybuffernd_Y.rcbuffer->pybuffer.shape[0];
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 88, __pyx_L1_error)
+  }
+  __pyx_t_16 = 0;
+  __pyx_v_Y = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "src/software_retina/retina.pyx":89
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ *         V = np.empty((self.N), dtype=np.float64)             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
  * 
+ *         with nogil, parallel():
  */
+<<<<<<< Updated upstream
       __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 88, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_Raise(__pyx_t_5, 0, 0, 0);
@@ -4057,15 +4965,72 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficie
  *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'
  *                                  ' n number of k*k sized kernels')
  */
+=======
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_float64); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_3) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_17 = ((PyArrayObject *)__pyx_t_3);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_V.rcbuffer->pybuffer);
+    __pyx_t_6 = __Pyx_GetBufferAndValidate(&__pyx_pybuffernd_V.rcbuffer->pybuffer, (PyObject*)__pyx_t_17, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack);
+    if (unlikely(__pyx_t_6 < 0)) {
+      PyErr_Fetch(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
+      if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_V.rcbuffer->pybuffer, (PyObject*)__pyx_v_V, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES| PyBUF_WRITABLE, 1, 0, __pyx_stack) == -1)) {
+        Py_XDECREF(__pyx_t_13); Py_XDECREF(__pyx_t_14); Py_XDECREF(__pyx_t_15);
+        __Pyx_RaiseBufferFallbackError();
+      } else {
+        PyErr_Restore(__pyx_t_13, __pyx_t_14, __pyx_t_15);
+      }
+      __pyx_t_13 = __pyx_t_14 = __pyx_t_15 = 0;
+>>>>>>> Stashed changes
     }
+    __pyx_pybuffernd_V.diminfo[0].strides = __pyx_pybuffernd_V.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_V.diminfo[0].shape = __pyx_pybuffernd_V.rcbuffer->pybuffer.shape[0];
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 89, __pyx_L1_error)
+  }
+  __pyx_t_17 = 0;
+  __pyx_v_V = ((PyArrayObject *)__pyx_t_3);
+  __pyx_t_3 = 0;
 
+<<<<<<< Updated upstream
     /* "src/software_retina/retina.pyx":92
  * 
  *             else:
  *                 self.coefficients = x             # <<<<<<<<<<<<<<
+=======
+  /* "src/software_retina/retina.pyx":91
+ *         V = np.empty((self.N), dtype=np.float64)
+>>>>>>> Stashed changes
  * 
- *         else:
+ *         with nogil, parallel():             # <<<<<<<<<<<<<<
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
  */
+<<<<<<< Updated upstream
     /*else*/ {
       __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_x, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 92, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
@@ -4075,15 +5040,75 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficie
     }
 
     /* "src/software_retina/retina.pyx":85
- * 
- *     def load_coefficients_from_path(self, filename):
- *         if isinstance(filename, str):             # <<<<<<<<<<<<<<
- *             x = np.load(filename, allow_pickle=True)
- *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
- */
-    goto __pyx_L3;
-  }
+=======
+  {
+      #ifdef WITH_THREAD
+      PyThreadState *_save;
+      Py_UNBLOCK_THREADS
+      __Pyx_FastGIL_Remember();
+      #endif
+      /*try:*/ {
+        {
+            const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            int __pyx_parallel_why;
+            __pyx_parallel_why = 0;
+            #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                #undef likely
+                #undef unlikely
+                #define likely(x)   (x)
+                #define unlikely(x) (x)
+            #endif
+            #ifdef _OPENMP
+            #pragma omp parallel  private(__pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_22, __pyx_t_6) firstprivate(__pyx_t_10, __pyx_t_23) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+            #endif /* _OPENMP */
+            {
+                #ifdef _OPENMP
+                #ifdef WITH_THREAD
+                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                #endif
+                Py_BEGIN_ALLOW_THREADS
+                #endif /* _OPENMP */
 
+                /* "src/software_retina/retina.pyx":92
+>>>>>>> Stashed changes
+ * 
+ *         with nogil, parallel():
+ *             for i in prange(self.N):             # <<<<<<<<<<<<<<
+ *                 w = node_attributes_memory_view[i, 6]
+ *                 y1 = int(Y[i] - w/2+0.5)
+ */
+                __pyx_t_6 = __pyx_v_self->N;
+                if ((1 == 0)) abort();
+                {
+                    Py_ssize_t __pyx_parallel_temp0 = ((Py_ssize_t)0xbad0bad0);
+                    float __pyx_parallel_temp1 = ((float)__PYX_NAN());
+                    int __pyx_parallel_temp2 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp3 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp4 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp5 = ((int)0xbad0bad0);
+                    const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+                    PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+                    int __pyx_parallel_why;
+                    __pyx_parallel_why = 0;
+                    __pyx_t_19 = (__pyx_t_6 - 0 + 1 - 1/abs(1)) / 1;
+                    if (__pyx_t_19 > 0)
+                    {
+                        #ifdef _OPENMP
+                        #pragma omp for firstprivate(__pyx_v_i) lastprivate(__pyx_v_i) lastprivate(__pyx_v_w) lastprivate(__pyx_v_x1) lastprivate(__pyx_v_x2) lastprivate(__pyx_v_y1) lastprivate(__pyx_v_y2)
+                        #endif /* _OPENMP */
+                        for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_19; __pyx_t_18++){
+                            if (__pyx_parallel_why < 2)
+                            {
+                                __pyx_v_i = (Py_ssize_t)(0 + 1 * __pyx_t_18);
+                                /* Initialize private variables to invalid values */
+                                __pyx_v_w = ((float)__PYX_NAN());
+                                __pyx_v_x1 = ((int)0xbad0bad0);
+                                __pyx_v_x2 = ((int)0xbad0bad0);
+                                __pyx_v_y1 = ((int)0xbad0bad0);
+                                __pyx_v_y2 = ((int)0xbad0bad0);
+
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":95
  * 
  *         else:
@@ -4106,8 +5131,30 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8load_coefficie
  *     def load_coefficients_from_path(self, filename):             # <<<<<<<<<<<<<<
  *         if isinstance(filename, str):
  *             x = np.load(filename, allow_pickle=True)
+=======
+                                /* "src/software_retina/retina.pyx":93
+ *         with nogil, parallel():
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]             # <<<<<<<<<<<<<<
+ *                 y1 = int(Y[i] - w/2+0.5)
+ *                 y2 = int(Y[i] + w/2+0.5)
  */
+                                __pyx_t_20 = __pyx_v_i;
+                                __pyx_t_21 = 6;
+                                __pyx_v_w = (*((__pyx_t_5numpy_float64_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_node_attributes_memory_view.data + __pyx_t_20 * __pyx_v_node_attributes_memory_view.strides[0]) )) + __pyx_t_21)) )));
 
+                                /* "src/software_retina/retina.pyx":94
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
+ *                 y1 = int(Y[i] - w/2+0.5)             # <<<<<<<<<<<<<<
+ *                 y2 = int(Y[i] + w/2+0.5)
+ *                 x1 = int(X[i] - w/2+0.5)
+>>>>>>> Stashed changes
+ */
+                                __pyx_t_21 = __pyx_v_i;
+                                __pyx_v_y1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_Y.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
+
+<<<<<<< Updated upstream
   /* function exit code */
   __pyx_r = Py_None; __Pyx_INCREF(Py_None);
   goto __pyx_L0;
@@ -5711,16 +6758,1371 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_v_y1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_Y.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
                                 /* "src/software_retina/retina.pyx":171
+=======
+                                /* "src/software_retina/retina.pyx":95
+>>>>>>> Stashed changes
  *                 w = node_attributes_memory_view[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)             # <<<<<<<<<<<<<<
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
  */
+                                __pyx_t_21 = __pyx_v_i;
+                                __pyx_v_y2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_Y.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
+
+<<<<<<< Updated upstream
+                                /* "src/software_retina/retina.pyx":172
+=======
+                                /* "src/software_retina/retina.pyx":96
+>>>>>>> Stashed changes
+ *                 y1 = int(Y[i] - w/2+0.5)
+ *                 y2 = int(Y[i] + w/2+0.5)
+ *                 x1 = int(X[i] - w/2+0.5)             # <<<<<<<<<<<<<<
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
+ */
+                                __pyx_t_21 = __pyx_v_i;
+                                __pyx_v_x1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_X.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
+
+<<<<<<< Updated upstream
+                                /* "src/software_retina/retina.pyx":173
+=======
+                                /* "src/software_retina/retina.pyx":97
+>>>>>>> Stashed changes
+ *                 y2 = int(Y[i] + w/2+0.5)
+ *                 x1 = int(X[i] - w/2+0.5)
+ *                 x2 = int(X[i] + w/2+0.5)             # <<<<<<<<<<<<<<
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
+ *                                           coefficients_memory_view[i, :, :])
+ */
+                                __pyx_t_21 = __pyx_v_i;
+                                __pyx_v_x2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_X.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
+
+<<<<<<< Updated upstream
+                                /* "src/software_retina/retina.pyx":174
+=======
+                                /* "src/software_retina/retina.pyx":98
+>>>>>>> Stashed changes
+ *                 x1 = int(X[i] - w/2+0.5)
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],             # <<<<<<<<<<<<<<
+ *                                           coefficients_memory_view[i, :, :])
+ * 
+ */
+                                __pyx_t_10.data = __pyx_v_pic.data;
+                                __pyx_t_10.memview = __pyx_v_pic.memview;
+                                __PYX_INC_MEMVIEW(&__pyx_t_10, 0);
+                                __pyx_t_22 = -1;
+                                if (unlikely(__pyx_memoryview_slice_memviewslice(
+    &__pyx_t_10,
+    __pyx_v_pic.shape[0], __pyx_v_pic.strides[0], __pyx_v_pic.suboffsets[0],
+    0,
+    0,
+    &__pyx_t_22,
+    __pyx_v_y1,
+    __pyx_v_y2,
+    0,
+    1,
+    1,
+    0,
+    1) < 0))
+{
+<<<<<<< Updated upstream
+    __PYX_ERR(0, 174, __pyx_L12_error)
+=======
+    __PYX_ERR(0, 98, __pyx_L12_error)
+>>>>>>> Stashed changes
+}
+
+if (unlikely(__pyx_memoryview_slice_memviewslice(
+    &__pyx_t_10,
+    __pyx_v_pic.shape[1], __pyx_v_pic.strides[1], __pyx_v_pic.suboffsets[1],
+    1,
+    1,
+    &__pyx_t_22,
+    __pyx_v_x1,
+    __pyx_v_x2,
+    0,
+    1,
+    1,
+    0,
+    1) < 0))
+{
+<<<<<<< Updated upstream
+    __PYX_ERR(0, 174, __pyx_L12_error)
+=======
+    __PYX_ERR(0, 98, __pyx_L12_error)
+>>>>>>> Stashed changes
+}
+
+__pyx_t_23.data = __pyx_v_coefficients_memory_view.data;
+
+<<<<<<< Updated upstream
+                                /* "src/software_retina/retina.pyx":175
+=======
+                                /* "src/software_retina/retina.pyx":99
+>>>>>>> Stashed changes
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
+ *                                           coefficients_memory_view[i, :, :])             # <<<<<<<<<<<<<<
+ * 
+ *         self.grayscale_intensity = V
+ */
+                                __pyx_t_23.memview = __pyx_v_coefficients_memory_view.memview;
+                                __PYX_INC_MEMVIEW(&__pyx_t_23, 0);
+                                {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_i;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_coefficients_memory_view.strides[0];
+        __pyx_t_23.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_23.shape[0] = __pyx_v_coefficients_memory_view.shape[1];
+__pyx_t_23.strides[0] = __pyx_v_coefficients_memory_view.strides[1];
+    __pyx_t_23.suboffsets[0] = -1;
+
+__pyx_t_23.shape[1] = __pyx_v_coefficients_memory_view.shape[2];
+__pyx_t_23.strides[1] = __pyx_v_coefficients_memory_view.strides[2];
+    __pyx_t_23.suboffsets[1] = -1;
+
+<<<<<<< Updated upstream
+__pyx_t_10 = __pyx_f_3src_15software_retina_6retina_multiply_and_sum3d(__pyx_t_9, __pyx_t_22, __pyx_v_sum3d_return); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 174, __pyx_L12_error)
+
+                                /* "src/software_retina/retina.pyx":174
+=======
+__pyx_t_21 = __pyx_v_i;
+
+                                /* "src/software_retina/retina.pyx":98
+>>>>>>> Stashed changes
+ *                 x1 = int(X[i] - w/2+0.5)
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],             # <<<<<<<<<<<<<<
+ *                                           coefficients_memory_view[i, :, :])
+ * 
+ */
+<<<<<<< Updated upstream
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_9, 0);
+                                __pyx_t_9.memview = NULL;
+                                __pyx_t_9.data = NULL;
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_22, 0);
+                                __pyx_t_22.memview = NULL;
+                                __pyx_t_22.data = NULL;
+                                __pyx_t_23.data = __pyx_v_V.data;
+                                __pyx_t_23.memview = __pyx_v_V.memview;
+                                __PYX_INC_MEMVIEW(&__pyx_t_23, 0);
+                                {
+    Py_ssize_t __pyx_tmp_idx = __pyx_v_i;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_V.strides[0];
+        __pyx_t_23.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_23.shape[0] = __pyx_v_V.shape[1];
+__pyx_t_23.strides[0] = __pyx_v_V.strides[1];
+    __pyx_t_23.suboffsets[0] = -1;
+
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0)) __PYX_ERR(0, 174, __pyx_L12_error)
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_23, 0);
+                                __pyx_t_23.memview = NULL;
+                                __pyx_t_23.data = NULL;
+=======
+                                *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_V.rcbuffer->pybuffer.buf, __pyx_t_21, __pyx_pybuffernd_V.diminfo[0].strides) = __pyx_f_3src_15software_retina_5utils_multiply_and_sum2d(__pyx_t_10, __pyx_t_23);
+>>>>>>> Stashed changes
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_10, 0);
+                                __pyx_t_10.memview = NULL;
+                                __pyx_t_10.data = NULL;
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_23, 0);
+                                __pyx_t_23.memview = NULL;
+                                __pyx_t_23.data = NULL;
+                                goto __pyx_L15;
+                                __pyx_L12_error:;
+                                {
+                                    #ifdef WITH_THREAD
+                                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                                    #endif
+                                    #ifdef _OPENMP
+                                    #pragma omp flush(__pyx_parallel_exc_type)
+                                    #endif /* _OPENMP */
+                                    if (!__pyx_parallel_exc_type) {
+                                      __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                      __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
+                                      __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                    }
+                                    #ifdef WITH_THREAD
+                                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                                    #endif
+                                }
+                                __pyx_parallel_why = 4;
+                                goto __pyx_L14;
+                                __pyx_L14:;
+                                #ifdef _OPENMP
+                                #pragma omp critical(__pyx_parallel_lastprivates0)
+                                #endif /* _OPENMP */
+                                {
+                                    __pyx_parallel_temp0 = __pyx_v_i;
+                                    __pyx_parallel_temp1 = __pyx_v_w;
+                                    __pyx_parallel_temp2 = __pyx_v_x1;
+                                    __pyx_parallel_temp3 = __pyx_v_x2;
+                                    __pyx_parallel_temp4 = __pyx_v_y1;
+                                    __pyx_parallel_temp5 = __pyx_v_y2;
+                                }
+                                __pyx_L15:;
+                                #ifdef _OPENMP
+                                #pragma omp flush(__pyx_parallel_why)
+                                #endif /* _OPENMP */
+                            }
+                        }
+                    }
+                    if (__pyx_parallel_exc_type) {
+                      /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
+                      __pyx_parallel_why = 4;
+                    }
+                    if (__pyx_parallel_why) {
+                      __pyx_v_i = __pyx_parallel_temp0;
+                      __pyx_v_w = __pyx_parallel_temp1;
+                      __pyx_v_x1 = __pyx_parallel_temp2;
+                      __pyx_v_x2 = __pyx_parallel_temp3;
+                      __pyx_v_y1 = __pyx_parallel_temp4;
+                      __pyx_v_y2 = __pyx_parallel_temp5;
+                      switch (__pyx_parallel_why) {
+                            case 4:
+                        {
+                            #ifdef WITH_THREAD
+                            PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                            #endif
+                            __Pyx_GIVEREF(__pyx_parallel_exc_type);
+                            __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                            __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
+                            #ifdef WITH_THREAD
+                            __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                            #endif
+                        }
+                        goto __pyx_L8_error;
+                      }
+                    }
+                }
+                goto __pyx_L17;
+                __pyx_L8_error:;
+                {
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    #ifdef _OPENMP
+                    #pragma omp flush(__pyx_parallel_exc_type)
+                    #endif /* _OPENMP */
+                    if (!__pyx_parallel_exc_type) {
+                      __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                      __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
+                      __Pyx_GOTREF(__pyx_parallel_exc_type);
+                    }
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                }
+                __pyx_parallel_why = 4;
+                goto __pyx_L17;
+                __pyx_L17:;
+                #ifdef _OPENMP
+                Py_END_ALLOW_THREADS
+                #else
+{
+#ifdef WITH_THREAD
+                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                #endif
+                #endif /* _OPENMP */
+                /* Clean up any temporaries */
+                __PYX_XDEC_MEMVIEW(&__pyx_t_10, 0);
+                __PYX_XDEC_MEMVIEW(&__pyx_t_23, 0);
+                #ifdef WITH_THREAD
+                __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                #endif
+                #ifndef _OPENMP
+}
+#endif /* _OPENMP */
+            }
+            if (__pyx_parallel_exc_type) {
+              /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
+              __pyx_parallel_why = 4;
+            }
+            if (__pyx_parallel_why) {
+              switch (__pyx_parallel_why) {
+                    case 4:
+                {
+                    #ifdef WITH_THREAD
+                    PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                    #endif
+                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
+                    #ifdef WITH_THREAD
+                    __Pyx_PyGILState_Release(__pyx_gilstate_save);
+                    #endif
+                }
+                goto __pyx_L4_error;
+              }
+            }
+        }
+        #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+            #undef likely
+            #undef unlikely
+            #define likely(x)   __builtin_expect(!!(x), 1)
+            #define unlikely(x) __builtin_expect(!!(x), 0)
+        #endif
+      }
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":167
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + self.width
+=======
+      /* "src/software_retina/retina.pyx":91
+ *         V = np.empty((self.N), dtype=np.float64)
+>>>>>>> Stashed changes
+ * 
+ *         with nogil, parallel():             # <<<<<<<<<<<<<<
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
+ */
+      /*finally:*/ {
+        /*normal exit:*/{
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          Py_BLOCK_THREADS
+          #endif
+          goto __pyx_L5;
+        }
+        __pyx_L4_error: {
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          Py_BLOCK_THREADS
+          #endif
+          goto __pyx_L1_error;
+        }
+        __pyx_L5:;
+      }
+  }
+
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":178
+ *                                           sum3d_return)
+=======
+  /* "src/software_retina/retina.pyx":101
+ *                                           coefficients_memory_view[i, :, :])
+>>>>>>> Stashed changes
+ * 
+ *         self.grayscale_intensity = V             # <<<<<<<<<<<<<<
+ * 
+ *         return V
+ */
+  __pyx_t_24 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(((PyObject *)__pyx_v_V), PyBUF_WRITABLE); if (unlikely(!__pyx_t_24.memview)) __PYX_ERR(0, 101, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v_self->grayscale_intensity, 0);
+  __pyx_v_self->grayscale_intensity = __pyx_t_24;
+  __pyx_t_24.memview = NULL;
+  __pyx_t_24.data = NULL;
+
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":180
+ *         self._V_coloured = V
+=======
+  /* "src/software_retina/retina.pyx":103
+ *         self.grayscale_intensity = V
+>>>>>>> Stashed changes
+ * 
+ *         return V             # <<<<<<<<<<<<<<
+ * 
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_coloured(  # noqa: E225
+ */
+  __Pyx_XDECREF(((PyObject *)__pyx_r));
+<<<<<<< Updated upstream
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_V, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_r = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "src/software_retina/retina.pyx":142
+ *         return V
+=======
+  __Pyx_INCREF(((PyObject *)__pyx_v_V));
+  __pyx_r = ((PyArrayObject *)__pyx_v_V);
+  goto __pyx_L0;
+
+  /* "src/software_retina/retina.pyx":71
+ *                             ' of a pickled file')
+>>>>>>> Stashed changes
+ * 
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
+ * 
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_23, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_24, 1);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_V.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_grayscale", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_V.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __PYX_XDEC_MEMVIEW(&__pyx_v_node_attributes_memory_view, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_coefficients_memory_view, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_pic, 1);
+  __Pyx_XDECREF((PyObject *)__pyx_v_X);
+  __Pyx_XDECREF((PyObject *)__pyx_v_Y);
+  __Pyx_XDECREF((PyObject *)__pyx_v_V);
+  __Pyx_XGIVEREF((PyObject *)__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_image = 0;
+  __pyx_ctuple_int__and_int __pyx_v_fixation;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("sample_grayscale (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_image,&__pyx_n_s_fixation,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_image)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fixation)) != 0)) kw_args--;
+        else {
+<<<<<<< Updated upstream
+          __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, 1); __PYX_ERR(0, 142, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_coloured") < 0)) __PYX_ERR(0, 142, __pyx_L3_error)
+=======
+          __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, 1); __PYX_ERR(0, 71, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_grayscale") < 0)) __PYX_ERR(0, 71, __pyx_L3_error)
+>>>>>>> Stashed changes
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_image = ((PyArrayObject *)values[0]);
+<<<<<<< Updated upstream
+    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 142, __pyx_L3_error)
+=======
+    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 71, __pyx_L3_error)
+>>>>>>> Stashed changes
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_grayscale", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+<<<<<<< Updated upstream
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 144, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_12sample_coloured(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
+=======
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_6sample_grayscale(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
+>>>>>>> Stashed changes
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6sample_grayscale(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
+  __Pyx_Buffer __pyx_pybuffer_image;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("sample_grayscale", 0);
+  __pyx_pybuffer_image.pybuffer.buf = NULL;
+  __pyx_pybuffer_image.refcount = 0;
+  __pyx_pybuffernd_image.data = NULL;
+  __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+<<<<<<< Updated upstream
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 142, __pyx_L1_error)
+=======
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 71, __pyx_L1_error)
+>>>>>>> Stashed changes
+  }
+  __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1];
+  __Pyx_XDECREF(__pyx_r);
+<<<<<<< Updated upstream
+  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_coloured(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+=======
+  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+>>>>>>> Stashed changes
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_grayscale", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "src/software_retina/retina.pyx":105
+ *         return V
+ * 
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_coloured(  # noqa: E225             # <<<<<<<<<<<<<<
+ *             self,
+ *             cnp.ndarray[cnp.uint8_t, ndim=3] image,
+ */
+
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_coloured(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_coloured(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation, int __pyx_skip_dispatch) {
+  __Pyx_memviewslice __pyx_v_node_attributes_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_coefficients_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_v_fixation_y;
+  int __pyx_v_fixation_x;
+  int __pyx_v_p;
+  int __pyx_v_y1;
+  int __pyx_v_y2;
+  int __pyx_v_x1;
+  int __pyx_v_x2;
+  __Pyx_memviewslice __pyx_v_pic = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyArrayObject *__pyx_v_X = 0;
+  PyArrayObject *__pyx_v_Y = 0;
+  Py_ssize_t __pyx_v_i;
+  float __pyx_v_w;
+  __Pyx_memviewslice __pyx_v_V = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_v_sum3d_return = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_X;
+  __Pyx_Buffer __pyx_pybuffer_X;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_Y;
+  __Pyx_Buffer __pyx_pybuffer_Y;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
+  __Pyx_Buffer __pyx_pybuffer_image;
+  PyArrayObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  int __pyx_t_6;
+  PyObject *__pyx_t_7 = NULL;
+  __Pyx_memviewslice __pyx_t_8 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_9 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_10 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_11 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  PyArrayObject *__pyx_t_12 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_15 = NULL;
+  PyArrayObject *__pyx_t_16 = NULL;
+  Py_ssize_t __pyx_t_17;
+  Py_ssize_t __pyx_t_18;
+  Py_ssize_t __pyx_t_19;
+  Py_ssize_t __pyx_t_20;
+  int __pyx_t_21;
+  __Pyx_memviewslice __pyx_t_22 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  __Pyx_memviewslice __pyx_t_23 = { 0, 0, { 0 }, { 0 }, { 0 } };
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("sample_coloured", 0);
+  __pyx_pybuffer_X.pybuffer.buf = NULL;
+  __pyx_pybuffer_X.refcount = 0;
+  __pyx_pybuffernd_X.data = NULL;
+  __pyx_pybuffernd_X.rcbuffer = &__pyx_pybuffer_X;
+  __pyx_pybuffer_Y.pybuffer.buf = NULL;
+  __pyx_pybuffer_Y.refcount = 0;
+  __pyx_pybuffernd_Y.data = NULL;
+  __pyx_pybuffernd_Y.rcbuffer = &__pyx_pybuffer_Y;
+  __pyx_pybuffer_image.pybuffer.buf = NULL;
+  __pyx_pybuffer_image.refcount = 0;
+  __pyx_pybuffernd_image.data = NULL;
+  __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 105, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_image.diminfo[2].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_image.diminfo[2].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[2];
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (unlikely((Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0) || (Py_TYPE(((PyObject *)__pyx_v_self))->tp_flags & (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_coloured); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_coloured)) {
+        __Pyx_XDECREF(((PyObject *)__pyx_r));
+        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
+        __pyx_t_6 = 0;
+        if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_5 = PyMethod_GET_SELF(__pyx_t_4);
+          if (likely(__pyx_t_5)) {
+            PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+            __Pyx_INCREF(__pyx_t_5);
+            __Pyx_INCREF(function);
+            __Pyx_DECREF_SET(__pyx_t_4, function);
+            __pyx_t_6 = 1;
+          }
+        }
+        #if CYTHON_FAST_PYCALL
+        if (PyFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        } else
+        #endif
+        #if CYTHON_FAST_PYCCALL
+        if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
+          PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+        } else
+        #endif
+        {
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_7);
+          if (__pyx_t_5) {
+            __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
+          }
+          __Pyx_INCREF(((PyObject *)__pyx_v_image));
+          __Pyx_GIVEREF(((PyObject *)__pyx_v_image));
+          PyTuple_SET_ITEM(__pyx_t_7, 0+__pyx_t_6, ((PyObject *)__pyx_v_image));
+          __Pyx_GIVEREF(__pyx_t_3);
+          PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
+          __pyx_t_3 = 0;
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 105, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+          __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+        }
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 105, __pyx_L1_error)
+        __pyx_r = ((PyArrayObject *)__pyx_t_2);
+        __pyx_t_2 = 0;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_type_dict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "src/software_retina/retina.pyx":110
+ *             (int, int) fixation):
+ * 
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes             # <<<<<<<<<<<<<<
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
+ *         cdef int fixation_y = fixation[0]
+ */
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 110, __pyx_L1_error)}
+  __pyx_t_8 = __pyx_v_self->node_attributes;
+  __PYX_INC_MEMVIEW(&__pyx_t_8, 1);
+  __pyx_v_node_attributes_memory_view = __pyx_t_8;
+  __pyx_t_8.memview = NULL;
+  __pyx_t_8.data = NULL;
+
+  /* "src/software_retina/retina.pyx":111
+ * 
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients             # <<<<<<<<<<<<<<
+ *         cdef int fixation_y = fixation[0]
+ *         cdef int fixation_x = fixation[1]
+ */
+  if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 111, __pyx_L1_error)}
+  __pyx_t_9 = __pyx_v_self->coefficients;
+  __PYX_INC_MEMVIEW(&__pyx_t_9, 1);
+  __pyx_v_coefficients_memory_view = __pyx_t_9;
+  __pyx_t_9.memview = NULL;
+  __pyx_t_9.data = NULL;
+
+  /* "src/software_retina/retina.pyx":112
+ *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
+ *         cdef int fixation_y = fixation[0]             # <<<<<<<<<<<<<<
+ *         cdef int fixation_x = fixation[1]
+ *         cdef int p, y1, y2, x1, x2
+ */
+  __pyx_v_fixation_y = __pyx_v_fixation.f0;
+
+  /* "src/software_retina/retina.pyx":113
+ *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
+ *         cdef int fixation_y = fixation[0]
+ *         cdef int fixation_x = fixation[1]             # <<<<<<<<<<<<<<
+ *         cdef int p, y1, y2, x1, x2
+ *         cdef cnp.int32_t[:, :, ::1] pic
+ */
+  __pyx_v_fixation_x = __pyx_v_fixation.f1;
+
+  /* "src/software_retina/retina.pyx":120
+ *         cdef Py_ssize_t i
+ *         cdef float w
+ *         cdef cnp.float64_t[:, ::1] V = np.empty((self.N, 3))             # <<<<<<<<<<<<<<
+ *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_2);
+  __Pyx_INCREF(__pyx_int_3);
+  __Pyx_GIVEREF(__pyx_int_3);
+  PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_int_3);
+  __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_V = __pyx_t_8;
+  __pyx_t_8.memview = NULL;
+  __pyx_t_8.data = NULL;
+
+  /* "src/software_retina/retina.pyx":121
+ *         cdef float w
+ *         cdef cnp.float64_t[:, ::1] V = np.empty((self.N, 3))
+ *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))             # <<<<<<<<<<<<<<
+ * 
+ *         p = self.width
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_7, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_4, __pyx_int_3) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_int_3);
+  __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_sum3d_return = __pyx_t_10;
+  __pyx_t_10.memview = NULL;
+  __pyx_t_10.data = NULL;
+
+  /* "src/software_retina/retina.pyx":123
+ *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))
+ * 
+ *         p = self.width             # <<<<<<<<<<<<<<
+ *         pic = pad_coloured(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ */
+  __pyx_t_6 = __pyx_v_self->width;
+  __pyx_v_p = __pyx_t_6;
+
+<<<<<<< Updated upstream
+/* "src/software_retina/retina.pyx":184
+ * #######################################################################
+=======
+  /* "src/software_retina/retina.pyx":124
+>>>>>>> Stashed changes
+ * 
+ *         p = self.width
+ *         pic = pad_coloured(image, p)             # <<<<<<<<<<<<<<
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ */
+  __pyx_t_9 = __pyx_f_3src_15software_retina_5utils_pad_coloured(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_v_pic = __pyx_t_9;
+  __pyx_t_9.memview = NULL;
+  __pyx_t_9.data = NULL;
+
+  /* "src/software_retina/retina.pyx":125
+ *         p = self.width
+ *         pic = pad_coloured(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p             # <<<<<<<<<<<<<<
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
+  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
+  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+    __pyx_t_11.suboffsets[0] = -1;
+
+{
+    Py_ssize_t __pyx_tmp_idx = 0;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __pyx_t_11.memview = NULL;
+  __pyx_t_11.data = NULL;
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_1 = PyNumber_Add(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_12 = ((PyArrayObject *)__pyx_t_1);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+<<<<<<< Updated upstream
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_img.rcbuffer->pybuffer, (PyObject*)__pyx_v_img, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 184, __pyx_L1_error)
+=======
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+    __pyx_t_6 = __Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_t_12, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack);
+    if (unlikely(__pyx_t_6 < 0)) {
+      PyErr_Fetch(&__pyx_t_13, &__pyx_t_14, &__pyx_t_15);
+      if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_X.rcbuffer->pybuffer, (PyObject*)__pyx_v_X, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
+        Py_XDECREF(__pyx_t_13); Py_XDECREF(__pyx_t_14); Py_XDECREF(__pyx_t_15);
+        __Pyx_RaiseBufferFallbackError();
+      } else {
+        PyErr_Restore(__pyx_t_13, __pyx_t_14, __pyx_t_15);
+      }
+      __pyx_t_13 = __pyx_t_14 = __pyx_t_15 = 0;
+    }
+    __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0];
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 125, __pyx_L1_error)
+>>>>>>> Stashed changes
+  }
+  __pyx_t_12 = 0;
+  __pyx_v_X = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":186
+ * cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
+ *                                          int padding):
+ *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)             # <<<<<<<<<<<<<<
+ *     cdef int first_dimension = img.shape[0]
+ *     cdef int first_accumulator = 0
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_img), __pyx_n_s_astype); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_v_image_mem_view = __pyx_t_5;
+  __pyx_t_5.memview = NULL;
+  __pyx_t_5.data = NULL;
+
+  /* "src/software_retina/retina.pyx":187
+ *                                          int padding):
+ *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
+ *     cdef int first_dimension = img.shape[0]             # <<<<<<<<<<<<<<
+ *     cdef int first_accumulator = 0
+ *     cdef int second_dimension = img.shape[1]
+ */
+  __pyx_v_first_dimension = (__pyx_v_img->dimensions[0]);
+
+  /* "src/software_retina/retina.pyx":188
+ *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
+ *     cdef int first_dimension = img.shape[0]
+ *     cdef int first_accumulator = 0             # <<<<<<<<<<<<<<
+ *     cdef int second_dimension = img.shape[1]
+ *     cdef int second_accumulator = 0
+ */
+  __pyx_v_first_accumulator = 0;
+
+  /* "src/software_retina/retina.pyx":189
+ *     cdef int first_dimension = img.shape[0]
+ *     cdef int first_accumulator = 0
+ *     cdef int second_dimension = img.shape[1]             # <<<<<<<<<<<<<<
+ *     cdef int second_accumulator = 0
+ *     cdef int padding_twice = 2*padding
+ */
+  __pyx_v_second_dimension = (__pyx_v_img->dimensions[1]);
+
+  /* "src/software_retina/retina.pyx":190
+ *     cdef int first_accumulator = 0
+ *     cdef int second_dimension = img.shape[1]
+ *     cdef int second_accumulator = 0             # <<<<<<<<<<<<<<
+ *     cdef int padding_twice = 2*padding
+ *     cdef cnp.int32_t[:, ::1] out
+ */
+  __pyx_v_second_accumulator = 0;
+
+  /* "src/software_retina/retina.pyx":191
+ *     cdef int second_dimension = img.shape[1]
+ *     cdef int second_accumulator = 0
+ *     cdef int padding_twice = 2*padding             # <<<<<<<<<<<<<<
+ *     cdef cnp.int32_t[:, ::1] out
+ *     cdef Py_ssize_t i
+ */
+  __pyx_v_padding_twice = (2 * __pyx_v_padding);
+
+  /* "src/software_retina/retina.pyx":194
+ *     cdef cnp.int32_t[:, ::1] out
+ *     cdef Py_ssize_t i
+ *     cdef int img_dimension = img.ndim             # <<<<<<<<<<<<<<
+ * 
+ *     for i in range(img_dimension):
+ */
+  __pyx_t_6 = __pyx_v_img->nd;
+  __pyx_v_img_dimension = __pyx_t_6;
+
+  /* "src/software_retina/retina.pyx":196
+ *     cdef int img_dimension = img.ndim
+=======
+  /* "src/software_retina/retina.pyx":126
+ *         pic = pad_coloured(image, p)
+ *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p             # <<<<<<<<<<<<<<
+ * 
+ *         with nogil, parallel():
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
+  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
+  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+    __pyx_t_11.suboffsets[0] = -1;
+
+{
+    Py_ssize_t __pyx_tmp_idx = 1;
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+        __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
+}
+
+__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __pyx_t_11.memview = NULL;
+  __pyx_t_11.data = NULL;
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_7);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_7);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_7, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_16 = ((PyArrayObject *)__pyx_t_1);
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+    __pyx_t_6 = __Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Y.rcbuffer->pybuffer, (PyObject*)__pyx_t_16, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack);
+    if (unlikely(__pyx_t_6 < 0)) {
+      PyErr_Fetch(&__pyx_t_15, &__pyx_t_14, &__pyx_t_13);
+      if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_Y.rcbuffer->pybuffer, (PyObject*)__pyx_v_Y, &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, PyBUF_FORMAT| PyBUF_STRIDES, 1, 0, __pyx_stack) == -1)) {
+        Py_XDECREF(__pyx_t_15); Py_XDECREF(__pyx_t_14); Py_XDECREF(__pyx_t_13);
+        __Pyx_RaiseBufferFallbackError();
+      } else {
+        PyErr_Restore(__pyx_t_15, __pyx_t_14, __pyx_t_13);
+      }
+      __pyx_t_15 = __pyx_t_14 = __pyx_t_13 = 0;
+    }
+    __pyx_pybuffernd_Y.diminfo[0].strides = __pyx_pybuffernd_Y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Y.diminfo[0].shape = __pyx_pybuffernd_Y.rcbuffer->pybuffer.shape[0];
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 126, __pyx_L1_error)
+  }
+  __pyx_t_16 = 0;
+  __pyx_v_Y = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+
+  /* "src/software_retina/retina.pyx":128
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+>>>>>>> Stashed changes
+ * 
+ *         with nogil, parallel():             # <<<<<<<<<<<<<<
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
+ */
+  {
+      #ifdef WITH_THREAD
+      PyThreadState *_save;
+      Py_UNBLOCK_THREADS
+      __Pyx_FastGIL_Remember();
+      #endif
+      /*try:*/ {
+        {
+            const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            int __pyx_parallel_why;
+            __pyx_parallel_why = 0;
+            #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
+                #undef likely
+                #undef unlikely
+                #define likely(x)   (x)
+                #define unlikely(x) (x)
+            #endif
+            #ifdef _OPENMP
+            #pragma omp parallel  private(__pyx_t_17, __pyx_t_18, __pyx_t_19, __pyx_t_20, __pyx_t_21, __pyx_t_6) firstprivate(__pyx_t_10, __pyx_t_22, __pyx_t_23, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+            #endif /* _OPENMP */
+            {
+                #ifdef _OPENMP
+                #ifdef WITH_THREAD
+                PyGILState_STATE __pyx_gilstate_save = __Pyx_PyGILState_Ensure();
+                #endif
+                Py_BEGIN_ALLOW_THREADS
+                #endif /* _OPENMP */
+
+<<<<<<< Updated upstream
+    /* "src/software_retina/retina.pyx":197
+ * 
+ *     for i in range(img_dimension):
+ *         if i == 1:             # <<<<<<<<<<<<<<
+ *             first_accumulator += first_dimension + padding_twice
+=======
+                /* "src/software_retina/retina.pyx":129
+>>>>>>> Stashed changes
+ * 
+ *         with nogil, parallel():
+ *             for i in prange(self.N):             # <<<<<<<<<<<<<<
+ *                 w = node_attributes_memory_view[i, 6]
+ *                 y1 = int(Y[i] - w/2+0.5)
+ */
+                __pyx_t_6 = __pyx_v_self->N;
+                if ((1 == 0)) abort();
+                {
+                    Py_ssize_t __pyx_parallel_temp0 = ((Py_ssize_t)0xbad0bad0);
+                    float __pyx_parallel_temp1 = ((float)__PYX_NAN());
+                    int __pyx_parallel_temp2 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp3 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp4 = ((int)0xbad0bad0);
+                    int __pyx_parallel_temp5 = ((int)0xbad0bad0);
+                    const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
+                    PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+                    int __pyx_parallel_why;
+                    __pyx_parallel_why = 0;
+                    __pyx_t_18 = (__pyx_t_6 - 0 + 1 - 1/abs(1)) / 1;
+                    if (__pyx_t_18 > 0)
+                    {
+                        #ifdef _OPENMP
+                        #pragma omp for firstprivate(__pyx_v_i) lastprivate(__pyx_v_i) lastprivate(__pyx_v_w) lastprivate(__pyx_v_x1) lastprivate(__pyx_v_x2) lastprivate(__pyx_v_y1) lastprivate(__pyx_v_y2)
+                        #endif /* _OPENMP */
+                        for (__pyx_t_17 = 0; __pyx_t_17 < __pyx_t_18; __pyx_t_17++){
+                            if (__pyx_parallel_why < 2)
+                            {
+                                __pyx_v_i = (Py_ssize_t)(0 + 1 * __pyx_t_17);
+                                /* Initialize private variables to invalid values */
+                                __pyx_v_w = ((float)__PYX_NAN());
+                                __pyx_v_x1 = ((int)0xbad0bad0);
+                                __pyx_v_x2 = ((int)0xbad0bad0);
+                                __pyx_v_y1 = ((int)0xbad0bad0);
+                                __pyx_v_y2 = ((int)0xbad0bad0);
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":198
+ *     for i in range(img_dimension):
+ *         if i == 1:
+ *             first_accumulator += first_dimension + padding_twice             # <<<<<<<<<<<<<<
+ * 
+ *         else:
+=======
+                                /* "src/software_retina/retina.pyx":130
+ *         with nogil, parallel():
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]             # <<<<<<<<<<<<<<
+ *                 y1 = int(Y[i] - w/2+0.5)
+ *                 y2 = int(Y[i] + w/2+0.5)
+>>>>>>> Stashed changes
+ */
+                                __pyx_t_19 = __pyx_v_i;
+                                __pyx_t_20 = 6;
+                                __pyx_v_w = (*((__pyx_t_5numpy_float64_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_node_attributes_memory_view.data + __pyx_t_19 * __pyx_v_node_attributes_memory_view.strides[0]) )) + __pyx_t_20)) )));
+
+<<<<<<< Updated upstream
+      /* "src/software_retina/retina.pyx":197
+ * 
+ *     for i in range(img_dimension):
+ *         if i == 1:             # <<<<<<<<<<<<<<
+ *             first_accumulator += first_dimension + padding_twice
+ * 
+=======
+                                /* "src/software_retina/retina.pyx":131
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
+ *                 y1 = int(Y[i] - w/2+0.5)             # <<<<<<<<<<<<<<
+ *                 y2 = int(Y[i] + w/2+0.5)
+ *                 x1 = int(X[i] - w/2+0.5)
+>>>>>>> Stashed changes
+ */
+                                __pyx_t_20 = __pyx_v_i;
+                                __pyx_v_y1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_Y.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
+
+<<<<<<< Updated upstream
+    /* "src/software_retina/retina.pyx":201
+ * 
+ *         else:
+ *             second_accumulator += second_dimension + padding_twice             # <<<<<<<<<<<<<<
+ * 
+ *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)
+=======
+                                /* "src/software_retina/retina.pyx":132
+ *                 w = node_attributes_memory_view[i, 6]
+ *                 y1 = int(Y[i] - w/2+0.5)
+ *                 y2 = int(Y[i] + w/2+0.5)             # <<<<<<<<<<<<<<
+ *                 x1 = int(X[i] - w/2+0.5)
+ *                 x2 = int(X[i] + w/2+0.5)
+>>>>>>> Stashed changes
+ */
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_y2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_Y.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":172
+<<<<<<< Updated upstream
+  /* "src/software_retina/retina.pyx":203
+ *             second_accumulator += second_dimension + padding_twice
+ * 
+ *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)             # <<<<<<<<<<<<<<
+ *     out[padding:-padding, padding:-padding] = image_mem_view
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_first_accumulator); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_second_accumulator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
+  __pyx_t_4 = 0;
+  __pyx_t_1 = 0;
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
+  __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_10);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_10);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_t_10, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
+  __pyx_v_out = __pyx_t_5;
+  __pyx_t_5.memview = NULL;
+  __pyx_t_5.data = NULL;
+
+  /* "src/software_retina/retina.pyx":204
+ * 
+ *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)
+ *     out[padding:-padding, padding:-padding] = image_mem_view             # <<<<<<<<<<<<<<
+ * 
+ *     return out
+=======
+                                /* "src/software_retina/retina.pyx":133
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)             # <<<<<<<<<<<<<<
@@ -5730,7 +8132,7 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_x1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_X.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":173
+                                /* "src/software_retina/retina.pyx":134
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)             # <<<<<<<<<<<<<<
@@ -5740,12 +8142,13 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_x2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_X.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":174
+                                /* "src/software_retina/retina.pyx":135
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],             # <<<<<<<<<<<<<<
  *                                           coefficients_memory_view[i, :, :],
  *                                           sum3d_return)
+>>>>>>> Stashed changes
  */
                                 __pyx_t_9.data = __pyx_v_pic.data;
                                 __pyx_t_9.memview = __pyx_v_pic.memview;
@@ -5765,7 +8168,11 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 174, __pyx_L12_error)
+<<<<<<< Updated upstream
+    __PYX_ERR(0, 204, __pyx_L1_error)
+=======
+    __PYX_ERR(0, 135, __pyx_L12_error)
+>>>>>>> Stashed changes
 }
 
 if (unlikely(__pyx_memoryview_slice_memviewslice(
@@ -5782,7 +8189,30 @@ if (unlikely(__pyx_memoryview_slice_memviewslice(
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 174, __pyx_L12_error)
+<<<<<<< Updated upstream
+    __PYX_ERR(0, 204, __pyx_L1_error)
+}
+
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_image_mem_view, __pyx_t_5, 2, 2, 0) < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
+  __pyx_t_5.memview = NULL;
+  __pyx_t_5.data = NULL;
+
+  /* "src/software_retina/retina.pyx":206
+ *     out[padding:-padding, padding:-padding] = image_mem_view
+ * 
+ *     return out             # <<<<<<<<<<<<<<
+ * 
+ * cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
+ */
+  __PYX_INC_MEMVIEW(&__pyx_v_out, 0);
+  __pyx_r = __pyx_v_out;
+  goto __pyx_L0;
+
+  /* "src/software_retina/retina.pyx":184
+ * #######################################################################
+=======
+    __PYX_ERR(0, 135, __pyx_L12_error)
 }
 
 __pyx_t_9.shape[2] = __pyx_v_pic.shape[2];
@@ -5791,11 +8221,12 @@ __pyx_t_9.strides[2] = __pyx_v_pic.strides[2];
 
 __pyx_t_22.data = __pyx_v_coefficients_memory_view.data;
 
-                                /* "src/software_retina/retina.pyx":175
+                                /* "src/software_retina/retina.pyx":136
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],
  *                                           coefficients_memory_view[i, :, :],             # <<<<<<<<<<<<<<
  *                                           sum3d_return)
+>>>>>>> Stashed changes
  * 
  */
                                 __pyx_t_22.memview = __pyx_v_coefficients_memory_view.memview;
@@ -5814,9 +8245,9 @@ __pyx_t_22.shape[1] = __pyx_v_coefficients_memory_view.shape[2];
 __pyx_t_22.strides[1] = __pyx_v_coefficients_memory_view.strides[2];
     __pyx_t_22.suboffsets[1] = -1;
 
-__pyx_t_10 = __pyx_f_3src_15software_retina_6retina_multiply_and_sum3d(__pyx_t_9, __pyx_t_22, __pyx_v_sum3d_return); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 174, __pyx_L12_error)
+__pyx_t_10 = __pyx_f_3src_15software_retina_5utils_multiply_and_sum3d(__pyx_t_9, __pyx_t_22, __pyx_v_sum3d_return); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 135, __pyx_L12_error)
 
-                                /* "src/software_retina/retina.pyx":174
+                                /* "src/software_retina/retina.pyx":135
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],             # <<<<<<<<<<<<<<
@@ -5838,11 +8269,48 @@ __pyx_t_10 = __pyx_f_3src_15software_retina_6retina_multiply_and_sum3d(__pyx_t_9
         __pyx_t_23.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
+<<<<<<< Updated upstream
+/* Python wrapper */
+static PyObject *__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_img = 0;
+  int __pyx_v_padding;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pad_grayscaled (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_padding,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_padding)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("pad_grayscaled", 1, 2, 2, 1); __PYX_ERR(0, 184, __pyx_L3_error)
+=======
 __pyx_t_23.shape[0] = __pyx_v_V.shape[1];
 __pyx_t_23.strides[0] = __pyx_v_V.strides[1];
     __pyx_t_23.suboffsets[0] = -1;
 
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0)) __PYX_ERR(0, 174, __pyx_L12_error)
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0)) __PYX_ERR(0, 135, __pyx_L12_error)
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_23, 0);
                                 __pyx_t_23.memview = NULL;
                                 __pyx_t_23.data = NULL;
@@ -5978,6 +8446,7 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
                 goto __pyx_L4_error;
               }
             }
+>>>>>>> Stashed changes
         }
         #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
             #undef likely
@@ -5986,946 +8455,7 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
             #define unlikely(x) __builtin_expect(!!(x), 0)
         #endif
       }
-
-      /* "src/software_retina/retina.pyx":167
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + self.width
- * 
- *         with nogil, parallel():             # <<<<<<<<<<<<<<
- *             for i in prange(self.N):
- *                 w = node_attributes_memory_view[i, 6]
- */
-      /*finally:*/ {
-        /*normal exit:*/{
-          #ifdef WITH_THREAD
-          __Pyx_FastGIL_Forget();
-          Py_BLOCK_THREADS
-          #endif
-          goto __pyx_L5;
-        }
-        __pyx_L4_error: {
-          #ifdef WITH_THREAD
-          __Pyx_FastGIL_Forget();
-          Py_BLOCK_THREADS
-          #endif
-          goto __pyx_L1_error;
-        }
-        __pyx_L5:;
-      }
-  }
-
-  /* "src/software_retina/retina.pyx":178
- *                                           sum3d_return)
- * 
- *         self._V_coloured = V             # <<<<<<<<<<<<<<
- * 
- *         return np.asarray(V)
- */
-  __PYX_XDEC_MEMVIEW(&__pyx_v_self->_V_coloured, 0);
-  __PYX_INC_MEMVIEW(&__pyx_v_V, 0);
-  __pyx_v_self->_V_coloured = __pyx_v_V;
-
-  /* "src/software_retina/retina.pyx":180
- *         self._V_coloured = V
- * 
- *         return np.asarray(V)             # <<<<<<<<<<<<<<
- * 
- * #######################################################################
- */
-  __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_V, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_2 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
-    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
-    if (likely(__pyx_t_2)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-      __Pyx_INCREF(__pyx_t_2);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_4, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
-  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 180, __pyx_L1_error)
-  __pyx_r = ((PyArrayObject *)__pyx_t_1);
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* "src/software_retina/retina.pyx":142
- *         return V
- * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_coloured(  # noqa: E225             # <<<<<<<<<<<<<<
- *             self,
- *             cnp.ndarray[cnp.uint8_t, ndim=3] image,
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_7);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_22, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_23, 1);
-  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
-    __Pyx_PyThreadState_declare
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
-  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  goto __pyx_L2;
-  __pyx_L0:;
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
-  __pyx_L2:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_node_attributes_memory_view, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_coefficients_memory_view, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_pic, 1);
-  __Pyx_XDECREF((PyObject *)__pyx_v_X);
-  __Pyx_XDECREF((PyObject *)__pyx_v_Y);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_V, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_sum3d_return, 1);
-  __Pyx_XGIVEREF((PyObject *)__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_13sample_coloured(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3src_15software_retina_6retina_6Retina_12sample_coloured[] = "Sample an image";
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_13sample_coloured(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyArrayObject *__pyx_v_image = 0;
-  __pyx_ctuple_int__and_int __pyx_v_fixation;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("sample_coloured (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_image,&__pyx_n_s_fixation,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_image)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fixation)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, 1); __PYX_ERR(0, 142, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_coloured") < 0)) __PYX_ERR(0, 142, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-    }
-    __pyx_v_image = ((PyArrayObject *)values[0]);
-    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 145, __pyx_L3_error)
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 142, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 144, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_12sample_coloured(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
-
-  /* function exit code */
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_12sample_coloured(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation) {
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
-  __Pyx_Buffer __pyx_pybuffer_image;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("sample_coloured", 0);
-  __pyx_pybuffer_image.pybuffer.buf = NULL;
-  __pyx_pybuffer_image.refcount = 0;
-  __pyx_pybuffernd_image.data = NULL;
-  __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
-  {
-    __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 142, __pyx_L1_error)
-  }
-  __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_image.diminfo[2].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_image.diminfo[2].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[2];
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_coloured(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
-    __Pyx_PyThreadState_declare
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
-  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  goto __pyx_L2;
-  __pyx_L0:;
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
-  __pyx_L2:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "(tree fragment)":1
- * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
- *     cdef tuple state
- *     cdef object _dict
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_15__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_14__reduce_cython__(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_14__reduce_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self) {
-  PyObject *__pyx_v_state = 0;
-  PyObject *__pyx_v__dict = 0;
-  int __pyx_v_use_setstate;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  PyObject *__pyx_t_7 = NULL;
-  int __pyx_t_8;
-  int __pyx_t_9;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__reduce_cython__", 0);
-
-  /* "(tree fragment)":5
- *     cdef object _dict
- *     cdef bint use_setstate
- *     state = (self.N, self._V_coloured, self._V_gray, self.coefficients, self.node_attributes, self.width)             # <<<<<<<<<<<<<<
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:
- */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(!__pyx_v_self->_V_coloured.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
-  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->_V_coloured, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_v_self->_V_gray.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
-  __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_v_self->_V_gray, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
-  __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_v_self->coefficients, 3, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_int32_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_int32_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
-  __pyx_t_5 = __pyx_memoryview_fromslice(__pyx_v_self->node_attributes, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->width); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = PyTuple_New(6); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_2);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_7, 4, __pyx_t_5);
-  __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_7, 5, __pyx_t_6);
-  __pyx_t_1 = 0;
-  __pyx_t_2 = 0;
-  __pyx_t_3 = 0;
-  __pyx_t_4 = 0;
-  __pyx_t_5 = 0;
-  __pyx_t_6 = 0;
-  __pyx_v_state = ((PyObject*)__pyx_t_7);
-  __pyx_t_7 = 0;
-
-  /* "(tree fragment)":6
- *     cdef bint use_setstate
- *     state = (self.N, self._V_coloured, self._V_gray, self.coefficients, self.node_attributes, self.width)
- *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
- *     if _dict is not None:
- *         state += (_dict,)
- */
-  __pyx_t_7 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __pyx_v__dict = __pyx_t_7;
-  __pyx_t_7 = 0;
-
-  /* "(tree fragment)":7
- *     state = (self.N, self._V_coloured, self._V_gray, self.coefficients, self.node_attributes, self.width)
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:             # <<<<<<<<<<<<<<
- *         state += (_dict,)
- *         use_setstate = True
- */
-  __pyx_t_8 = (__pyx_v__dict != Py_None);
-  __pyx_t_9 = (__pyx_t_8 != 0);
-  if (__pyx_t_9) {
-
-    /* "(tree fragment)":8
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:
- *         state += (_dict,)             # <<<<<<<<<<<<<<
- *         use_setstate = True
- *     else:
- */
-    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_INCREF(__pyx_v__dict);
-    __Pyx_GIVEREF(__pyx_v__dict);
-    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v__dict);
-    __pyx_t_6 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 8, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_6));
-    __pyx_t_6 = 0;
-
-    /* "(tree fragment)":9
- *     if _dict is not None:
- *         state += (_dict,)
- *         use_setstate = True             # <<<<<<<<<<<<<<
- *     else:
- *         use_setstate = False
- */
-    __pyx_v_use_setstate = 1;
-
-    /* "(tree fragment)":7
- *     state = (self.N, self._V_coloured, self._V_gray, self.coefficients, self.node_attributes, self.width)
- *     _dict = getattr(self, '__dict__', None)
- *     if _dict is not None:             # <<<<<<<<<<<<<<
- *         state += (_dict,)
- *         use_setstate = True
- */
-    goto __pyx_L3;
-  }
-
-  /* "(tree fragment)":11
- *         use_setstate = True
- *     else:
- *         use_setstate = False             # <<<<<<<<<<<<<<
- *     if use_setstate:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, None), state
- */
-  /*else*/ {
-    __pyx_v_use_setstate = 0;
-  }
-  __pyx_L3:;
-
-  /* "(tree fragment)":12
- *     else:
- *         use_setstate = False
- *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, None), state
- *     else:
- */
-  __pyx_t_9 = (__pyx_v_use_setstate != 0);
-  if (__pyx_t_9) {
-
-    /* "(tree fragment)":13
- *         use_setstate = False
- *     if use_setstate:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, None), state             # <<<<<<<<<<<<<<
- *     else:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, state)
- */
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle_Retina); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_7, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_196310513);
-    __Pyx_GIVEREF(__pyx_int_196310513);
-    PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_int_196310513);
-    __Pyx_INCREF(Py_None);
-    __Pyx_GIVEREF(Py_None);
-    PyTuple_SET_ITEM(__pyx_t_7, 2, Py_None);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_6);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_7);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_7);
-    __Pyx_INCREF(__pyx_v_state);
-    __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
-    __pyx_t_6 = 0;
-    __pyx_t_7 = 0;
-    __pyx_r = __pyx_t_5;
-    __pyx_t_5 = 0;
-    goto __pyx_L0;
-
-    /* "(tree fragment)":12
- *     else:
- *         use_setstate = False
- *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, None), state
- *     else:
- */
-  }
-
-  /* "(tree fragment)":15
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, None), state
- *     else:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, state)             # <<<<<<<<<<<<<<
- * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
- */
-  /*else*/ {
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyx_unpickle_Retina); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    PyTuple_SET_ITEM(__pyx_t_7, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_196310513);
-    __Pyx_GIVEREF(__pyx_int_196310513);
-    PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_int_196310513);
-    __Pyx_INCREF(__pyx_v_state);
-    __Pyx_GIVEREF(__pyx_v_state);
-    PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_v_state);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 15, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_7);
-    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_7);
-    __pyx_t_5 = 0;
-    __pyx_t_7 = 0;
-    __pyx_r = __pyx_t_6;
-    __pyx_t_6 = 0;
-    goto __pyx_L0;
-  }
-
-  /* "(tree fragment)":1
- * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
- *     cdef tuple state
- *     cdef object _dict
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_state);
-  __Pyx_XDECREF(__pyx_v__dict);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "(tree fragment)":16
- *     else:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, state)
- * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_17__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_16__setstate_cython__(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_16__setstate_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__setstate_cython__", 0);
-
-  /* "(tree fragment)":17
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, state)
- * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_Retina__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
- */
-  if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "(tree fragment)":16
- *     else:
- *         return __pyx_unpickle_Retina, (type(self), 0xbb375f1, state)
- * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
- */
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("src.software_retina.retina.Retina.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "src/software_retina/retina.pyx":184
- * #######################################################################
- * 
- * cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,             # <<<<<<<<<<<<<<
- *                                          int padding):
- *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
- */
-
-static PyObject *__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_pad_grayscaled(PyArrayObject *__pyx_v_img, int __pyx_v_padding, CYTHON_UNUSED int __pyx_skip_dispatch) {
-  __Pyx_memviewslice __pyx_v_image_mem_view = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_v_first_dimension;
-  int __pyx_v_first_accumulator;
-  int __pyx_v_second_dimension;
-  int __pyx_v_second_accumulator;
-  int __pyx_v_padding_twice;
-  __Pyx_memviewslice __pyx_v_out = { 0, 0, { 0 }, { 0 }, { 0 } };
-  Py_ssize_t __pyx_v_i;
-  int __pyx_v_img_dimension;
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_img;
-  __Pyx_Buffer __pyx_pybuffer_img;
-  __Pyx_memviewslice __pyx_r = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  __Pyx_memviewslice __pyx_t_5 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  int __pyx_t_6;
-  int __pyx_t_7;
-  Py_ssize_t __pyx_t_8;
-  int __pyx_t_9;
-  PyObject *__pyx_t_10 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("pad_grayscaled", 0);
-  __pyx_pybuffer_img.pybuffer.buf = NULL;
-  __pyx_pybuffer_img.refcount = 0;
-  __pyx_pybuffernd_img.data = NULL;
-  __pyx_pybuffernd_img.rcbuffer = &__pyx_pybuffer_img;
-  {
-    __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_img.rcbuffer->pybuffer, (PyObject*)__pyx_v_img, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 184, __pyx_L1_error)
-  }
-  __pyx_pybuffernd_img.diminfo[0].strides = __pyx_pybuffernd_img.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_img.diminfo[0].shape = __pyx_pybuffernd_img.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_img.diminfo[1].strides = __pyx_pybuffernd_img.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_img.diminfo[1].shape = __pyx_pybuffernd_img.rcbuffer->pybuffer.shape[1];
-
-  /* "src/software_retina/retina.pyx":186
- * cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
- *                                          int padding):
- *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)             # <<<<<<<<<<<<<<
- *     cdef int first_dimension = img.shape[0]
- *     cdef int first_accumulator = 0
- */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_img), __pyx_n_s_astype); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_int32); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_dtype, __pyx_t_4) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_t_4, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_v_image_mem_view = __pyx_t_5;
-  __pyx_t_5.memview = NULL;
-  __pyx_t_5.data = NULL;
-
-  /* "src/software_retina/retina.pyx":187
- *                                          int padding):
- *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
- *     cdef int first_dimension = img.shape[0]             # <<<<<<<<<<<<<<
- *     cdef int first_accumulator = 0
- *     cdef int second_dimension = img.shape[1]
- */
-  __pyx_v_first_dimension = (__pyx_v_img->dimensions[0]);
-
-  /* "src/software_retina/retina.pyx":188
- *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
- *     cdef int first_dimension = img.shape[0]
- *     cdef int first_accumulator = 0             # <<<<<<<<<<<<<<
- *     cdef int second_dimension = img.shape[1]
- *     cdef int second_accumulator = 0
- */
-  __pyx_v_first_accumulator = 0;
-
-  /* "src/software_retina/retina.pyx":189
- *     cdef int first_dimension = img.shape[0]
- *     cdef int first_accumulator = 0
- *     cdef int second_dimension = img.shape[1]             # <<<<<<<<<<<<<<
- *     cdef int second_accumulator = 0
- *     cdef int padding_twice = 2*padding
- */
-  __pyx_v_second_dimension = (__pyx_v_img->dimensions[1]);
-
-  /* "src/software_retina/retina.pyx":190
- *     cdef int first_accumulator = 0
- *     cdef int second_dimension = img.shape[1]
- *     cdef int second_accumulator = 0             # <<<<<<<<<<<<<<
- *     cdef int padding_twice = 2*padding
- *     cdef cnp.int32_t[:, ::1] out
- */
-  __pyx_v_second_accumulator = 0;
-
-  /* "src/software_retina/retina.pyx":191
- *     cdef int second_dimension = img.shape[1]
- *     cdef int second_accumulator = 0
- *     cdef int padding_twice = 2*padding             # <<<<<<<<<<<<<<
- *     cdef cnp.int32_t[:, ::1] out
- *     cdef Py_ssize_t i
- */
-  __pyx_v_padding_twice = (2 * __pyx_v_padding);
-
-  /* "src/software_retina/retina.pyx":194
- *     cdef cnp.int32_t[:, ::1] out
- *     cdef Py_ssize_t i
- *     cdef int img_dimension = img.ndim             # <<<<<<<<<<<<<<
- * 
- *     for i in range(img_dimension):
- */
-  __pyx_t_6 = __pyx_v_img->nd;
-  __pyx_v_img_dimension = __pyx_t_6;
-
-  /* "src/software_retina/retina.pyx":196
- *     cdef int img_dimension = img.ndim
- * 
- *     for i in range(img_dimension):             # <<<<<<<<<<<<<<
- *         if i == 1:
- *             first_accumulator += first_dimension + padding_twice
- */
-  __pyx_t_6 = __pyx_v_img_dimension;
-  __pyx_t_7 = __pyx_t_6;
-  for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
-    __pyx_v_i = __pyx_t_8;
-
-    /* "src/software_retina/retina.pyx":197
- * 
- *     for i in range(img_dimension):
- *         if i == 1:             # <<<<<<<<<<<<<<
- *             first_accumulator += first_dimension + padding_twice
- * 
- */
-    __pyx_t_9 = ((__pyx_v_i == 1) != 0);
-    if (__pyx_t_9) {
-
-      /* "src/software_retina/retina.pyx":198
- *     for i in range(img_dimension):
- *         if i == 1:
- *             first_accumulator += first_dimension + padding_twice             # <<<<<<<<<<<<<<
- * 
- *         else:
- */
-      __pyx_v_first_accumulator = (__pyx_v_first_accumulator + (__pyx_v_first_dimension + __pyx_v_padding_twice));
-
-      /* "src/software_retina/retina.pyx":197
- * 
- *     for i in range(img_dimension):
- *         if i == 1:             # <<<<<<<<<<<<<<
- *             first_accumulator += first_dimension + padding_twice
- * 
- */
-      goto __pyx_L5;
-    }
-
-    /* "src/software_retina/retina.pyx":201
- * 
- *         else:
- *             second_accumulator += second_dimension + padding_twice             # <<<<<<<<<<<<<<
- * 
- *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)
- */
-    /*else*/ {
-      __pyx_v_second_accumulator = (__pyx_v_second_accumulator + (__pyx_v_second_dimension + __pyx_v_padding_twice));
-    }
-    __pyx_L5:;
-  }
-
-  /* "src/software_retina/retina.pyx":203
- *             second_accumulator += second_dimension + padding_twice
- * 
- *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)             # <<<<<<<<<<<<<<
- *     out[padding:-padding, padding:-padding] = image_mem_view
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_first_accumulator); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_second_accumulator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_1);
-  __pyx_t_4 = 0;
-  __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int32); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_dtype, __pyx_t_10) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_t_10, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 203, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_v_out = __pyx_t_5;
-  __pyx_t_5.memview = NULL;
-  __pyx_t_5.data = NULL;
-
-  /* "src/software_retina/retina.pyx":204
- * 
- *     out = np.zeros((first_accumulator, second_accumulator), dtype=np.int32)
- *     out[padding:-padding, padding:-padding] = image_mem_view             # <<<<<<<<<<<<<<
- * 
- *     return out
- */
-  __pyx_t_5.data = __pyx_v_out.data;
-  __pyx_t_5.memview = __pyx_v_out.memview;
-  __PYX_INC_MEMVIEW(&__pyx_t_5, 0);
-  __pyx_t_6 = -1;
-  if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_5,
-    __pyx_v_out.shape[0], __pyx_v_out.strides[0], __pyx_v_out.suboffsets[0],
-    0,
-    0,
-    &__pyx_t_6,
-    __pyx_v_padding,
-    (-__pyx_v_padding),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 204, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_5,
-    __pyx_v_out.shape[1], __pyx_v_out.strides[1], __pyx_v_out.suboffsets[1],
-    1,
-    1,
-    &__pyx_t_6,
-    __pyx_v_padding,
-    (-__pyx_v_padding),
-    0,
-    1,
-    1,
-    0,
-    1) < 0))
-{
-    __PYX_ERR(0, 204, __pyx_L1_error)
-}
-
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_image_mem_view, __pyx_t_5, 2, 2, 0) < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __pyx_t_5.memview = NULL;
-  __pyx_t_5.data = NULL;
-
-  /* "src/software_retina/retina.pyx":206
- *     out[padding:-padding, padding:-padding] = image_mem_view
- * 
- *     return out             # <<<<<<<<<<<<<<
- * 
- * cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
- */
-  __PYX_INC_MEMVIEW(&__pyx_v_out, 0);
-  __pyx_r = __pyx_v_out;
-  goto __pyx_L0;
-
-  /* "src/software_retina/retina.pyx":184
- * #######################################################################
- * 
- * cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,             # <<<<<<<<<<<<<<
- *                                          int padding):
- *     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
- */
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_XDECREF(__pyx_t_10);
-  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
-    __Pyx_PyThreadState_declare
-    __Pyx_PyThreadState_assign
-    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
-  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __pyx_r.data = NULL;
-  __pyx_r.memview = NULL;
-  __Pyx_AddTraceback("src.software_retina.retina.pad_grayscaled", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  goto __pyx_L2;
-  __pyx_L0:;
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
-  if (unlikely(!__pyx_r.memview)) {
-    PyErr_SetString(PyExc_TypeError, "Memoryview return value is not initialized");
-  }
-  __pyx_L2:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_image_mem_view, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_out, 1);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyArrayObject *__pyx_v_img = 0;
-  int __pyx_v_padding;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("pad_grayscaled (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_padding,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_padding)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("pad_grayscaled", 1, 2, 2, 1); __PYX_ERR(0, 184, __pyx_L3_error)
-        }
-      }
+<<<<<<< Updated upstream
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "pad_grayscaled") < 0)) __PYX_ERR(0, 184, __pyx_L3_error)
       }
@@ -7012,11 +8542,17 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_pad_grayscaled(CYTHON_U
 
 /* "src/software_retina/retina.pyx":208
  *     return out
+=======
+
+      /* "src/software_retina/retina.pyx":128
+ *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+>>>>>>> Stashed changes
  * 
- * cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,             # <<<<<<<<<<<<<<
- *                                           int padding):
- *     cdef cnp.int32_t[:, :, ::1] image_mem_view = img.astype(dtype=np.int32)
+ *         with nogil, parallel():             # <<<<<<<<<<<<<<
+ *             for i in prange(self.N):
+ *                 w = node_attributes_memory_view[i, 6]
  */
+<<<<<<< Updated upstream
 
 static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_pad_coloured(PyArrayObject *__pyx_v_img, int __pyx_v_padding, CYTHON_UNUSED int __pyx_skip_dispatch) {
@@ -7201,23 +8737,69 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_pad_coloured(Py
     if (__pyx_t_9) {
 
       /* "src/software_retina/retina.pyx":226
- * 
- *         if i == 2:
- *             second_accumulator += second_dimension + padding_twice             # <<<<<<<<<<<<<<
- * 
- *     out = np.zeros((first_accumulator, second_accumulator, third_dimension),
- */
-      __pyx_v_second_accumulator = (__pyx_v_second_accumulator + (__pyx_v_second_dimension + __pyx_v_padding_twice));
+=======
+      /*finally:*/ {
+        /*normal exit:*/{
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          Py_BLOCK_THREADS
+          #endif
+          goto __pyx_L5;
+        }
+        __pyx_L4_error: {
+          #ifdef WITH_THREAD
+          __Pyx_FastGIL_Forget();
+          Py_BLOCK_THREADS
+          #endif
+          goto __pyx_L1_error;
+        }
+        __pyx_L5:;
+      }
+  }
 
+  /* "src/software_retina/retina.pyx":139
+ *                                           sum3d_return)
+>>>>>>> Stashed changes
+ * 
+ *         self.colour_intensity = V             # <<<<<<<<<<<<<<
+ * 
+ *         return np.asarray(V)
+ */
+  __PYX_XDEC_MEMVIEW(&__pyx_v_self->colour_intensity, 0);
+  __PYX_INC_MEMVIEW(&__pyx_v_V, 0);
+  __pyx_v_self->colour_intensity = __pyx_v_V;
+
+<<<<<<< Updated upstream
       /* "src/software_retina/retina.pyx":225
  *             first_accumulator += first_dimension + padding_twice
+=======
+  /* "src/software_retina/retina.pyx":141
+ *         self.colour_intensity = V
+>>>>>>> Stashed changes
  * 
- *         if i == 2:             # <<<<<<<<<<<<<<
- *             second_accumulator += second_dimension + padding_twice
+ *         return np.asarray(V)             # <<<<<<<<<<<<<<
  * 
+ * #######################################################################
  */
+  __Pyx_XDECREF(((PyObject *)__pyx_r));
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_V, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_t_2 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_4);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_4, function);
     }
   }
+<<<<<<< Updated upstream
 
   /* "src/software_retina/retina.pyx":228
  *             second_accumulator += second_dimension + padding_twice
@@ -7356,10 +8938,25 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_image_mem_view, __pyx_t_5, 3
 
   /* "src/software_retina/retina.pyx":208
  *     return out
+=======
+  __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
+  __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_r = ((PyArrayObject *)__pyx_t_1);
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "src/software_retina/retina.pyx":105
+ *         return V
+>>>>>>> Stashed changes
  * 
- * cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,             # <<<<<<<<<<<<<<
- *                                           int padding):
- *     cdef cnp.int32_t[:, :, ::1] image_mem_view = img.astype(dtype=np.int32)
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_coloured(  # noqa: E225             # <<<<<<<<<<<<<<
+ *             self,
+ *             cnp.ndarray[cnp.uint8_t, ndim=3] image,
  */
 
   /* function exit code */
@@ -7368,43 +8965,55 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_v_image_mem_view, __pyx_t_5, 3
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
-  __Pyx_XDECREF(__pyx_t_10);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_7);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_8, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_10, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_22, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_t_23, 1);
   { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
     __Pyx_PyThreadState_declare
     __Pyx_PyThreadState_assign
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __pyx_r.data = NULL;
-  __pyx_r.memview = NULL;
-  __Pyx_AddTraceback("src.software_retina.retina.pad_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
   goto __pyx_L2;
   __pyx_L0:;
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
-  if (unlikely(!__pyx_r.memview)) {
-    PyErr_SetString(PyExc_TypeError, "Memoryview return value is not initialized");
-  }
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_X.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
   __pyx_L2:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_image_mem_view, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_out, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_node_attributes_memory_view, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_coefficients_memory_view, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_pic, 1);
+  __Pyx_XDECREF((PyObject *)__pyx_v_X);
+  __Pyx_XDECREF((PyObject *)__pyx_v_Y);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_V, 1);
+  __PYX_XDEC_MEMVIEW(&__pyx_v_sum3d_return, 1);
+  __Pyx_XGIVEREF((PyObject *)__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  PyArrayObject *__pyx_v_img = 0;
-  int __pyx_v_padding;
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_coloured(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_coloured(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyArrayObject *__pyx_v_image = 0;
+  __pyx_ctuple_int__and_int __pyx_v_fixation;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("pad_coloured (wrapper)", 0);
+  __Pyx_RefNannySetupContext("sample_coloured (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_img,&__pyx_n_s_padding,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_image,&__pyx_n_s_fixation,0};
     PyObject* values[2] = {0,0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
@@ -7420,17 +9029,25 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject 
       kw_args = PyDict_Size(__pyx_kwds);
       switch (pos_args) {
         case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_img)) != 0)) kw_args--;
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_image)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
         CYTHON_FALLTHROUGH;
         case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_padding)) != 0)) kw_args--;
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fixation)) != 0)) kw_args--;
         else {
+<<<<<<< Updated upstream
           __Pyx_RaiseArgtupleInvalid("pad_coloured", 1, 2, 2, 1); __PYX_ERR(0, 208, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
         if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "pad_coloured") < 0)) __PYX_ERR(0, 208, __pyx_L3_error)
+=======
+          __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, 1); __PYX_ERR(0, 105, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_coloured") < 0)) __PYX_ERR(0, 105, __pyx_L3_error)
+>>>>>>> Stashed changes
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -7438,19 +9055,33 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject 
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
+<<<<<<< Updated upstream
     __pyx_v_img = ((PyArrayObject *)values[0]);
     __pyx_v_padding = __Pyx_PyInt_As_int(values[1]); if (unlikely((__pyx_v_padding == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 209, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("pad_coloured", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 208, __pyx_L3_error)
+=======
+    __pyx_v_image = ((PyArrayObject *)values[0]);
+    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L3_error)
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("sample_coloured", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 105, __pyx_L3_error)
+>>>>>>> Stashed changes
   __pyx_L3_error:;
-  __Pyx_AddTraceback("src.software_retina.retina.pad_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
+<<<<<<< Updated upstream
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_img), __pyx_ptype_5numpy_ndarray, 1, "img", 0))) __PYX_ERR(0, 208, __pyx_L1_error)
   __pyx_r = __pyx_pf_3src_15software_retina_6retina_2pad_coloured(__pyx_self, __pyx_v_img, __pyx_v_padding);
+=======
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_8sample_coloured(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
+>>>>>>> Stashed changes
 
   /* function exit code */
   goto __pyx_L0;
@@ -7461,27 +9092,31 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_3pad_coloured(PyObject 
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_15software_retina_6retina_2pad_coloured(CYTHON_UNUSED PyObject *__pyx_self, PyArrayObject *__pyx_v_img, int __pyx_v_padding) {
-  __Pyx_LocalBuf_ND __pyx_pybuffernd_img;
-  __Pyx_Buffer __pyx_pybuffer_img;
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8sample_coloured(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation) {
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_image;
+  __Pyx_Buffer __pyx_pybuffer_image;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  __Pyx_memviewslice __pyx_t_1 = { 0, 0, { 0 }, { 0 }, { 0 } };
-  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_1 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("pad_coloured", 0);
-  __pyx_pybuffer_img.pybuffer.buf = NULL;
-  __pyx_pybuffer_img.refcount = 0;
-  __pyx_pybuffernd_img.data = NULL;
-  __pyx_pybuffernd_img.rcbuffer = &__pyx_pybuffer_img;
+  __Pyx_RefNannySetupContext("sample_coloured", 0);
+  __pyx_pybuffer_image.pybuffer.buf = NULL;
+  __pyx_pybuffer_image.refcount = 0;
+  __pyx_pybuffernd_image.data = NULL;
+  __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
+<<<<<<< Updated upstream
     if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_img.rcbuffer->pybuffer, (PyObject*)__pyx_v_img, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 208, __pyx_L1_error)
+=======
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 105, __pyx_L1_error)
+>>>>>>> Stashed changes
   }
-  __pyx_pybuffernd_img.diminfo[0].strides = __pyx_pybuffernd_img.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_img.diminfo[0].shape = __pyx_pybuffernd_img.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_img.diminfo[1].strides = __pyx_pybuffernd_img.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_img.diminfo[1].shape = __pyx_pybuffernd_img.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_img.diminfo[2].strides = __pyx_pybuffernd_img.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_img.diminfo[2].shape = __pyx_pybuffernd_img.rcbuffer->pybuffer.shape[2];
+  __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_image.diminfo[2].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_image.diminfo[2].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[2];
   __Pyx_XDECREF(__pyx_r);
+<<<<<<< Updated upstream
   __pyx_t_1 = __pyx_f_3src_15software_retina_6retina_pad_coloured(__pyx_v_img, __pyx_v_padding, 0); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 208, __pyx_L1_error)
   __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_1, 3, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_int32_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_int32_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -7490,29 +9125,35 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_2pad_coloured(CYTHON_UN
   __pyx_t_1.data = NULL;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
+=======
+  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_coloured(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+>>>>>>> Stashed changes
   goto __pyx_L0;
 
   /* function exit code */
   __pyx_L1_error:;
-  __PYX_XDEC_MEMVIEW(&__pyx_t_1, 1);
-  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_1);
   { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
     __Pyx_PyThreadState_declare
     __Pyx_PyThreadState_assign
     __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
-    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
   __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
-  __Pyx_AddTraceback("src.software_retina.retina.pad_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_coloured", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   goto __pyx_L2;
   __pyx_L0:;
-  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_img.rcbuffer->pybuffer);
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
   __pyx_L2:;
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":234
  *     return out
  * 
@@ -7629,10 +9270,15 @@ static double __pyx_f_3src_15software_retina_6retina_multiply_and_sum2d(__Pyx_me
  *     return total/100000000             # <<<<<<<<<<<<<<
  * 
  * 
+=======
+/* "(tree fragment)":1
+ * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
+ *     cdef tuple state
+ *     cdef object _dict
+>>>>>>> Stashed changes
  */
-  __pyx_r = (__pyx_v_total / 100000000.0);
-  goto __pyx_L0;
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":234
  *     return out
  * 
@@ -7640,12 +9286,22 @@ static double __pyx_f_3src_15software_retina_6retina_multiply_and_sum2d(__Pyx_me
  *                                cnp.int32_t[:, ::1] coefficients_mem_view) nogil:
  *     cdef size_t i, first_dimension, j, second_dimension
  */
+=======
+/* Python wrapper */
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_10__reduce_cython__(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self));
+>>>>>>> Stashed changes
 
   /* function exit code */
-  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
+<<<<<<< Updated upstream
 /* "src/software_retina/retina.pyx":252
  * 
  * 
@@ -7764,30 +9420,116 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_su
  *     cdef double total_column_1 = 0             # <<<<<<<<<<<<<<
  *     cdef double total_column_2 = 0
  * 
- */
-  __pyx_v_total_column_1 = 0.0;
+=======
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_10__reduce_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self) {
+  PyObject *__pyx_v_state = 0;
+  PyObject *__pyx_v__dict = 0;
+  int __pyx_v_use_setstate;
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
+  int __pyx_t_9;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__reduce_cython__", 0);
 
+  /* "(tree fragment)":5
+ *     cdef object _dict
+ *     cdef bint use_setstate
+ *     state = (self.N, self.coefficients, self.colour_intensity, self.grayscale_intensity, self.node_attributes, self.width)             # <<<<<<<<<<<<<<
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:
+>>>>>>> Stashed changes
+ */
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
+  __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_v_self->coefficients, 3, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_int32_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_int32_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (unlikely(!__pyx_v_self->colour_intensity.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
+  __pyx_t_3 = __pyx_memoryview_fromslice(__pyx_v_self->colour_intensity, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  if (unlikely(!__pyx_v_self->grayscale_intensity.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
+  __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_v_self->grayscale_intensity, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(1, 5, __pyx_L1_error)}
+  __pyx_t_5 = __pyx_memoryview_fromslice(__pyx_v_self->node_attributes, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __pyx_t_6 = __Pyx_PyInt_From_int(__pyx_v_self->width); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_6);
+  __pyx_t_7 = PyTuple_New(6); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_t_3);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_7, 3, __pyx_t_4);
+  __Pyx_GIVEREF(__pyx_t_5);
+  PyTuple_SET_ITEM(__pyx_t_7, 4, __pyx_t_5);
+  __Pyx_GIVEREF(__pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_7, 5, __pyx_t_6);
+  __pyx_t_1 = 0;
+  __pyx_t_2 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_4 = 0;
+  __pyx_t_5 = 0;
+  __pyx_t_6 = 0;
+  __pyx_v_state = ((PyObject*)__pyx_t_7);
+  __pyx_t_7 = 0;
+
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":268
  *     cdef double total_column_0 = 0
  *     cdef double total_column_1 = 0
  *     cdef double total_column_2 = 0             # <<<<<<<<<<<<<<
  * 
  *     for i in range(first_dimension):
+=======
+  /* "(tree fragment)":6
+ *     cdef bint use_setstate
+ *     state = (self.N, self.coefficients, self.colour_intensity, self.grayscale_intensity, self.node_attributes, self.width)
+ *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
+ *     if _dict is not None:
+ *         state += (_dict,)
+>>>>>>> Stashed changes
  */
-  __pyx_v_total_column_2 = 0.0;
+  __pyx_t_7 = __Pyx_GetAttr3(((PyObject *)__pyx_v_self), __pyx_n_s_dict, Py_None); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_7);
+  __pyx_v__dict = __pyx_t_7;
+  __pyx_t_7 = 0;
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":270
  *     cdef double total_column_2 = 0
  * 
  *     for i in range(first_dimension):             # <<<<<<<<<<<<<<
  *         for j in range(second_dimension):
  *             for k in range(third_dimension):
+=======
+  /* "(tree fragment)":7
+ *     state = (self.N, self.coefficients, self.colour_intensity, self.grayscale_intensity, self.node_attributes, self.width)
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:             # <<<<<<<<<<<<<<
+ *         state += (_dict,)
+ *         use_setstate = True
+>>>>>>> Stashed changes
  */
-  __pyx_t_1 = __pyx_v_first_dimension;
-  __pyx_t_2 = __pyx_t_1;
-  for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_2; __pyx_t_3+=1) {
-    __pyx_v_i = __pyx_t_3;
+  __pyx_t_8 = (__pyx_v__dict != Py_None);
+  __pyx_t_9 = (__pyx_t_8 != 0);
+  if (__pyx_t_9) {
 
+<<<<<<< Updated upstream
     /* "src/software_retina/retina.pyx":271
  * 
  *     for i in range(first_dimension):
@@ -7860,93 +9602,226 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_su
  *                 if k == 0:             # <<<<<<<<<<<<<<
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
+=======
+    /* "(tree fragment)":8
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:
+ *         state += (_dict,)             # <<<<<<<<<<<<<<
+ *         use_setstate = True
+ *     else:
+>>>>>>> Stashed changes
  */
-        }
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_INCREF(__pyx_v__dict);
+    __Pyx_GIVEREF(__pyx_v__dict);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v__dict);
+    __pyx_t_6 = PyNumber_InPlaceAdd(__pyx_v_state, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 8, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __Pyx_DECREF_SET(__pyx_v_state, ((PyObject*)__pyx_t_6));
+    __pyx_t_6 = 0;
 
+<<<<<<< Updated upstream
         /* "src/software_retina/retina.pyx":278
  *                     total_column_0 += x*y
  * 
  *                 if k == 1:             # <<<<<<<<<<<<<<
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
+=======
+    /* "(tree fragment)":9
+ *     if _dict is not None:
+ *         state += (_dict,)
+ *         use_setstate = True             # <<<<<<<<<<<<<<
+ *     else:
+ *         use_setstate = False
+>>>>>>> Stashed changes
  */
-        __pyx_t_10 = ((__pyx_v_k == 1) != 0);
-        if (__pyx_t_10) {
+    __pyx_v_use_setstate = 1;
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":279
  * 
  *                 if k == 1:
  *                     x = image_extract[i, j, k]             # <<<<<<<<<<<<<<
  *                     y = coefficients_mem_view[i, j]
  *                     total_column_1 += x*y
+=======
+    /* "(tree fragment)":7
+ *     state = (self.N, self.coefficients, self.colour_intensity, self.grayscale_intensity, self.node_attributes, self.width)
+ *     _dict = getattr(self, '__dict__', None)
+ *     if _dict is not None:             # <<<<<<<<<<<<<<
+ *         state += (_dict,)
+ *         use_setstate = True
+>>>>>>> Stashed changes
  */
-          __pyx_t_12 = __pyx_v_i;
-          __pyx_t_13 = __pyx_v_j;
-          __pyx_t_11 = __pyx_v_k;
-          __pyx_v_x = (*((__pyx_t_5numpy_int32_t *) ( /* dim=2 */ ((char *) (((__pyx_t_5numpy_int32_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_image_extract.data + __pyx_t_12 * __pyx_v_image_extract.strides[0]) ) + __pyx_t_13 * __pyx_v_image_extract.strides[1]) )) + __pyx_t_11)) )));
+    goto __pyx_L3;
+  }
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":280
  *                 if k == 1:
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]             # <<<<<<<<<<<<<<
  *                     total_column_1 += x*y
  * 
+=======
+  /* "(tree fragment)":11
+ *         use_setstate = True
+ *     else:
+ *         use_setstate = False             # <<<<<<<<<<<<<<
+ *     if use_setstate:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, None), state
+>>>>>>> Stashed changes
  */
-          __pyx_t_11 = __pyx_v_i;
-          __pyx_t_13 = __pyx_v_j;
-          __pyx_v_y = (*((__pyx_t_5numpy_int32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_coefficients_mem_view.data + __pyx_t_11 * __pyx_v_coefficients_mem_view.strides[0]) )) + __pyx_t_13)) )));
+  /*else*/ {
+    __pyx_v_use_setstate = 0;
+  }
+  __pyx_L3:;
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":281
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
  *                     total_column_1 += x*y             # <<<<<<<<<<<<<<
  * 
  *                 if k == 2:
+=======
+  /* "(tree fragment)":12
+ *     else:
+ *         use_setstate = False
+ *     if use_setstate:             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, None), state
+ *     else:
+>>>>>>> Stashed changes
  */
-          __pyx_v_total_column_1 = (__pyx_v_total_column_1 + (__pyx_v_x * __pyx_v_y));
+  __pyx_t_9 = (__pyx_v_use_setstate != 0);
+  if (__pyx_t_9) {
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":278
  *                     total_column_0 += x*y
  * 
  *                 if k == 1:             # <<<<<<<<<<<<<<
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
+=======
+    /* "(tree fragment)":13
+ *         use_setstate = False
+ *     if use_setstate:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, None), state             # <<<<<<<<<<<<<<
+ *     else:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, state)
+>>>>>>> Stashed changes
  */
-        }
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle_Retina); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    PyTuple_SET_ITEM(__pyx_t_7, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_221980009);
+    __Pyx_GIVEREF(__pyx_int_221980009);
+    PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_int_221980009);
+    __Pyx_INCREF(Py_None);
+    __Pyx_GIVEREF(Py_None);
+    PyTuple_SET_ITEM(__pyx_t_7, 2, Py_None);
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 13, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_6);
+    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_t_7);
+    __Pyx_INCREF(__pyx_v_state);
+    __Pyx_GIVEREF(__pyx_v_state);
+    PyTuple_SET_ITEM(__pyx_t_5, 2, __pyx_v_state);
+    __pyx_t_6 = 0;
+    __pyx_t_7 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
+    goto __pyx_L0;
 
+<<<<<<< Updated upstream
         /* "src/software_retina/retina.pyx":283
  *                     total_column_1 += x*y
  * 
  *                 if k == 2:             # <<<<<<<<<<<<<<
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
+=======
+    /* "(tree fragment)":12
+ *     else:
+ *         use_setstate = False
+ *     if use_setstate:             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, None), state
+ *     else:
+>>>>>>> Stashed changes
  */
-        __pyx_t_10 = ((__pyx_v_k == 2) != 0);
-        if (__pyx_t_10) {
+  }
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":284
  * 
  *                 if k == 2:
  *                     x = image_extract[i, j, k]             # <<<<<<<<<<<<<<
  *                     y = coefficients_mem_view[i, j]
  *                     total_column_2 += x*y
+=======
+  /* "(tree fragment)":15
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, None), state
+ *     else:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, state)             # <<<<<<<<<<<<<<
+ * def __setstate_cython__(self, __pyx_state):
+ *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
+>>>>>>> Stashed changes
  */
-          __pyx_t_13 = __pyx_v_i;
-          __pyx_t_11 = __pyx_v_j;
-          __pyx_t_12 = __pyx_v_k;
-          __pyx_v_x = (*((__pyx_t_5numpy_int32_t *) ( /* dim=2 */ ((char *) (((__pyx_t_5numpy_int32_t *) ( /* dim=1 */ (( /* dim=0 */ (__pyx_v_image_extract.data + __pyx_t_13 * __pyx_v_image_extract.strides[0]) ) + __pyx_t_11 * __pyx_v_image_extract.strides[1]) )) + __pyx_t_12)) )));
+  /*else*/ {
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_pyx_unpickle_Retina); if (unlikely(!__pyx_t_5)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_5);
+    __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_7);
+    __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    PyTuple_SET_ITEM(__pyx_t_7, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
+    __Pyx_INCREF(__pyx_int_221980009);
+    __Pyx_GIVEREF(__pyx_int_221980009);
+    PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_int_221980009);
+    __Pyx_INCREF(__pyx_v_state);
+    __Pyx_GIVEREF(__pyx_v_state);
+    PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_v_state);
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 15, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_6);
+    __Pyx_GIVEREF(__pyx_t_5);
+    PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_7);
+    __pyx_t_5 = 0;
+    __pyx_t_7 = 0;
+    __pyx_r = __pyx_t_6;
+    __pyx_t_6 = 0;
+    goto __pyx_L0;
+  }
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":285
  *                 if k == 2:
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]             # <<<<<<<<<<<<<<
  *                     total_column_2 += x*y
  * 
+=======
+  /* "(tree fragment)":1
+ * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
+ *     cdef tuple state
+ *     cdef object _dict
+>>>>>>> Stashed changes
  */
-          __pyx_t_12 = __pyx_v_i;
-          __pyx_t_11 = __pyx_v_j;
-          __pyx_v_y = (*((__pyx_t_5numpy_int32_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_int32_t *) ( /* dim=0 */ (__pyx_v_coefficients_mem_view.data + __pyx_t_12 * __pyx_v_coefficients_mem_view.strides[0]) )) + __pyx_t_11)) )));
 
+<<<<<<< Updated upstream
           /* "src/software_retina/retina.pyx":286
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
@@ -7962,12 +9837,35 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_su
  *                 if k == 2:             # <<<<<<<<<<<<<<
  *                     x = image_extract[i, j, k]
  *                     y = coefficients_mem_view[i, j]
- */
-        }
-      }
-    }
-  }
+=======
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_XDECREF(__pyx_t_7);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_state);
+  __Pyx_XDECREF(__pyx_v__dict);
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
 
+/* "(tree fragment)":16
+ *     else:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, state)
+ * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
+>>>>>>> Stashed changes
+ */
+
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":288
  *                     total_column_2 += x*y
  * 
@@ -8002,24 +9900,66 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_su
  *     sum3d_return[2] = total_column_2/100000000
  * 
  *     return sum3d_return             # <<<<<<<<<<<<<<
- */
-  __PYX_INC_MEMVIEW(&__pyx_v_sum3d_return, 1);
-  __pyx_r = __pyx_v_sum3d_return;
-  goto __pyx_L0;
+=======
+/* Python wrapper */
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_12__setstate_cython__(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_12__setstate_cython__(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("__setstate_cython__", 0);
+
+  /* "(tree fragment)":17
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, state)
+ * def __setstate_cython__(self, __pyx_state):
+ *     __pyx_unpickle_Retina__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+>>>>>>> Stashed changes
+ */
+  if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":252
  * 
  * 
  * cdef cnp.float64_t[::1] multiply_and_sum3d(             # <<<<<<<<<<<<<<
  *                                         cnp.int32_t[:, :, ::1] image_extract,
  *                                         cnp.int32_t[:, ::1] coefficients_mem_view,
+=======
+  /* "(tree fragment)":16
+ *     else:
+ *         return __pyx_unpickle_Retina, (type(self), 0xd3b2569, state)
+ * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle_Retina__set_state(self, __pyx_state)
+>>>>>>> Stashed changes
  */
 
   /* function exit code */
+  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("src.software_retina.retina.Retina.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
   __pyx_L0:;
-  if (unlikely(!__pyx_r.memview)) {
-    PyErr_SetString(PyExc_TypeError, "Memoryview return value is not initialized");
-  }
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
@@ -8030,9 +9970,9 @@ static __Pyx_memviewslice __pyx_f_3src_15software_retina_6retina_multiply_and_su
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3src_15software_retina_6retina_5__pyx_unpickle_Retina(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3src_15software_retina_6retina_5__pyx_unpickle_Retina = {"__pyx_unpickle_Retina", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_5__pyx_unpickle_Retina, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3src_15software_retina_6retina_5__pyx_unpickle_Retina(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3src_15software_retina_6retina_1__pyx_unpickle_Retina(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_3src_15software_retina_6retina_1__pyx_unpickle_Retina = {"__pyx_unpickle_Retina", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_1__pyx_unpickle_Retina, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_3src_15software_retina_6retina_1__pyx_unpickle_Retina(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
@@ -8098,14 +10038,14 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_5__pyx_unpickle_Retina(
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_3src_15software_retina_6retina___pyx_unpickle_Retina(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_3src_15software_retina_6retina___pyx_unpickle_Retina(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -8124,18 +10064,18 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb375f1:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xd3b2569:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xbb375f1) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0xd3b2569) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb375f1:
+ *     if __pyx_checksum != 0xd3b2569:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  *     __pyx_result = Retina.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -8154,15 +10094,15 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0xbb375f1:
+ *     if __pyx_checksum != 0xd3b2569:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = Retina.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xbb, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0xd3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -8189,15 +10129,15 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0xbb375f1:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0xd3b2569:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  *     __pyx_result = Retina.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
@@ -8223,7 +10163,7 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  *     __pyx_result = Retina.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
@@ -8246,7 +10186,7 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xbb375f1 = (N, _V_coloured, _V_gray, coefficients, node_attributes, width))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xd3b2569 = (N, coefficients, colour_intensity, grayscale_intensity, node_attributes, width))" % __pyx_checksum)
  *     __pyx_result = Retina.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
@@ -8259,7 +10199,7 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -8292,7 +10232,7 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_4__pyx_unpickle_Retina(
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
  */
 
@@ -8318,7 +10258,7 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]             # <<<<<<<<<<<<<<
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[6])
  */
@@ -8332,38 +10272,38 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1), PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->_V_coloured, 0);
-  __pyx_v___pyx_result->_V_coloured = __pyx_t_2;
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1), PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->coefficients, 0);
+  __pyx_v___pyx_result->coefficients = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 2), PyBUF_WRITABLE); if (unlikely(!__pyx_t_3.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->_V_gray, 0);
-  __pyx_v___pyx_result->_V_gray = __pyx_t_3;
+  __pyx_t_3 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 2), PyBUF_WRITABLE); if (unlikely(!__pyx_t_3.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->colour_intensity, 0);
+  __pyx_v___pyx_result->colour_intensity = __pyx_t_3;
   __pyx_t_3.memview = NULL;
   __pyx_t_3.data = NULL;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 3), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
-  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->coefficients, 0);
-  __pyx_v___pyx_result->coefficients = __pyx_t_4;
+  __pyx_t_4 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 3), PyBUF_WRITABLE); if (unlikely(!__pyx_t_4.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->grayscale_intensity, 0);
+  __pyx_v___pyx_result->grayscale_intensity = __pyx_t_4;
   __pyx_t_4.memview = NULL;
   __pyx_t_4.data = NULL;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 4), PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyTuple_GET_ITEM(__pyx_v___pyx_state, 4), PyBUF_WRITABLE); if (unlikely(!__pyx_t_3.memview)) __PYX_ERR(1, 12, __pyx_L1_error)
   __PYX_XDEC_MEMVIEW(&__pyx_v___pyx_result->node_attributes, 0);
-  __pyx_v___pyx_result->node_attributes = __pyx_t_2;
-  __pyx_t_2.memview = NULL;
-  __pyx_t_2.data = NULL;
+  __pyx_v___pyx_result->node_attributes = __pyx_t_3;
+  __pyx_t_3.memview = NULL;
+  __pyx_t_3.data = NULL;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
@@ -8373,7 +10313,7 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[6])
  */
@@ -8395,7 +10335,7 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
   if (__pyx_t_5) {
 
     /* "(tree fragment)":14
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[6])             # <<<<<<<<<<<<<<
  */
@@ -8427,7 +10367,7 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[6])
  */
@@ -8437,7 +10377,7 @@ static PyObject *__pyx_f_3src_15software_retina_6retina___pyx_unpickle_Retina__s
  *         __pyx_unpickle_Retina__set_state(<Retina> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_Retina__set_state(Retina __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.N = __pyx_state[0]; __pyx_result._V_coloured = __pyx_state[1]; __pyx_result._V_gray = __pyx_state[2]; __pyx_result.coefficients = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
+ *     __pyx_result.N = __pyx_state[0]; __pyx_result.coefficients = __pyx_state[1]; __pyx_result.colour_intensity = __pyx_state[2]; __pyx_result.grayscale_intensity = __pyx_state[3]; __pyx_result.node_attributes = __pyx_state[4]; __pyx_result.width = __pyx_state[5]
  *     if len(__pyx_state) > 6 and hasattr(__pyx_result, '__dict__'):
  */
 
@@ -8991,7 +10931,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_array(void) {
  * 
  * cdef inline int import_umath() except -1:
  */
+<<<<<<< Updated upstream
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 947, __pyx_L5_except_error)
+=======
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 947, __pyx_L5_except_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -9123,7 +11067,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_umath(void) {
  * 
  * cdef inline int import_ufunc() except -1:
  */
+<<<<<<< Updated upstream
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 953, __pyx_L5_except_error)
+=======
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 953, __pyx_L5_except_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -9255,7 +11203,11 @@ static CYTHON_INLINE int __pyx_f_5numpy_import_ufunc(void) {
  * 
  * cdef extern from *:
  */
+<<<<<<< Updated upstream
       __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 959, __pyx_L5_except_error)
+=======
+      __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_ImportError, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 959, __pyx_L5_except_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_Raise(__pyx_t_8, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -9679,7 +11631,11 @@ static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __
  * 
  *         if itemsize <= 0:
  */
+<<<<<<< Updated upstream
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 133, __pyx_L1_error)
+=======
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 133, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9711,7 +11667,11 @@ static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __
  * 
  *         if not isinstance(format, bytes):
  */
+<<<<<<< Updated upstream
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 136, __pyx_L1_error)
+=======
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 136, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -9838,7 +11798,11 @@ static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __
  * 
  * 
  */
+<<<<<<< Updated upstream
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 148, __pyx_L1_error)
+=======
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 148, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -10112,7 +12076,11 @@ static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array___cinit__(struct __
  * 
  *             if self.dtype_is_object:
  */
+<<<<<<< Updated upstream
       __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 176, __pyx_L1_error)
+=======
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_builtin_MemoryError, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(1, 176, __pyx_L1_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_Raise(__pyx_t_10, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
@@ -10356,7 +12324,11 @@ static int __pyx_array___pyx_pf_15View_dot_MemoryView_5array_2__getbuffer__(stru
  *         info.buf = self.data
  *         info.len = self.len
  */
+<<<<<<< Updated upstream
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 192, __pyx_L1_error)
+=======
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__15, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 192, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -11090,7 +13062,11 @@ static PyObject *__pyx_pf___pyx_array___reduce_cython__(CYTHON_UNUSED struct __p
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__16, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -11146,7 +13122,11 @@ static PyObject *__pyx_pf___pyx_array_2__setstate_cython__(CYTHON_UNUSED struct 
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__17, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -12856,7 +14836,11 @@ static int __pyx_memoryview___pyx_pf_15View_dot_MemoryView_10memoryview_6__setit
  * 
  *         have_slices, index = _unellipsify(index, self.view.ndim)
  */
+<<<<<<< Updated upstream
     __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 418, __pyx_L1_error)
+=======
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__18, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 418, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -13904,7 +15888,11 @@ static PyObject *__pyx_memoryview_convert_item_to_object(struct __pyx_memoryview
  *         else:
  *             if len(self.view.format) == 1:
  */
+<<<<<<< Updated upstream
       __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__22, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 495, __pyx_L5_except_error)
+=======
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(1, 495, __pyx_L5_except_error)
+>>>>>>> Stashed changes
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_Raise(__pyx_t_6, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -14266,7 +16254,11 @@ static int __pyx_memoryview___pyx_pf_15View_dot_MemoryView_10memoryview_8__getbu
  * 
  *         if flags & PyBUF_ND:
  */
+<<<<<<< Updated upstream
     __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 520, __pyx_L1_error)
+=======
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__20, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 520, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -14815,7 +16807,11 @@ static PyObject *__pyx_pf_15View_dot_MemoryView_10memoryview_7strides___get__(st
  * 
  *         return tuple([stride for stride in self.view.strides[:self.view.ndim]])
  */
+<<<<<<< Updated upstream
     __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 570, __pyx_L1_error)
+=======
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__21, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 570, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -14932,7 +16928,11 @@ static PyObject *__pyx_pf_15View_dot_MemoryView_10memoryview_10suboffsets___get_
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->view.ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 577, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
+<<<<<<< Updated upstream
     __pyx_t_3 = PyNumber_Multiply(__pyx_tuple__25, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 577, __pyx_L1_error)
+=======
+    __pyx_t_3 = PyNumber_Multiply(__pyx_tuple__22, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 577, __pyx_L1_error)
+>>>>>>> Stashed changes
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_3;
@@ -15970,7 +17970,11 @@ static PyObject *__pyx_pf___pyx_memoryview___reduce_cython__(CYTHON_UNUSED struc
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__26, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 2, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -16026,7 +18030,11 @@ static PyObject *__pyx_pf___pyx_memoryview_2__setstate_cython__(CYTHON_UNUSED st
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__27, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__24, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 4, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_Raise(__pyx_t_1, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -22510,10 +24518,10 @@ static PyObject *__pyx_tp_new_3src_15software_retina_6retina_Retina(PyTypeObject
   p->node_attributes.memview = NULL;
   p->coefficients.data = NULL;
   p->coefficients.memview = NULL;
-  p->_V_gray.data = NULL;
-  p->_V_gray.memview = NULL;
-  p->_V_coloured.data = NULL;
-  p->_V_coloured.memview = NULL;
+  p->grayscale_intensity.data = NULL;
+  p->grayscale_intensity.memview = NULL;
+  p->colour_intensity.data = NULL;
+  p->colour_intensity.memview = NULL;
   return o;
 }
 
@@ -22526,20 +24534,18 @@ static void __pyx_tp_dealloc_3src_15software_retina_6retina_Retina(PyObject *o) 
   #endif
   __PYX_XDEC_MEMVIEW(&p->node_attributes, 1);
   __PYX_XDEC_MEMVIEW(&p->coefficients, 1);
-  __PYX_XDEC_MEMVIEW(&p->_V_gray, 1);
-  __PYX_XDEC_MEMVIEW(&p->_V_coloured, 1);
+  __PYX_XDEC_MEMVIEW(&p->grayscale_intensity, 1);
+  __PYX_XDEC_MEMVIEW(&p->colour_intensity, 1);
   (*Py_TYPE(o)->tp_free)(o);
 }
 
 static PyMethodDef __pyx_methods_3src_15software_retina_6retina_Retina[] = {
-  {"load_node_attributes", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes, METH_O, 0},
-  {"load_node_attributes_from_path", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_5load_node_attributes_from_path, METH_O, 0},
-  {"load_coefficients", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_7load_coefficients, METH_O, 0},
-  {"load_coefficients_from_path", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_9load_coefficients_from_path, METH_O, 0},
-  {"sample_grayscale", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_6Retina_11sample_grayscale, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3src_15software_retina_6retina_6Retina_10sample_grayscale},
-  {"sample_coloured", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_6Retina_13sample_coloured, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3src_15software_retina_6retina_6Retina_12sample_coloured},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_15__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_17__setstate_cython__, METH_O, 0},
+  {"load_node_attributes_from_path", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_3load_node_attributes_from_path, METH_O, 0},
+  {"load_coefficients_from_path", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_5load_coefficients_from_path, METH_O, 0},
+  {"sample_grayscale", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale, METH_VARARGS|METH_KEYWORDS, 0},
+  {"sample_coloured", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_coloured, METH_VARARGS|METH_KEYWORDS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_11__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_3src_15software_retina_6retina_6Retina_13__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -23328,8 +25334,6 @@ static PyTypeObject __pyx_type___pyx_memoryviewslice = {
 };
 
 static PyMethodDef __pyx_methods[] = {
-  {"pad_grayscaled", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_1pad_grayscaled, METH_VARARGS|METH_KEYWORDS, 0},
-  {"pad_coloured", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3src_15software_retina_6retina_3pad_coloured, METH_VARARGS|METH_KEYWORDS, 0},
   {0, 0, 0, 0}
 };
 
@@ -23385,7 +25389,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Empty_shape_tuple_for_cython_arr, __pyx_k_Empty_shape_tuple_for_cython_arr, sizeof(__pyx_k_Empty_shape_tuple_for_cython_arr), 0, 0, 1, 0},
   {&__pyx_n_s_ImportError, __pyx_k_ImportError, sizeof(__pyx_k_ImportError), 0, 0, 1, 1},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xb0, __pyx_k_Incompatible_checksums_s_vs_0xb0, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xb0), 0, 0, 1, 0},
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xbb, __pyx_k_Incompatible_checksums_s_vs_0xbb, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xbb), 0, 0, 1, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0xd3, __pyx_k_Incompatible_checksums_s_vs_0xd3, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xd3), 0, 0, 1, 0},
   {&__pyx_n_s_IndexError, __pyx_k_IndexError, sizeof(__pyx_k_IndexError), 0, 0, 1, 1},
   {&__pyx_kp_s_Indirect_dimensions_not_supporte, __pyx_k_Indirect_dimensions_not_supporte, sizeof(__pyx_k_Indirect_dimensions_not_supporte), 0, 0, 1, 0},
   {&__pyx_kp_s_Invalid_mode_expected_c_or_fortr, __pyx_k_Invalid_mode_expected_c_or_fortr, sizeof(__pyx_k_Invalid_mode_expected_c_or_fortr), 0, 0, 1, 0},
@@ -23393,16 +25397,17 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_MemoryError, __pyx_k_MemoryError, sizeof(__pyx_k_MemoryError), 0, 0, 1, 1},
   {&__pyx_kp_s_MemoryView_of_r_at_0x_x, __pyx_k_MemoryView_of_r_at_0x_x, sizeof(__pyx_k_MemoryView_of_r_at_0x_x), 0, 0, 1, 0},
   {&__pyx_kp_s_MemoryView_of_r_object, __pyx_k_MemoryView_of_r_object, sizeof(__pyx_k_MemoryView_of_r_object), 0, 0, 1, 0},
-  {&__pyx_kp_s_Must_be_3_dimensional_array, __pyx_k_Must_be_3_dimensional_array, sizeof(__pyx_k_Must_be_3_dimensional_array), 0, 0, 1, 0},
   {&__pyx_kp_s_Must_be_a_2_dimensional_array_wi, __pyx_k_Must_be_a_2_dimensional_array_wi, sizeof(__pyx_k_Must_be_a_2_dimensional_array_wi), 0, 0, 1, 0},
-  {&__pyx_kp_s_Must_be_a_2_dimensional_array_wi_2, __pyx_k_Must_be_a_2_dimensional_array_wi_2, sizeof(__pyx_k_Must_be_a_2_dimensional_array_wi_2), 0, 0, 1, 0},
   {&__pyx_kp_s_Must_be_a_3_dimensional_array_n, __pyx_k_Must_be_a_3_dimensional_array_n, sizeof(__pyx_k_Must_be_a_3_dimensional_array_n), 0, 0, 1, 0},
   {&__pyx_n_b_O, __pyx_k_O, sizeof(__pyx_k_O), 0, 0, 0, 1},
   {&__pyx_kp_s_Out_of_bounds_on_buffer_access_a, __pyx_k_Out_of_bounds_on_buffer_access_a, sizeof(__pyx_k_Out_of_bounds_on_buffer_access_a), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_Retina, __pyx_k_Retina, sizeof(__pyx_k_Retina), 0, 0, 1, 1},
+<<<<<<< Updated upstream
   {&__pyx_kp_s_Size_of_retina, __pyx_k_Size_of_retina, sizeof(__pyx_k_Size_of_retina), 0, 0, 1, 0},
   {&__pyx_kp_s_This_function_only_accepts_numpy, __pyx_k_This_function_only_accepts_numpy, sizeof(__pyx_k_This_function_only_accepts_numpy), 0, 0, 1, 0},
+=======
+>>>>>>> Stashed changes
   {&__pyx_kp_s_This_function_only_accepts_strin, __pyx_k_This_function_only_accepts_strin, sizeof(__pyx_k_This_function_only_accepts_strin), 0, 0, 1, 0},
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_kp_s_Unable_to_convert_item_to_object, __pyx_k_Unable_to_convert_item_to_object, sizeof(__pyx_k_Unable_to_convert_item_to_object), 0, 0, 1, 0},
@@ -23412,7 +25417,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_allocate_buffer, __pyx_k_allocate_buffer, sizeof(__pyx_k_allocate_buffer), 0, 0, 1, 1},
   {&__pyx_n_s_allow_pickle, __pyx_k_allow_pickle, sizeof(__pyx_k_allow_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_asarray, __pyx_k_asarray, sizeof(__pyx_k_asarray), 0, 0, 1, 1},
-  {&__pyx_n_s_astype, __pyx_k_astype, sizeof(__pyx_k_astype), 0, 0, 1, 1},
   {&__pyx_n_s_base, __pyx_k_base, sizeof(__pyx_k_base), 0, 0, 1, 1},
   {&__pyx_n_s_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 0, 1, 1},
   {&__pyx_n_u_c, __pyx_k_c, sizeof(__pyx_k_c), 0, 1, 0, 1},
@@ -23421,16 +25425,13 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_contiguous_and_direct, __pyx_k_contiguous_and_direct, sizeof(__pyx_k_contiguous_and_direct), 0, 0, 1, 0},
   {&__pyx_kp_s_contiguous_and_indirect, __pyx_k_contiguous_and_indirect, sizeof(__pyx_k_contiguous_and_indirect), 0, 0, 1, 0},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
-  {&__pyx_n_s_dirname, __pyx_k_dirname, sizeof(__pyx_k_dirname), 0, 0, 1, 1},
   {&__pyx_n_s_dtype, __pyx_k_dtype, sizeof(__pyx_k_dtype), 0, 0, 1, 1},
   {&__pyx_n_s_dtype_is_object, __pyx_k_dtype_is_object, sizeof(__pyx_k_dtype_is_object), 0, 0, 1, 1},
   {&__pyx_n_s_empty, __pyx_k_empty, sizeof(__pyx_k_empty), 0, 0, 1, 1},
   {&__pyx_n_s_encode, __pyx_k_encode, sizeof(__pyx_k_encode), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
   {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
-  {&__pyx_n_s_errno, __pyx_k_errno, sizeof(__pyx_k_errno), 0, 0, 1, 1},
   {&__pyx_n_s_error, __pyx_k_error, sizeof(__pyx_k_error), 0, 0, 1, 1},
-  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_fixation, __pyx_k_fixation, sizeof(__pyx_k_fixation), 0, 0, 1, 1},
   {&__pyx_n_s_flags, __pyx_k_flags, sizeof(__pyx_k_flags), 0, 0, 1, 1},
   {&__pyx_n_s_float64, __pyx_k_float64, sizeof(__pyx_k_float64), 0, 0, 1, 1},
@@ -23441,15 +25442,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_got_differing_extents_in_dimensi, __pyx_k_got_differing_extents_in_dimensi, sizeof(__pyx_k_got_differing_extents_in_dimensi), 0, 0, 1, 0},
   {&__pyx_n_s_id, __pyx_k_id, sizeof(__pyx_k_id), 0, 0, 1, 1},
   {&__pyx_n_s_image, __pyx_k_image, sizeof(__pyx_k_image), 0, 0, 1, 1},
-  {&__pyx_n_s_img, __pyx_k_img, sizeof(__pyx_k_img), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_input_coefficients, __pyx_k_input_coefficients, sizeof(__pyx_k_input_coefficients), 0, 0, 1, 1},
   {&__pyx_n_s_input_node_attributes, __pyx_k_input_node_attributes, sizeof(__pyx_k_input_node_attributes), 0, 0, 1, 1},
+<<<<<<< Updated upstream
   {&__pyx_n_s_int32, __pyx_k_int32, sizeof(__pyx_k_int32), 0, 0, 1, 1},
+=======
+>>>>>>> Stashed changes
   {&__pyx_n_s_itemsize, __pyx_k_itemsize, sizeof(__pyx_k_itemsize), 0, 0, 1, 1},
   {&__pyx_kp_s_itemsize_0_for_cython_array, __pyx_k_itemsize_0_for_cython_array, sizeof(__pyx_k_itemsize_0_for_cython_array), 0, 0, 1, 0},
-  {&__pyx_n_s_itertools, __pyx_k_itertools, sizeof(__pyx_k_itertools), 0, 0, 1, 1},
-  {&__pyx_n_s_join, __pyx_k_join, sizeof(__pyx_k_join), 0, 0, 1, 1},
   {&__pyx_n_s_load, __pyx_k_load, sizeof(__pyx_k_load), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_max, __pyx_k_max, sizeof(__pyx_k_max), 0, 0, 1, 1},
@@ -23457,7 +25458,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_mode, __pyx_k_mode, sizeof(__pyx_k_mode), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_name_2, __pyx_k_name_2, sizeof(__pyx_k_name_2), 0, 0, 1, 1},
-  {&__pyx_n_s_ndarray, __pyx_k_ndarray, sizeof(__pyx_k_ndarray), 0, 0, 1, 1},
   {&__pyx_n_s_ndim, __pyx_k_ndim, sizeof(__pyx_k_ndim), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_kp_s_no_default___reduce___due_to_non, __pyx_k_no_default___reduce___due_to_non, sizeof(__pyx_k_no_default___reduce___due_to_non), 0, 0, 1, 0},
@@ -23466,10 +25466,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_numpy_core_multiarray_failed_to, __pyx_k_numpy_core_multiarray_failed_to, sizeof(__pyx_k_numpy_core_multiarray_failed_to), 0, 0, 1, 0},
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
   {&__pyx_n_s_obj, __pyx_k_obj, sizeof(__pyx_k_obj), 0, 0, 1, 1},
-  {&__pyx_n_s_os, __pyx_k_os, sizeof(__pyx_k_os), 0, 0, 1, 1},
-  {&__pyx_n_s_os_path, __pyx_k_os_path, sizeof(__pyx_k_os_path), 0, 0, 1, 1},
   {&__pyx_n_s_pack, __pyx_k_pack, sizeof(__pyx_k_pack), 0, 0, 1, 1},
-  {&__pyx_n_s_padding, __pyx_k_padding, sizeof(__pyx_k_padding), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
@@ -23500,7 +25497,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_strided_and_indirect, __pyx_k_strided_and_indirect, sizeof(__pyx_k_strided_and_indirect), 0, 0, 1, 0},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_struct, __pyx_k_struct, sizeof(__pyx_k_struct), 0, 0, 1, 1},
-  {&__pyx_n_s_sys, __pyx_k_sys, sizeof(__pyx_k_sys), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_kp_s_unable_to_allocate_array_data, __pyx_k_unable_to_allocate_array_data, sizeof(__pyx_k_unable_to_allocate_array_data), 0, 0, 1, 0},
   {&__pyx_kp_s_unable_to_allocate_shape_and_str, __pyx_k_unable_to_allocate_shape_and_str, sizeof(__pyx_k_unable_to_allocate_shape_and_str), 0, 0, 1, 0},
@@ -23510,12 +25506,18 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
+<<<<<<< Updated upstream
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 45, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 55, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 196, __pyx_L1_error)
+=======
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 43, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 53, __pyx_L1_error)
+>>>>>>> Stashed changes
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 947, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 148, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 151, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 180, __pyx_L1_error)
   __pyx_builtin_Ellipsis = __Pyx_GetBuiltinName(__pyx_n_s_Ellipsis); if (!__pyx_builtin_Ellipsis) __PYX_ERR(1, 404, __pyx_L1_error)
   __pyx_builtin_id = __Pyx_GetBuiltinName(__pyx_n_s_id); if (!__pyx_builtin_id) __PYX_ERR(1, 613, __pyx_L1_error)
   __pyx_builtin_IndexError = __Pyx_GetBuiltinName(__pyx_n_s_IndexError); if (!__pyx_builtin_IndexError) __PYX_ERR(1, 832, __pyx_L1_error)
@@ -23528,11 +25530,16 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
+<<<<<<< Updated upstream
   /* "src/software_retina/retina.pyx":37
+=======
+  /* "src/software_retina/retina.pyx":33
+>>>>>>> Stashed changes
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
  *                            input_node_attributes[:, 6].max()/2.0)
+<<<<<<< Updated upstream
  *         self._V_gray = np.zeros((1))
  */
   __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 37, __pyx_L1_error)
@@ -23590,23 +25597,69 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__7);
 
   /* "src/software_retina/retina.pyx":61
+=======
+ *         self.grayscale_intensity = np.zeros((1))
+ */
+  __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_slice_);
+  __Pyx_GIVEREF(__pyx_slice_);
+  __pyx_slice__2 = PySlice_New(Py_None, __pyx_int_2, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_slice__2);
+  __Pyx_GIVEREF(__pyx_slice__2);
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_slice_, __pyx_slice__2); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+
+  /* "src/software_retina/retina.pyx":34
+ *         self.N = len(input_node_attributes)
+ *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
+ *                            input_node_attributes[:, 6].max()/2.0)             # <<<<<<<<<<<<<<
+ *         self.grayscale_intensity = np.zeros((1))
+ *         self.colour_intensity = np.zeros((1, 1))
+ */
+  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_6); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__4);
+  __Pyx_GIVEREF(__pyx_tuple__4);
+
+  /* "src/software_retina/retina.pyx":36
+ *                            input_node_attributes[:, 6].max()/2.0)
+ *         self.grayscale_intensity = np.zeros((1))
+ *         self.colour_intensity = np.zeros((1, 1))             # <<<<<<<<<<<<<<
+ * 
+ *     def load_node_attributes_from_path(self, filename):
+ */
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_int_1, __pyx_int_1); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 36, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__5);
+  __Pyx_GIVEREF(__pyx_tuple__5);
+
+  /* "src/software_retina/retina.pyx":43
+>>>>>>> Stashed changes
  *             x = np.load(filename, allow_pickle=True)
  *             if not (x.ndim == 2 and x.shape[1] == 7):
  *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
  *                                  ' having 7 columns of node attributes')
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Must_be_a_2_dimensional_array_wi_2); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
   /* "src/software_retina/retina.pyx":71
+=======
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_s_Must_be_a_2_dimensional_array_wi); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 43, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__6);
+  __Pyx_GIVEREF(__pyx_tuple__6);
+
+  /* "src/software_retina/retina.pyx":53
+>>>>>>> Stashed changes
  * 
  *         else:
  *             raise TypeError('This function only accepts string path'             # <<<<<<<<<<<<<<
  *                             ' of a pickled file')
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_This_function_only_accepts_strin); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 71, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__9);
   __Pyx_GIVEREF(__pyx_tuple__9);
@@ -23623,15 +25676,28 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__10);
 
   /* "src/software_retina/retina.pyx":88
+=======
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_s_This_function_only_accepts_strin); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
+
+  /* "src/software_retina/retina.pyx":61
+>>>>>>> Stashed changes
  *             x = np.load(filename, allow_pickle=True)
  *             if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
  *                 raise ValueError('Must be a 3 dimensional array (n,k,k) with'             # <<<<<<<<<<<<<<
  *                                  ' n number of k*k sized kernels')
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_Must_be_a_3_dimensional_array_n); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
+=======
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_s_Must_be_a_3_dimensional_array_n); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__8);
+  __Pyx_GIVEREF(__pyx_tuple__8);
+>>>>>>> Stashed changes
 
   /* "../../../../anaconda3/lib/site-packages/numpy/__init__.pxd":947
  *         __pyx_import_array()
@@ -23640,9 +25706,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * cdef inline int import_umath() except -1:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(2, 947, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
+=======
+  __pyx_tuple__9 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_multiarray_failed_to); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(2, 947, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+>>>>>>> Stashed changes
 
   /* "../../../../anaconda3/lib/site-packages/numpy/__init__.pxd":953
  *         _import_umath()
@@ -23651,9 +25723,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * cdef inline int import_ufunc() except -1:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(2, 953, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
+=======
+  __pyx_tuple__10 = PyTuple_Pack(1, __pyx_kp_s_numpy_core_umath_failed_to_impor); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(2, 953, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":133
  * 
@@ -23662,9 +25740,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         if itemsize <= 0:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_Empty_shape_tuple_for_cython_arr); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(1, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
+=======
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_kp_s_Empty_shape_tuple_for_cython_arr); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 133, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":136
  * 
@@ -23673,9 +25757,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         if not isinstance(format, bytes):
  */
+<<<<<<< Updated upstream
   __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_itemsize_0_for_cython_array); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(1, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
+=======
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_kp_s_itemsize_0_for_cython_array); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(1, 136, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":148
  * 
@@ -23684,9 +25774,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_s_unable_to_allocate_shape_and_str); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(1, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
+=======
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_kp_s_unable_to_allocate_shape_and_str); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(1, 148, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":176
  *             self.data = <char *>malloc(self.len)
@@ -23695,9 +25791,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *             if self.dtype_is_object:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_s_unable_to_allocate_array_data); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
+=======
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_kp_s_unable_to_allocate_array_data); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(1, 176, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__14);
+  __Pyx_GIVEREF(__pyx_tuple__14);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":192
  *             bufmode = PyBUF_F_CONTIGUOUS | PyBUF_ANY_CONTIGUOUS
@@ -23706,9 +25808,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         info.buf = self.data
  *         info.len = self.len
  */
+<<<<<<< Updated upstream
   __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_Can_only_create_a_buffer_that_is); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(1, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
+=======
+  __pyx_tuple__15 = PyTuple_Pack(1, __pyx_kp_s_Can_only_create_a_buffer_that_is); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(1, 192, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+>>>>>>> Stashed changes
 
   /* "(tree fragment)":2
  * def __reduce_cython__(self):
@@ -23716,18 +25824,30 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
+<<<<<<< Updated upstream
   __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(1, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
+=======
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(1, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__16);
+  __Pyx_GIVEREF(__pyx_tuple__16);
+>>>>>>> Stashed changes
 
   /* "(tree fragment)":4
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
+<<<<<<< Updated upstream
   __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
+=======
+  __pyx_tuple__17 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":418
  *     def __setitem__(memoryview self, object index, object value):
@@ -23736,9 +25856,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         have_slices, index = _unellipsify(index, self.view.ndim)
  */
+<<<<<<< Updated upstream
   __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_Cannot_assign_to_read_only_memor); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(1, 418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__21);
   __Pyx_GIVEREF(__pyx_tuple__21);
+=======
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_kp_s_Cannot_assign_to_read_only_memor); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(1, 418, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__18);
+  __Pyx_GIVEREF(__pyx_tuple__18);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":495
  *             result = struct.unpack(self.view.format, bytesitem)
@@ -23747,9 +25873,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         else:
  *             if len(self.view.format) == 1:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__22 = PyTuple_Pack(1, __pyx_kp_s_Unable_to_convert_item_to_object); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(1, 495, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
+=======
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Unable_to_convert_item_to_object); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(1, 495, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":520
  *     def __getbuffer__(self, Py_buffer *info, int flags):
@@ -23758,9 +25890,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         if flags & PyBUF_ND:
  */
+<<<<<<< Updated upstream
   __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_Cannot_create_writable_memory_vi); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(1, 520, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
+=======
+  __pyx_tuple__20 = PyTuple_Pack(1, __pyx_kp_s_Cannot_create_writable_memory_vi); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(1, 520, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__20);
+  __Pyx_GIVEREF(__pyx_tuple__20);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":570
  *         if self.view.strides == NULL:
@@ -23769,9 +25907,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         return tuple([stride for stride in self.view.strides[:self.view.ndim]])
  */
+<<<<<<< Updated upstream
   __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_Buffer_view_does_not_expose_stri); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(1, 570, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
+=======
+  __pyx_tuple__21 = PyTuple_Pack(1, __pyx_kp_s_Buffer_view_does_not_expose_stri); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(1, 570, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__21);
+  __Pyx_GIVEREF(__pyx_tuple__21);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":577
  *     def suboffsets(self):
@@ -23780,12 +25924,21 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  *         return tuple([suboffset for suboffset in self.view.suboffsets[:self.view.ndim]])
  */
+<<<<<<< Updated upstream
   __pyx_tuple__25 = PyTuple_New(1); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(1, 577, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__25);
   __Pyx_INCREF(__pyx_int_neg_1);
   __Pyx_GIVEREF(__pyx_int_neg_1);
   PyTuple_SET_ITEM(__pyx_tuple__25, 0, __pyx_int_neg_1);
   __Pyx_GIVEREF(__pyx_tuple__25);
+=======
+  __pyx_tuple__22 = PyTuple_New(1); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(1, 577, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__22);
+  __Pyx_INCREF(__pyx_int_neg_1);
+  __Pyx_GIVEREF(__pyx_int_neg_1);
+  PyTuple_SET_ITEM(__pyx_tuple__22, 0, __pyx_int_neg_1);
+  __Pyx_GIVEREF(__pyx_tuple__22);
+>>>>>>> Stashed changes
 
   /* "(tree fragment)":2
  * def __reduce_cython__(self):
@@ -23793,18 +25946,30 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  */
+<<<<<<< Updated upstream
   __pyx_tuple__26 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(1, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
+=======
+  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(1, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__23);
+  __Pyx_GIVEREF(__pyx_tuple__23);
+>>>>>>> Stashed changes
 
   /* "(tree fragment)":4
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")
  * def __setstate_cython__(self, __pyx_state):
  *     raise TypeError("no default __reduce__ due to non-trivial __cinit__")             # <<<<<<<<<<<<<<
  */
+<<<<<<< Updated upstream
   __pyx_tuple__27 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(1, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__27);
   __Pyx_GIVEREF(__pyx_tuple__27);
+=======
+  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_kp_s_no_default___reduce___due_to_non); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(1, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":703
  *     for suboffset in suboffsets[:ndim]:
@@ -23841,10 +26006,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
+<<<<<<< Updated upstream
   __pyx_tuple__31 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__31);
   __Pyx_GIVEREF(__pyx_tuple__31);
   __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Retina, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(1, 1, __pyx_L1_error)
+=======
+  __pyx_tuple__28 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Retina, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(1, 1, __pyx_L1_error)
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":286
  *         return self.name
@@ -23853,9 +26025,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
+<<<<<<< Updated upstream
   __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(1, 286, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__33);
   __Pyx_GIVEREF(__pyx_tuple__33);
+=======
+  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct_or_indirect); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(1, 286, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__30);
+  __Pyx_GIVEREF(__pyx_tuple__30);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":287
  * 
@@ -23864,9 +26042,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(1, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
+=======
+  __pyx_tuple__31 = PyTuple_Pack(1, __pyx_kp_s_strided_and_direct); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(1, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__31);
+  __Pyx_GIVEREF(__pyx_tuple__31);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":288
  * cdef generic = Enum("<strided and direct or indirect>")
@@ -23875,9 +26059,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(1, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
+=======
+  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_kp_s_strided_and_indirect); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(1, 288, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":291
  * 
@@ -23886,9 +26076,15 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(1, 291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
+=======
+  __pyx_tuple__33 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_direct); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(1, 291, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__33);
+  __Pyx_GIVEREF(__pyx_tuple__33);
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":292
  * 
@@ -23897,19 +26093,32 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  */
+<<<<<<< Updated upstream
   __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(1, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
+=======
+  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_contiguous_and_indirect); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(1, 292, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
+>>>>>>> Stashed changes
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Enum(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
+<<<<<<< Updated upstream
   __pyx_tuple__38 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
   __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(1, 1, __pyx_L1_error)
+=======
+  __pyx_tuple__35 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__35);
+  __Pyx_GIVEREF(__pyx_tuple__35);
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Enum, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(1, 1, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -23934,7 +26143,7 @@ if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_6 = PyInt_FromLong(6); if (unlikely(!__pyx_int_6)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_7 = PyInt_FromLong(7); if (unlikely(!__pyx_int_7)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_184977713 = PyInt_FromLong(184977713L); if (unlikely(!__pyx_int_184977713)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __pyx_int_196310513 = PyInt_FromLong(196310513L); if (unlikely(!__pyx_int_196310513)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_221980009 = PyInt_FromLong(221980009L); if (unlikely(!__pyx_int_221980009)) __PYX_ERR(0, 1, __pyx_L1_error)
   __pyx_int_neg_1 = PyInt_FromLong(-1); if (unlikely(!__pyx_int_neg_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -23988,16 +26197,26 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_3src_15software_retina_6retina_Retina = &__pyx_vtable_3src_15software_retina_6retina_Retina;
   __pyx_vtable_3src_15software_retina_6retina_Retina.sample_grayscale = (PyArrayObject *(*)(struct __pyx_obj_3src_15software_retina_6retina_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch))__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale;
   __pyx_vtable_3src_15software_retina_6retina_Retina.sample_coloured = (PyArrayObject *(*)(struct __pyx_obj_3src_15software_retina_6retina_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch))__pyx_f_3src_15software_retina_6retina_6Retina_sample_coloured;
+<<<<<<< Updated upstream
   if (PyType_Ready(&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+=======
+  if (PyType_Ready(&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+>>>>>>> Stashed changes
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_3src_15software_retina_6retina_Retina.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3src_15software_retina_6retina_Retina.tp_dictoffset && __pyx_type_3src_15software_retina_6retina_Retina.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_3src_15software_retina_6retina_Retina.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
+<<<<<<< Updated upstream
   if (__Pyx_SetVtable(__pyx_type_3src_15software_retina_6retina_Retina.tp_dict, __pyx_vtabptr_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Retina, (PyObject *)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+=======
+  if (__Pyx_SetVtable(__pyx_type_3src_15software_retina_6retina_Retina.tp_dict, __pyx_vtabptr_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Retina, (PyObject *)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+>>>>>>> Stashed changes
   __pyx_ptype_3src_15software_retina_6retina_Retina = &__pyx_type_3src_15software_retina_6retina_Retina;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -24127,10 +26346,25 @@ static int __Pyx_modinit_variable_import_code(void) {
 
 static int __Pyx_modinit_function_import_code(void) {
   __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_import_code", 0);
   /*--- Function import code ---*/
+  __pyx_t_1 = PyImport_ImportModule("src.software_retina.utils"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (__Pyx_ImportFunction(__pyx_t_1, "pad_grayscaled", (void (**)(void))&__pyx_f_3src_15software_retina_5utils_pad_grayscaled, "__Pyx_memviewslice (PyArrayObject *, int, int __pyx_skip_dispatch)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "pad_coloured", (void (**)(void))&__pyx_f_3src_15software_retina_5utils_pad_coloured, "__Pyx_memviewslice (PyArrayObject *, int, int __pyx_skip_dispatch)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "multiply_and_sum2d", (void (**)(void))&__pyx_f_3src_15software_retina_5utils_multiply_and_sum2d, "double (__Pyx_memviewslice, __Pyx_memviewslice)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "multiply_and_sum3d", (void (**)(void))&__pyx_f_3src_15software_retina_5utils_multiply_and_sum3d, "__Pyx_memviewslice (__Pyx_memviewslice, __Pyx_memviewslice, __Pyx_memviewslice)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_RefNannyFinishContext();
+  return -1;
 }
 
 
@@ -24228,8 +26462,12 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec_retina(PyObject *__pyx_pyinit_modu
 #endif
 {
   PyObject *__pyx_t_1 = NULL;
+<<<<<<< Updated upstream
   PyObject *__pyx_t_2 = NULL;
   static PyThread_type_lock __pyx_t_3[8];
+=======
+  static PyThread_type_lock __pyx_t_2[8];
+>>>>>>> Stashed changes
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -24331,7 +26569,7 @@ if (!__Pyx_RefNanny) {
   if (unlikely(__Pyx_modinit_type_init_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   if (unlikely(__Pyx_modinit_type_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   (void)__Pyx_modinit_variable_import_code();
-  (void)__Pyx_modinit_function_import_code();
+  if (unlikely(__Pyx_modinit_function_import_code() < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
   /*--- Execution code ---*/
   #if defined(__Pyx_Generator_USED) || defined(__Pyx_Coroutine_USED)
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -24341,41 +26579,9 @@ if (!__Pyx_RefNanny) {
  * # cython: wraparound=False
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
- * import sys
- * import itertools
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "src/software_retina/retina.pyx":6
- * 
- * import numpy as np
- * import sys             # <<<<<<<<<<<<<<
- * import itertools
- * from cython.parallel import parallel
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "src/software_retina/retina.pyx":7
- * import numpy as np
- * import sys
- * import itertools             # <<<<<<<<<<<<<<
  * from cython.parallel import parallel
  * from cython.parallel import prange
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_itertools, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_itertools, __pyx_t_1) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "src/software_retina/retina.pyx":10
- * from cython.parallel import parallel
- * from cython.parallel import prange
+<<<<<<< Updated upstream
  * from os.path import dirname             # <<<<<<<<<<<<<<
  * from os.path import join
  * import errno
@@ -24437,6 +26643,12 @@ if (!__Pyx_RefNanny) {
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+=======
+ */
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
@@ -24444,7 +26656,11 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3src_15software_retina_6retina_5__pyx_unpickle_Retina, NULL, __pyx_n_s_src_software_retina_retina); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+=======
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3src_15software_retina_6retina_1__pyx_unpickle_Retina, NULL, __pyx_n_s_src_software_retina_retina); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Retina, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -24479,7 +26695,11 @@ if (!__Pyx_RefNanny) {
  * cdef strided = Enum("<strided and direct>") # default
  * cdef indirect = Enum("<strided and indirect>")
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__30, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 286, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(generic);
   __Pyx_DECREF_SET(generic, __pyx_t_1);
@@ -24493,7 +26713,11 @@ if (!__Pyx_RefNanny) {
  * cdef indirect = Enum("<strided and indirect>")
  * 
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__31, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 287, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(strided);
   __Pyx_DECREF_SET(strided, __pyx_t_1);
@@ -24507,7 +26731,11 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__32, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 288, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect);
   __Pyx_DECREF_SET(indirect, __pyx_t_1);
@@ -24521,7 +26749,11 @@ if (!__Pyx_RefNanny) {
  * cdef indirect_contiguous = Enum("<contiguous and indirect>")
  * 
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__33, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 291, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(contiguous);
   __Pyx_DECREF_SET(contiguous, __pyx_t_1);
@@ -24535,7 +26767,11 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  */
+<<<<<<< Updated upstream
   __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
+=======
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_MemviewEnum_type), __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 292, __pyx_L1_error)
+>>>>>>> Stashed changes
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XGOTREF(indirect_contiguous);
   __Pyx_DECREF_SET(indirect_contiguous, __pyx_t_1);
@@ -24558,6 +26794,7 @@ if (!__Pyx_RefNanny) {
  *     PyThread_allocate_lock(),
  *     PyThread_allocate_lock(),
  */
+<<<<<<< Updated upstream
   __pyx_t_3[0] = PyThread_allocate_lock();
   __pyx_t_3[1] = PyThread_allocate_lock();
   __pyx_t_3[2] = PyThread_allocate_lock();
@@ -24567,6 +26804,17 @@ if (!__Pyx_RefNanny) {
   __pyx_t_3[6] = PyThread_allocate_lock();
   __pyx_t_3[7] = PyThread_allocate_lock();
   memcpy(&(__pyx_memoryview_thread_locks[0]), __pyx_t_3, sizeof(__pyx_memoryview_thread_locks[0]) * (8));
+=======
+  __pyx_t_2[0] = PyThread_allocate_lock();
+  __pyx_t_2[1] = PyThread_allocate_lock();
+  __pyx_t_2[2] = PyThread_allocate_lock();
+  __pyx_t_2[3] = PyThread_allocate_lock();
+  __pyx_t_2[4] = PyThread_allocate_lock();
+  __pyx_t_2[5] = PyThread_allocate_lock();
+  __pyx_t_2[6] = PyThread_allocate_lock();
+  __pyx_t_2[7] = PyThread_allocate_lock();
+  memcpy(&(__pyx_memoryview_thread_locks[0]), __pyx_t_2, sizeof(__pyx_memoryview_thread_locks[0]) * (8));
+>>>>>>> Stashed changes
 
   /* "View.MemoryView":549
  *         info.obj = self
@@ -24617,7 +26865,10 @@ if (!__Pyx_RefNanny) {
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
+<<<<<<< Updated upstream
   __Pyx_XDECREF(__pyx_t_2);
+=======
+>>>>>>> Stashed changes
   if (__pyx_m) {
     if (__pyx_d) {
       __Pyx_AddTraceback("init src.software_retina.retina", __pyx_clineno, __pyx_lineno, __pyx_filename);
@@ -24956,6 +27207,183 @@ static CYTHON_INLINE void __Pyx_XDEC_MEMVIEW(__Pyx_memviewslice *memslice,
         memslice->memview = NULL;
     }
 }
+
+/* PyDictVersioning */
+#if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_tp_dict_version(PyObject *obj) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    return likely(dict) ? __PYX_GET_DICT_VERSION(dict) : 0;
+}
+static CYTHON_INLINE PY_UINT64_T __Pyx_get_object_dict_version(PyObject *obj) {
+    PyObject **dictptr = NULL;
+    Py_ssize_t offset = Py_TYPE(obj)->tp_dictoffset;
+    if (offset) {
+#if CYTHON_COMPILING_IN_CPYTHON
+        dictptr = (likely(offset > 0)) ? (PyObject **) ((char *)obj + offset) : _PyObject_GetDictPtr(obj);
+#else
+        dictptr = _PyObject_GetDictPtr(obj);
+#endif
+    }
+    return (dictptr && *dictptr) ? __PYX_GET_DICT_VERSION(*dictptr) : 0;
+}
+static CYTHON_INLINE int __Pyx_object_dict_version_matches(PyObject* obj, PY_UINT64_T tp_dict_version, PY_UINT64_T obj_dict_version) {
+    PyObject *dict = Py_TYPE(obj)->tp_dict;
+    if (unlikely(!dict) || unlikely(tp_dict_version != __PYX_GET_DICT_VERSION(dict)))
+        return 0;
+    return obj_dict_version == __Pyx_get_object_dict_version(obj);
+}
+#endif
+
+/* GetModuleGlobalName */
+#if CYTHON_USE_DICT_VERSIONS
+static PyObject *__Pyx__GetModuleGlobalName(PyObject *name, PY_UINT64_T *dict_version, PyObject **dict_cached_value)
+#else
+static CYTHON_INLINE PyObject *__Pyx__GetModuleGlobalName(PyObject *name)
+#endif
+{
+    PyObject *result;
+#if !CYTHON_AVOID_BORROWED_REFS
+#if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030500A1
+    result = _PyDict_GetItem_KnownHash(__pyx_d, name, ((PyASCIIObject *) name)->hash);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    } else if (unlikely(PyErr_Occurred())) {
+        return NULL;
+    }
+#else
+    result = PyDict_GetItem(__pyx_d, name);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    }
+#endif
+#else
+    result = PyObject_GetItem(__pyx_d, name);
+    __PYX_UPDATE_DICT_CACHE(__pyx_d, result, *dict_cached_value, *dict_version)
+    if (likely(result)) {
+        return __Pyx_NewRef(result);
+    }
+    PyErr_Clear();
+#endif
+    return __Pyx_GetBuiltinName(name);
+}
+
+/* GetItemInt */
+static PyObject *__Pyx_GetItemInt_Generic(PyObject *o, PyObject* j) {
+    PyObject *r;
+    if (!j) return NULL;
+    r = PyObject_GetItem(o, j);
+    Py_DECREF(j);
+    return r;
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_List_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyList_GET_SIZE(o);
+    }
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyList_GET_SIZE(o)))) {
+        PyObject *r = PyList_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyInt_FromSsize_t(i));
+#else
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Tuple_Fast(PyObject *o, Py_ssize_t i,
+                                                              CYTHON_NCP_UNUSED int wraparound,
+                                                              CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    Py_ssize_t wrapped_i = i;
+    if (wraparound & unlikely(i < 0)) {
+        wrapped_i += PyTuple_GET_SIZE(o);
+    }
+    if ((!boundscheck) || likely(__Pyx_is_valid_index(wrapped_i, PyTuple_GET_SIZE(o)))) {
+        PyObject *r = PyTuple_GET_ITEM(o, wrapped_i);
+        Py_INCREF(r);
+        return r;
+    }
+    return __Pyx_GetItemInt_Generic(o, PyInt_FromSsize_t(i));
+#else
+    return PySequence_GetItem(o, i);
+#endif
+}
+static CYTHON_INLINE PyObject *__Pyx_GetItemInt_Fast(PyObject *o, Py_ssize_t i, int is_list,
+                                                     CYTHON_NCP_UNUSED int wraparound,
+                                                     CYTHON_NCP_UNUSED int boundscheck) {
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS && CYTHON_USE_TYPE_SLOTS
+    if (is_list || PyList_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyList_GET_SIZE(o);
+        if ((!boundscheck) || (likely(__Pyx_is_valid_index(n, PyList_GET_SIZE(o))))) {
+            PyObject *r = PyList_GET_ITEM(o, n);
+            Py_INCREF(r);
+            return r;
+        }
+    }
+    else if (PyTuple_CheckExact(o)) {
+        Py_ssize_t n = ((!wraparound) | likely(i >= 0)) ? i : i + PyTuple_GET_SIZE(o);
+        if ((!boundscheck) || likely(__Pyx_is_valid_index(n, PyTuple_GET_SIZE(o)))) {
+            PyObject *r = PyTuple_GET_ITEM(o, n);
+            Py_INCREF(r);
+            return r;
+        }
+    } else {
+        PySequenceMethods *m = Py_TYPE(o)->tp_as_sequence;
+        if (likely(m && m->sq_item)) {
+            if (wraparound && unlikely(i < 0) && likely(m->sq_length)) {
+                Py_ssize_t l = m->sq_length(o);
+                if (likely(l >= 0)) {
+                    i += l;
+                } else {
+                    if (!PyErr_ExceptionMatches(PyExc_OverflowError))
+                        return NULL;
+                    PyErr_Clear();
+                }
+            }
+            return m->sq_item(o, i);
+        }
+    }
+#else
+    if (is_list || PySequence_Check(o)) {
+        return PySequence_GetItem(o, i);
+    }
+#endif
+    return __Pyx_GetItemInt_Generic(o, PyInt_FromSsize_t(i));
+}
+
+/* ObjectGetItem */
+#if CYTHON_USE_TYPE_SLOTS
+static PyObject *__Pyx_PyObject_GetIndex(PyObject *obj, PyObject* index) {
+    PyObject *runerr;
+    Py_ssize_t key_value;
+    PySequenceMethods *m = Py_TYPE(obj)->tp_as_sequence;
+    if (unlikely(!(m && m->sq_item))) {
+        PyErr_Format(PyExc_TypeError, "'%.200s' object is not subscriptable", Py_TYPE(obj)->tp_name);
+        return NULL;
+    }
+    key_value = __Pyx_PyIndex_AsSsize_t(index);
+    if (likely(key_value != -1 || !(runerr = PyErr_Occurred()))) {
+        return __Pyx_GetItemInt_Fast(obj, key_value, 0, 1, 1);
+    }
+    if (PyErr_GivenExceptionMatches(runerr, PyExc_OverflowError)) {
+        PyErr_Clear();
+        PyErr_Format(PyExc_IndexError, "cannot fit '%.200s' into an index-sized integer", Py_TYPE(index)->tp_name);
+    }
+    return NULL;
+}
+static PyObject *__Pyx_PyObject_GetItem(PyObject *obj, PyObject* key) {
+    PyMappingMethods *m = Py_TYPE(obj)->tp_as_mapping;
+    if (likely(m && m->mp_subscript)) {
+        return m->mp_subscript(obj, key);
+    }
+    return __Pyx_PyObject_GetIndex(obj, key);
+}
+#endif
 
 /* PyDictVersioning */
 #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_TYPE_SLOTS
@@ -27666,15 +30094,46 @@ __pyx_capsule_create(void *p, CYTHON_UNUSED const char *sig)
         return (target_type) value;\
     }
 
-/* MemviewDtypeToObject */
-    static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_float64_t(const char *itemp) {
-    return (PyObject *) PyFloat_FromDouble(*(__pyx_t_5numpy_float64_t *) itemp);
+/* CIntToPy */
+    static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value) {
+    const npy_int32 neg_one = (npy_int32) ((npy_int32) 0 - (npy_int32) 1), const_zero = (npy_int32) 0;
+    const int is_unsigned = neg_one > const_zero;
+    if (is_unsigned) {
+        if (sizeof(npy_int32) < sizeof(long)) {
+            return PyInt_FromLong((long) value);
+        } else if (sizeof(npy_int32) <= sizeof(unsigned long)) {
+            return PyLong_FromUnsignedLong((unsigned long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(npy_int32) <= sizeof(unsigned PY_LONG_LONG)) {
+            return PyLong_FromUnsignedLongLong((unsigned PY_LONG_LONG) value);
+#endif
+        }
+    } else {
+        if (sizeof(npy_int32) <= sizeof(long)) {
+            return PyInt_FromLong((long) value);
+#ifdef HAVE_LONG_LONG
+        } else if (sizeof(npy_int32) <= sizeof(PY_LONG_LONG)) {
+            return PyLong_FromLongLong((PY_LONG_LONG) value);
+#endif
+        }
+    }
+    {
+        int one = 1; int little = (int)*(unsigned char *)&one;
+        unsigned char *bytes = (unsigned char *)&value;
+        return _PyLong_FromByteArray(bytes, sizeof(npy_int32),
+                                     little, !is_unsigned);
+    }
 }
-static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_float64_t(const char *itemp, PyObject *obj) {
-    __pyx_t_5numpy_float64_t value = __pyx_PyFloat_AsDouble(obj);
-    if ((value == ((npy_float64)-1)) && PyErr_Occurred())
+
+/* MemviewDtypeToObject */
+    static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_int32_t(const char *itemp) {
+    return (PyObject *) __Pyx_PyInt_From_npy_int32(*(__pyx_t_5numpy_int32_t *) itemp);
+}
+static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_int32_t(const char *itemp, PyObject *obj) {
+    __pyx_t_5numpy_int32_t value = __Pyx_PyInt_As_npy_int32(obj);
+    if ((value == ((npy_int32)-1)) && PyErr_Occurred())
         return 0;
-    *(__pyx_t_5numpy_float64_t *) itemp = value;
+    *(__pyx_t_5numpy_int32_t *) itemp = value;
     return 1;
 }
 
@@ -27901,6 +30360,41 @@ no_fail:
 }
 
 /* ObjectToMemviewSlice */
+    static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *obj, int writable_flag) {
+    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
+    __Pyx_BufFmt_StackElem stack[1];
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int retcode;
+    if (obj == Py_None) {
+        result.memview = (struct __pyx_memoryview_obj *) Py_None;
+        return result;
+    }
+    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 3,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, stack,
+                                                 &result, obj);
+    if (unlikely(retcode == -1))
+        goto __pyx_fail;
+    return result;
+__pyx_fail:
+    result.memview = NULL;
+    result.data = NULL;
+    return result;
+}
+
+/* MemviewDtypeToObject */
+    static CYTHON_INLINE PyObject *__pyx_memview_get_nn___pyx_t_5numpy_float64_t(const char *itemp) {
+    return (PyObject *) PyFloat_FromDouble(*(__pyx_t_5numpy_float64_t *) itemp);
+}
+static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_float64_t(const char *itemp, PyObject *obj) {
+    __pyx_t_5numpy_float64_t value = __pyx_PyFloat_AsDouble(obj);
+    if ((value == ((npy_float64)-1)) && PyErr_Occurred())
+        return 0;
+    *(__pyx_t_5numpy_float64_t *) itemp = value;
+    return 1;
+}
+
+/* ObjectToMemviewSlice */
     static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
@@ -27923,29 +30417,7 @@ __pyx_fail:
     return result;
 }
 
-/* ObjectToMemviewSlice */
-    static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyObject *obj, int writable_flag) {
-    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
-    __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
-    int retcode;
-    if (obj == Py_None) {
-        result.memview = (struct __pyx_memoryview_obj *) Py_None;
-        return result;
-    }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, stack,
-                                                 &result, obj);
-    if (unlikely(retcode == -1))
-        goto __pyx_fail;
-    return result;
-__pyx_fail:
-    result.memview = NULL;
-    result.data = NULL;
-    return result;
-}
-
+<<<<<<< Updated upstream
 /* CIntToPy */
     static CYTHON_INLINE PyObject* __Pyx_PyInt_From_npy_int32(npy_int32 value) {
     const npy_int32 neg_one = (npy_int32) ((npy_int32) 0 - (npy_int32) 1), const_zero = (npy_int32) 0;
@@ -27989,19 +30461,21 @@ static CYTHON_INLINE int __pyx_memview_set_nn___pyx_t_5numpy_int32_t(const char 
     return 1;
 }
 
+=======
+>>>>>>> Stashed changes
 /* ObjectToMemviewSlice */
-    static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *obj, int writable_flag) {
+    static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(PyObject *obj, int writable_flag) {
     __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
     __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
+    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
     int retcode;
     if (obj == Py_None) {
         result.memview = (struct __pyx_memoryview_obj *) Py_None;
         return result;
     }
     retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 3,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, stack,
+                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 1,
+                                                 &__Pyx_TypeInfo_nn___pyx_t_5numpy_float64_t, stack,
                                                  &result, obj);
     if (unlikely(retcode == -1))
         goto __pyx_fail;
@@ -29139,6 +31613,7 @@ raise_neg_overflow:
     return (long) -1;
 }
 
+<<<<<<< Updated upstream
 /* CIntFromPy */
     static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *x) {
     const size_t neg_one = (size_t) ((size_t) 0 - (size_t) 1), const_zero = (size_t) 0;
@@ -29365,6 +31840,8 @@ static int __Pyx_PrintOne(PyObject* stream, PyObject *o) {
 }
 #endif
 
+=======
+>>>>>>> Stashed changes
 /* CIntFromPy */
     static CYTHON_INLINE char __Pyx_PyInt_As_char(PyObject *x) {
     const char neg_one = (char) ((char) 0 - (char) 1), const_zero = (char) 0;
@@ -29554,29 +32031,6 @@ raise_neg_overflow:
     return (char) -1;
 }
 
-/* ObjectToMemviewSlice */
-    static CYTHON_INLINE __Pyx_memviewslice __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_int32_t(PyObject *obj, int writable_flag) {
-    __Pyx_memviewslice result = { 0, 0, { 0 }, { 0 }, { 0 } };
-    __Pyx_BufFmt_StackElem stack[1];
-    int axes_specs[] = { (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_FOLLOW), (__Pyx_MEMVIEW_DIRECT | __Pyx_MEMVIEW_CONTIG) };
-    int retcode;
-    if (obj == Py_None) {
-        result.memview = (struct __pyx_memoryview_obj *) Py_None;
-        return result;
-    }
-    retcode = __Pyx_ValidateAndInit_memviewslice(axes_specs, __Pyx_IS_C_CONTIG,
-                                                 (PyBUF_C_CONTIGUOUS | PyBUF_FORMAT) | writable_flag, 2,
-                                                 &__Pyx_TypeInfo_nn___pyx_t_5numpy_int32_t, stack,
-                                                 &result, obj);
-    if (unlikely(retcode == -1))
-        goto __pyx_fail;
-    return result;
-__pyx_fail:
-    result.memview = NULL;
-    result.data = NULL;
-    return result;
-}
-
 /* CheckBinaryVersion */
     static int __Pyx_check_binary_version(void) {
     char ctversion[4], rtversion[4];
@@ -29592,6 +32046,60 @@ __pyx_fail:
     }
     return 0;
 }
+
+/* FunctionImport */
+    #ifndef __PYX_HAVE_RT_ImportFunction
+#define __PYX_HAVE_RT_ImportFunction
+static int __Pyx_ImportFunction(PyObject *module, const char *funcname, void (**f)(void), const char *sig) {
+    PyObject *d = 0;
+    PyObject *cobj = 0;
+    union {
+        void (*fp)(void);
+        void *p;
+    } tmp;
+    d = PyObject_GetAttrString(module, (char *)"__pyx_capi__");
+    if (!d)
+        goto bad;
+    cobj = PyDict_GetItemString(d, funcname);
+    if (!cobj) {
+        PyErr_Format(PyExc_ImportError,
+            "%.200s does not export expected C function %.200s",
+                PyModule_GetName(module), funcname);
+        goto bad;
+    }
+#if PY_VERSION_HEX >= 0x02070000
+    if (!PyCapsule_IsValid(cobj, sig)) {
+        PyErr_Format(PyExc_TypeError,
+            "C function %.200s.%.200s has wrong signature (expected %.500s, got %.500s)",
+             PyModule_GetName(module), funcname, sig, PyCapsule_GetName(cobj));
+        goto bad;
+    }
+    tmp.p = PyCapsule_GetPointer(cobj, sig);
+#else
+    {const char *desc, *s1, *s2;
+    desc = (const char *)PyCObject_GetDesc(cobj);
+    if (!desc)
+        goto bad;
+    s1 = desc; s2 = sig;
+    while (*s1 != '\0' && *s1 == *s2) { s1++; s2++; }
+    if (*s1 != *s2) {
+        PyErr_Format(PyExc_TypeError,
+            "C function %.200s.%.200s has wrong signature (expected %.500s, got %.500s)",
+             PyModule_GetName(module), funcname, sig, desc);
+        goto bad;
+    }
+    tmp.p = PyCObject_AsVoidPtr(cobj);}
+#endif
+    *f = tmp.fp;
+    if (!(*f))
+        goto bad;
+    Py_DECREF(d);
+    return 0;
+bad:
+    Py_XDECREF(d);
+    return -1;
+}
+#endif
 
 /* InitStrings */
     static int __Pyx_InitStrings(__Pyx_StringTabEntry *t) {

@@ -5,7 +5,7 @@
 import numpy as np
 cimport numpy as cnp
 
-cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
+cpdef inline cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
                                          int padding):
     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
     cdef int first_dimension = img.shape[0]
@@ -29,7 +29,7 @@ cpdef cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
 
     return out
 
-cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
+cpdef inline cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
                                           int padding):
     cdef cnp.int32_t[:, :, ::1] image_mem_view = img.astype(dtype=np.int32)
     cdef int first_dimension = img.shape[0]
@@ -55,7 +55,7 @@ cpdef cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
 
     return out
 
-cdef double multiply_and_sum2d(cnp.int32_t[:, ::1] image_extract,
+cdef inline double multiply_and_sum2d(cnp.int32_t[:, ::1] image_extract,
                                cnp.int32_t[:, ::1] coeff_mem_view) nogil:
     cdef size_t i, first_dimension, j, second_dimension
     cdef double total = 0
@@ -73,7 +73,7 @@ cdef double multiply_and_sum2d(cnp.int32_t[:, ::1] image_extract,
     return total/100000000
 
 
-cdef cnp.float64_t[::1] multiply_and_sum3d(
+cdef inline cnp.float64_t[::1] multiply_and_sum3d(
                                         cnp.int32_t[:, :, ::1] image_extract,
                                         cnp.int32_t[:, ::1] coeff_mem_view,
                                         cnp.float64_t[::1] sum3d_return) nogil:
