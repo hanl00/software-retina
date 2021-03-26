@@ -1,28 +1,27 @@
 from Cython.Build import cythonize
-from setuptools import setup, Extension, find_packages
-# from distutils.core import setup, Extension
+from setuptools import setup, Extension
 import numpy
+import os
+
 
 extension_modules = [
     Extension(
         "src.software_retina.utils", 
         ["src/software_retina/utils.pyx"],
-        extra_compile_args=['/openmp'],
-        extra_link_args=['/openmp'],
         include_dirs=[numpy.get_include()],
     ),
     Extension(
         "src.software_retina.retina",
         ["src/software_retina/retina.pyx"],
-        extra_compile_args=['/openmp'],
-        extra_link_args=['/openmp'],
+        extra_compile_args=["-fopenmp" ],
+        extra_link_args=['-fopenmp'],
         include_dirs=[numpy.get_include(), "pxd"],
     ),
-    # Extension(
-    #     "src.software_retina.rf_generation",
-    #     ["src/software_retina/rf_generation.pyx"],
-    #     include_dirs=[numpy.get_include()],
-    # ),
+    Extension(
+        "src.software_retina.rf_generation",
+        ["src/software_retina/rf_generation.pyx"],
+        include_dirs=[numpy.get_include(), "pxd"],
+    ),
 ]
 
 setup(
@@ -36,7 +35,7 @@ setup(
     description='A software retina inspired by the biological vision system',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    ext_modules=cythonize(extension_modules),
+    ext_modules=cythonize(extension_modules, force=True, compiler_directives={'language_level' : "3"}), #remove force recompile
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Science/Research",

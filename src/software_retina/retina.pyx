@@ -31,8 +31,8 @@ cdef class Retina:
         self.N = len(input_node_attributes) 
         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
                            input_node_attributes[:, 6].max()/2.0)
-        self._V_gray = np.zeros((1))
-        self._V_coloured = np.zeros((1, 1))
+        self.grayscale_intensity = np.zeros((1))
+        self.colour_intensity = np.zeros((1, 1))
 
     def load_node_attributes(self, input):
         if isinstance(input, np.ndarray):
@@ -46,51 +46,20 @@ cdef class Retina:
                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
 
-        self.node_attributes = input_node_attributes
-        self.coefficients = input_coefficients
-        self.N = len(input_node_attributes)
-        self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
-                           input_node_attributes[:, 6].max()/2.0)
-        self.grayscale_intensity = np.zeros((1))
-        self.colour_intensity = np.zeros((1, 1))
-
-    def load_node_attributes_from_path(self, filename):
-
-        if isinstance(filename, str):
-            x = np.load(filename, allow_pickle=True)
-            if not (x.ndim == 2 and x.shape[1] == 7):
-                raise ValueError('Must be a 2 dimensional array with each row'
-                                 ' having 7 columns of node attributes')
+    def load_coefficients(self, input):
+        if isinstance(input, np.ndarray):
+            if not input.ndim == 3:
+                raise ValueError('Must be 3 dimensional array')
 
             else:
-                self.node_attributes = x
-                self.N = len(self.node_attributes)
-                self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
-                                   np.asarray(self.node_attributes[:, 6]).max()/2.0)
-
+                self.coefficients = input
         else:
-            raise TypeError('This function only accepts string path'
-                            ' of a pickled file')
-
-    def load_coefficients_from_path(self, filename):
-
-        if isinstance(filename, str):
-            x = np.load(filename, allow_pickle=True)
-            if not (x.ndim == 3 and x.shape[1] == x.shape[2]):
-                raise ValueError('Must be a 3 dimensional array (n,k,k) with'
-                                 ' n number of k*k sized kernels')
-
-            else:
-                self.coefficients = x
-
-        else:
-            raise TypeError('This function only accepts string path'
-                            ' of a pickled file')
+            raise TypeError('This function only accepts numpy array')
 
     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):
 
-        cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
-        cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+        # cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+        # cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
         cdef int fixation_y = fixation[0]
         cdef int fixation_x = fixation[1]
         cdef int p, y1, y2, x1, x2
@@ -101,30 +70,27 @@ cdef class Retina:
         cdef Py_ssize_t i
         cdef float w
 
-        print("Size of retina " + str(self.N))
-
         p = self.width
         pic = pad_grayscaled(image, p)
-        X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
-        Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
-        V = np.empty((self.N), dtype=np.float64)
+        X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
+        Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
+        V = np.empty((self.N))
 
 
         with nogil, parallel():
             for i in prange(self.N):
-                w = node_attributes_memory_view[i, 6]
+                w = self.node_attributes[i, 6]
                 y1 = int(Y[i] - w/2+0.5)
                 y2 = int(Y[i] + w/2+0.5)
                 x1 = int(X[i] - w/2+0.5)
                 x2 = int(X[i] + w/2+0.5)
-                V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
-                                          coefficients_memory_view[i, :, :])
+                V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2], self.coefficients[i, :, :])
 
         self.grayscale_intensity = V
 
         return V
 
-    cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_coloured(  # noqa: E225
+    cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(  # noqa: E225
             self,
             cnp.ndarray[cnp.uint8_t, ndim=3] image,
             (int, int) fixation):

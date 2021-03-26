@@ -1,10 +1,14 @@
 # cython: boundscheck=False
 # cython: cdivision=True
 # cython: wraparound=False
+
 import numpy as np
-from libc.math cimport sqrt, exp, pi
-from scipy.spatial import distance
 cimport numpy as cnp
+
+from scipy.spatial import distance
+
+from src.software_retina.utils cimport gauss_cython
+from src.software_retina.utils cimport gausskernel_cython
 
 # Original code provided by Piotr Ozimek
 
@@ -96,38 +100,7 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
 
     rf_coefficients = (rf_coefficients*100000000).astype(np.int32)
 
-    return rf_node_attributes, rf_coefficients, fov_dist_5
-
-
-cpdef cnp.float64_t gauss_cython(cnp.float64_t sigma, cnp.float64_t x,
-                                 cnp.float64_t y, int mean=0):
-    cdef cnp.float64_t d
-
-    d = sqrt(x*x + y*y)
-
-    return exp(-(d-mean)**2 / (2*sigma**2)) / sqrt(2*pi*sigma**2)
-
-
-cpdef cnp.ndarray[cnp.float64_t, ndim=2] gausskernel_cython(  # noqa: E225
-        cnp.int_t width,
-        cnp.ndarray[cnp.float64_t, ndim=1] loc,
-        cnp.float64_t sigma):
-    cdef cnp.ndarray[cnp.float64_t, ndim=2] k  # noqa: E225
-    cdef double w, shift, dx, dy
-    cdef int x, y
-
-    w = float(width)
-    k = np.zeros((width, width))
-    shift = (w - 1) / 2.0
-
-    dx = loc[0] - int(loc[0])
-    dy = loc[1] - int(loc[1])
-
-    for x in range(width):
-        for y in range(width):
-            k[y, x] = gauss_cython(sigma, (x-shift) - dx, (y-shift) - dy)
-
-    return k
+    return rf_node_attributes, rf_coefficients
 
 
 def xy_sumitha(x, y, k_width):

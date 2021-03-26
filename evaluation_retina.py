@@ -10,10 +10,10 @@ import scipy.io
 
 from src.software_retina.retina import *
 
-node_attributes_50k = np.load('data/50k/50k_rf_node_attributes.pkl', allow_pickle=True)
-coefficients_50k = np.load('data/50k/50k_rf_coefficients.pkl', allow_pickle=True)
+node_attributes_5k = np.load('data/5k/5k_rf_node_attributes.pkl', allow_pickle=True)
+coefficients_5k = np.load('data/5k/5k_rf_coefficients.pkl', allow_pickle=True)
 
-R = Retina(node_attributes_50k, coefficients_50k)
+R = Retina(node_attributes_5k, coefficients_5k)
 
 baseline_image = skimage.io.imread('data/dock.jpg')
 
@@ -24,35 +24,35 @@ if baseline_image.ndim == 2:
     now = time.time()
     V = R.sample_grayscale(baseline_image, (360.0, 640.0))
     print(time.time()-now)
-    pickle.dump( V, open( "validation testing/50k_dock_sample_gray_cython.pkl", "wb" ) )
+    pickle.dump( V, open( "validation testing/5k_dock_sample_gray_cython.pkl", "wb" ) )
 else: 
     print("Sampling colored")
     now = time.time()
-    V = R.sample_coloured(baseline_image, (360.0, 640.0))
+    V = R.sample_colour(baseline_image, (360.0, 640.0))
     print(time.time()-now)
-    pickle.dump( V, open( "validation testing/50k_dock_sample_colored_cython.pkl", "wb" ) )
+    pickle.dump( V, open( "validation testing/5k_dock_sample_colored_cython.pkl", "wb" ) )
 
 ########################################################
 # RETINA SAMPLING - VALIDATION - GRAY
 ########################################################
 
-# print("validation gray")
-# original_gray = np.load("validation testing/ozimek's values/dock_sample_gray_50k.pkl", allow_pickle=True)
-# gray = np.load('validation testing/50k_dock_sample_gray_cython.pkl', allow_pickle=True)
+print("validation gray")
+original_gray = np.load("validation testing/ozimek's values/dock_sample_gray_5k.pkl", allow_pickle=True)
+gray = np.load('validation testing/5k_dock_sample_gray_cython.pkl', allow_pickle=True)
 
-# for index, (first, second) in enumerate(zip(original_gray, gray)): 
-#     if abs(first-second) > 0.0005:
-#         print(index, first, second)
+for index, (first, second) in enumerate(zip(original_gray, gray)): 
+    if abs(first-second) > 0.0005:
+        print(index, first, second)
 
-# print("validation done")
+print("validation done")
 
 ########################################################
 # RETINA SAMPLING - VALIDATION - COLOUR
 ########################################################
 
 # print("validation colour")
-# original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_50k.pkl", allow_pickle=True)
-# colour = np.load('validation testing/50k_dock_sample_colored_cython.pkl', allow_pickle=True)
+# original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_5k.pkl", allow_pickle=True)
+# colour = np.load('validation testing/5k_dock_sample_colored_cython.pkl', allow_pickle=True)
 
 # for i in range(len(colour)):
 #     for index, (first, second) in enumerate(zip(original_colour[i], colour[i])):
