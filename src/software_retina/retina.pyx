@@ -16,7 +16,6 @@ cimport numpy as cnp
 #  #np.load(default_node_attributes_datadir, allow_pickle=True) # np.load(default_node_attributes_datadir, allow_pickle=True)
 # Original code provided by Piotr Ozimek
 
-
 cdef class Retina:
     cdef int N, width
     cdef cnp.float64_t[:, ::1] node_attributes
@@ -25,6 +24,26 @@ cdef class Retina:
     cdef cnp.float64_t[:, ::1] _V_coloured
 
     def __init__(self, input_node_attributes, input_coefficients):
+
+        self.node_attributes = input_node_attributes
+        self.coefficients = input_coefficients
+        self.N = len(input_node_attributes) 
+        self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
+                           input_node_attributes[:, 6].max()/2.0)
+        self._V_gray = np.zeros((1))
+        self._V_coloured = np.zeros((1, 1))
+
+    def load_node_attributes(self, input):
+        if isinstance(input, np.ndarray):
+            if not (input.ndim == 2 and input.shape[1] == 7):
+                raise ValueError('Must be a 2 dimensional array with each row'
+                                 ' b having 7 columns of node attributes')
+
+            else:
+                self.node_attributes = input
+                self.N = len(self.node_attributes)
+                self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+                                   np.asarray(self.node_attributes[:, 6]).max()/2.0)
 
         self.node_attributes = input_node_attributes
         self.coefficients = input_coefficients
@@ -86,11 +105,14 @@ cdef class Retina:
         cdef int y2
         cdef int x2
 
+        print("Size of retina " + str(self.N))
+
         p = self.width
         pic = pad_grayscaled(image, p)
         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
         V = np.empty((self.N), dtype=np.float64)
+
 
         with nogil, parallel():
             for i in prange(self.N):

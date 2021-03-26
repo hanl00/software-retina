@@ -3,7 +3,7 @@ from setuptools import setup, Extension, find_packages
 # from distutils.core import setup, Extension
 import numpy
 
-ext_modules = [
+extension_modules = [
     # Extension(
     #     "software_retina.utils", 
     #     ["src/software_retina/utils.pyx"],
@@ -19,11 +19,11 @@ ext_modules = [
         include_dirs=[numpy.get_include()],
 
     ),
-    Extension(
-        "src.software_retina.rf_generation",
-        ["src/software_retina/rf_generation.pyx"],
-        include_dirs=[numpy.get_include()],
-    ),
+    # Extension(
+    #     "src.software_retina.rf_generation",
+    #     ["src/software_retina/rf_generation.pyx"],
+    #     include_dirs=[numpy.get_include()],
+    # ),
 ]
 
 setup(
@@ -37,7 +37,7 @@ setup(
     description='A software retina inspired by the biological vision system',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    ext_modules=cythonize(ext_modules),
+    ext_modules=cythonize(extension_modules),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Science/Research",
