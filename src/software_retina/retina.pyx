@@ -48,19 +48,11 @@ cdef class Retina:
 
         self.node_attributes = input_node_attributes
         self.coefficients = input_coefficients
-<<<<<<< Updated upstream
-        self.N = len(input_node_attributes) 
-        self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
-                           input_node_attributes[:, 6].max()/2.0)
-        self.grayscaled_intensity = np.zeros((1))
-        self.coloured_intensity = np.zeros((1, 1))
-=======
         self.N = len(input_node_attributes)
         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
                            input_node_attributes[:, 6].max()/2.0)
         self.grayscale_intensity = np.zeros((1))
         self.colour_intensity = np.zeros((1, 1))
->>>>>>> Stashed changes
 
     def load_node_attributes_from_path(self, filename):
 
