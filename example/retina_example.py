@@ -7,7 +7,7 @@ import cv2
 example_5k_tessellation = np.load('data/5k/nanoflann_5k_tessellation.pkl', allow_pickle=True)
 
 # Generate node attributes(rf_node_attributes) and kernel coefficients (rf_coefficient)
-node_attributes, coefficients, fov_dist_5 = rf_generation(example_5k_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+node_attributes, coefficients = rf_generation(example_5k_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
 
 # Retina initialisation and sampling
 R = Retina()

@@ -50,13 +50,13 @@ else:
 # RETINA SAMPLING - VALIDATION - COLOUR
 ########################################################
 
-print("validation colour")
-original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_5k.pkl", allow_pickle=True)
-colour = np.load('validation testing/5k_dock_sample_colored_cython.pkl', allow_pickle=True)
+# print("validation colour")
+# original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_5k.pkl", allow_pickle=True)
+# colour = np.load('validation testing/5k_dock_sample_colored_cython.pkl', allow_pickle=True)
 
-for i in range(len(colour)):
-    for index, (first, second) in enumerate(zip(original_colour[i], colour[i])):
-        if abs(first-second) > 0.0005:
-            print(index, first, second)
+# for i in range(len(colour)):
+#     for index, (first, second) in enumerate(zip(original_colour[i], colour[i])):
+#         if abs(first-second) > 0.0005:
+#             print(index, first, second)
 
-print("validation done")
+# print("validation done")

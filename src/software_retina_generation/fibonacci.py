@@ -29,19 +29,3 @@ def fibonacci_retina(node_count, foveal_region_size, foveal_density):
     x = polar_to_cartesian(x)
 
     return normalize(x)
-
-
-def hybrid(node_count, foveal_region_size, foveal_density, verbose=True):
-
-    retina = fibonacci_retina(node_count//4, foveal_region_size,
-                              foveal_density)
-    shake = retina
-    shake = randomize(shake, 0.23)
-    shake = point_generation(shake, mode='sierpinski', concatenate=True)
-    shake = randomize(shake, 0.23)
-    frying = SelfSimilarNeuralNetwork(100, 0.1)
-    frying.set_weights(shake)
-    frying.fit(3000, 0.033, 0.0005, verbose)
-    weights = frying.weights
-
-    return normalize(weights)

@@ -15,18 +15,18 @@ extension_modules = [
         ["src/software_retina/retina.pyx"],
         extra_compile_args=["-fopenmp" ],
         extra_link_args=['-fopenmp'],
-        include_dirs=[numpy.get_include(), "pxd"],
+        include_dirs=[numpy.get_include()],
     ),
     Extension(
         "src.software_retina.rf_generation",
         ["src/software_retina/rf_generation.pyx"],
-        include_dirs=[numpy.get_include(), "pxd"],
+        include_dirs=[numpy.get_include()],
     )
 ]
 
 setup(
     name='software-retina',
-    version='0.0.5',
+    version='0.0.9',
     author='Han M. Loo',
     author_email='nloo33755@gmail.com',
     packages=['src', 'src.software_retina', 'src.software_retina_generation'],

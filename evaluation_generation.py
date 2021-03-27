@@ -32,25 +32,25 @@ def loadPickle(path):
 # GENERATING KERNELS AND NODE ATTRIBUTES (LOC)
 ########################################################
 
-nanoflann_tessellation = np.load('data/5k/nanoflann_5k_tessellation.pkl', allow_pickle=True)
-rf_loc, rf_coeff = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
-pickle.dump(rf_loc, open("data/5k/5k_rf_node_attributes.pkl", "wb"))
-pickle.dump(rf_coeff, open("data/5k/5k_rf_coefficients.pkl", "wb"))
-pickle.dump(fov_dist_5, open("data/5k/5k_fov_dist_5.pkl", "wb"))
+# nanoflann_tessellation = np.load('data/5k/nanoflann_5k_tessellation.pkl', allow_pickle=True)
+# rf_loc, rf_coeff = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+# pickle.dump(rf_loc, open("data/5k/5k_rf_node_attributes.pkl", "wb"))
+# pickle.dump(rf_coeff, open("data/5k/5k_rf_coefficients.pkl", "wb"))
+# pickle.dump(fov_dist_5, open("data/5k/5k_fov_dist_5.pkl", "wb"))
 
-########################################################
-# KERNEL GENERATION - VALIDATION (RF_COEFF IS PADDED THEREFORE WILL RETURN FALSE)
-########################################################
+# ########################################################
+# # KERNEL GENERATION - VALIDATION (RF_COEFF IS PADDED THEREFORE WILL RETURN FALSE)
+# ########################################################
 
-rf_loc = np.load('data/5k/5k_rf_node_attributes.pkl', allow_pickle=True)
-rf_coeff = np.load('data/5k/5k_rf_coefficients.pkl', allow_pickle=True)
-fov_dist_5 = np.load('data/5k/5k_fov_dist_5.pkl', allow_pickle=True)
+# rf_loc = np.load('data/5k/5k_rf_node_attributes.pkl', allow_pickle=True)
+# rf_coeff = np.load('data/5k/5k_rf_coefficients.pkl', allow_pickle=True)
+# fov_dist_5 = np.load('data/5k/5k_fov_dist_5.pkl', allow_pickle=True)
 
-rf_loc_original = np.load("validation testing/ozimek's values/5k_rf_loc_original.pkl", allow_pickle=True)
-fov_dist_5_original = np.load("validation testing/ozimek's values/5k_fov_dist_5_original.pkl", allow_pickle=True)
+# rf_loc_original = np.load("validation testing/ozimek's values/5k_rf_loc_original.pkl", allow_pickle=True)
+# fov_dist_5_original = np.load("validation testing/ozimek's values/5k_fov_dist_5_original.pkl", allow_pickle=True)
 
-print(np.array_equal(rf_loc, rf_loc_original))
-print(np.array_equal(fov_dist_5, fov_dist_5_original))
+# print(np.array_equal(rf_loc, rf_loc_original))
+# print(np.array_equal(fov_dist_5, fov_dist_5_original))
 
 ########################################################
 # RETINA SAMPLING - TIME TAKEN
