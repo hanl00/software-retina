@@ -17,7 +17,7 @@ R = Retina(node_attributes_5k, coefficients_5k)
 
 baseline_image = skimage.io.imread('data/dock.jpg')
 
-baseline_image = cv2.cvtColor(baseline_image, cv2.COLOR_BGR2GRAY)
+# baseline_image = cv2.cvtColor(baseline_image, cv2.COLOR_BGR2GRAY)
 
 if baseline_image.ndim == 2:
     print("Sampling grayscale")
@@ -36,27 +36,27 @@ else:
 # RETINA SAMPLING - VALIDATION - GRAY
 ########################################################
 
-print("validation gray")
-original_gray = np.load("validation testing/ozimek's values/dock_sample_gray_5k.pkl", allow_pickle=True)
-gray = np.load('validation testing/5k_dock_sample_gray_cython.pkl', allow_pickle=True)
+# print("validation gray")
+# original_gray = np.load("validation testing/ozimek's values/dock_sample_gray_5k.pkl", allow_pickle=True)
+# gray = np.load('validation testing/5k_dock_sample_gray_cython.pkl', allow_pickle=True)
 
-for index, (first, second) in enumerate(zip(original_gray, gray)): 
-    if abs(first-second) > 0.0005:
-        print(index, first, second)
+# for index, (first, second) in enumerate(zip(original_gray, gray)): 
+#     if abs(first-second) > 0.0005:
+#         print(index, first, second)
 
-print("validation done")
+# print("validation done")
 
 ########################################################
 # RETINA SAMPLING - VALIDATION - COLOUR
 ########################################################
 
-# print("validation colour")
-# original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_5k.pkl", allow_pickle=True)
-# colour = np.load('validation testing/5k_dock_sample_colored_cython.pkl', allow_pickle=True)
+print("validation colour")
+original_colour = np.load("validation testing/ozimek's values/dock_sample_colored_5k.pkl", allow_pickle=True)
+colour = np.load('validation testing/5k_dock_sample_colored_cython.pkl', allow_pickle=True)
 
-# for i in range(len(colour)):
-#     for index, (first, second) in enumerate(zip(original_colour[i], colour[i])):
-#         if abs(first-second) > 0.0005:
-#             print(index, first, second)
+for i in range(len(colour)):
+    for index, (first, second) in enumerate(zip(original_colour[i], colour[i])):
+        if abs(first-second) > 0.0005:
+            print(index, first, second)
 
-# print("validation done")
+print("validation done")

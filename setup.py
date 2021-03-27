@@ -35,7 +35,7 @@ setup(
     description='A software retina inspired by the biological vision system',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    ext_modules=cythonize(extension_modules, force=True, compiler_directives={'language_level' : "3"}), #remove force recompile
+    ext_modules=cythonize(extension_modules, force=True), #remove force recompile in final version
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Intended Audience :: Science/Research",

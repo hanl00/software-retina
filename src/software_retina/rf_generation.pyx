@@ -1,3 +1,4 @@
+# cython: language_level=3
 # cython: boundscheck=False
 # cython: cdivision=True
 # cython: wraparound=False
@@ -7,14 +8,14 @@ cimport numpy as cnp
 
 from scipy.spatial import distance
 
-from src.software_retina.utils cimport gauss_cython
-from src.software_retina.utils cimport gausskernel_cython
+from src.software_retina.utils cimport gauss
+from src.software_retina.utils cimport gausskernel
 
 # Original code provided by Piotr Ozimek
 
 
-def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
-              min_kernel=3):
+def node_attribute_kernel_generation(tessellation, kernel_ratio, sigma_base,
+                                     sigma_power, min_rf, min_kernel=3):
 
     """ Generates node attributes and kernels for each node
         Parameters
@@ -28,14 +29,16 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
                     (default value: 3)
 
         Return
-        rf_node_attributes - a num_of_nodes x 7 array that describes each node as follows:
+        rf_node_attributes - a num_of_nodes x 7 array that describes
+                             each node as follows:
         [x, y, d, angle (radians), dist_5, rf_sigma, rf_width]
-        rf_coefficientss - an array of gaussian receptive field kernels (variable size)
+        rf_coefficients - an padded array of gaussian receptive field kernels
 
     """
 
     rf_node_attributes = np.zeros((len(tessellation), 7))
-    rf_coefficients_unpadded = np.ndarray((1, len(tessellation)), dtype='object')
+    rf_coefficients_unpadded = np.ndarray((1, len(tessellation)),
+                                          dtype='object')
 
     row_length = 0
     column_length = 0
@@ -63,7 +66,8 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
     fov_dist_5 = np.min(dist_5[:20])
     rf_node_attributes[:, :2] = tessellation*(1/fov_dist_5)*min_rf
     dist_5 = dist_5*(1/fov_dist_5)*min_rf
-    rf_node_attributes[:, 3] = np.arctan2(rf_node_attributes[:, 1], rf_node_attributes[:, 0])
+    rf_node_attributes[:, 3] = np.arctan2(rf_node_attributes[:, 1],
+                                          rf_node_attributes[:, 0])
     rf_node_attributes[:, 4] = dist_5
 
     print("All chunks done.")
@@ -72,9 +76,12 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
     rf_node_attributes[:, 5] = sigma_base*(dist_5+correction)**sigma_power
 
     for i in range(len(tessellation)):
-        k_width = max(min_kernel, int(np.ceil(kernel_ratio*rf_node_attributes[i, 4])))
-        rf_node_attributes[i, 6] = k_width
-        cx, cy = xy_sumitha(rf_node_attributes[i, 0], rf_node_attributes[i, 1], k_width)
+        kernel_width = max(min_kernel, int(np.ceil(kernel_ratio *
+                                           rf_node_attributes[i, 4])))
+        rf_node_attributes[i, 6] = kernel_width
+        cx, cy = return_offsets(rf_node_attributes[i, 0],
+                                rf_node_attributes[i, 1],
+                                kernel_width)
 
         rx = rf_node_attributes[i][0] - cx
         ry = rf_node_attributes[i][1] - cy
@@ -83,9 +90,10 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
 
         rf_node_attributes[i, 0] = cx
         rf_node_attributes[i, 1] = cy
-        rf_coefficients_unpadded[0, i] = gausskernel_cython(k_width, loc,
+        rf_coefficients_unpadded[0, i] = gausskernel(kernel_width, loc,
                                                      rf_node_attributes[i, 5])
-        rf_coefficients_unpadded[0, i] /= np.sum(rf_coefficients_unpadded[0, i])
+        rf_coefficients_unpadded[0, i] /= np.sum(
+                                            rf_coefficients_unpadded[0, i])
 
         if rf_coefficients_unpadded[0, i].shape > (row_length, column_length):
             row_length, column_length = rf_coefficients_unpadded[0, i].shape
@@ -103,10 +111,10 @@ def rf_generation(tessellation, kernel_ratio, sigma_base, sigma_power, min_rf,
     return rf_node_attributes, rf_coefficients
 
 
-def xy_sumitha(x, y, k_width):
-    k_width = int(k_width)
+def return_offsets(x, y, kernel_width):
+    kernel_width = int(kernel_width)
 
-    if k_width % 2 != 0:
+    if kernel_width % 2 != 0:
         cx = round(x)
         cy = round(y)
 

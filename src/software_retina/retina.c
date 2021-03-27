@@ -1249,19 +1249,19 @@ typedef npy_cdouble __pyx_t_5numpy_complex_t;
 struct __pyx_ctuple_int__and_int;
 typedef struct __pyx_ctuple_int__and_int __pyx_ctuple_int__and_int;
 
-/* "src/software_retina/retina.pyx":59
- *             raise TypeError('This function only accepts numpy array')
+/* "src/software_retina/retina.pyx":64
+ *             self,
+ *             cnp.ndarray[cnp.uint8_t, ndim=2] image,
+ *             (int, int) fixation):             # <<<<<<<<<<<<<<
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
- * 
- *         # cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ *         cdef int fixation_y = fixation[0]
  */
 struct __pyx_ctuple_int__and_int {
   int f0;
   int f1;
 };
 
-/* "src/software_retina/retina.pyx":19
+/* "src/software_retina/retina.pyx":20
  * # Original code provided by Piotr Ozimek
  * 
  * cdef class Retina:             # <<<<<<<<<<<<<<
@@ -1358,7 +1358,7 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "src/software_retina/retina.pyx":19
+/* "src/software_retina/retina.pyx":20
  * # Original code provided by Piotr Ozimek
  * 
  * cdef class Retina:             # <<<<<<<<<<<<<<
@@ -2637,7 +2637,7 @@ static PyObject *__pyx_codeobj__29;
 static PyObject *__pyx_codeobj__36;
 /* Late includes */
 
-/* "src/software_retina/retina.pyx":27
+/* "src/software_retina/retina.pyx":28
  *     cdef cnp.float64_t[:, ::1] colour_intensity
  * 
  *     def __init__(self, input_node_attributes, input_coefficients):             # <<<<<<<<<<<<<<
@@ -2679,11 +2679,11 @@ static int __pyx_pw_3src_15software_retina_6retina_6Retina_1__init__(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_input_coefficients)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 27, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 28, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 27, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 28, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2696,7 +2696,7 @@ static int __pyx_pw_3src_15software_retina_6retina_6Retina_1__init__(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 27, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 28, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("src.software_retina.retina.Retina.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2727,55 +2727,55 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "src/software_retina/retina.pyx":29
+  /* "src/software_retina/retina.pyx":30
  *     def __init__(self, input_node_attributes, input_coefficients):
  * 
  *         self.node_attributes = input_node_attributes             # <<<<<<<<<<<<<<
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  */
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input_node_attributes, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input_node_attributes, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 30, __pyx_L1_error)
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
   __pyx_v_self->node_attributes = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
 
-  /* "src/software_retina/retina.pyx":30
+  /* "src/software_retina/retina.pyx":31
  * 
  *         self.node_attributes = input_node_attributes
  *         self.coefficients = input_coefficients             # <<<<<<<<<<<<<<
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  */
-  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input_coefficients, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input_coefficients, PyBUF_WRITABLE); if (unlikely(!__pyx_t_2.memview)) __PYX_ERR(0, 31, __pyx_L1_error)
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
   __pyx_v_self->coefficients = __pyx_t_2;
   __pyx_t_2.memview = NULL;
   __pyx_t_2.data = NULL;
 
-  /* "src/software_retina/retina.pyx":31
+  /* "src/software_retina/retina.pyx":32
  *         self.node_attributes = input_node_attributes
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)             # <<<<<<<<<<<<<<
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  *                            input_node_attributes[:, 6].max()/2.0)
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_input_node_attributes); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_v_input_node_attributes); if (unlikely(__pyx_t_3 == ((Py_ssize_t)-1))) __PYX_ERR(0, 32, __pyx_L1_error)
   __pyx_v_self->N = __pyx_t_3;
 
-  /* "src/software_retina/retina.pyx":32
+  /* "src/software_retina/retina.pyx":33
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_abs); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_abs); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_8 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_7))) {
@@ -2790,10 +2790,10 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -2808,20 +2808,20 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   }
   __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 32, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/software_retina/retina.pyx":33
+  /* "src/software_retina/retina.pyx":34
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  *                            input_node_attributes[:, 6].max()/2.0)             # <<<<<<<<<<<<<<
  *         self.grayscale_intensity = np.zeros((1))
  *         self.colour_intensity = np.zeros((1, 1))
  */
-  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_v_input_node_attributes, __pyx_tuple__4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_max); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -2836,44 +2836,44 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   }
   __pyx_t_7 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyFloat_TrueDivideObjC(__pyx_t_7, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyFloat_TrueDivideObjC(__pyx_t_7, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "src/software_retina/retina.pyx":32
+  /* "src/software_retina/retina.pyx":33
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))
  */
-  __pyx_t_7 = PyNumber_Add(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_4, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyNumber_Int(__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = PyNumber_Multiply(__pyx_int_2, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Multiply(__pyx_int_2, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_7); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_self->width = __pyx_t_9;
 
-  /* "src/software_retina/retina.pyx":34
+  /* "src/software_retina/retina.pyx":35
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))             # <<<<<<<<<<<<<<
  *         self.colour_intensity = np.zeros((1, 1))
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_6 = NULL;
@@ -2888,26 +2888,26 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   }
   __pyx_t_7 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_6, __pyx_int_1) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_int_1);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 34, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 35, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->grayscale_intensity, 0);
   __pyx_v_self->grayscale_intensity = __pyx_t_10;
   __pyx_t_10.memview = NULL;
   __pyx_t_10.data = NULL;
 
-  /* "src/software_retina/retina.pyx":35
+  /* "src/software_retina/retina.pyx":36
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))
  *         self.colour_intensity = np.zeros((1, 1))             # <<<<<<<<<<<<<<
  * 
  *     def load_node_attributes(self, input):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_zeros); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -2922,17 +2922,17 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   }
   __pyx_t_7 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_4, __pyx_tuple__5) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_tuple__5);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_7, PyBUF_WRITABLE); if (unlikely(!__pyx_t_1.memview)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->colour_intensity, 0);
   __pyx_v_self->colour_intensity = __pyx_t_1;
   __pyx_t_1.memview = NULL;
   __pyx_t_1.data = NULL;
 
-  /* "src/software_retina/retina.pyx":27
+  /* "src/software_retina/retina.pyx":28
  *     cdef cnp.float64_t[:, ::1] colour_intensity
  * 
  *     def __init__(self, input_node_attributes, input_coefficients):             # <<<<<<<<<<<<<<
@@ -2959,7 +2959,7 @@ static int __pyx_pf_3src_15software_retina_6retina_6Retina___init__(struct __pyx
   return __pyx_r;
 }
 
-/* "src/software_retina/retina.pyx":37
+/* "src/software_retina/retina.pyx":38
  *         self.colour_intensity = np.zeros((1, 1))
  * 
  *     def load_node_attributes(self, input):             # <<<<<<<<<<<<<<
@@ -3000,71 +3000,71 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attr
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_node_attributes", 0);
 
-  /* "src/software_retina/retina.pyx":38
+  /* "src/software_retina/retina.pyx":39
  * 
  *     def load_node_attributes(self, input):
  *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
  *             if not (input.ndim == 2 and input.shape[1] == 7):
  *                 raise ValueError('Must be a 2 dimensional array with each row'
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (__pyx_t_4) {
 
-    /* "src/software_retina/retina.pyx":39
+    /* "src/software_retina/retina.pyx":40
  *     def load_node_attributes(self, input):
  *         if isinstance(input, np.ndarray):
  *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
  *                 raise ValueError('Must be a 2 dimensional array with each row'
  *                                  ' b having 7 columns of node attributes')
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_3) {
     } else {
       __pyx_t_4 = __pyx_t_3;
       goto __pyx_L5_bool_binop_done;
     }
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_shape); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_7, 7, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 39, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 40, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = __pyx_t_3;
     __pyx_L5_bool_binop_done:;
     __pyx_t_3 = ((!__pyx_t_4) != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "src/software_retina/retina.pyx":40
+      /* "src/software_retina/retina.pyx":41
  *         if isinstance(input, np.ndarray):
  *             if not (input.ndim == 2 and input.shape[1] == 7):
  *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
  *                                  ' b having 7 columns of node attributes')
  * 
  */
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 40, __pyx_L1_error)
+      __PYX_ERR(0, 41, __pyx_L1_error)
 
-      /* "src/software_retina/retina.pyx":39
+      /* "src/software_retina/retina.pyx":40
  *     def load_node_attributes(self, input):
  *         if isinstance(input, np.ndarray):
  *             if not (input.ndim == 2 and input.shape[1] == 7):             # <<<<<<<<<<<<<<
@@ -3073,44 +3073,44 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_2load_node_attr
  */
     }
 
-    /* "src/software_retina/retina.pyx":44
+    /* "src/software_retina/retina.pyx":45
  * 
  *             else:
  *                 self.node_attributes = input             # <<<<<<<<<<<<<<
  *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
+ *                 self.width = 2*int(
  */
     /*else*/ {
-      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 44, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 45, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_self->node_attributes, 0);
       __pyx_v_self->node_attributes = __pyx_t_5;
       __pyx_t_5.memview = NULL;
       __pyx_t_5.data = NULL;
 
-      /* "src/software_retina/retina.pyx":45
+      /* "src/software_retina/retina.pyx":46
  *             else:
  *                 self.node_attributes = input
  *                 self.N = len(self.node_attributes)             # <<<<<<<<<<<<<<
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ *                 self.width = 2*int(
+ *                     np.abs(self.node_attributes[:, :2]).max() +
  */
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 45, __pyx_L1_error)}
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 46, __pyx_L1_error)}
       __pyx_t_6 = __Pyx_MemoryView_Len(__pyx_v_self->node_attributes); 
       __pyx_v_self->N = __pyx_t_6;
 
-      /* "src/software_retina/retina.pyx":46
- *                 self.node_attributes = input
+      /* "src/software_retina/retina.pyx":48
  *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ *                 self.width = 2*int(
+ *                     np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 46, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_abs); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_abs); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 46, __pyx_L1_error)}
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 48, __pyx_L1_error)}
       __pyx_t_5.data = __pyx_v_self->node_attributes.data;
       __pyx_t_5.memview = __pyx_v_self->node_attributes.memview;
       __PYX_INC_MEMVIEW(&__pyx_t_5, 0);
@@ -3133,10 +3133,10 @@ __pyx_t_9 = -1;
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 46, __pyx_L1_error)
+    __PYX_ERR(0, 48, __pyx_L1_error)
 }
 
-__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 46, __pyx_L1_error)
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __PYX_XDEC_MEMVIEW(&__pyx_t_5, 1);
       __pyx_t_5.memview = NULL;
@@ -3154,10 +3154,10 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __p
       __pyx_t_2 = (__pyx_t_10) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_10, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 46, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -3172,23 +3172,23 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_5, 2, (PyObject *(*)(char *)) __p
       }
       __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "src/software_retina/retina.pyx":47
- *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)             # <<<<<<<<<<<<<<
+      /* "src/software_retina/retina.pyx":49
+ *                 self.width = 2*int(
+ *                     np.abs(self.node_attributes[:, :2]).max() +
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)             # <<<<<<<<<<<<<<
  * 
  *     def load_coefficients(self, input):
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 47, __pyx_L1_error)}
+      if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 49, __pyx_L1_error)}
       __pyx_t_11.data = __pyx_v_self->node_attributes.data;
       __pyx_t_11.memview = __pyx_v_self->node_attributes.memview;
       __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
@@ -3202,7 +3202,7 @@ __pyx_t_11.strides[0] = __pyx_v_self->node_attributes.strides[0];
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 47, __pyx_L1_error)
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
       __pyx_t_11.memview = NULL;
@@ -3220,10 +3220,10 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
       __pyx_t_2 = (__pyx_t_12) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_12, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_7);
       __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_max); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_2 = NULL;
@@ -3238,36 +3238,44 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
       }
       __pyx_t_8 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_10);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
+      if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyFloat_TrueDivideObjC(__pyx_t_8, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyFloat_TrueDivideObjC(__pyx_t_8, __pyx_float_2_0, 2.0, 0, 0); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 49, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "src/software_retina/retina.pyx":46
- *                 self.node_attributes = input
+      /* "src/software_retina/retina.pyx":48
  *                 self.N = len(self.node_attributes)
- *                 self.width = 2*int(np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ *                 self.width = 2*int(
+ *                     np.abs(self.node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)
  * 
  */
-      __pyx_t_8 = PyNumber_Add(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Add(__pyx_t_1, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 46, __pyx_L1_error)
+
+      /* "src/software_retina/retina.pyx":47
+ *                 self.node_attributes = input
+ *                 self.N = len(self.node_attributes)
+ *                 self.width = 2*int(             # <<<<<<<<<<<<<<
+ *                     np.abs(self.node_attributes[:, :2]).max() +
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)
+ */
+      __pyx_t_10 = __Pyx_PyNumber_Int(__pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 46, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Multiply(__pyx_int_2, __pyx_t_10); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_As_int(__pyx_t_8); if (unlikely((__pyx_t_9 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 47, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __pyx_v_self->width = __pyx_t_9;
     }
 
-    /* "src/software_retina/retina.pyx":38
+    /* "src/software_retina/retina.pyx":39
  * 
  *     def load_node_attributes(self, input):
  *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
@@ -3276,7 +3284,7 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
  */
   }
 
-  /* "src/software_retina/retina.pyx":37
+  /* "src/software_retina/retina.pyx":38
  *         self.colour_intensity = np.zeros((1, 1))
  * 
  *     def load_node_attributes(self, input):             # <<<<<<<<<<<<<<
@@ -3304,8 +3312,8 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
   return __pyx_r;
 }
 
-/* "src/software_retina/retina.pyx":49
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+/* "src/software_retina/retina.pyx":51
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)
  * 
  *     def load_coefficients(self, input):             # <<<<<<<<<<<<<<
  *         if isinstance(input, np.ndarray):
@@ -3338,54 +3346,54 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficie
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("load_coefficients", 0);
 
-  /* "src/software_retina/retina.pyx":50
+  /* "src/software_retina/retina.pyx":52
  * 
  *     def load_coefficients(self, input):
  *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
  *             if not input.ndim == 3:
  *                 raise ValueError('Must be 3 dimensional array')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_np); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ndarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_3 = PyObject_IsInstance(__pyx_v_input, __pyx_t_2); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (likely(__pyx_t_4)) {
 
-    /* "src/software_retina/retina.pyx":51
+    /* "src/software_retina/retina.pyx":53
  *     def load_coefficients(self, input):
  *         if isinstance(input, np.ndarray):
  *             if not input.ndim == 3:             # <<<<<<<<<<<<<<
  *                 raise ValueError('Must be 3 dimensional array')
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_input, __pyx_n_s_ndim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_EqObjC(__pyx_t_2, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 53, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_3 = ((!__pyx_t_4) != 0);
     if (unlikely(__pyx_t_3)) {
 
-      /* "src/software_retina/retina.pyx":52
+      /* "src/software_retina/retina.pyx":54
  *         if isinstance(input, np.ndarray):
  *             if not input.ndim == 3:
  *                 raise ValueError('Must be 3 dimensional array')             # <<<<<<<<<<<<<<
  * 
  *             else:
  */
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_ValueError, __pyx_tuple__7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_Raise(__pyx_t_1, 0, 0, 0);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __PYX_ERR(0, 52, __pyx_L1_error)
+      __PYX_ERR(0, 54, __pyx_L1_error)
 
-      /* "src/software_retina/retina.pyx":51
+      /* "src/software_retina/retina.pyx":53
  *     def load_coefficients(self, input):
  *         if isinstance(input, np.ndarray):
  *             if not input.ndim == 3:             # <<<<<<<<<<<<<<
@@ -3394,7 +3402,7 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficie
  */
     }
 
-    /* "src/software_retina/retina.pyx":55
+    /* "src/software_retina/retina.pyx":57
  * 
  *             else:
  *                 self.coefficients = input             # <<<<<<<<<<<<<<
@@ -3402,14 +3410,14 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficie
  *             raise TypeError('This function only accepts numpy array')
  */
     /*else*/ {
-      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 55, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_to_MemoryviewSlice_d_d_dc_nn___pyx_t_5numpy_int32_t(__pyx_v_input, PyBUF_WRITABLE); if (unlikely(!__pyx_t_5.memview)) __PYX_ERR(0, 57, __pyx_L1_error)
       __PYX_XDEC_MEMVIEW(&__pyx_v_self->coefficients, 0);
       __pyx_v_self->coefficients = __pyx_t_5;
       __pyx_t_5.memview = NULL;
       __pyx_t_5.data = NULL;
     }
 
-    /* "src/software_retina/retina.pyx":50
+    /* "src/software_retina/retina.pyx":52
  * 
  *     def load_coefficients(self, input):
  *         if isinstance(input, np.ndarray):             # <<<<<<<<<<<<<<
@@ -3419,24 +3427,24 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficie
     goto __pyx_L3;
   }
 
-  /* "src/software_retina/retina.pyx":57
+  /* "src/software_retina/retina.pyx":59
  *                 self.coefficients = input
  *         else:
  *             raise TypeError('This function only accepts numpy array')             # <<<<<<<<<<<<<<
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 57, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_TypeError, __pyx_tuple__8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 57, __pyx_L1_error)
+    __PYX_ERR(0, 59, __pyx_L1_error)
   }
   __pyx_L3:;
 
-  /* "src/software_retina/retina.pyx":49
- *                                    np.asarray(self.node_attributes[:, 6]).max()/2.0)
+  /* "src/software_retina/retina.pyx":51
+ *                     np.asarray(self.node_attributes[:, 6]).max()/2.0)
  * 
  *     def load_coefficients(self, input):             # <<<<<<<<<<<<<<
  *         if isinstance(input, np.ndarray):
@@ -3458,12 +3466,12 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_4load_coefficie
   return __pyx_r;
 }
 
-/* "src/software_retina/retina.pyx":59
+/* "src/software_retina/retina.pyx":61
  *             raise TypeError('This function only accepts numpy array')
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
- * 
- *         # cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(             # <<<<<<<<<<<<<<
+ *             self,
+ *             cnp.ndarray[cnp.uint8_t, ndim=2] image,
  */
 
 static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
@@ -3535,7 +3543,7 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
   __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 61, __pyx_L1_error)
   }
   __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1];
   /* Check if called by wrapper */
@@ -3547,11 +3555,11 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_grayscale); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_grayscale); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_grayscale)) {
         __Pyx_XDECREF(((PyObject *)__pyx_r));
-        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -3569,7 +3577,7 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -3578,14 +3586,14 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 59, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 61, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -3596,12 +3604,12 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 59, __pyx_L1_error)
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 61, __pyx_L1_error)
         __pyx_r = ((PyArrayObject *)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3620,17 +3628,17 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
     #endif
   }
 
-  /* "src/software_retina/retina.pyx":63
- *         # cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
- *         # cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+  /* "src/software_retina/retina.pyx":66
+ *             (int, int) fixation):
+ * 
  *         cdef int fixation_y = fixation[0]             # <<<<<<<<<<<<<<
  *         cdef int fixation_x = fixation[1]
  *         cdef int p, y1, y2, x1, x2
  */
   __pyx_v_fixation_y = __pyx_v_fixation.f0;
 
-  /* "src/software_retina/retina.pyx":64
- *         # cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients  # canremove
+  /* "src/software_retina/retina.pyx":67
+ * 
  *         cdef int fixation_y = fixation[0]
  *         cdef int fixation_x = fixation[1]             # <<<<<<<<<<<<<<
  *         cdef int p, y1, y2, x1, x2
@@ -3638,7 +3646,7 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
  */
   __pyx_v_fixation_x = __pyx_v_fixation.f1;
 
-  /* "src/software_retina/retina.pyx":73
+  /* "src/software_retina/retina.pyx":76
  *         cdef float w
  * 
  *         p = self.width             # <<<<<<<<<<<<<<
@@ -3648,31 +3656,31 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_gray
   __pyx_t_6 = __pyx_v_self->width;
   __pyx_v_p = __pyx_t_6;
 
-  /* "src/software_retina/retina.pyx":74
+  /* "src/software_retina/retina.pyx":77
  * 
  *         p = self.width
  *         pic = pad_grayscaled(image, p)             # <<<<<<<<<<<<<<
  *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
  *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  */
-  __pyx_t_8 = __pyx_f_3src_15software_retina_5utils_pad_grayscaled(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_8 = __pyx_f_3src_15software_retina_5utils_pad_grayscaled(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 77, __pyx_L1_error)
   __pyx_v_pic = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "src/software_retina/retina.pyx":75
+  /* "src/software_retina/retina.pyx":78
  *         p = self.width
  *         pic = pad_grayscaled(image, p)
  *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p             # <<<<<<<<<<<<<<
  *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  *         V = np.empty((self.N))
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 75, __pyx_L1_error)}
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 78, __pyx_L1_error)}
   __pyx_t_9.data = __pyx_v_self->node_attributes.data;
   __pyx_t_9.memview = __pyx_v_self->node_attributes.memview;
   __PYX_INC_MEMVIEW(&__pyx_t_9, 0);
@@ -3686,7 +3694,7 @@ __pyx_t_9.strides[0] = __pyx_v_self->node_attributes.strides[0];
         __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+__pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __pyx_t_9.memview = NULL;
@@ -3704,22 +3712,22 @@ __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
   __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 75, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 78, __pyx_L1_error)
   __pyx_t_10 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -3736,25 +3744,25 @@ __pyx_t_2 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
       __pyx_t_11 = __pyx_t_12 = __pyx_t_13 = 0;
     }
     __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 75, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 78, __pyx_L1_error)
   }
   __pyx_t_10 = 0;
   __pyx_v_X = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/software_retina/retina.pyx":76
+  /* "src/software_retina/retina.pyx":79
  *         pic = pad_grayscaled(image, p)
  *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
  *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p             # <<<<<<<<<<<<<<
  *         V = np.empty((self.N))
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 76, __pyx_L1_error)}
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 79, __pyx_L1_error)}
   __pyx_t_9.data = __pyx_v_self->node_attributes.data;
   __pyx_t_9.memview = __pyx_v_self->node_attributes.memview;
   __PYX_INC_MEMVIEW(&__pyx_t_9, 0);
@@ -3768,7 +3776,7 @@ __pyx_t_9.strides[0] = __pyx_v_self->node_attributes.strides[0];
         __pyx_t_9.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_9, 1);
   __pyx_t_9.memview = NULL;
@@ -3786,22 +3794,22 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
   __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_7, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 79, __pyx_L1_error)
   __pyx_t_14 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -3818,25 +3826,25 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
       __pyx_t_13 = __pyx_t_12 = __pyx_t_11 = 0;
     }
     __pyx_pybuffernd_Y.diminfo[0].strides = __pyx_pybuffernd_Y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Y.diminfo[0].shape = __pyx_pybuffernd_Y.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 76, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 79, __pyx_L1_error)
   }
   __pyx_t_14 = 0;
   __pyx_v_Y = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/software_retina/retina.pyx":77
+  /* "src/software_retina/retina.pyx":80
  *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
  *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  *         V = np.empty((self.N))             # <<<<<<<<<<<<<<
  * 
- * 
+ *         with nogil, parallel():
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 77, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -3851,10 +3859,10 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
   __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_7, __pyx_t_2) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 77, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 80, __pyx_L1_error)
   __pyx_t_15 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -3871,14 +3879,14 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
       __pyx_t_11 = __pyx_t_12 = __pyx_t_13 = 0;
     }
     __pyx_pybuffernd_V.diminfo[0].strides = __pyx_pybuffernd_V.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_V.diminfo[0].shape = __pyx_pybuffernd_V.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 77, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 80, __pyx_L1_error)
   }
   __pyx_t_15 = 0;
   __pyx_v_V = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/software_retina/retina.pyx":80
- * 
+  /* "src/software_retina/retina.pyx":82
+ *         V = np.empty((self.N))
  * 
  *         with nogil, parallel():             # <<<<<<<<<<<<<<
  *             for i in prange(self.N):
@@ -3913,7 +3921,7 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
                 Py_BEGIN_ALLOW_THREADS
                 #endif /* _OPENMP */
 
-                /* "src/software_retina/retina.pyx":81
+                /* "src/software_retina/retina.pyx":83
  * 
  *         with nogil, parallel():
  *             for i in prange(self.N):             # <<<<<<<<<<<<<<
@@ -3950,19 +3958,19 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
                                 __pyx_v_y1 = ((int)0xbad0bad0);
                                 __pyx_v_y2 = ((int)0xbad0bad0);
 
-                                /* "src/software_retina/retina.pyx":82
+                                /* "src/software_retina/retina.pyx":84
  *         with nogil, parallel():
  *             for i in prange(self.N):
  *                 w = self.node_attributes[i, 6]             # <<<<<<<<<<<<<<
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)
  */
-                                if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 82, __pyx_L12_error)}
+                                if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 84, __pyx_L12_error)}
                                 __pyx_t_18 = __pyx_v_i;
                                 __pyx_t_19 = 6;
                                 __pyx_v_w = (*((__pyx_t_5numpy_float64_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_self->node_attributes.data + __pyx_t_18 * __pyx_v_self->node_attributes.strides[0]) )) + __pyx_t_19)) )));
 
-                                /* "src/software_retina/retina.pyx":83
+                                /* "src/software_retina/retina.pyx":85
  *             for i in prange(self.N):
  *                 w = self.node_attributes[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)             # <<<<<<<<<<<<<<
@@ -3972,7 +3980,7 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
                                 __pyx_t_19 = __pyx_v_i;
                                 __pyx_v_y1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_Y.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":84
+                                /* "src/software_retina/retina.pyx":86
  *                 w = self.node_attributes[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)             # <<<<<<<<<<<<<<
@@ -3982,32 +3990,32 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
                                 __pyx_t_19 = __pyx_v_i;
                                 __pyx_v_y2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_Y.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":85
+                                /* "src/software_retina/retina.pyx":87
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)             # <<<<<<<<<<<<<<
  *                 x2 = int(X[i] + w/2+0.5)
- *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2], self.coefficients[i, :, :])
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
  */
                                 __pyx_t_19 = __pyx_v_i;
                                 __pyx_v_x1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_X.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":86
+                                /* "src/software_retina/retina.pyx":88
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)             # <<<<<<<<<<<<<<
- *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2], self.coefficients[i, :, :])
- * 
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
+ *                                           self.coefficients[i, :, :])
  */
                                 __pyx_t_19 = __pyx_v_i;
                                 __pyx_v_x2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_X.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":87
+                                /* "src/software_retina/retina.pyx":89
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
- *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2], self.coefficients[i, :, :])             # <<<<<<<<<<<<<<
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],             # <<<<<<<<<<<<<<
+ *                                           self.coefficients[i, :, :])
  * 
- *         self.grayscale_intensity = V
  */
                                 __pyx_t_8.data = __pyx_v_pic.data;
                                 __pyx_t_8.memview = __pyx_v_pic.memview;
@@ -4027,7 +4035,7 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_9, 1, (PyObject *(*)(char *)) __p
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 87, __pyx_L12_error)
+    __PYX_ERR(0, 89, __pyx_L12_error)
 }
 
 if (unlikely(__pyx_memoryview_slice_memviewslice(
@@ -4044,10 +4052,18 @@ if (unlikely(__pyx_memoryview_slice_memviewslice(
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 87, __pyx_L12_error)
+    __PYX_ERR(0, 89, __pyx_L12_error)
 }
 
-if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 87, __pyx_L12_error)}
+if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 90, __pyx_L12_error)}
+
+                                /* "src/software_retina/retina.pyx":90
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],
+ *                                           self.coefficients[i, :, :])             # <<<<<<<<<<<<<<
+ * 
+ *         self.grayscale_intensity = V
+ */
                                 __pyx_t_21.data = __pyx_v_self->coefficients.data;
                                 __pyx_t_21.memview = __pyx_v_self->coefficients.memview;
                                 __PYX_INC_MEMVIEW(&__pyx_t_21, 0);
@@ -4066,6 +4082,14 @@ __pyx_t_21.strides[1] = __pyx_v_self->coefficients.strides[2];
     __pyx_t_21.suboffsets[1] = -1;
 
 __pyx_t_19 = __pyx_v_i;
+
+                                /* "src/software_retina/retina.pyx":89
+ *                 x1 = int(X[i] - w/2+0.5)
+ *                 x2 = int(X[i] + w/2+0.5)
+ *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2],             # <<<<<<<<<<<<<<
+ *                                           self.coefficients[i, :, :])
+ * 
+ */
                                 *__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_V.rcbuffer->pybuffer.buf, __pyx_t_19, __pyx_pybuffernd_V.diminfo[0].strides) = __pyx_f_3src_15software_retina_5utils_multiply_and_sum2d(__pyx_t_8, __pyx_t_21);
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_8, 0);
                                 __pyx_t_8.memview = NULL;
@@ -4209,8 +4233,8 @@ __pyx_t_19 = __pyx_v_i;
         #endif
       }
 
-      /* "src/software_retina/retina.pyx":80
- * 
+      /* "src/software_retina/retina.pyx":82
+ *         V = np.empty((self.N))
  * 
  *         with nogil, parallel():             # <<<<<<<<<<<<<<
  *             for i in prange(self.N):
@@ -4235,37 +4259,37 @@ __pyx_t_19 = __pyx_v_i;
       }
   }
 
-  /* "src/software_retina/retina.pyx":89
- *                 V[i] = multiply_and_sum2d(pic[y1:y2, x1:x2], self.coefficients[i, :, :])
+  /* "src/software_retina/retina.pyx":92
+ *                                           self.coefficients[i, :, :])
  * 
  *         self.grayscale_intensity = V             # <<<<<<<<<<<<<<
  * 
  *         return V
  */
-  __pyx_t_22 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(((PyObject *)__pyx_v_V), PyBUF_WRITABLE); if (unlikely(!__pyx_t_22.memview)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_22 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(((PyObject *)__pyx_v_V), PyBUF_WRITABLE); if (unlikely(!__pyx_t_22.memview)) __PYX_ERR(0, 92, __pyx_L1_error)
   __PYX_XDEC_MEMVIEW(&__pyx_v_self->grayscale_intensity, 0);
   __pyx_v_self->grayscale_intensity = __pyx_t_22;
   __pyx_t_22.memview = NULL;
   __pyx_t_22.data = NULL;
 
-  /* "src/software_retina/retina.pyx":91
+  /* "src/software_retina/retina.pyx":94
  *         self.grayscale_intensity = V
  * 
  *         return V             # <<<<<<<<<<<<<<
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(  # noqa: E225
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
   __Pyx_INCREF(((PyObject *)__pyx_v_V));
   __pyx_r = ((PyArrayObject *)__pyx_v_V);
   goto __pyx_L0;
 
-  /* "src/software_retina/retina.pyx":59
+  /* "src/software_retina/retina.pyx":61
  *             raise TypeError('This function only accepts numpy array')
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):             # <<<<<<<<<<<<<<
- * 
- *         # cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes  # canremove
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(             # <<<<<<<<<<<<<<
+ *             self,
+ *             cnp.ndarray[cnp.uint8_t, ndim=2] image,
  */
 
   /* function exit code */
@@ -4341,11 +4365,11 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_graysca
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fixation)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, 1); __PYX_ERR(0, 59, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, 1); __PYX_ERR(0, 61, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_grayscale") < 0)) __PYX_ERR(0, 59, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_grayscale") < 0)) __PYX_ERR(0, 61, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4354,17 +4378,17 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_7sample_graysca
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_image = ((PyArrayObject *)values[0]);
-    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 59, __pyx_L3_error)
+    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 64, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 59, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sample_grayscale", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 61, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_grayscale", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 59, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 63, __pyx_L1_error)
   __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_6sample_grayscale(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
 
   /* function exit code */
@@ -4392,11 +4416,11 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6sample_graysca
   __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 2, 0, __pyx_stack) == -1)) __PYX_ERR(0, 61, __pyx_L1_error)
   }
   __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4422,18 +4446,16 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_6sample_graysca
   return __pyx_r;
 }
 
-/* "src/software_retina/retina.pyx":93
+/* "src/software_retina/retina.pyx":96
  *         return V
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(  # noqa: E225             # <<<<<<<<<<<<<<
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(             # <<<<<<<<<<<<<<
  *             self,
  *             cnp.ndarray[cnp.uint8_t, ndim=3] image,
  */
 
 static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_colour(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colour(struct __pyx_obj_3src_15software_retina_6retina_Retina *__pyx_v_self, PyArrayObject *__pyx_v_image, __pyx_ctuple_int__and_int __pyx_v_fixation, int __pyx_skip_dispatch) {
-  __Pyx_memviewslice __pyx_v_node_attributes_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
-  __Pyx_memviewslice __pyx_v_coefficients_memory_view = { 0, 0, { 0 }, { 0 }, { 0 } };
   int __pyx_v_fixation_y;
   int __pyx_v_fixation_x;
   int __pyx_v_p;
@@ -4497,7 +4519,7 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
   __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 96, __pyx_L1_error)
   }
   __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_image.diminfo[2].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_image.diminfo[2].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[2];
   /* Check if called by wrapper */
@@ -4509,11 +4531,11 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_colour); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_sample_colour); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_colour)) {
         __Pyx_XDECREF(((PyObject *)__pyx_r));
-        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
+        __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int(__pyx_v_fixation); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; __pyx_t_5 = NULL;
@@ -4531,7 +4553,7 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
         #if CYTHON_FAST_PYCALL
         if (PyFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -4540,14 +4562,14 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
         #if CYTHON_FAST_PYCCALL
         if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
           PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_image), __pyx_t_3};
-          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
           __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else
         #endif
         {
-          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 96, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_7);
           if (__pyx_t_5) {
             __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -4558,12 +4580,12 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
           __Pyx_GIVEREF(__pyx_t_3);
           PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_3);
           __pyx_t_3 = 0;
-          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_7, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 96, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 93, __pyx_L1_error)
+        if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 96, __pyx_L1_error)
         __pyx_r = ((PyArrayObject *)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -4582,45 +4604,17 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
     #endif
   }
 
-  /* "src/software_retina/retina.pyx":98
+  /* "src/software_retina/retina.pyx":101
  *             (int, int) fixation):
  * 
- *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes             # <<<<<<<<<<<<<<
- *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
- *         cdef int fixation_y = fixation[0]
- */
-  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 98, __pyx_L1_error)}
-  __pyx_t_8 = __pyx_v_self->node_attributes;
-  __PYX_INC_MEMVIEW(&__pyx_t_8, 1);
-  __pyx_v_node_attributes_memory_view = __pyx_t_8;
-  __pyx_t_8.memview = NULL;
-  __pyx_t_8.data = NULL;
-
-  /* "src/software_retina/retina.pyx":99
- * 
- *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes
- *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients             # <<<<<<<<<<<<<<
- *         cdef int fixation_y = fixation[0]
- *         cdef int fixation_x = fixation[1]
- */
-  if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 99, __pyx_L1_error)}
-  __pyx_t_9 = __pyx_v_self->coefficients;
-  __PYX_INC_MEMVIEW(&__pyx_t_9, 1);
-  __pyx_v_coefficients_memory_view = __pyx_t_9;
-  __pyx_t_9.memview = NULL;
-  __pyx_t_9.data = NULL;
-
-  /* "src/software_retina/retina.pyx":100
- *         cdef cnp.float64_t[:, ::1] node_attributes_memory_view = self.node_attributes
- *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
  *         cdef int fixation_y = fixation[0]             # <<<<<<<<<<<<<<
  *         cdef int fixation_x = fixation[1]
  *         cdef int p, y1, y2, x1, x2
  */
   __pyx_v_fixation_y = __pyx_v_fixation.f0;
 
-  /* "src/software_retina/retina.pyx":101
- *         cdef cnp.int32_t[:, :, ::1] coefficients_memory_view = self.coefficients
+  /* "src/software_retina/retina.pyx":102
+ * 
  *         cdef int fixation_y = fixation[0]
  *         cdef int fixation_x = fixation[1]             # <<<<<<<<<<<<<<
  *         cdef int p, y1, y2, x1, x2
@@ -4628,21 +4622,21 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
  */
   __pyx_v_fixation_x = __pyx_v_fixation.f1;
 
-  /* "src/software_retina/retina.pyx":108
+  /* "src/software_retina/retina.pyx":109
  *         cdef Py_ssize_t i
  *         cdef float w
  *         cdef cnp.float64_t[:, ::1] V = np.empty((self.N, 3))             # <<<<<<<<<<<<<<
  *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_empty); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_self->N); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_2);
@@ -4663,25 +4657,25 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_d_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_V = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "src/software_retina/retina.pyx":109
+  /* "src/software_retina/retina.pyx":110
  *         cdef float w
  *         cdef cnp.float64_t[:, ::1] V = np.empty((self.N, 3))
  *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))             # <<<<<<<<<<<<<<
  * 
  *         p = self.width
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_empty); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -4696,63 +4690,64 @@ static PyArrayObject *__pyx_f_3src_15software_retina_6retina_6Retina_sample_colo
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_4, __pyx_int_3) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_int_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_10 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_to_MemoryviewSlice_dc_nn___pyx_t_5numpy_float64_t(__pyx_t_1, PyBUF_WRITABLE); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_sum3d_return = __pyx_t_10;
-  __pyx_t_10.memview = NULL;
-  __pyx_t_10.data = NULL;
+  __pyx_v_sum3d_return = __pyx_t_9;
+  __pyx_t_9.memview = NULL;
+  __pyx_t_9.data = NULL;
 
-  /* "src/software_retina/retina.pyx":111
+  /* "src/software_retina/retina.pyx":112
  *         cdef cnp.float64_t[::1] sum3d_return = np.empty((3))
  * 
  *         p = self.width             # <<<<<<<<<<<<<<
  *         pic = pad_coloured(image, p)
- *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
+ *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
  */
   __pyx_t_6 = __pyx_v_self->width;
   __pyx_v_p = __pyx_t_6;
 
-  /* "src/software_retina/retina.pyx":112
+  /* "src/software_retina/retina.pyx":113
  * 
  *         p = self.width
  *         pic = pad_coloured(image, p)             # <<<<<<<<<<<<<<
- *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
+ *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  */
-  __pyx_t_9 = __pyx_f_3src_15software_retina_5utils_pad_coloured(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 112, __pyx_L1_error)
-  __pyx_v_pic = __pyx_t_9;
-  __pyx_t_9.memview = NULL;
-  __pyx_t_9.data = NULL;
+  __pyx_t_10 = __pyx_f_3src_15software_retina_5utils_pad_coloured(((PyArrayObject *)__pyx_v_image), __pyx_v_p, 0); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_v_pic = __pyx_t_10;
+  __pyx_t_10.memview = NULL;
+  __pyx_t_10.data = NULL;
 
-  /* "src/software_retina/retina.pyx":113
+  /* "src/software_retina/retina.pyx":114
  *         p = self.width
  *         pic = pad_coloured(image, p)
- *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p             # <<<<<<<<<<<<<<
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+ *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p             # <<<<<<<<<<<<<<
+ *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
-  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 114, __pyx_L1_error)}
+  __pyx_t_11.data = __pyx_v_self->node_attributes.data;
+  __pyx_t_11.memview = __pyx_v_self->node_attributes.memview;
   __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
-  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
-__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+  __pyx_t_11.shape[0] = __pyx_v_self->node_attributes.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_self->node_attributes.strides[0];
     __pyx_t_11.suboffsets[0] = -1;
 
 {
     Py_ssize_t __pyx_tmp_idx = 0;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_self->node_attributes.strides[1];
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 113, __pyx_L1_error)
+__pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
   __pyx_t_11.memview = NULL;
@@ -4770,22 +4765,22 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_fixation_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_7 = PyNumber_Add(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_7, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 114, __pyx_L1_error)
   __pyx_t_12 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -4802,38 +4797,39 @@ __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
       __pyx_t_13 = __pyx_t_14 = __pyx_t_15 = 0;
     }
     __pyx_pybuffernd_X.diminfo[0].strides = __pyx_pybuffernd_X.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_X.diminfo[0].shape = __pyx_pybuffernd_X.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 113, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
   }
   __pyx_t_12 = 0;
   __pyx_v_X = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/software_retina/retina.pyx":114
+  /* "src/software_retina/retina.pyx":115
  *         pic = pad_coloured(image, p)
- *         X = np.asarray(node_attributes_memory_view[:, 0]) + fixation_x + p
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p             # <<<<<<<<<<<<<<
+ *         X = np.asarray(self.node_attributes[:, 0]) + fixation_x + p
+ *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p             # <<<<<<<<<<<<<<
  * 
  *         with nogil, parallel():
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_np); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_asarray); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_11.data = __pyx_v_node_attributes_memory_view.data;
-  __pyx_t_11.memview = __pyx_v_node_attributes_memory_view.memview;
+  if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 115, __pyx_L1_error)}
+  __pyx_t_11.data = __pyx_v_self->node_attributes.data;
+  __pyx_t_11.memview = __pyx_v_self->node_attributes.memview;
   __PYX_INC_MEMVIEW(&__pyx_t_11, 0);
-  __pyx_t_11.shape[0] = __pyx_v_node_attributes_memory_view.shape[0];
-__pyx_t_11.strides[0] = __pyx_v_node_attributes_memory_view.strides[0];
+  __pyx_t_11.shape[0] = __pyx_v_self->node_attributes.shape[0];
+__pyx_t_11.strides[0] = __pyx_v_self->node_attributes.strides[0];
     __pyx_t_11.suboffsets[0] = -1;
 
 {
     Py_ssize_t __pyx_tmp_idx = 1;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_node_attributes_memory_view.strides[1];
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_self->node_attributes.strides[1];
         __pyx_t_11.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+__pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __PYX_XDEC_MEMVIEW(&__pyx_t_11, 1);
   __pyx_t_11.memview = NULL;
@@ -4851,22 +4847,22 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_2, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_fixation_y); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_4 = PyNumber_Add(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_p); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_1 = PyNumber_Add(__pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 115, __pyx_L1_error)
   __pyx_t_16 = ((PyArrayObject *)__pyx_t_1);
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
@@ -4883,18 +4879,18 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
       __pyx_t_15 = __pyx_t_14 = __pyx_t_13 = 0;
     }
     __pyx_pybuffernd_Y.diminfo[0].strides = __pyx_pybuffernd_Y.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_Y.diminfo[0].shape = __pyx_pybuffernd_Y.rcbuffer->pybuffer.shape[0];
-    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 114, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 115, __pyx_L1_error)
   }
   __pyx_t_16 = 0;
   __pyx_v_Y = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "src/software_retina/retina.pyx":116
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+  /* "src/software_retina/retina.pyx":117
+ *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  * 
  *         with nogil, parallel():             # <<<<<<<<<<<<<<
  *             for i in prange(self.N):
- *                 w = node_attributes_memory_view[i, 6]
+ *                 w = self.node_attributes[i, 6]
  */
   {
       #ifdef WITH_THREAD
@@ -4925,11 +4921,11 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                 Py_BEGIN_ALLOW_THREADS
                 #endif /* _OPENMP */
 
-                /* "src/software_retina/retina.pyx":117
+                /* "src/software_retina/retina.pyx":118
  * 
  *         with nogil, parallel():
  *             for i in prange(self.N):             # <<<<<<<<<<<<<<
- *                 w = node_attributes_memory_view[i, 6]
+ *                 w = self.node_attributes[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)
  */
                 __pyx_t_6 = __pyx_v_self->N;
@@ -4962,20 +4958,21 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_v_y1 = ((int)0xbad0bad0);
                                 __pyx_v_y2 = ((int)0xbad0bad0);
 
-                                /* "src/software_retina/retina.pyx":118
+                                /* "src/software_retina/retina.pyx":119
  *         with nogil, parallel():
  *             for i in prange(self.N):
- *                 w = node_attributes_memory_view[i, 6]             # <<<<<<<<<<<<<<
+ *                 w = self.node_attributes[i, 6]             # <<<<<<<<<<<<<<
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)
  */
+                                if (unlikely(!__pyx_v_self->node_attributes.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 119, __pyx_L12_error)}
                                 __pyx_t_19 = __pyx_v_i;
                                 __pyx_t_20 = 6;
-                                __pyx_v_w = (*((__pyx_t_5numpy_float64_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_node_attributes_memory_view.data + __pyx_t_19 * __pyx_v_node_attributes_memory_view.strides[0]) )) + __pyx_t_20)) )));
+                                __pyx_v_w = (*((__pyx_t_5numpy_float64_t *) ( /* dim=1 */ ((char *) (((__pyx_t_5numpy_float64_t *) ( /* dim=0 */ (__pyx_v_self->node_attributes.data + __pyx_t_19 * __pyx_v_self->node_attributes.strides[0]) )) + __pyx_t_20)) )));
 
-                                /* "src/software_retina/retina.pyx":119
+                                /* "src/software_retina/retina.pyx":120
  *             for i in prange(self.N):
- *                 w = node_attributes_memory_view[i, 6]
+ *                 w = self.node_attributes[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)             # <<<<<<<<<<<<<<
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)
@@ -4983,8 +4980,8 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_y1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_Y.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":120
- *                 w = node_attributes_memory_view[i, 6]
+                                /* "src/software_retina/retina.pyx":121
+ *                 w = self.node_attributes[i, 6]
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)             # <<<<<<<<<<<<<<
  *                 x1 = int(X[i] - w/2+0.5)
@@ -4993,7 +4990,7 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_y2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_Y.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_Y.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":121
+                                /* "src/software_retina/retina.pyx":122
  *                 y1 = int(Y[i] - w/2+0.5)
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)             # <<<<<<<<<<<<<<
@@ -5003,29 +5000,29 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_x1 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_X.diminfo[0].strides)) - (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":122
+                                /* "src/software_retina/retina.pyx":123
  *                 y2 = int(Y[i] + w/2+0.5)
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)             # <<<<<<<<<<<<<<
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],
- *                                           coefficients_memory_view[i, :, :],
+ *                                           self.coefficients[i, :, :],
  */
                                 __pyx_t_20 = __pyx_v_i;
                                 __pyx_v_x2 = ((int)(((*__Pyx_BufPtrStrided1d(__pyx_t_5numpy_float64_t *, __pyx_pybuffernd_X.rcbuffer->pybuffer.buf, __pyx_t_20, __pyx_pybuffernd_X.diminfo[0].strides)) + (__pyx_v_w / 2.0)) + 0.5));
 
-                                /* "src/software_retina/retina.pyx":123
+                                /* "src/software_retina/retina.pyx":124
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],             # <<<<<<<<<<<<<<
- *                                           coefficients_memory_view[i, :, :],
+ *                                           self.coefficients[i, :, :],
  *                                           sum3d_return)
  */
-                                __pyx_t_9.data = __pyx_v_pic.data;
-                                __pyx_t_9.memview = __pyx_v_pic.memview;
-                                __PYX_INC_MEMVIEW(&__pyx_t_9, 0);
+                                __pyx_t_10.data = __pyx_v_pic.data;
+                                __pyx_t_10.memview = __pyx_v_pic.memview;
+                                __PYX_INC_MEMVIEW(&__pyx_t_10, 0);
                                 __pyx_t_21 = -1;
                                 if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_9,
+    &__pyx_t_10,
     __pyx_v_pic.shape[0], __pyx_v_pic.strides[0], __pyx_v_pic.suboffsets[0],
     0,
     0,
@@ -5038,11 +5035,11 @@ __pyx_t_4 = __pyx_memoryview_fromslice(__pyx_t_11, 1, (PyObject *(*)(char *)) __
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 123, __pyx_L12_error)
+    __PYX_ERR(0, 124, __pyx_L12_error)
 }
 
 if (unlikely(__pyx_memoryview_slice_memviewslice(
-    &__pyx_t_9,
+    &__pyx_t_10,
     __pyx_v_pic.shape[1], __pyx_v_pic.strides[1], __pyx_v_pic.suboffsets[1],
     1,
     1,
@@ -5055,50 +5052,51 @@ if (unlikely(__pyx_memoryview_slice_memviewslice(
     0,
     1) < 0))
 {
-    __PYX_ERR(0, 123, __pyx_L12_error)
+    __PYX_ERR(0, 124, __pyx_L12_error)
 }
 
-__pyx_t_9.shape[2] = __pyx_v_pic.shape[2];
-__pyx_t_9.strides[2] = __pyx_v_pic.strides[2];
-    __pyx_t_9.suboffsets[2] = -1;
+__pyx_t_10.shape[2] = __pyx_v_pic.shape[2];
+__pyx_t_10.strides[2] = __pyx_v_pic.strides[2];
+    __pyx_t_10.suboffsets[2] = -1;
 
-__pyx_t_22.data = __pyx_v_coefficients_memory_view.data;
+if (unlikely(!__pyx_v_self->coefficients.memview)) {PyErr_SetString(PyExc_AttributeError,"Memoryview is not initialized");__PYX_ERR(0, 125, __pyx_L12_error)}
 
-                                /* "src/software_retina/retina.pyx":124
+                                /* "src/software_retina/retina.pyx":125
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],
- *                                           coefficients_memory_view[i, :, :],             # <<<<<<<<<<<<<<
+ *                                           self.coefficients[i, :, :],             # <<<<<<<<<<<<<<
  *                                           sum3d_return)
  * 
  */
-                                __pyx_t_22.memview = __pyx_v_coefficients_memory_view.memview;
+                                __pyx_t_22.data = __pyx_v_self->coefficients.data;
+                                __pyx_t_22.memview = __pyx_v_self->coefficients.memview;
                                 __PYX_INC_MEMVIEW(&__pyx_t_22, 0);
                                 {
     Py_ssize_t __pyx_tmp_idx = __pyx_v_i;
-    Py_ssize_t __pyx_tmp_stride = __pyx_v_coefficients_memory_view.strides[0];
+    Py_ssize_t __pyx_tmp_stride = __pyx_v_self->coefficients.strides[0];
         __pyx_t_22.data += __pyx_tmp_idx * __pyx_tmp_stride;
 }
 
-__pyx_t_22.shape[0] = __pyx_v_coefficients_memory_view.shape[1];
-__pyx_t_22.strides[0] = __pyx_v_coefficients_memory_view.strides[1];
+__pyx_t_22.shape[0] = __pyx_v_self->coefficients.shape[1];
+__pyx_t_22.strides[0] = __pyx_v_self->coefficients.strides[1];
     __pyx_t_22.suboffsets[0] = -1;
 
-__pyx_t_22.shape[1] = __pyx_v_coefficients_memory_view.shape[2];
-__pyx_t_22.strides[1] = __pyx_v_coefficients_memory_view.strides[2];
+__pyx_t_22.shape[1] = __pyx_v_self->coefficients.shape[2];
+__pyx_t_22.strides[1] = __pyx_v_self->coefficients.strides[2];
     __pyx_t_22.suboffsets[1] = -1;
 
-__pyx_t_10 = __pyx_f_3src_15software_retina_5utils_multiply_and_sum3d(__pyx_t_9, __pyx_t_22, __pyx_v_sum3d_return); if (unlikely(!__pyx_t_10.memview)) __PYX_ERR(0, 123, __pyx_L12_error)
+__pyx_t_9 = __pyx_f_3src_15software_retina_5utils_multiply_and_sum3d(__pyx_t_10, __pyx_t_22, __pyx_v_sum3d_return); if (unlikely(!__pyx_t_9.memview)) __PYX_ERR(0, 124, __pyx_L12_error)
 
-                                /* "src/software_retina/retina.pyx":123
+                                /* "src/software_retina/retina.pyx":124
  *                 x1 = int(X[i] - w/2+0.5)
  *                 x2 = int(X[i] + w/2+0.5)
  *                 V[i] = multiply_and_sum3d(pic[y1:y2, x1:x2, :],             # <<<<<<<<<<<<<<
- *                                           coefficients_memory_view[i, :, :],
+ *                                           self.coefficients[i, :, :],
  *                                           sum3d_return)
  */
-                                __PYX_XDEC_MEMVIEW(&__pyx_t_9, 0);
-                                __pyx_t_9.memview = NULL;
-                                __pyx_t_9.data = NULL;
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_10, 0);
+                                __pyx_t_10.memview = NULL;
+                                __pyx_t_10.data = NULL;
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_22, 0);
                                 __pyx_t_22.memview = NULL;
                                 __pyx_t_22.data = NULL;
@@ -5115,13 +5113,13 @@ __pyx_t_23.shape[0] = __pyx_v_V.shape[1];
 __pyx_t_23.strides[0] = __pyx_v_V.strides[1];
     __pyx_t_23.suboffsets[0] = -1;
 
-if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0)) __PYX_ERR(0, 123, __pyx_L12_error)
+if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_9, __pyx_t_23, 1, 1, 0) < 0)) __PYX_ERR(0, 124, __pyx_L12_error)
                                 __PYX_XDEC_MEMVIEW(&__pyx_t_23, 0);
                                 __pyx_t_23.memview = NULL;
                                 __pyx_t_23.data = NULL;
-                                __PYX_XDEC_MEMVIEW(&__pyx_t_10, 0);
-                                __pyx_t_10.memview = NULL;
-                                __pyx_t_10.data = NULL;
+                                __PYX_XDEC_MEMVIEW(&__pyx_t_9, 0);
+                                __pyx_t_9.memview = NULL;
+                                __pyx_t_9.data = NULL;
                                 goto __pyx_L15;
                                 __pyx_L12_error:;
                                 {
@@ -5260,12 +5258,12 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
         #endif
       }
 
-      /* "src/software_retina/retina.pyx":116
- *         Y = np.asarray(node_attributes_memory_view[:, 1]) + fixation_y + p
+      /* "src/software_retina/retina.pyx":117
+ *         Y = np.asarray(self.node_attributes[:, 1]) + fixation_y + p
  * 
  *         with nogil, parallel():             # <<<<<<<<<<<<<<
  *             for i in prange(self.N):
- *                 w = node_attributes_memory_view[i, 6]
+ *                 w = self.node_attributes[i, 6]
  */
       /*finally:*/ {
         /*normal exit:*/{
@@ -5286,7 +5284,7 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
       }
   }
 
-  /* "src/software_retina/retina.pyx":127
+  /* "src/software_retina/retina.pyx":128
  *                                           sum3d_return)
  * 
  *         self.colour_intensity = V             # <<<<<<<<<<<<<<
@@ -5297,18 +5295,18 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
   __PYX_INC_MEMVIEW(&__pyx_v_V, 0);
   __pyx_v_self->colour_intensity = __pyx_v_V;
 
-  /* "src/software_retina/retina.pyx":129
+  /* "src/software_retina/retina.pyx":130
  *         self.colour_intensity = V
  * 
  *         return np.asarray(V)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_np); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_asarray); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_V, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_7 = __pyx_memoryview_fromslice(__pyx_v_V, 2, (PyObject *(*)(char *)) __pyx_memview_get_nn___pyx_t_5numpy_float64_t, (int (*)(char *, PyObject *)) __pyx_memview_set_nn___pyx_t_5numpy_float64_t, 0);; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -5323,18 +5321,18 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_2, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 130, __pyx_L1_error)
   __pyx_r = ((PyArrayObject *)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "src/software_retina/retina.pyx":93
+  /* "src/software_retina/retina.pyx":96
  *         return V
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(  # noqa: E225             # <<<<<<<<<<<<<<
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=2] sample_colour(             # <<<<<<<<<<<<<<
  *             self,
  *             cnp.ndarray[cnp.uint8_t, ndim=3] image,
  */
@@ -5369,8 +5367,6 @@ if (unlikely(__pyx_memoryview_copy_contents(__pyx_t_10, __pyx_t_23, 1, 1, 0) < 0
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_Y.rcbuffer->pybuffer);
   __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_image.rcbuffer->pybuffer);
   __pyx_L2:;
-  __PYX_XDEC_MEMVIEW(&__pyx_v_node_attributes_memory_view, 1);
-  __PYX_XDEC_MEMVIEW(&__pyx_v_coefficients_memory_view, 1);
   __PYX_XDEC_MEMVIEW(&__pyx_v_pic, 1);
   __Pyx_XDECREF((PyObject *)__pyx_v_X);
   __Pyx_XDECREF((PyObject *)__pyx_v_Y);
@@ -5415,11 +5411,11 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_colour(
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fixation)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("sample_colour", 1, 2, 2, 1); __PYX_ERR(0, 93, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("sample_colour", 1, 2, 2, 1); __PYX_ERR(0, 96, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_colour") < 0)) __PYX_ERR(0, 93, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "sample_colour") < 0)) __PYX_ERR(0, 96, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5428,17 +5424,17 @@ static PyObject *__pyx_pw_3src_15software_retina_6retina_6Retina_9sample_colour(
       values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
     }
     __pyx_v_image = ((PyArrayObject *)values[0]);
-    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L3_error)
+    __pyx_v_fixation = __pyx_convert__from_py___pyx_ctuple_int__and_int(values[1]); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 99, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("sample_colour", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 93, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("sample_colour", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 96, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("src.software_retina.retina.Retina.sample_colour", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_image), __pyx_ptype_5numpy_ndarray, 1, "image", 0))) __PYX_ERR(0, 98, __pyx_L1_error)
   __pyx_r = __pyx_pf_3src_15software_retina_6retina_6Retina_8sample_colour(((struct __pyx_obj_3src_15software_retina_6retina_Retina *)__pyx_v_self), __pyx_v_image, __pyx_v_fixation);
 
   /* function exit code */
@@ -5466,11 +5462,11 @@ static PyObject *__pyx_pf_3src_15software_retina_6retina_6Retina_8sample_colour(
   __pyx_pybuffernd_image.rcbuffer = &__pyx_pybuffer_image;
   {
     __Pyx_BufFmt_StackElem __pyx_stack[1];
-    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 93, __pyx_L1_error)
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_image.rcbuffer->pybuffer, (PyObject*)__pyx_v_image, &__Pyx_TypeInfo_nn___pyx_t_5numpy_uint8_t, PyBUF_FORMAT| PyBUF_STRIDES, 3, 0, __pyx_stack) == -1)) __PYX_ERR(0, 96, __pyx_L1_error)
   }
   __pyx_pybuffernd_image.diminfo[0].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_image.diminfo[0].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[0]; __pyx_pybuffernd_image.diminfo[1].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[1]; __pyx_pybuffernd_image.diminfo[1].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[1]; __pyx_pybuffernd_image.diminfo[2].strides = __pyx_pybuffernd_image.rcbuffer->pybuffer.strides[2]; __pyx_pybuffernd_image.diminfo[2].shape = __pyx_pybuffernd_image.rcbuffer->pybuffer.shape[2];
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_colour(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)__pyx_f_3src_15software_retina_6retina_6Retina_sample_colour(__pyx_v_self, __pyx_v_image, __pyx_v_fixation, 1)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 96, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -21288,8 +21284,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 40, __pyx_L1_error)
-  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(0, 59, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 947, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(1, 148, __pyx_L1_error)
   __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(1, 151, __pyx_L1_error)
@@ -21306,75 +21302,75 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "src/software_retina/retina.pyx":32
+  /* "src/software_retina/retina.pyx":33
  *         self.coefficients = input_coefficients
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +             # <<<<<<<<<<<<<<
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))
  */
-  __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_slice_ = PySlice_New(Py_None, Py_None, Py_None); if (unlikely(!__pyx_slice_)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice_);
   __Pyx_GIVEREF(__pyx_slice_);
-  __pyx_slice__2 = PySlice_New(Py_None, __pyx_int_2, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_slice__2 = PySlice_New(Py_None, __pyx_int_2, Py_None); if (unlikely(!__pyx_slice__2)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__2);
   __Pyx_GIVEREF(__pyx_slice__2);
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_slice_, __pyx_slice__2); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_slice_, __pyx_slice__2); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 33, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
 
-  /* "src/software_retina/retina.pyx":33
+  /* "src/software_retina/retina.pyx":34
  *         self.N = len(input_node_attributes)
  *         self.width = 2*int(np.abs(input_node_attributes[:, :2]).max() +
  *                            input_node_attributes[:, 6].max()/2.0)             # <<<<<<<<<<<<<<
  *         self.grayscale_intensity = np.zeros((1))
  *         self.colour_intensity = np.zeros((1, 1))
  */
-  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_6); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_slice_, __pyx_int_6); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
 
-  /* "src/software_retina/retina.pyx":35
+  /* "src/software_retina/retina.pyx":36
  *                            input_node_attributes[:, 6].max()/2.0)
  *         self.grayscale_intensity = np.zeros((1))
  *         self.colour_intensity = np.zeros((1, 1))             # <<<<<<<<<<<<<<
  * 
  *     def load_node_attributes(self, input):
  */
-  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_int_1, __pyx_int_1); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __pyx_tuple__5 = PyTuple_Pack(2, __pyx_int_1, __pyx_int_1); if (unlikely(!__pyx_tuple__5)) __PYX_ERR(0, 36, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__5);
   __Pyx_GIVEREF(__pyx_tuple__5);
 
-  /* "src/software_retina/retina.pyx":40
+  /* "src/software_retina/retina.pyx":41
  *         if isinstance(input, np.ndarray):
  *             if not (input.ndim == 2 and input.shape[1] == 7):
  *                 raise ValueError('Must be a 2 dimensional array with each row'             # <<<<<<<<<<<<<<
  *                                  ' b having 7 columns of node attributes')
  * 
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_Must_be_a_2_dimensional_array_wi); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_kp_u_Must_be_a_2_dimensional_array_wi); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
 
-  /* "src/software_retina/retina.pyx":52
+  /* "src/software_retina/retina.pyx":54
  *         if isinstance(input, np.ndarray):
  *             if not input.ndim == 3:
  *                 raise ValueError('Must be 3 dimensional array')             # <<<<<<<<<<<<<<
  * 
  *             else:
  */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_u_Must_be_3_dimensional_array); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_kp_u_Must_be_3_dimensional_array); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
 
-  /* "src/software_retina/retina.pyx":57
+  /* "src/software_retina/retina.pyx":59
  *                 self.coefficients = input
  *         else:
  *             raise TypeError('This function only accepts numpy array')             # <<<<<<<<<<<<<<
  * 
- *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(self, cnp.ndarray[cnp.uint8_t, ndim=2] image, (int, int) fixation):
+ *     cpdef cnp.ndarray[cnp.float64_t, ndim=1] sample_grayscale(
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u_This_function_only_accepts_numpy); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_kp_u_This_function_only_accepts_numpy); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
 
@@ -21733,16 +21729,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_3src_15software_retina_6retina_Retina = &__pyx_vtable_3src_15software_retina_6retina_Retina;
   __pyx_vtable_3src_15software_retina_6retina_Retina.sample_grayscale = (PyArrayObject *(*)(struct __pyx_obj_3src_15software_retina_6retina_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch))__pyx_f_3src_15software_retina_6retina_6Retina_sample_grayscale;
   __pyx_vtable_3src_15software_retina_6retina_Retina.sample_colour = (PyArrayObject *(*)(struct __pyx_obj_3src_15software_retina_6retina_Retina *, PyArrayObject *, __pyx_ctuple_int__and_int, int __pyx_skip_dispatch))__pyx_f_3src_15software_retina_6retina_6Retina_sample_colour;
-  if (PyType_Ready(&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_3src_15software_retina_6retina_Retina.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3src_15software_retina_6retina_Retina.tp_dictoffset && __pyx_type_3src_15software_retina_6retina_Retina.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_3src_15software_retina_6retina_Retina.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_3src_15software_retina_6retina_Retina.tp_dict, __pyx_vtabptr_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Retina, (PyObject *)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_3src_15software_retina_6retina_Retina.tp_dict, __pyx_vtabptr_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Retina, (PyObject *)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3src_15software_retina_6retina_Retina) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
   __pyx_ptype_3src_15software_retina_6retina_Retina = &__pyx_type_3src_15software_retina_6retina_Retina;
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
@@ -22096,16 +22092,16 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "src/software_retina/retina.pyx":5
+  /* "src/software_retina/retina.pyx":6
  * # cython: wraparound=False
  * 
  * import numpy as np             # <<<<<<<<<<<<<<
  * from cython.parallel import parallel
  * from cython.parallel import prange
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_np, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
@@ -22119,9 +22115,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "src/software_retina/retina.pyx":1
- * # cython: boundscheck=False             # <<<<<<<<<<<<<<
+ * # cython: language_level=3             # <<<<<<<<<<<<<<
+ * # cython: boundscheck=False
  * # cython: cdivision=True
- * # cython: wraparound=False
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);

@@ -33,7 +33,7 @@ def loadPickle(path):
 ########################################################
 
 nanoflann_tessellation = np.load('data/5k/nanoflann_5k_tessellation.pkl', allow_pickle=True)
-rf_loc, rf_coeff, fov_dist_5 = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
+rf_loc, rf_coeff = rf_generation(nanoflann_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, min_rf = 1)
 pickle.dump(rf_loc, open("data/5k/5k_rf_node_attributes.pkl", "wb"))
 pickle.dump(rf_coeff, open("data/5k/5k_rf_coefficients.pkl", "wb"))
 pickle.dump(fov_dist_5, open("data/5k/5k_fov_dist_5.pkl", "wb"))
