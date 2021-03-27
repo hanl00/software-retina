@@ -1,3 +1,4 @@
+# cython: language_level=3
 # cython: boundscheck=False
 # cython: cdivision=True
 # cython: wraparound=False
@@ -5,8 +6,13 @@
 import numpy as np
 cimport numpy as cnp
 
-cpdef inline cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2] img,
-                                         int padding):
+from libc.math cimport sqrt, exp, pi
+
+
+cpdef inline cnp.int32_t[:, ::1] pad_grayscaled(
+        cnp.ndarray[cnp.uint8_t, ndim=2] img,
+        int padding):
+
     cdef cnp.int32_t[:, ::1] image_mem_view = img.astype(dtype=np.int32)
     cdef int first_dimension = img.shape[0]
     cdef int first_accumulator = 0
@@ -29,8 +35,10 @@ cpdef inline cnp.int32_t[:, ::1] pad_grayscaled(cnp.ndarray[cnp.uint8_t, ndim=2]
 
     return out
 
-cpdef inline cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3] img,
-                                          int padding):
+cpdef inline cnp.int32_t[:, :, ::1] pad_coloured(
+        cnp.ndarray[cnp.uint8_t, ndim=3] img,
+        int padding):
+
     cdef cnp.int32_t[:, :, ::1] image_mem_view = img.astype(dtype=np.int32)
     cdef int first_dimension = img.shape[0]
     cdef int first_accumulator = 0
@@ -55,8 +63,10 @@ cpdef inline cnp.int32_t[:, :, ::1] pad_coloured(cnp.ndarray[cnp.uint8_t, ndim=3
 
     return out
 
-cdef inline double multiply_and_sum2d(cnp.int32_t[:, ::1] image_extract,
-                               cnp.int32_t[:, ::1] coeff_mem_view) nogil:
+cdef inline double multiply_and_sum2d(
+        cnp.int32_t[:, ::1] image_extract,
+        cnp.int32_t[:, ::1] coeff_mem_view) nogil:
+
     cdef size_t i, first_dimension, j, second_dimension
     cdef double total = 0
     cdef signed long long x
@@ -74,9 +84,10 @@ cdef inline double multiply_and_sum2d(cnp.int32_t[:, ::1] image_extract,
 
 
 cdef inline cnp.float64_t[::1] multiply_and_sum3d(
-                                        cnp.int32_t[:, :, ::1] image_extract,
-                                        cnp.int32_t[:, ::1] coeff_mem_view,
-                                        cnp.float64_t[::1] sum3d_return) nogil:
+        cnp.int32_t[:, :, ::1] image_extract,
+        cnp.int32_t[:, ::1] coeff_mem_view,
+        cnp.float64_t[::1] sum3d_return) nogil:
+
     cdef size_t i, first_dimension, j, second_dimension, k, third_dimension
     cdef double total = 0
     first_dimension = image_extract.shape[0]
@@ -114,3 +125,38 @@ cdef inline cnp.float64_t[::1] multiply_and_sum3d(
     sum3d_return[2] = total_column_2/100000000
 
     return sum3d_return
+
+cpdef inline cnp.float64_t gauss(
+        cnp.float64_t sigma,
+        cnp.float64_t x,
+        cnp.float64_t y,
+        int mean):
+
+    cdef cnp.float64_t d
+
+    d = sqrt(x*x + y*y)
+
+    return exp(-(d-mean)**2 / (2*sigma**2)) / sqrt(2*pi*sigma**2)
+
+
+cpdef inline cnp.ndarray[cnp.float64_t, ndim=2] gausskernel(
+        cnp.int_t width,
+        cnp.ndarray[cnp.float64_t, ndim=1] loc,
+        cnp.float64_t sigma):
+
+    cdef cnp.ndarray[cnp.float64_t, ndim=2] k
+    cdef double w, shift, dx, dy
+    cdef int x, y
+
+    w = float(width)
+    k = np.zeros((width, width))
+    shift = (w - 1) / 2.0
+
+    dx = loc[0] - int(loc[0])
+    dy = loc[1] - int(loc[1])
+
+    for x in range(width):
+        for y in range(width):
+            k[y, x] = gauss(sigma, (x-shift) - dx, (y-shift) - dy, 0)
+
+    return k
