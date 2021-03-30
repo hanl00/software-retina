@@ -1,3 +1,4 @@
 include src/__init__.pxd
 include src/software_retina/__init__.pxd
 include src/software_retina/utils.pxd
+include tests
