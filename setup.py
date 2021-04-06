@@ -1,5 +1,5 @@
 from Cython.Build import cythonize
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 import numpy
 import os
 
@@ -26,10 +26,10 @@ extension_modules = [
 
 setup(
     name='software-retina',
-    version='0.0.9',
+    version='0.0.15',
     author='Han M. Loo',
     author_email='nloo33755@gmail.com',
-    packages=['src', 'src.software_retina', 'src.software_retina_generation'],
+    packages=['src', 'src.software_retina', 'src.software_retina_generation', 'src.retinavision'],
     package_data={'src.software_retina': ['*.pyx', '*.pxd']},
     url='https://github.com/hanl00/software-retina',
     description='A software retina inspired by the biological vision system',

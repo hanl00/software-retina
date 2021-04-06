@@ -4,11 +4,15 @@
 # cython: wraparound=False
 
 import numpy as np
+from ..retinavision.retina import Retina as old_retina
+from ..retinavision.rf_generation import rf_ozimek
 from cython.parallel import parallel
 from cython.parallel import prange
 
 cimport cython
 cimport numpy as cnp
+from google.colab.patches import cv2_imshow
+import cv2
 
 from src.software_retina.utils cimport multiply_and_sum2d
 from src.software_retina.utils cimport multiply_and_sum3d
@@ -128,3 +132,26 @@ cdef class Retina:
         self.colour_intensity = V
 
         return np.asarray(V)
+
+    # wrapper to compare foveated images with ozimek's old code
+    def compare_foveated_images(self, input_tessellation, image):
+        rf_loc, rf_coeff, fov_5 = rf_ozimek(input_tessellation, kernel_ratio = 3, sigma_base = 0.5, sigma_power = 1, mean_rf = 1)
+        ozimek_retina = old_retina()
+        ozimek_retina.loadLoc(rf_loc)
+        ozimek_retina.loadCoeff(rf_coeff)
+        image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        y, x = image_gray.shape
+        y = int(y/2)
+        x = int(x/2)
+        ozimek_retina.sample(image_gray, (y, x))
+        ozimek_backproject_5k = ozimek_retina.backproject_tight_last()
+        ozimek_retina.sample(image_gray, (y, x))
+        ozimek_retina._V = self.sample_grayscale(image_gray, (y, x))
+        our_backproject_5k = ozimek_retina.backproject_tight_last()
+        cv2_imshow(ozimek_backproject_5k)
+        cv2_imshow(our_backproject_5k)
+
+        difference = ozimek_backproject_5k - our_backproject_5k
+        difference = difference*1000
+        cv2_imshow(difference) 
+

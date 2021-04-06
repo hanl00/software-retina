@@ -1,5 +1,12 @@
 ## Software-retina
 
+### How to install?
+
+Software retina can be installed using:
+
+
+    pip install software-retina
+
 ### What is a software retina?
 
 A software retina is made up of n-number of nodes that follows the density distribution of photoreceptor cells (rods and cones) found in the human retina. 
@@ -22,13 +29,6 @@ This package includes:
 The software retina consists of the retina class itself which allow users to sample image/video inputs in grayscale or colour.
 
 The software retina generation allows users to generate software retinas of varying sizes.
-
-### How to install?
-
-Software retina can be installed using:
-
-
-    pip install software-retina
 
 
 ### References and sources
