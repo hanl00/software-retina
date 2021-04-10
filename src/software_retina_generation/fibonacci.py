@@ -1,8 +1,6 @@
 import numpy as np
 
-from .ssnn import SelfSimilarNeuralNetwork
-from .utils import normalize, cartesian_to_polar
-from .utils import polar_to_cartesian, randomize, point_generation
+from .utils import normalize, cartesian_to_polar, polar_to_cartesian
 
 # Original code provided by George Killick
 
