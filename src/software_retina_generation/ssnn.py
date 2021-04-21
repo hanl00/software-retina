@@ -1,5 +1,6 @@
 import time
 import sys
+import multiprocessing
 
 import numpy as np
 import pynanoflann
@@ -9,9 +10,7 @@ from .utils import normalize, cartesian_to_polar, polar_to_cartesian
 
 # Original code provided by George Killick
 
-
-# set seed for evaluation
-rng = np.random.default_rng(seed=12345)
+total_threads = multiprocessing.cpu_count()
 
 
 class SelfSimilarNeuralNetwork:
@@ -42,18 +41,18 @@ class SelfSimilarNeuralNetwork:
             input_vectors = np.copy(self.weights)
             input_vectors = cartesian_to_polar(input_vectors)
 
-            d = np.exp((2*rng.uniform() - 1)*np.log(8))
+            d = np.exp((2*np.random.uniform() - 1)*np.log(8))
 
             input_vectors[:, 1] *= d
             input_vectors = polar_to_cartesian(input_vectors)
 
-            delta_theta = 2*rng.uniform()*np.pi
-            delta_rho = rng.uniform() * self.foveal_region_size
+            delta_theta = 2*np.random.uniform()*np.pi
+            delta_rho = np.random.uniform() * self.foveal_region_size
 
             input_vectors[:, 0] += np.cos(delta_theta)*delta_rho
             input_vectors[:, 1] += np.sin(delta_theta)*delta_rho
             input_vectors = cartesian_to_polar(input_vectors)
-            input_vectors[:, 0] += 2*rng.uniform()*np.pi
+            input_vectors[:, 0] += 2*np.random.uniform()*np.pi
 
             cull = np.where(input_vectors[:, 1] <= 1)[0]
 
@@ -83,13 +82,12 @@ class SelfSimilarNeuralNetwork:
             return self.__brute_force_neighbours
 
         elif(nearest_neighbour_method == 'nanoflann'):
-            print("Using nanoflann method with " + str(rng.bit_generator))
+            print("Using nanoflann method.")
             return self.__pynanoflann_neighbours
 
         elif(nearest_neighbour_method == 'nanoflann_multi_jobs'):
-            print("Using nanoflann method with 8 jobs " +
-                  str(rng.bit_generator))
-            return self.__pynanoflann_multi_neighbours_8
+            print("Using nanoflann method with " + str(total_threads) + " threads.")
+            return self.__pynanoflann_multi_neighbours
 
         elif(nearest_neighbour_method == 'auto'):
             if(self.node_count <= 256):
@@ -101,8 +99,8 @@ class SelfSimilarNeuralNetwork:
                 return self.__pynanoflann_neighbours
 
             else:
-                print("Using nanoflann method with 8 jobs.")
-                return self.__pynanoflann_multi_neighbours_8
+                print("Using nanoflann method with " + str(total_threads) + " threads.")
+                return self.__pynanoflann_multi_neighbours
 
         else:
             print("Unknown nearest_neighbour_method, using nanoflann.")
@@ -121,19 +119,19 @@ class SelfSimilarNeuralNetwork:
 
         return indices.flatten()
 
-    def __pynanoflann_multi_neighbours_8(self, update_vectors, network_weight):
+    def __pynanoflann_multi_neighbours(self, update_vectors, network_weight):
 
         self.nanoflann.fit(network_weight)
         distances, indices = self.nanoflann.kneighbors(update_vectors,
-                                                       n_jobs=8)
+                                                       n_jobs=total_threads)
 
         return indices.flatten()
 
     @staticmethod
     def __init_weights(node_count):
 
-        r = rng.uniform(1, 0, node_count)
-        th = 2*np.pi*rng.uniform(1, 0, node_count)
+        r = np.random.uniform(1, 0, node_count)
+        th = 2*np.pi*np.random.uniform(1, 0, node_count)
 
         return polar_to_cartesian(np.array([th, r]).T)
 
