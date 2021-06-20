@@ -25,15 +25,15 @@ extension_modules = [
 
 setup(
     name='software-retina',
-    version='0.1.1',
+    version='0.1.2',
     author='Han M. Loo',
     author_email='nloo33755@gmail.com',
     packages=['src', 'src.software_retina', 'src.software_retina_generation', 'src.retinavision'],
     package_data={'src.software_retina': ['*.pyx', '*.pxd']},
     url='https://github.com/hanl00/software-retina',
     description='A software retina inspired by the biological vision system',
-    long_description=open('readme.md').read(),
-    long_description_content_type='text/markdown',
+    # long_description=open('readme.md').read(),
+    # long_description_content_type='text/markdown',
     ext_modules=cythonize(extension_modules),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
