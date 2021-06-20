@@ -1,5 +1,4 @@
 *.pyd
-*.txt
 *.prof
 *.exp
 *.lib
