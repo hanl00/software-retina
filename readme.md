@@ -1,8 +1,7 @@
 ## Software-retina
 
-https://img.shields.io/pypi/v/software-retina
 
-https://img.shields.io/github/workflow/status/hanl00/software-retina/Upload%20Python%20Package
+<img alt="PyPI" src="https://img.shields.io/pypi/v/software-retina"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/hanl00/software-retina/Upload%20Python%20Package">
 
 
 ### How to install?
