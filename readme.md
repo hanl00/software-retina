@@ -1,5 +1,10 @@
 ## Software-retina
 
+https://img.shields.io/pypi/v/software-retina
+
+https://img.shields.io/github/workflow/status/hanl00/software-retina/Upload%20Python%20Package
+
+
 ### How to install?
 
 Software retina can be installed using:
