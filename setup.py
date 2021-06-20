@@ -32,8 +32,8 @@ setup(
     package_data={'src.software_retina': ['*.pyx', '*.pxd']},
     url='https://github.com/hanl00/software-retina',
     description='A software retina inspired by the biological vision system',
-    long_description=open('readme.md').read(),
-    long_description_content_type='text/markdown',
+    # long_description=open('readme.md').read(),
+    # long_description_content_type='text/markdown',
     ext_modules=cythonize(extension_modules),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
