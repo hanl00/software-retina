@@ -43,3 +43,4 @@ Samagaio A.M., Siebert J.P. (2020) An Investigation of Deep Visual Architectures
 Ozimek P., Siebert J.P. (2017) Integrating a Non-Uniformly Sampled Software Retina with a Deep CNN Model
 * https://github.com/georgeKillick90/Retina
 * https://github.com/Pozimek/RetinaVision
+* https://github.com/2332575Y/RetinaV2
